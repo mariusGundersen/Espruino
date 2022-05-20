@@ -32,7 +32,8 @@
     ["addr", "int", "The address in memory to read"],
     ["count", "int", "(optional) the number of items to read. If >1 a Uint8Array will be returned."]
   ],
-  "return"        : ["JsVar","The value of memory at the given location"]
+  "return"        : ["JsVar","The value of memory at the given location"],
+  "typedef"       : ["declare function peek8(addr: number, count:1=1): number", "declare function peek8(addr: number, count: number): Uint8Array"]
 }
 Read 8 bits of memory at the given location - DANGEROUS!
  */
@@ -55,7 +56,8 @@ Write 8 bits of memory at the given location - VERY DANGEROUS!
     ["addr","int","The address in memory to read"],
     ["count","int","(optional) the number of items to read. If >1 a Uint16Array will be returned."]
   ],
-  "return" : ["JsVar","The value of memory at the given location"]
+  "return" : ["JsVar","The value of memory at the given location"],
+  "typedef" : ["declare function peek16(addr: number, count:1=1): number", "declare function peek16(addr: number, count: number): Uint16Array"]
 }
 Read 16 bits of memory at the given location - DANGEROUS!
  */
@@ -78,7 +80,8 @@ Write 16 bits of memory at the given location - VERY DANGEROUS!
     ["addr","int","The address in memory to read"],
     ["count","int","(optional) the number of items to read. If >1 a Uint32Array will be returned."]
   ],
-  "return" : ["JsVar","The value of memory at the given location"]
+  "return" : ["JsVar","The value of memory at the given location"],
+  "typedef" : ["declare function peek32(addr: number, count:1=1): number", "declare function peek32(addr: number, count: number): Uint32Array"]
 }
 Read 32 bits of memory at the given location - DANGEROUS!
  */

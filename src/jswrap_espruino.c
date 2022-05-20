@@ -37,7 +37,7 @@ This is the built-in JavaScript class for Espruino utility functions.
   "type" : "event",
   "class" : "E",
   "name" : "init",
-  "typedef": "on(event: 'init', callback: () => void): void"
+  "typedef": "static on(event: 'init', callback: () => void): void"
 }
 This event is called right after the board starts up, and has a similar effect
 to creating a function called `onInit`.
@@ -58,7 +58,7 @@ something that was not possible with `onInit`.
   "type" : "event",
   "class" : "E",
   "name" : "kill",
-  "typedef": "on(event: 'kill', callback: () => void): void"
+  "typedef": "static on(event: 'kill', callback: () => void): void"
 }
 This event is called just before the device shuts down for commands such as
 `reset()`, `load()`, `save()`, `E.reboot()` or `Bangle.off()`
@@ -83,7 +83,7 @@ a Watchdog timer reset.
   "params" : [
     ["errorFlags","JsVar","An array of new error flags, as would be returned by `E.getErrorFlags()`. Error flags that were present before won't be reported."]
   ],
-  "typedef": "on(event: 'errorFlag', callback: (errorFlags: ('FIFO_FULL', 'BUFFER_FULL', 'CALLBACK', 'LOW_MEMORY', 'MEMORY', 'UART_OVERFLOW')[]) => void): void"
+  "typedef": "static on(event: 'errorFlag', callback: (errorFlags: ('FIFO_FULL' | 'BUFFER_FULL' | 'CALLBACK' | 'LOW_MEMORY' | 'MEMORY' | 'UART_OVERFLOW')[]) => void): void"
 }
 This event is called when an error is created by Espruino itself (rather
 than JS code) which changes the state of the error flags reported by
@@ -105,7 +105,7 @@ so that you do get a callback each time a flag is set, call `E.getErrorFlags()`.
     ["y","int","Y coordinate in display coordinates"],
     ["b","int","Touch count - 0 for released, 1 for pressed"]
   ],
-  "typedef": "on(event: 'touch', callback: (x: number, y: number, b: number) => void): void"
+  "typedef": "static on(event: 'touch', callback: (x: number, y: number, b: number) => void): void"
 }
 This event is called when a full touchscreen device on an Espruino
 is interacted with.
@@ -131,7 +131,7 @@ E.on('touch',t=>{
   "name" : "getTemperature",
   "generate" : "jswrap_espruino_getTemperature",
   "return" : ["float","The temperature in degrees C"],
-  "typedef": "getTemperature(): number"
+  "typedef": "static getTemperature(): number"
 }
 Use the microcontroller's internal thermistor to work out the temperature.
 
@@ -156,7 +156,7 @@ JsVarFloat jswrap_espruino_getTemperature() {
   "name" : "getAnalogVRef",
   "generate_full" : "jshReadVRef()",
   "return" : ["float","The voltage (in Volts) that a reading of 1 from `analogRead` actually represents - usually around 3.3v"],
-  "typedef": "getAnalogVRef(): number"
+  "typedef": "static getAnalogVRef(): number"
 }
 Check the internal voltage reference. To work out an actual voltage of an input pin, you can use `analogRead(pin)*E.getAnalogVRef()`
 
@@ -199,7 +199,7 @@ int nativeCallGetCType() {
     ["data","JsVar","(Optional) A string containing the function itself. If not supplied then 'addr' is used as an absolute address."]
   ],
   "return" : ["JsVar","The native function"],
-  "typedef": "nativeCall(addr: number, sig: string, data?: string): Function"
+  "typedef": "static nativeCall(addr: number, sig: string, data?: string): Function"
 }
 ADVANCED: This is a great way to crash Espruino if you're not sure what you are doing
 
@@ -651,7 +651,7 @@ JsVar *jswrap_espruino_getErrorFlagArray(JsErrorFlags flags) {
   "name" : "getErrorFlags",
   "generate" : "jswrap_espruino_getErrorFlags",
   "return" : ["JsVar","An array of error flags"],
-  "typedef": "getErrorFlags(): ('FIFO_FULL', 'BUFFER_FULL', 'CALLBACK', 'LOW_MEMORY', 'MEMORY', 'UART_OVERFLOW')[]"
+  "typedef": "static getErrorFlags(): ('FIFO_FULL' | 'BUFFER_FULL' | 'CALLBACK' | 'LOW_MEMORY' | 'MEMORY' | 'UART_OVERFLOW')[]"
 }
 Get and reset the error flags. Returns an array that can contain:
 
