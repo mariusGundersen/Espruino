@@ -27,7 +27,8 @@
 
 /*JSON{
   "type" : "class",
-  "class" : "E"
+  "class" : "E",
+  "typedef": "class E"
 }
 This is the built-in JavaScript class for Espruino utility functions.
  */
@@ -35,7 +36,8 @@ This is the built-in JavaScript class for Espruino utility functions.
 /*JSON{
   "type" : "event",
   "class" : "E",
-  "name" : "init"
+  "name" : "init",
+  "typedef": "on(event: 'init', callback: () => void): void"
 }
 This event is called right after the board starts up, and has a similar effect
 to creating a function called `onInit`.
@@ -55,7 +57,8 @@ something that was not possible with `onInit`.
 /*JSON{
   "type" : "event",
   "class" : "E",
-  "name" : "kill"
+  "name" : "kill",
+  "typedef": "on(event: 'kill', callback: () => void): void"
 }
 This event is called just before the device shuts down for commands such as
 `reset()`, `load()`, `save()`, `E.reboot()` or `Bangle.off()`
@@ -79,7 +82,8 @@ a Watchdog timer reset.
   "name" : "errorFlag",
   "params" : [
     ["errorFlags","JsVar","An array of new error flags, as would be returned by `E.getErrorFlags()`. Error flags that were present before won't be reported."]
-  ]
+  ],
+  "typedef": "on(event: 'errorFlag', callback: (errorFlags: ('FIFO_FULL', 'BUFFER_FULL', 'CALLBACK', 'LOW_MEMORY', 'MEMORY', 'UART_OVERFLOW')[]) => void): void"
 }
 This event is called when an error is created by Espruino itself (rather
 than JS code) which changes the state of the error flags reported by
@@ -100,7 +104,8 @@ so that you do get a callback each time a flag is set, call `E.getErrorFlags()`.
     ["x","int","X coordinate in display coordinates"],
     ["y","int","Y coordinate in display coordinates"],
     ["b","int","Touch count - 0 for released, 1 for pressed"]
-  ]
+  ],
+  "typedef": "on(event: 'touch', callback: (x: number, y: number, b: number) => void): void"
 }
 This event is called when a full touchscreen device on an Espruino
 is interacted with.
@@ -125,7 +130,8 @@ E.on('touch',t=>{
   "class" : "E",
   "name" : "getTemperature",
   "generate" : "jswrap_espruino_getTemperature",
-  "return" : ["float","The temperature in degrees C"]
+  "return" : ["float","The temperature in degrees C"],
+  "typedef": "getTemperature(): number"
 }
 Use the microcontroller's internal thermistor to work out the temperature.
 
@@ -149,7 +155,8 @@ JsVarFloat jswrap_espruino_getTemperature() {
   "class" : "E",
   "name" : "getAnalogVRef",
   "generate_full" : "jshReadVRef()",
-  "return" : ["float","The voltage (in Volts) that a reading of 1 from `analogRead` actually represents - usually around 3.3v"]
+  "return" : ["float","The voltage (in Volts) that a reading of 1 from `analogRead` actually represents - usually around 3.3v"],
+  "typedef": "getAnalogVRef(): number"
 }
 Check the internal voltage reference. To work out an actual voltage of an input pin, you can use `analogRead(pin)*E.getAnalogVRef()`
 
@@ -191,7 +198,8 @@ int nativeCallGetCType() {
     ["sig","JsVar","The signature of the call, `returnType (arg1,arg2,...)`. Allowed types are `void`,`bool`,`int`,`double`,`Pin`,`JsVar`"],
     ["data","JsVar","(Optional) A string containing the function itself. If not supplied then 'addr' is used as an absolute address."]
   ],
-  "return" : ["JsVar","The native function"]
+  "return" : ["JsVar","The native function"],
+  "typedef": "nativeCall(addr: number, sig: string, data?: string): Function"
 }
 ADVANCED: This is a great way to crash Espruino if you're not sure what you are doing
 
@@ -576,18 +584,18 @@ Enable the watchdog timer. This will reset Espruino if it isn't able to return t
 If `isAuto` is false, you must call `E.kickWatchdog()` yourself every so often or the chip will reset.
 
 ```
-E.enableWatchdog(0.5); // automatic mode                                                        
+E.enableWatchdog(0.5); // automatic mode
 while(1); // Espruino will reboot because it has not been idle for 0.5 sec
 ```
 
 ```
-E.enableWatchdog(1, false);                                                         
+E.enableWatchdog(1, false);
 setInterval(function() {
   if (everything_ok)
     E.kickWatchdog();
 }, 500);
 // Espruino will now reset if everything_ok is false,
-// or if the interval fails to be called 
+// or if the interval fails to be called
 ```
 
 **NOTE:** This is only implemented on STM32 and nRF5x devices (all official Espruino boards).
@@ -642,7 +650,8 @@ JsVar *jswrap_espruino_getErrorFlagArray(JsErrorFlags flags) {
   "class" : "E",
   "name" : "getErrorFlags",
   "generate" : "jswrap_espruino_getErrorFlags",
-  "return" : ["JsVar","An array of error flags"]
+  "return" : ["JsVar","An array of error flags"],
+  "typedef": "getErrorFlags(): ('FIFO_FULL', 'BUFFER_FULL', 'CALLBACK', 'LOW_MEMORY', 'MEMORY', 'UART_OVERFLOW')[]"
 }
 Get and reset the error flags. Returns an array that can contain:
 
@@ -1350,7 +1359,7 @@ JsVarInt jswrap_espruino_getAddressOf(JsVar *v, bool flatAddress) {
     ["bits","int","If specified, the number of bits per element (MSB first) - otherwise use a 1:1 mapping. If negative, use LSB first."]
   ]
 }
-Take each element of the `from` array, look it up in `map` (or call `map(value,index)` 
+Take each element of the `from` array, look it up in `map` (or call `map(value,index)`
 if it is a function), and write it into the corresponding
 element in the `to` array.
 
