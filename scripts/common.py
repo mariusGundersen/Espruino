@@ -87,6 +87,7 @@ if "check_output" not in dir( subprocess ):
 #         "#if" : "A>2", // add a #if statement in the generated C file (ONLY if type==object)
 #         "patch" : true, // if true, this isn't a complete JSON, but just updates another with the same class+name
 #         "sortorder" : 0 // default to 0, but all items are sorted by this first, so especially with jswrap_X_init/etc we can ensure the ordering is correct
+#         "typedef": "static IsArray(): boolean" // typescript definition of this member
 #}*/
 #
 # description can be an array of strings as well as a simple string (in which case each element is separated by a newline),
