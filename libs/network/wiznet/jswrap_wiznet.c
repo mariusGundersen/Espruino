@@ -64,14 +64,14 @@ uint8_t wizchip_read() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "WIZnet",
   "ifdef" : "USE_WIZNET"
 }
 Library for communication with the WIZnet Ethernet module
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "WIZnet",
   "ifdef" : "USE_WIZNET",
@@ -162,7 +162,7 @@ JsVar *jswrap_wiznet_connect(JsVar *spi, Pin cs) {
   return ethObj;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET"
@@ -170,7 +170,7 @@ JsVar *jswrap_wiznet_connect(JsVar *spi, Pin cs) {
 An instantiation of an Ethernet network adaptor
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -233,7 +233,7 @@ static void _eth_getIP_set_address(JsVar *options, char *name, unsigned char *pt
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -321,7 +321,7 @@ bool jswrap_ethernet_setIP(JsVar *wlanObj, JsVar *options, JsVar *callback) {
   return errorMessage==0;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -362,7 +362,7 @@ bool jswrap_ethernet_setHostname(JsVar *wlanObj, JsVar *jsHostname, JsVar *callb
   return errorMessage==0;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -391,7 +391,7 @@ JsVar * jswrap_ethernet_getHostname(JsVar *wlanObj, JsVar *callback) {
   return jsvNewFromString(hostname);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -402,7 +402,7 @@ JsVar * jswrap_ethernet_getHostname(JsVar *wlanObj, JsVar *callback) {
   ],
   "return" : ["JsVar" ]
 }
-Get the current status of the ethernet device 
+Get the current status of the ethernet device
 
 */
 JsVar * jswrap_ethernet_getStatus( JsVar *wlanObj, JsVar *callback) {
@@ -418,16 +418,16 @@ JsVar * jswrap_ethernet_getStatus( JsVar *wlanObj, JsVar *callback) {
 
   jsvObjectSetChildAndUnLock(jsStatus, "state", jsvNewFromString(state[networkState]));
 
-  ctlwizchip(CW_GET_ID,(void*)tmpstr);  
+  ctlwizchip(CW_GET_ID,(void*)tmpstr);
   jsvObjectSetChildAndUnLock(jsStatus, "id",jsvNewFromString(tmpstr));
 
   ctlwizchip(CW_GET_PHYLINK, (void*)&tmp);
   jsvObjectSetChildAndUnLock(jsStatus, "phylink", jsvNewFromString(phylink[tmp]));
-  
+
   ctlwizchip(CW_GET_PHYPOWMODE,(void*)&tmp);
   jsvObjectSetChildAndUnLock(jsStatus, "phypowmode", jsvNewFromString(phypowm[tmp]));
 
-#if  _WIZCHIP_ == 5500 
+#if  _WIZCHIP_ == 5500
   wiz_PhyConf tmpPhycConf;
   ctlwizchip(CW_GET_PHYCONF,(void*)&tmpPhycConf);
   jsvObjectSetChildAndUnLock(jsStatus, "by", jsvNewFromInteger(tmpPhycConf.by));
@@ -445,6 +445,6 @@ JsVar * jswrap_ethernet_getStatus( JsVar *wlanObj, JsVar *callback) {
     params[1] = jsStatus;
     jsiQueueEvents(NULL, callback, params, 2);
     jsvUnLock(params[0]);
-  } 
+  }
   return jsStatus;
 }

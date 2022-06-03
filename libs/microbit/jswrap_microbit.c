@@ -137,7 +137,7 @@ void mb_i2c_read(unsigned int addr, int count, unsigned char *data) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_microbit_init"
 }*/
@@ -202,7 +202,7 @@ void jswrap_microbit_init() {
 
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "kill",
   "generate" : "jswrap_microbit_kill"
 }*/
@@ -214,7 +214,7 @@ void jswrap_microbit_kill() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "show",
   "generate" : "jswrap_microbit_show",
@@ -323,7 +323,7 @@ JsVar *getXYZ(int x, int y, int z, JsVarFloat range) {
   return xyz;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "acceleration",
   "generate" : "jswrap_microbit_acceleration",
@@ -362,7 +362,7 @@ JsVar *jswrap_microbit_acceleration() {
   return getXYZ(x,y,z,range);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "compass",
   "generate" : "jswrap_microbit_compass",
@@ -524,7 +524,7 @@ void jswrap_microbit_accelHandler() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Microbit",
   "name" : "SPEAKER",
@@ -534,7 +534,7 @@ void jswrap_microbit_accelHandler() {
 }
 The micro:bit's speaker pin
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Microbit",
   "name" : "MIC",
@@ -546,7 +546,7 @@ The micro:bit's microphone pin
 
 `MIC_ENABLE` should be set to 1 before using this
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Microbit",
   "name" : "MIC_ENABLE",
@@ -557,14 +557,14 @@ The micro:bit's microphone pin
 The micro:bit's microphone enable pin
 */
 
-/*JSON{
+/*JSON{  //TODO
     "type": "class",
     "class" : "Microbit",
     "ifdef" : "MICROBIT"
 }
 Class containing [micro:bit's](https://www.espruino.com/MicroBit) utility functions.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Microbit",
   "name" : "gesture",
@@ -575,7 +575,7 @@ Class containing [micro:bit's](https://www.espruino.com/MicroBit) utility functi
 }
 Called when the Micro:bit is moved in a deliberate fashion, and includes data on the detected gesture.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "mag",
@@ -583,7 +583,7 @@ Called when the Micro:bit is moved in a deliberate fashion, and includes data on
   "generate" : "jswrap_microbit_compass",
   "return" : ["JsVar", "An Object `{x,y,z}` of magnetometer readings as integers" ]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "accel",
@@ -591,7 +591,7 @@ Called when the Micro:bit is moved in a deliberate fashion, and includes data on
   "generate" : "jswrap_microbit_acceleration",
   "return" : ["JsVar", "An Object `{x,y,z}` of acceleration readings in G" ]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "accelWr",
@@ -620,7 +620,7 @@ void jswrap_microbit_accelWr(int a, int data) {
 }
 
 #ifdef MICROBIT2
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "accelOn",
@@ -640,7 +640,7 @@ void jswrap_microbit_accelOn() {
   jswrap_microbit_accelHandler();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "accelOff",
@@ -656,7 +656,7 @@ void jswrap_microbit_accelOff() {
   jshPinSetState(INTERNAL_INT_PIN, JSHPINSTATE_GPIO_IN);
 }
 #endif
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Microbit",
     "name" : "play",
@@ -670,7 +670,7 @@ void jswrap_microbit_accelOff() {
 }
 Play a waveform on the Micro:bit's speaker
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Microbit",
     "name" : "record",

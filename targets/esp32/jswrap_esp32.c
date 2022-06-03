@@ -33,7 +33,7 @@
 #include "jsinteractive.h"
 #include "jsparse.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type": "class",
   "class" : "ESP32",
   "ifdef" : "ESP32"
@@ -41,7 +41,7 @@
 Class containing utility functions for the [ESP32](http://www.espruino.com/ESP32)
 */
 
-/*JSON{
+/*JSON{  //TODO
  "type"     : "staticmethod",
  "class"    : "ESP32",
  "ifdef" : "ESP32",
@@ -57,7 +57,7 @@ void jswrap_ESP32_setAtten(Pin pin,int atten){
   rangeADC(pin, atten);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP32",
   "ifdef" : "ESP32",
@@ -71,7 +71,7 @@ void jswrap_ESP32_reboot() {
 } // End of jswrap_ESP32_reboot
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP32",
   "ifdef" : "ESP32",
@@ -87,7 +87,7 @@ void jswrap_ESP32_deepSleep(int us) {
 } // End of jswrap_ESP32_deepSleep
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP32",
   "ifdef" : "ESP32",
@@ -111,13 +111,13 @@ JsVar *jswrap_ESP32_getState() {
   jsvObjectSetChildAndUnLock(esp32State, "sdkVersion",   jsvNewFromString(esp_get_idf_version()));
   jsvObjectSetChildAndUnLock(esp32State, "freeHeap",     jsvNewFromInteger(esp_get_free_heap_size()));
   jsvObjectSetChildAndUnLock(esp32State, "BLE",          jsvNewFromBool(ESP32_Get_NVS_Status(ESP_NETWORK_BLE)));
-  jsvObjectSetChildAndUnLock(esp32State, "Wifi",         jsvNewFromBool(ESP32_Get_NVS_Status(ESP_NETWORK_WIFI)));  
+  jsvObjectSetChildAndUnLock(esp32State, "Wifi",         jsvNewFromBool(ESP32_Get_NVS_Status(ESP_NETWORK_WIFI)));
   jsvObjectSetChildAndUnLock(esp32State, "minHeap",      jsvNewFromInteger(heap_caps_get_minimum_free_size(MALLOC_CAP_8BIT)));
   return esp32State;
 } // End of jswrap_ESP32_getState
 
 #ifdef BLUETOOTH
-/*JSON{
+/*JSON{  //TODO
  "type"     : "staticmethod",
  "class"    : "ESP32",
  "ifdef" : "ESP32",
@@ -133,7 +133,7 @@ void jswrap_ESP32_setBLE_Debug(int level){
 	ESP32_setBLE_Debug(level);
 }
 
-/*JSON{
+/*JSON{  //TODO
  "type"	: "staticmethod",
  "class"	: "ESP32",
  "ifdef" : "ESP32",
@@ -142,9 +142,9 @@ void jswrap_ESP32_setBLE_Debug(int level){
  "params"	: [
    ["enable", "bool", "switches Bluetooth on or off" ]
  ],
- "ifdef"	: "BLUETOOTH" 
+ "ifdef"	: "BLUETOOTH"
 }
-Switches Bluetooth off/on, removes saved code from Flash, resets the board, 
+Switches Bluetooth off/on, removes saved code from Flash, resets the board,
 and on restart creates jsVars depending on available heap (actual additional 1800)
 */
 void jswrap_ESP32_enableBLE(bool enable){ //may be later, we will support BLEenable(ALL/SERVER/CLIENT)
@@ -153,7 +153,7 @@ void jswrap_ESP32_enableBLE(bool enable){ //may be later, we will support BLEena
   esp_restart();
 }
 #endif
-/*JSON{
+/*JSON{  //TODO
  "type"	: "staticmethod",
  "class"	: "ESP32",
  "ifdef" : "ESP32",
@@ -161,9 +161,9 @@ void jswrap_ESP32_enableBLE(bool enable){ //may be later, we will support BLEena
  "generate"	: "jswrap_ESP32_enableWifi",
  "params"	: [
    ["enable", "bool", "switches Wifi on or off" ]
- ] 
+ ]
 }
-Switches Wifi off/on, removes saved code from Flash, resets the board, 
+Switches Wifi off/on, removes saved code from Flash, resets the board,
 and on restart creates jsVars depending on available heap (actual additional 3900)
 */
 void jswrap_ESP32_enableWifi(bool enable){ //may be later, we will support BLEenable(ALL/SERVER/CLIENT)

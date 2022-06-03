@@ -267,7 +267,7 @@ static JsVar *matchhere(char *regexp, JsvStringIterator *txtIt, matchInfo info) 
   return nomatchfound(&regexp[charLength], info);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "RegExp"
@@ -278,7 +278,7 @@ The built-in class for handling Regular Expressions
 present in a full ES6 JS engine. However it does contain support for the all the basics.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "RegExp",
@@ -310,7 +310,7 @@ JsVar *jswrap_regexp_constructor(JsVar *str, JsVar *flags) {
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "RegExp",
@@ -380,7 +380,7 @@ JsVar *jswrap_regexp_exec(JsVar *parent, JsVar *arg) {
   return rmatch;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "RegExp",

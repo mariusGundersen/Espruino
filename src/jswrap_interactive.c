@@ -22,14 +22,14 @@
 #include "jsinteractive.h"
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "console"
 }
 An Object that contains functions for writing to the interactive console
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "global",
   "generate_full" : "jsvLockAgain(execInfo.root)",
@@ -38,7 +38,7 @@ An Object that contains functions for writing to the interactive console
 A reference to the global scope, where everything is defined.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "setBusyIndicator",
   "ifndef" : "SAVE_ON_FLASH",
@@ -61,7 +61,7 @@ void jswrap_interface_setBusyIndicator(JsVar *pinVar) {
 }
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "setSleepIndicator",
   "ifndef" : "SAVE_ON_FLASH",
@@ -86,7 +86,7 @@ void jswrap_interface_setSleepIndicator(JsVar *pinVar) {
 }
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "setDeepSleep",
   "#if" : "defined(STM32) || defined(EFM32)",
@@ -104,7 +104,7 @@ void jswrap_interface_setDeepSleep(bool sleep) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "trace",
   "ifndef" : "SAVE_ON_FLASH",
@@ -131,7 +131,7 @@ void jswrap_interface_trace(JsVar *root) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "dump",
   "ifndef" : "SAVE_ON_FLASH",
@@ -143,7 +143,7 @@ Espruino keeps its current state in RAM (even if the function code is stored in 
 
 **Note:** 'Internal' functions are currently not handled correctly. You will need to recreate these in the `onInit` function.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "load",
   "generate" : "jswrap_interface_load",
@@ -174,7 +174,7 @@ void jswrap_interface_load(JsVar *storageName) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "save",
   "generate_full" : "jsiStatus|=JSIS_TODO_FLASH_SAVE;",
@@ -203,7 +203,7 @@ This will then be automatically executed by Espruino every time it starts.
 In order to stop the program saved with this command being loaded automatically,
 check out [the Troubleshooting guide](https://www.espruino.com/Troubleshooting#espruino-stopped-working-after-i-typed-save-)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "reset",
   "generate" : "jswrap_interface_reset",
@@ -230,7 +230,7 @@ void jswrap_interface_reset(bool clearFlash) {
   if (clearFlash) jsfRemoveCodeFromFlash();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "print",
   "generate" : "jswrap_interface_print",
@@ -242,7 +242,7 @@ Print the supplied string(s) to the console
 
  **Note:** If you're connected to a computer (not a wall adaptor) via USB but **you are not running a terminal app** then when you print data Espruino may pause execution and wait until the computer requests the data it is trying to print.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "console",
   "name" : "log",
@@ -276,7 +276,7 @@ void jswrap_interface_print(JsVar *v) {
   jsiConsolePrint("\n");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "edit",
   "ifndef" : "SAVE_ON_FLASH",
@@ -343,7 +343,7 @@ void jswrap_interface_edit(JsVar *funcName) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "echo",
   "generate" : "jswrap_interface_echo",
@@ -360,7 +360,7 @@ void jswrap_interface_echo(bool echoOn) {
     jsiStatus |= JSIS_ECHO_OFF;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "getTime",
   "generate_full" : "(JsVarFloat)jshGetSystemTime() / (JsVarFloat)jshGetTimeFromMilliseconds(1000)",
@@ -369,7 +369,7 @@ void jswrap_interface_echo(bool echoOn) {
 Return the current system time in Seconds (as a floating point number)
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "setTime",
   "generate" : "jswrap_interactive_setTime",
@@ -405,7 +405,7 @@ void jswrap_interactive_setTime(JsVarFloat time) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "getSerial",
   "generate" : "jswrap_interface_getSerial",
@@ -429,7 +429,7 @@ JsVar *jswrap_interface_getSerial() {
   return str;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "setInterval",
   "generate" : "jswrap_interface_setInterval",
@@ -467,7 +467,7 @@ was returned by `setInterval` into the `clearInterval` function.
 
  **Note:** If `setDeepSleep(true)` has been called and the interval is greater than 5 seconds, Espruino may execute the interval up to 1 second late. This is because Espruino can only wake from deep sleep every second - and waking early would cause Espruino to waste power while it waited for the correct time.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "setTimeout",
   "generate" : "jswrap_interface_setTimeout",
@@ -540,7 +540,7 @@ JsVar *jswrap_interface_setTimeout(JsVar *func, JsVarFloat timeout, JsVar *args)
   return _jswrap_interface_setTimeoutOrInterval(func, timeout, args, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "clearInterval",
   "generate" : "jswrap_interface_clearInterval",
@@ -558,7 +558,7 @@ If no argument is supplied, all timeouts and intervals are stopped.
 
 To avoid accidentally deleting all Intervals, if a parameter is supplied but is `undefined` then an Exception will be thrown.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "clearTimeout",
   "generate" : "jswrap_interface_clearTimeout",
@@ -589,7 +589,7 @@ void _jswrap_interface_clearTimeoutOrInterval(JsVar *idVarArr, bool isTimeout) {
       if (!watchPtr)
         jsvObjectIteratorRemoveAndGotoNext(&it, timerArrayPtr);
       else
-        jsvObjectIteratorNext(&it); 
+        jsvObjectIteratorNext(&it);
       jsvUnLock2(watchPtr, timerPtr);
     }
     jsvObjectIteratorFree(&it);
@@ -617,7 +617,7 @@ void jswrap_interface_clearTimeout(JsVar *idVarArr) {
   _jswrap_interface_clearTimeoutOrInterval(idVarArr, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "changeInterval",
   "generate" : "jswrap_interface_changeInterval",

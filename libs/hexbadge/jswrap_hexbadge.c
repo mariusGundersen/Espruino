@@ -61,7 +61,7 @@ const Pin LCD_SCK = 14;
 const Pin LCD_MOSI = 15;
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "BTNA",
   "generate_full" : "19",
@@ -69,7 +69,7 @@ const Pin LCD_MOSI = 15;
 }
 The pin connected to the 'A' button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "BTNB",
   "generate_full" : "20",
@@ -77,7 +77,7 @@ The pin connected to the 'A' button. Reads as `1` when pressed, `0` when not
 }
 The pin connected to the 'B' button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "BTNU",
   "generate_full" : "31",
@@ -85,7 +85,7 @@ The pin connected to the 'B' button. Reads as `1` when pressed, `0` when not
 }
 The pin connected to the up button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "BTND",
   "generate_full" : "16",
@@ -93,7 +93,7 @@ The pin connected to the up button. Reads as `1` when pressed, `0` when not
 }
 The pin connected to the down button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "BTNL",
   "generate_full" : "17",
@@ -101,7 +101,7 @@ The pin connected to the down button. Reads as `1` when pressed, `0` when not
 }
 The pin connected to the left button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "BTNR",
   "generate_full" : "18",
@@ -109,7 +109,7 @@ The pin connected to the left button. Reads as `1` when pressed, `0` when not
 }
 The pin connected to the right button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "CORNER1",
   "generate_full" : "25",
@@ -117,7 +117,7 @@ The pin connected to the right button. Reads as `1` when pressed, `0` when not
 }
 The pin connected to Corner #1
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "CORNER2",
   "generate_full" : "26",
@@ -125,7 +125,7 @@ The pin connected to Corner #1
 }
 The pin connected to Corner #2
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "CORNER3",
   "generate_full" : "27",
@@ -133,7 +133,7 @@ The pin connected to Corner #2
 }
 The pin connected to Corner #3
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "CORNER4",
   "generate_full" : "28",
@@ -141,7 +141,7 @@ The pin connected to Corner #3
 }
 The pin connected to Corner #4
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "CORNER5",
   "generate_full" : "29",
@@ -149,7 +149,7 @@ The pin connected to Corner #4
 }
 The pin connected to Corner #5
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "CORNER6",
   "generate_full" : "30",
@@ -160,13 +160,13 @@ The pin connected to Corner #6
 
 
 
-/*JSON{
+/*JSON{  //TODO
     "type": "class",
     "class" : "Badge"
 }
 Class containing utility functions for accessing IO on the hexagonal badge
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Badge",
     "name" : "capSense",
@@ -187,7 +187,7 @@ int jswrap_badge_capSense(int corner) {
   return 0;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Badge",
     "name" : "getBatteryPercentage",
@@ -237,7 +237,7 @@ void badge_lcd_flip(JsVar *g) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Badge",
     "name" : "setContrast",
@@ -258,7 +258,7 @@ void jswrap_badge_setContrast(JsVarFloat c) {
   jshPinSetValue(LCD_CS,1);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_badge_init"
 }*/
@@ -283,18 +283,18 @@ void jswrap_badge_init() {
   // Set initial image
   const unsigned int LCD_IMIT_IMG_OFFSET = 344;
   const unsigned char LCD_INIT_IMG[] = {
-    128, 128, 128, 128, 128, 192, 96, 176, 88, 52, 30, 14, 6, 12, 12, 12, 12, 12, 12, 12, 8, 24, 24, 24, 24, 216, 56, 
-    152, 240, 240, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 128, 128, 128, 
-    0, 0, 0, 0, 0, 128, 128, 128, 0, 0, 128, 128, 0, 0, 176, 176, 0, 0, 128, 128, 128, 0, 0, 0, 128, 128, 0, 128, 128, 0, 
-    128, 128, 0, 0, 0, 0, 128, 128, 128, 0, 128, 128, 0, 0, 0, 0, 128, 128, 128, 128, 0, 0, 0, 48, 48, 48, 48, 48, 48, 240, 
-    240, 240, 0, 0, 0, 0, 255, 129, 56, 125, 199, 255, 2, 3, 6, 6, 6, 6, 7, 7, 15, 13, 13, 13, 13, 14, 14, 30, 30, 22, 22, 
-    9, 6, 1, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 127, 227, 193, 193, 
-    227, 127, 62, 0, 0, 255, 255, 3, 1, 1, 255, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 127, 192, 192, 192, 255, 127, 0, 
-    1, 1, 3, 255, 255, 0, 0, 62, 127, 227, 193, 193, 99, 255, 255, 0, 0, 114, 251, 217, 217, 205, 207, 103, 0, 0, 192, 198, 
-    198, 198, 198, 198, 255, 255, 255, 0, 0, 0, 0, 0, 1, 1, 226, 255, 255, 0, 128, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 192, 224, 248, 255, 120, 56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 5, 7, 
+    128, 128, 128, 128, 128, 192, 96, 176, 88, 52, 30, 14, 6, 12, 12, 12, 12, 12, 12, 12, 8, 24, 24, 24, 24, 216, 56,
+    152, 240, 240, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 128, 128, 128,
+    0, 0, 0, 0, 0, 128, 128, 128, 0, 0, 128, 128, 0, 0, 176, 176, 0, 0, 128, 128, 128, 0, 0, 0, 128, 128, 0, 128, 128, 0,
+    128, 128, 0, 0, 0, 0, 128, 128, 128, 0, 128, 128, 0, 0, 0, 0, 128, 128, 128, 128, 0, 0, 0, 48, 48, 48, 48, 48, 48, 240,
+    240, 240, 0, 0, 0, 0, 255, 129, 56, 125, 199, 255, 2, 3, 6, 6, 6, 6, 7, 7, 15, 13, 13, 13, 13, 14, 14, 30, 30, 22, 22,
+    9, 6, 1, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 127, 227, 193, 193,
+    227, 127, 62, 0, 0, 255, 255, 3, 1, 1, 255, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 127, 192, 192, 192, 255, 127, 0,
+    1, 1, 3, 255, 255, 0, 0, 62, 127, 227, 193, 193, 99, 255, 255, 0, 0, 114, 251, 217, 217, 205, 207, 103, 0, 0, 192, 198,
+    198, 198, 198, 198, 255, 255, 255, 0, 0, 0, 0, 0, 1, 1, 226, 255, 255, 0, 128, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 192, 224, 248, 255, 120, 56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 5, 7,
     15, 11, 15, 15, 11, 15, 31, 22, 30, 30, 22, 30, 30, 8, 8, 12, 15, 11, 15, 3, 1
   };
   JsVar *buf = jsvObjectGetChild(graphics,"buffer",0);
@@ -328,7 +328,7 @@ void jswrap_badge_init() {
   jsvUnLock(graphics);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "kill",
   "generate" : "jswrap_badge_kill"
 }*/
@@ -336,7 +336,7 @@ void jswrap_badge_kill() {
 
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_badge_idle"
 }*/

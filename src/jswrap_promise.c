@@ -25,7 +25,7 @@
 #define JS_PROMISE_RESOLVED_NAME "resolved"
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Promise",
   "ifndef" : "SAVE_ON_FLASH"
@@ -194,7 +194,7 @@ void jspromise_reject(JsVar *promise, JsVar *data) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Promise",
   "name" : "Promise",
@@ -233,7 +233,7 @@ JsVar *jswrap_promise_constructor(JsVar *executor) {
   return obj;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Promise",
   "name" : "all",
@@ -290,7 +290,7 @@ JsVar *jswrap_promise_all(JsVar *arr) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Promise",
   "name" : "resolve",
@@ -325,7 +325,7 @@ JsVar *jswrap_promise_resolve(JsVar *data) {
   return promise;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Promise",
   "name" : "reject",
@@ -398,7 +398,7 @@ static JsVar *jswrap_promise_get_chained_promise(JsVar *parent) {
   return chainedPromise;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Promise",
   "name" : "then",
@@ -418,7 +418,7 @@ JsVar *jswrap_promise_then(JsVar *parent, JsVar *onFulfilled, JsVar *onRejected)
   return jswrap_promise_get_chained_promise(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Promise",
   "name" : "catch",

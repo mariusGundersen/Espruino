@@ -71,10 +71,10 @@ void jsfsReportError(const char *msg, FRESULT res) {
 }
 
 bool jsfsInit() {
-   
+
 #ifndef LINUX
   if (!fat_initialised) {
-#ifndef USE_FLASHFS  
+#ifndef USE_FLASHFS
 #ifdef SD_CARD_ANYWHERE
     if (!isSdSPISetup()) {
 #ifdef SD_SPI
@@ -95,7 +95,7 @@ bool jsfsInit() {
 #endif // SD_SPI
     }
 #endif // SD_CARD_ANYWHER
-#endif // USE_FLASHFS 
+#endif // USE_FLASHFS
     FRESULT res;
 
     if ((res = f_mount(&jsfsFAT, "", 1)) != FR_OK) {
@@ -108,7 +108,7 @@ bool jsfsInit() {
   return true;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "connectSDCard",
@@ -161,7 +161,7 @@ void jswrap_E_connectSDCard(JsVar *spi, Pin csPin) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "File"
 }
@@ -190,7 +190,7 @@ static bool fileGetFromVar(JsFile *file, JsVar *parent) {
   return ret;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "kill",
   "generate" : "jswrap_file_kill"
 }*/
@@ -221,7 +221,7 @@ void jswrap_file_kill() {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "unmountSD",
@@ -253,7 +253,7 @@ static bool allocateJsFile(JsFile* file,FileMode mode, FileType type) {
   return true;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "openFile",
@@ -348,7 +348,7 @@ JsVar *jswrap_E_openFile(JsVar* path, JsVar* mode) {
   return file.fileVar;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "File",
   "name" : "close",
@@ -382,7 +382,7 @@ void jswrap_file_close(JsVar* parent) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "File",
   "name" : "write",
@@ -451,7 +451,7 @@ size_t jswrap_file_write(JsVar* parent, JsVar* buffer) {
   return bytesWritten;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "File",
   "name" : "read",
@@ -525,7 +525,7 @@ JsVar *jswrap_file_read(JsVar* parent, int length) {
   return buffer;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "File",
   "name" : "skip",
@@ -536,7 +536,7 @@ JsVar *jswrap_file_read(JsVar* parent, int length) {
 }
 Skip the specified number of bytes forward in the file
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "File",
   "name" : "seek",
@@ -549,9 +549,9 @@ Seek to a certain position in the file
 */
 void jswrap_file_skip_or_seek(JsVar* parent, int nBytes, bool is_skip) {
   if (nBytes<0) {
-    if ( is_skip ) 
+    if ( is_skip )
 	  jsWarn("Bytes to skip must be >=0");
-    else 
+    else
 	  jsWarn("Position to seek to must be >=0");
     return;
   }
@@ -571,7 +571,7 @@ void jswrap_file_skip_or_seek(JsVar* parent, int nBytes, bool is_skip) {
   if (res) jsfsReportError(is_skip?"Unable to skip":"Unable to seek", res);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "File",
   "name" : "pipe",
@@ -587,7 +587,7 @@ Pipe this file to a stream (an object with a 'write' method)
 
 #ifdef USE_FLASHFS
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "flashFatFS",
@@ -596,7 +596,7 @@ Pipe this file to a stream (an object with a 'write' method)
    "params" : [
     ["options","JsVar",["An optional object `{ addr : int=0x300000, sectors : int=256, format : bool=false }`","addr : start address in flash","sectors: number of sectors to use","format:  Format the media"]]
   ],
-  "return" : ["bool","True on success, or false on failure"]  
+  "return" : ["bool","True on success, or false on failure"]
 }
 Change the paramters used for the flash filesystem.
 The default address is the last 1Mb of 4Mb Flash, 0x300000, with total size of 1Mb.
@@ -645,7 +645,7 @@ int jswrap_E_flashFatFS(JsVar* options) {
   else if (!jsvIsUndefined(options)) {
     jsExceptionHere(JSET_TYPEERROR, "'options' must be an object, or undefined");
   }
-  
+
   uint8_t init=flashFatFsInit(addr, sectors);
   if (init) {
     if ( format ) {
@@ -656,7 +656,7 @@ int jswrap_E_flashFatFS(JsVar* options) {
         jsExceptionHere(JSET_INTERNALERROR, "Flash Formatting error:",res);
         return false;
      }
-   }    
+   }
   }
   jsfsInit();
   return true;

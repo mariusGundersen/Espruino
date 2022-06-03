@@ -17,13 +17,13 @@
 #include "jsparse.h"
 #include "rtosutil.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type"    : "class",
   "class"   : "Queue"
 }
 A class to support some simple Queue handling for RTOS queues
 */
-/*JSON{
+/*JSON{  //TODO
   "type"     : "constructor",
   "class"    : "Queue",
   "name"     : "Queue",
@@ -42,7 +42,7 @@ JsVar *jswrap_Queue_constructor(JsVar *queueName){
   jsvObjectSetChildAndUnLock(queue, "index", jsvNewFromInteger(idx));
   return queue;
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Queue",
  "name"     : "read",
@@ -57,7 +57,7 @@ void jswrap_Queue_read(JsVar *parent) {
   jsvUnLock(idx);
   return;
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Queue",
  "name"     : "writeChar",
@@ -70,7 +70,7 @@ void jswrap_Queue_writeChar(JsVar *parent,char c){
   JsVar *idx = jsvObjectGetChild(parent,"index",1);
   queue_writeChar(idx,c);
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Queue",
  "name"     : "log",
@@ -83,13 +83,13 @@ void jswrap_Queue_log(JsVar *parent) {
   return;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"    : "class",
   "class"   : "Task"
 }
 A class to support some simple Task handling for RTOS tasks
 */
-/*JSON{
+/*JSON{  //TODO
   "type"     : "constructor",
   "class"    : "Task",
   "name"     : "Task",
@@ -108,7 +108,7 @@ JsVar *jswrap_Task_constructor(JsVar *taskName){
   jsvObjectSetChildAndUnLock(task, "index", jsvNewFromInteger(idx));
   return task;
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Task",
  "name"     : "suspend",
@@ -121,7 +121,7 @@ void jswrap_Task_suspend(JsVar *parent){
   task_Suspend(jsvGetInteger(idx));
   return;
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Task",
  "name"     : "resume",
@@ -134,7 +134,7 @@ void jswrap_Task_resume(JsVar *parent){
   task_Resume(jsvGetInteger(idx));
   return;
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Task",
  "name"     : "getCurrent",
@@ -146,7 +146,7 @@ returns name of actual task
 JsVar *jswrap_Task_getCurrent(JsVar *parent){
   return jsvNewFromString(task_getCurrentName());
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Task",
  "name"     : "notify",
@@ -158,7 +158,7 @@ void jswrap_Task_notify(JsVar *parent){
   JsVar *idx = jsvObjectGetChild(parent,"index",1);
   task_notify(jsvGetInteger(idx));
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Task",
  "name"     : "log",
@@ -171,13 +171,13 @@ void jswrap_Task_log(JsVar *parent) {
   return;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"	: "class",
   "class"	: "Timer"
 }
 A class to handle Timer on base of ESP32 Timer
 */
-/*JSON{
+/*JSON{  //TODO
   "type"     : "constructor",
   "class"    : "Timer",
   "name"     : "Timer",
@@ -199,7 +199,7 @@ JsVar *jswrap_Timer_constructor(JsVar *timerName,int group, int index, int isrIn
   jsvObjectSetChildAndUnLock(timer, "index", jsvNewFromInteger(idx));
   return timer;
 }
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Timer",
   "name"     : "start",
@@ -212,7 +212,7 @@ void jswrap_Timer_start(JsVar *parent, int duration){
   JsVar *idx = jsvObjectGetChild(parent,"index",1);
   timer_Start(jsvGetInteger(idx),duration);
 }
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Timer",
   "name"     : "reschedule",
@@ -225,7 +225,7 @@ void jswrap_Timer_reschedule(JsVar *parent, int duration){
   JsVar *idx = jsvObjectGetChild(parent,"index",1);
   timer_Reschedule(jsvGetInteger(idx),duration);
 }
-/*JSON{
+/*JSON{  //TODO
  "type"     : "method",
  "class"    : "Timer",
  "name"     : "log",

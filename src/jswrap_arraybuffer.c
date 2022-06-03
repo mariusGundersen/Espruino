@@ -19,7 +19,7 @@
 #include "jsnative.h"
 #include "jsinteractive.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "ArrayBuffer",
   "check" : "jsvIsArrayBuffer(var) && var->varData.arraybuffer.type==ARRAYBUFFERVIEW_ARRAYBUFFER",
@@ -31,7 +31,7 @@ If you want to access arrays of differing types of data
 you may also find `DataView` useful.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "ArrayBufferView"
 }
@@ -52,7 +52,7 @@ If you want to access arrays of differing types of data
 you may also find `DataView` useful.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Uint8Array",
   "prototype" : "ArrayBufferView",
@@ -65,7 +65,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Uint8ClampedArray",
   "prototype" : "ArrayBufferView",
@@ -78,7 +78,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Int8Array",
   "prototype" : "ArrayBufferView",
@@ -91,7 +91,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Uint16Array",
   "prototype" : "ArrayBufferView",
@@ -104,7 +104,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Int16Array",
   "prototype" : "ArrayBufferView",
@@ -117,7 +117,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Uint24Array",
   "ifndef" : "SAVE_ON_FLASH",
@@ -131,7 +131,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Uint32Array",
   "prototype" : "ArrayBufferView",
@@ -144,7 +144,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Int32Array",
   "prototype" : "ArrayBufferView",
@@ -157,7 +157,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Float32Array",
   "prototype" : "ArrayBufferView",
@@ -170,7 +170,7 @@ Instantiate this in order to efficiently store arrays of data (Espruino's normal
 
 Arrays of this type include all the methods from [ArrayBufferView](/Reference#ArrayBufferView)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Float64Array",
   "prototype" : "ArrayBufferView",
@@ -185,7 +185,7 @@ Arrays of this type include all the methods from [ArrayBufferView](/Reference#Ar
  */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "ArrayBuffer",
   "name" : "ArrayBuffer",
@@ -221,7 +221,7 @@ JsVar *jswrap_arraybuffer_constructor(JsVarInt byteLength) {
   return v;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "ArrayBuffer",
   "name" : "byteLength",
@@ -240,7 +240,7 @@ The length, in bytes, of the `ArrayBuffer`
  * Uint8Array Uint8Array(ArrayBuffer buffer, optional unsigned long byteOffset, optional unsigned long length);
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Uint8Array",
   "name" : "Uint8Array",
@@ -255,7 +255,7 @@ The length, in bytes, of the `ArrayBuffer`
 }
 Create a typed array based on the given input. Either an existing Array Buffer, an Integer as a Length, or a simple array. If an `ArrayBufferView` (eg. `Uint8Array` rather than `ArrayBuffer`) is given, it will be completely copied rather than referenced.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Uint8ClampedArray",
   "name" : "Uint8ClampedArray",
@@ -272,7 +272,7 @@ Create a typed array based on the given input. Either an existing Array Buffer, 
 
 Clamped arrays clamp their values to the allowed range, rather than 'wrapping'. e.g. after `a[0]=12345;`, `a[0]==255`.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Int8Array",
   "name" : "Int8Array",
@@ -287,7 +287,7 @@ Clamped arrays clamp their values to the allowed range, rather than 'wrapping'. 
 }
 Create a typed array based on the given input. Either an existing Array Buffer, an Integer as a Length, or a simple array. If an `ArrayBufferView` (eg. `Uint8Array` rather than `ArrayBuffer`) is given, it will be completely copied rather than referenced.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Uint16Array",
   "name" : "Uint16Array",
@@ -302,7 +302,7 @@ Create a typed array based on the given input. Either an existing Array Buffer, 
 }
 Create a typed array based on the given input. Either an existing Array Buffer, an Integer as a Length, or a simple array. If an `ArrayBufferView` (eg. `Uint8Array` rather than `ArrayBuffer`) is given, it will be completely copied rather than referenced.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Int16Array",
   "name" : "Int16Array",
@@ -317,7 +317,7 @@ Create a typed array based on the given input. Either an existing Array Buffer, 
 }
 Create a typed array based on the given input. Either an existing Array Buffer, an Integer as a Length, or a simple array. If an `ArrayBufferView` (eg. `Uint8Array` rather than `ArrayBuffer`) is given, it will be completely copied rather than referenced.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Uint24Array",
   "name" : "Uint24Array",
@@ -333,7 +333,7 @@ Create a typed array based on the given input. Either an existing Array Buffer, 
 }
 Create a typed array based on the given input. Either an existing Array Buffer, an Integer as a Length, or a simple array. If an `ArrayBufferView` (eg. `Uint8Array` rather than `ArrayBuffer`) is given, it will be completely copied rather than referenced.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Uint32Array",
   "name" : "Uint32Array",
@@ -348,7 +348,7 @@ Create a typed array based on the given input. Either an existing Array Buffer, 
 }
 Create a typed array based on the given input. Either an existing Array Buffer, an Integer as a Length, or a simple array. If an `ArrayBufferView` (eg. `Uint8Array` rather than `ArrayBuffer`) is given, it will be completely copied rather than referenced.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Int32Array",
   "name" : "Int32Array",
@@ -363,7 +363,7 @@ Create a typed array based on the given input. Either an existing Array Buffer, 
 }
 Create a typed array based on the given input. Either an existing Array Buffer, an Integer as a Length, or a simple array. If an `ArrayBufferView` (eg. `Uint8Array` rather than `ArrayBuffer`) is given, it will be completely copied rather than referenced.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Float32Array",
   "name" : "Float32Array",
@@ -378,7 +378,7 @@ Create a typed array based on the given input. Either an existing Array Buffer, 
 }
 Create a typed array based on the given input. Either an existing Array Buffer, an Integer as a Length, or a simple array. If an `ArrayBufferView` (eg. `Uint8Array` rather than `ArrayBuffer`) is given, it will be completely copied rather than referenced.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Float64Array",
   "name" : "Float64Array",
@@ -415,7 +415,7 @@ JsVar *jswrap_typedarray_constructor(JsVarDataArrayBufferViewType type, JsVar *a
     return 0;
   }
   if (length==0) {
-    length = ((JsVarInt)jsvGetArrayBufferLength(arrayBuffer)-byteOffset) / (JsVarInt)JSV_ARRAYBUFFER_GET_SIZE(type); 
+    length = ((JsVarInt)jsvGetArrayBufferLength(arrayBuffer)-byteOffset) / (JsVarInt)JSV_ARRAYBUFFER_GET_SIZE(type);
     if (length<0) length=0;
   }
   JsVar *typedArr = jsvNewWithFlags(JSV_ARRAYBUFFER);
@@ -448,7 +448,7 @@ JsVar *jswrap_typedarray_constructor(JsVarDataArrayBufferViewType type, JsVar *a
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "ArrayBufferView",
   "name" : "buffer",
@@ -457,7 +457,7 @@ JsVar *jswrap_typedarray_constructor(JsVarDataArrayBufferViewType type, JsVar *a
 }
 The buffer this view references
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "ArrayBufferView",
   "name" : "byteLength",
@@ -466,7 +466,7 @@ The buffer this view references
 }
 The length, in bytes, of the `ArrayBufferView`
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "ArrayBufferView",
   "name" : "byteOffset",
@@ -476,7 +476,7 @@ The length, in bytes, of the `ArrayBufferView`
 The offset, in bytes, to the first byte of the view within the backing `ArrayBuffer`
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "set",
@@ -537,7 +537,7 @@ void jswrap_arraybufferview_set(JsVar *parent, JsVar *arr, int offset) {
 
 
 // 'special' ArrayBufferView.map as it needs to return an ArrayBuffer
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "map",
@@ -604,7 +604,7 @@ JsVar *jswrap_arraybufferview_map(JsVar *parent, JsVar *funcVar, JsVar *thisVar)
   return array;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "subarray",
@@ -655,7 +655,7 @@ JsVar *jswrap_arraybufferview_subarray(JsVar *parent, JsVarInt begin, JsVar *end
 //                                                                      Steal Array's methods for this
 // -----------------------------------------------------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "indexOf",
@@ -668,7 +668,7 @@ JsVar *jswrap_arraybufferview_subarray(JsVar *parent, JsVarInt begin, JsVar *end
 }
 Return the index of the value in the array, or `-1`
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "includes",
@@ -682,7 +682,7 @@ Return the index of the value in the array, or `-1`
 }
 Return `true` if the array includes the value, `false` otherwise
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "join",
@@ -694,7 +694,7 @@ Return `true` if the array includes the value, `false` otherwise
 }
 Join all elements of this array together into one string, using 'separator' between them. eg. ```[1,2,3].join(' ')=='1 2 3'```
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "sort",
@@ -732,7 +732,7 @@ JsVar *jswrap_arraybufferview_sort(JsVar *array, JsVar *compareFn) {
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "forEach",
@@ -744,7 +744,7 @@ JsVar *jswrap_arraybufferview_sort(JsVar *array, JsVar *compareFn) {
 }
 Executes a provided function once per array element.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "reduce",
@@ -758,7 +758,7 @@ Executes a provided function once per array element.
 }
 Execute `previousValue=initialValue` and then `previousValue = callback(previousValue, currentValue, index, array)` for each element in the array, and finally return previousValue.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "fill",
@@ -774,7 +774,7 @@ Execute `previousValue=initialValue` and then `previousValue = callback(previous
 }
 Fill this array with the given value, for every index `>= start` and `< end`
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "filter",
@@ -788,7 +788,7 @@ Fill this array with the given value, for every index `>= start` and `< end`
 }
 Return an array which contains only those elements for which the callback function returns 'true'
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "find",
@@ -801,7 +801,7 @@ Return an array which contains only those elements for which the callback functi
 }
 Return the array element where `function` returns `true`, or `undefined` if it doesn't returns `true` for any element.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "findIndex",
@@ -814,7 +814,7 @@ Return the array element where `function` returns `true`, or `undefined` if it d
 }
 Return the array element's index where `function` returns `true`, or `-1` if it doesn't returns `true` for any element.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "reverse",
@@ -825,7 +825,7 @@ Return the array element's index where `function` returns `true`, or `-1` if it 
 }
 Reverse the contents of this `ArrayBufferView` in-place
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "slice",

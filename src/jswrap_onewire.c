@@ -17,7 +17,7 @@
 #include "jsdevices.h"
 #include "jsinteractive.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "OneWire"
 }
@@ -88,7 +88,7 @@ static void NO_INLINE OneWireWrite(Pin pin, int bits, unsigned long long data) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "OneWire",
   "name" : "OneWire",
@@ -108,7 +108,7 @@ JsVar *jswrap_onewire_constructor(Pin pin) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "OneWire",
   "name" : "reset",
@@ -123,7 +123,7 @@ bool jswrap_onewire_reset(JsVar *parent) {
   return OneWireReset(pin);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "OneWire",
   "name" : "select",
@@ -165,7 +165,7 @@ void jswrap_onewire_select(JsVar *parent, JsVar *rom) {
   OneWireWrite(pin, 64, romdata);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "OneWire",
   "name" : "skip",
@@ -179,7 +179,7 @@ void jswrap_onewire_skip(JsVar *parent) {
   OneWireWrite(pin, 8, 0xCC);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "OneWire",
   "name" : "write",
@@ -214,7 +214,7 @@ void jswrap_onewire_write(JsVar *parent, JsVar *data, bool leavePowerOn) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "OneWire",
   "name" : "read",
@@ -245,7 +245,7 @@ JsVar *jswrap_onewire_read(JsVar *parent, JsVar *count) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "OneWire",
   "name" : "search",

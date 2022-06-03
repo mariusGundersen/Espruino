@@ -14,7 +14,7 @@
 #include "jswrap_unistroke.h"
 #include "unistroke.h"
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Unistroke",
     "name" : "new",
@@ -31,7 +31,7 @@ JsVar *jswrap_unistroke_new(JsVar *xy) {
   return unistroke_convert(xy);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Unistroke",
     "name" : "recognise",

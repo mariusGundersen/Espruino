@@ -34,14 +34,14 @@
 
 const Pin PIXL_IO_PINS[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19};
 
-/*JSON{
+/*JSON{  //TODO
     "type": "class",
     "class" : "Pixl"
 }
 Class containing utility functions for [Pixl.js](http://www.espruino.com/Pixl.js)
 */
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "getBatteryPercentage",
@@ -64,7 +64,7 @@ JsVarInt jswrap_pixljs_getBattery() {
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "SDA",
   "generate_full" : "JSH_PORTA_OFFSET + 4",
@@ -73,7 +73,7 @@ JsVarInt jswrap_pixljs_getBattery() {
 }
 The pin marked SDA on the Arduino pin footprint. This is connected directly to pin A4.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "SCL",
   "generate_full" : "JSH_PORTA_OFFSET + 5",
@@ -145,7 +145,7 @@ void lcd_flip_gfx(JsGraphics *gfx) {
 
 /// Send buffer contents to the screen. Usually only the modified data will be output, but if all=true then the whole screen contents is sent
 void lcd_flip(JsVar *parent, bool all) {
-  JsGraphics gfx; 
+  JsGraphics gfx;
   if (!graphicsGetFromVar(&gfx, parent)) return;
   if (all) {
     gfx.data.modMinX = 0;
@@ -157,7 +157,7 @@ void lcd_flip(JsVar *parent, bool all) {
   graphicsSetVar(&gfx);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "setContrast",
@@ -179,7 +179,7 @@ void jswrap_pixljs_setContrast(JsVarFloat c) {
   jshPinSetValue(LCD_SPI_CS,1);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "setLCDPower",
@@ -206,7 +206,7 @@ void jswrap_pixljs_setLCDPower(bool isOn) {
   jshPinSetValue(LCD_SPI_CS,1);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "lcdw",
@@ -340,7 +340,7 @@ static bool pixl_selfTest() {
   return ok;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_pixljs_init"
 }*/
@@ -463,7 +463,7 @@ void jswrap_pixljs_init() {
   jsvUnLock(graphics);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "kill",
   "generate" : "jswrap_pixljs_kill"
 }*/
@@ -471,7 +471,7 @@ void jswrap_pixljs_kill() {
 
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_pixljs_idle"
 }*/
@@ -480,7 +480,7 @@ bool jswrap_pixljs_idle() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "menu",
@@ -496,7 +496,7 @@ DEPRECATED: Use `E.showMenu`
 */
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showMenu",
@@ -549,7 +549,7 @@ which you can do by calling `E.showMenu()` without arguments.
 See http://www.espruino.com/graphical_menu for more detailed information.
 */
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showMessage",
@@ -570,7 +570,7 @@ E.showMessage("These are\nLots of\nLines","My Title")
 ```
 */
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showPrompt",
@@ -616,7 +616,7 @@ The second `options` argument can contain:
 ```
 */
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showAlert",

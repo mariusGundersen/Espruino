@@ -21,7 +21,7 @@
 #include "jswrap_arraybuffer.h"
 #include "tensorflow.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "tensorflow"
 }
@@ -40,7 +40,7 @@ void *jswrap_tfmicrointerpreter_getTFMI(JsVar *parent) {
   return tfPtr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "tensorflow",
   "name" : "create",
@@ -93,7 +93,7 @@ JsVar *jswrap_tensorflow_create(int arena_size, JsVar *model) {
   return tfmi;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "tensorflow",
   "class" : "TFMicroInterpreter",
@@ -135,7 +135,7 @@ JsVar *jswrap_tfmicrointerpreter_tensorToArrayBuffer(JsVar *parent, bool isInput
   jsvUnLock2(ab,mi);
   return b;
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "TFMicroInterpreter",
   "name" : "getInput",
@@ -147,7 +147,7 @@ JsVar *jswrap_tfmicrointerpreter_tensorToArrayBuffer(JsVar *parent, bool isInput
 JsVar *jswrap_tfmicrointerpreter_getInput(JsVar *parent) {
   return jswrap_tfmicrointerpreter_tensorToArrayBuffer(parent, true);
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "TFMicroInterpreter",
   "name" : "getOutput",
@@ -159,7 +159,7 @@ JsVar *jswrap_tfmicrointerpreter_getInput(JsVar *parent) {
 JsVar *jswrap_tfmicrointerpreter_getOutput(JsVar *parent) {
   return jswrap_tfmicrointerpreter_tensorToArrayBuffer(parent, false);
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "TFMicroInterpreter",
   "name" : "invoke",

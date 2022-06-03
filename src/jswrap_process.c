@@ -24,14 +24,14 @@
 #include "jswrap_puck.h" // process.env
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "process"
 }
 This class contains information about Espruino itself
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "process",
   "name" : "uncaughtException",
@@ -58,7 +58,7 @@ function checkError() {
 may make debugging difficult!
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "process",
   "name" : "version",
@@ -69,7 +69,7 @@ Returns the version of Espruino as a String
  */
 
 #ifndef SAVE_ON_FLASH
-/* NOTE: The order of these is very important, as 
+/* NOTE: The order of these is very important, as
 the online compiler has its own copy of this table */
 const void * const exportPtrs[] = {
     jsvLockAgainSafe,
@@ -93,7 +93,7 @@ const void * const exportPtrs[] = {
 };
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "process",
   "name" : "env",
@@ -129,7 +129,7 @@ JsVar *jswrap_process_env() {
 #ifndef SAVE_ON_FLASH
   // Pointer to a list of predefined exports - eventually we'll get rid of the array above
   jsvObjectSetChildAndUnLock(obj, "EXPTR", jsvNewFromInteger((JsVarInt)(size_t)exportPtrs));
-#ifdef DEBUG_APP_RAM_BASE 
+#ifdef DEBUG_APP_RAM_BASE
 extern uint32_t app_ram_base;
   jsvObjectSetChildAndUnLock(obj, "APP_RAM_BASE", jsvNewFromInteger((JsVarInt)app_ram_base));
 #endif
@@ -138,7 +138,7 @@ extern uint32_t app_ram_base;
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "process",
   "name" : "memory",

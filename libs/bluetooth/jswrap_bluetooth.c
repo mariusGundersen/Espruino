@@ -158,7 +158,7 @@ JsVar *bleGetActiveBluetoothGattServer() {
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_ble_init"
 }*/
@@ -224,7 +224,7 @@ void jswrap_ble_reconfigure_softdevice() {
     jswrap_ble_wake();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_ble_idle"
 }*/
@@ -232,7 +232,7 @@ bool jswrap_ble_idle() {
   return false;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "kill",
   "generate" : "jswrap_ble_kill"
 }*/
@@ -304,7 +304,7 @@ void jswrap_ble_dumpBluetoothInitialisation(vcbprintf_callback user_callback, vo
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
     "type": "class",
     "class" : "NRF"
 }
@@ -317,7 +317,7 @@ Most functionality is related to Bluetooth Low Energy, however there are also so
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "connect",
@@ -327,7 +327,7 @@ Most functionality is related to Bluetooth Low Energy, however there are also so
 }
 Called when a host device connects to Espruino. The first argument contains the address.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "disconnect",
@@ -341,7 +341,7 @@ The most common reason is:
 * 19 - `REMOTE_USER_TERMINATED_CONNECTION`
 * 22 - `LOCAL_HOST_TERMINATED_CONNECTION`
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "security",
@@ -353,7 +353,7 @@ Contains updates on the security of the current Bluetooth link.
 
 See Nordic's `ble_gap_evt_auth_status_t` structure for more information.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "HID",
@@ -365,7 +365,7 @@ HID report back to Espruino. This is usually used for handling
 indications such as the Caps Lock LED.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "servicesDiscover",
@@ -373,7 +373,7 @@ indications such as the Caps Lock LED.
 }
 Called with discovered services when discovery is finished
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "characteristicsDiscover",
@@ -383,7 +383,7 @@ Called with discovered characteristics when discovery is finished
  */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "NFCon",
@@ -391,7 +391,7 @@ Called with discovered characteristics when discovery is finished
 }
 Called when an NFC field is detected
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "NFCoff",
@@ -399,7 +399,7 @@ Called when an NFC field is detected
 }
 Called when an NFC field is no longer detected
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "NRF",
   "name" : "NFCrx",
@@ -412,7 +412,7 @@ When NFC is started with `NRF.nfcStart`, this is fired
 when NFC data is received. It doesn't get called if
 NFC is started with `NRF.nfcURL` or `NRF.nfcRaw`
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "BluetoothDevice",
   "name" : "gattserverdisconnected",
@@ -446,7 +446,7 @@ NRF.requestDevice(...).then(function(device) {
 });
 ```
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "BluetoothRemoteGATTCharacteristic",
   "name" : "characteristicvaluechanged",
@@ -469,7 +469,7 @@ The first argument is of the form `{target : BluetoothRemoteGATTCharacteristic}`
 will then contain the new value (as a DataView).
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Bluetooth",
   "instanceof" : "Serial",
@@ -478,7 +478,7 @@ will then contain the new value (as a DataView).
 The Bluetooth Serial port - used when data is sent or received over Bluetooth Smart on nRF51/nRF52 chips.
  */
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "disconnect",
@@ -494,7 +494,7 @@ void jswrap_ble_disconnect() {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "sleep",
@@ -518,7 +518,7 @@ void jswrap_ble_sleep() {
   jswrap_ble_disconnect();
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "wake",
@@ -534,7 +534,7 @@ void jswrap_ble_wake() {
   jsble_check_error(jsble_advertising_start());
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "restart",
@@ -563,7 +563,7 @@ void jswrap_ble_restart(JsVar *callback) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getAddress",
@@ -592,7 +592,7 @@ JsVar *jswrap_ble_getAddress() {
       ((addr0    )&0xFF));
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setAddress",
@@ -633,7 +633,7 @@ void jswrap_ble_setAddress(JsVar *address) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getBattery",
@@ -649,7 +649,7 @@ JsVarFloat jswrap_ble_getBattery() {
   return jshReadVRef();
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setAdvertising",
@@ -763,7 +763,7 @@ NRF.setAdvertising({},{name:"Hello"});
 You can also specify 'manufacturer data', which is another form of advertising data.
 We've registered the Manufacturer ID 0x0590 (as Pur3 Ltd) for use with *Official
 Espruino devices* - use it to advertise whatever data you'd like, but we'd recommend
-using JSON. 
+using JSON.
 
 For example by not advertising a device name you can send up to 24 bytes of JSON on
 Espruino's manufacturer ID:
@@ -928,7 +928,7 @@ JsVar *jswrap_ble_getCurrentAdvertisingData() {
   return adv;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getAdvertisingData",
@@ -1069,7 +1069,7 @@ JsVar *jswrap_ble_getAdvertisingData(JsVar *data, JsVar *options) {
   return jsvNewArrayBufferWithData(len_advdata, encoded_advdata);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setScanResponse",
@@ -1136,7 +1136,7 @@ void jswrap_ble_setScanResponse(JsVar *data) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setServices",
@@ -1267,7 +1267,7 @@ specify your own raw advertising data packets with `NRF.setAdvertising`
 **Note:** The services on Espruino can only be modified when there is
 no device connected to it as it requires a restart of the Bluetooth stack.
 **iOS devices will 'cache' the list of services** so apps like
-NRF Connect may incorrectly display the old services even after you 
+NRF Connect may incorrectly display the old services even after you
 have modified them. To fix this, disable and re-enable Bluetooth on your
 iOS device, or use an Android device to run NRF Connect.
 
@@ -1367,7 +1367,7 @@ void jswrap_ble_setServices(JsVar *data, JsVar *options) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "updateServices",
@@ -1666,7 +1666,7 @@ bool jswrap_ble_filter_device(JsVar *filters, JsVar *device) {
   return matches;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setScan",
@@ -1875,7 +1875,7 @@ void jswrap_ble_setScan(JsVar *callback, JsVar *options) {
   jsvUnLock(filters);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "filterDevices",
@@ -1927,7 +1927,7 @@ JsVar *jswrap_ble_filterDevices(JsVar *devices, JsVar *filters) {
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "findDevices",
@@ -2083,7 +2083,7 @@ void jswrap_ble_findDevices(JsVar *callback, JsVar *options) {
   jsvUnLock(jsiSetTimeout(jswrap_ble_findDevices_timeout_cb, time));
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setRSSIHandler",
@@ -2119,7 +2119,7 @@ void jswrap_ble_setRSSIHandler(JsVar *callback) {
 
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setTxPower",
@@ -2135,7 +2135,7 @@ void jswrap_ble_setTxPower(JsVarInt pwr) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setLowPowerConnection",
@@ -2176,7 +2176,7 @@ void jswrap_ble_setLowPowerConnection(bool lowPower) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcURL",
@@ -2254,7 +2254,7 @@ void jswrap_nfc_URL(JsVar *url) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcPair",
@@ -2315,7 +2315,7 @@ void jswrap_nfc_pair(JsVar *key) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcAndroidApp",
@@ -2374,7 +2374,7 @@ void jswrap_nfc_androidApp(JsVar *appName) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcRaw",
@@ -2436,7 +2436,7 @@ void jswrap_nfc_raw(JsVar *payload) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcStart",
@@ -2505,7 +2505,7 @@ JsVar *jswrap_nfc_start(JsVar *payload) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcStop",
@@ -2529,7 +2529,7 @@ void jswrap_nfc_stop() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcSend",
@@ -2573,7 +2573,7 @@ void jswrap_nfc_send(JsVar *payload) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "sendHIDReport",
@@ -2600,7 +2600,7 @@ void jswrap_ble_sendHIDReport(JsVar *data, JsVar *callback) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "E",
   "name" : "ANCS",
@@ -2631,7 +2631,7 @@ NRF.ancsGetNotificationInfo( event.uid ).then(a=>print("Notify",E.toJS(a)));
 ```
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "E",
   "name" : "AMS",
@@ -2651,7 +2651,7 @@ truncated : bool // the 'value' was too big to be sent completely
 
 */
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "ancsIsActive",
@@ -2668,7 +2668,7 @@ bool jswrap_ble_ancsIsActive() {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "ancsAction",
@@ -2691,7 +2691,7 @@ void jswrap_ble_ancsAction(int uid, bool isPositive) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "ancsGetNotificationInfo",
@@ -2724,7 +2724,7 @@ JsVar *jswrap_ble_ancsGetNotificationInfo(JsVarInt uid) {
   return promise;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "ancsGetAppInfo",
@@ -2773,7 +2773,7 @@ JsVar *jswrap_ble_ancsGetAppInfo(JsVar *appId) {
   return promise;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "amsIsActive",
@@ -2790,7 +2790,7 @@ bool jswrap_ble_amsIsActive() {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "amsGetPlayerInfo",
@@ -2838,7 +2838,7 @@ JsVar *jswrap_ble_amsGetPlayerInfo(JsVar *id) {
   return promise;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "amsGetTrackInfo",
@@ -2877,7 +2877,7 @@ JsVar *jswrap_ble_amsGetTrackInfo(JsVar *id) {
   return promise;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "amsCommand",
@@ -2920,7 +2920,7 @@ void jswrap_ble_amsCommand(JsVar *id) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "requestDevice",
@@ -3064,7 +3064,7 @@ JsVar *jswrap_ble_requestDevice(JsVar *options) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "connect",
@@ -3107,8 +3107,8 @@ NRF.connect("aa:bb:cc:dd:ee random").then(function(g) {
 ```
 
 **Note:** Espruino Bluetooth devices use a type of BLE address known as 'random static',
-which is different to a 'public' address. To connect to an Espruino device you'll need 
-to use an address string of the form `"aa:bb:cc:dd:ee random"` rather than just 
+which is different to a 'public' address. To connect to an Espruino device you'll need
+to use an address string of the form `"aa:bb:cc:dd:ee random"` rather than just
 `"aa:bb:cc:dd:ee"`. If you scan for devices with `NRF.findDevices`/`NRF.setScan` then
 addresses are already reported in the correct format.
 */
@@ -3129,7 +3129,7 @@ JsVar *jswrap_ble_connect(JsVar *mac, JsVar *options) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setWhitelist",
@@ -3154,7 +3154,7 @@ void jswrap_ble_setWhitelist(bool whitelist) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setConnectionInterval",
@@ -3208,7 +3208,7 @@ void jswrap_ble_setConnectionInterval(JsVar *interval) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setSecurity",
@@ -3315,7 +3315,7 @@ void jswrap_ble_setSecurity(JsVar *options) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getSecurityStatus",
@@ -3344,7 +3344,7 @@ JsVar *jswrap_ble_getSecurityStatus(JsVar *parent) {
   return jsble_get_security_status(m_peripheral_conn_handle);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "startBonding",
@@ -3365,7 +3365,7 @@ JsVar *jswrap_ble_startBonding(bool forceRePair) {
    return 0;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "BluetoothDevice",
   "ifdef" : "NRF52_SERIES"
@@ -3391,7 +3391,7 @@ NRF.requestDevice({ filters: [{ name: 'Puck.js abcd' }] }).then(function(device)
 });
 ```
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "BluetoothDevice",
     "name" : "gatt",
@@ -3415,7 +3415,7 @@ JsVar *jswrap_BluetoothDevice_gatt(JsVar *parent) {
   return 0;
 #endif
 }
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "BluetoothDevice",
     "name" : "rssi",
@@ -3424,7 +3424,7 @@ JsVar *jswrap_BluetoothDevice_gatt(JsVar *parent) {
     "return" : ["bool", "The last received RSSI (signal strength) for this device" ]
 }
 *//*Documentation only*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "event",
     "class" : "BluetoothDevice",
     "name" : "passkey",
@@ -3440,7 +3440,7 @@ For this to be used, you'll have to specify that there's a display using `NRF.se
 **This is not part of the Web Bluetooth Specification.** It has been added
 specifically for Espruino.
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "event",
     "class" : "BluetoothDevice",
     "name" : "passkeyRequest",
@@ -3455,7 +3455,7 @@ For this to be used, you'll have to specify that there's a keyboard using `NRF.s
 **This is not part of the Web Bluetooth Specification.** It has been added
 specifically for Espruino.
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothDevice",
     "name" : "sendPasskey",
@@ -3482,7 +3482,7 @@ void jswrap_ble_BluetoothDevice_sendPasskey(JsVar *parent, JsVar *passkeyVar) {
 }
 #endif
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothRemoteGATTServer",
     "name" : "connect",
@@ -3576,7 +3576,7 @@ JsVar *jswrap_ble_BluetoothRemoteGATTServer_connect(JsVar *parent, JsVar *option
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "BluetoothRemoteGATTServer",
     "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
@@ -3586,7 +3586,7 @@ or `NRF.requestDevice(options)` and `response.gatt.connect`
 
 https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattserver
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "BluetoothDevice",
     "name" : "connected",
@@ -3594,7 +3594,7 @@ https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattserver
     "return" : ["bool", "Whether the device is connected or not" ]
 }
 *//*Documentation only*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothRemoteGATTServer",
     "name" : "disconnect",
@@ -3646,7 +3646,7 @@ JsVar *jswrap_BluetoothRemoteGATTServer_disconnect(JsVar *parent) {
   return 0;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothRemoteGATTServer",
     "name" : "startBonding",
@@ -3696,7 +3696,7 @@ JsVar *jswrap_ble_BluetoothRemoteGATTServer_startBonding(JsVar *parent, bool for
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothRemoteGATTServer",
     "name" : "getSecurityStatus",
@@ -3732,7 +3732,7 @@ JsVar *jswrap_ble_BluetoothRemoteGATTServer_getSecurityStatus(JsVar *parent) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "BluetoothRemoteGATTServer",
   "name" : "getPrimaryService",
@@ -3766,7 +3766,7 @@ JsVar *jswrap_BluetoothRemoteGATTServer_getPrimaryService(JsVar *parent, JsVar *
   return 0;
 #endif
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "BluetoothRemoteGATTServer",
   "name" : "getPrimaryServices",
@@ -3792,7 +3792,7 @@ JsVar *jswrap_BluetoothRemoteGATTServer_getPrimaryServices(JsVar *parent) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "BluetoothRemoteGATTServer",
   "name" : "setRSSIHandler",
@@ -3831,7 +3831,7 @@ void jswrap_BluetoothRemoteGATTServer_setRSSIHandler(JsVar *parent, JsVar *callb
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "BluetoothRemoteGATTService",
   "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
@@ -3840,7 +3840,7 @@ Web Bluetooth-style GATT service - get this using `BluetoothRemoteGATTServer.get
 
 https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattservice
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "BluetoothRemoteGATTService",
   "name" : "getCharacteristic",
@@ -3874,7 +3874,7 @@ JsVar *jswrap_BluetoothRemoteGATTService_getCharacteristic(JsVar *parent, JsVar 
   return 0;
 #endif
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "BluetoothRemoteGATTService",
   "name" : "getCharacteristics",
@@ -3901,7 +3901,7 @@ JsVar *jswrap_BluetoothRemoteGATTService_getCharacteristics(JsVar *parent) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "BluetoothRemoteGATTCharacteristic",
   "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
@@ -3910,7 +3910,7 @@ Web Bluetooth-style GATT characteristic - get this using `BluetoothRemoteGATTSer
 
 https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattcharacteristic
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothRemoteGATTCharacteristic",
     "name" : "writeValue",
@@ -3958,7 +3958,7 @@ JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_writeValue(JsVar *characteri
   return 0;
 #endif
 }
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothRemoteGATTCharacteristic",
     "name" : "readValue",
@@ -4002,7 +4002,7 @@ JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_readValue(JsVar *characteris
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothRemoteGATTCharacteristic",
     "name" : "startNotifications",
@@ -4056,7 +4056,7 @@ NRF.connect("pu:ck:js:ad:dr:es random").then(function(g) {
 */
 JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_startNotifications(JsVar *characteristic) {
 #if CENTRAL_LINK_COUNT>0
-  
+
   // Set our characteristic's handle up in the list of handles to notify for
   // TODO: What happens when we close the connection and re-open another?
   uint16_t handle = (uint16_t)jsvGetIntegerAndUnLock(jsvObjectGetChild(characteristic, "handle_value", 0));
@@ -4065,10 +4065,10 @@ JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_startNotifications(JsVar *ch
     jsvSetArrayItem(handles, handle, characteristic);
     jsvUnLock(handles);
   }
-  
+
   JsVar *promise;
-  
-  // Check for existing cccd_handle 
+
+  // Check for existing cccd_handle
   JsVar *cccdVar = jsvObjectGetChild(characteristic,"handle_cccd", 0);
   if ( !cccdVar ) { // if it doesn't exist, try and find it
     if (!bleNewTask(BLETASK_CHARACTERISTIC_DESC_AND_STARTNOTIFY, characteristic))
@@ -4079,7 +4079,7 @@ JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_startNotifications(JsVar *ch
     jsvUnLock(cccdVar);
     if (!bleNewTask(BLETASK_CHARACTERISTIC_NOTIFY, 0))
       return 0;
-    promise = jsvLockAgainSafe(blePromise);    
+    promise = jsvLockAgainSafe(blePromise);
     jsble_central_characteristicNotify(characteristic, true);
   }
   return promise;
@@ -4089,7 +4089,7 @@ JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_startNotifications(JsVar *ch
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "method",
     "class" : "BluetoothRemoteGATTCharacteristic",
     "name" : "stopNotifications",

@@ -35,7 +35,7 @@ typedef long long int64_t;
 #include <jswrap_neopixel.h>
 
 
-/*JSON{
+/*JSON{  //TODO
   "type": "class",
   "class" : "ESP8266",
   "ifdef" : "ESP8266"
@@ -45,7 +45,7 @@ Class containing utility functions for the [ESP8266](http://www.espruino.com/Esp
 
 // ESP8266.reboot
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -64,7 +64,7 @@ void jswrap_ESP8266_reboot() {
  * Retrieve the reset information that is stored when the ESP8266 resets.
  * The result will be a JS object containing the details.
  */
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -99,7 +99,7 @@ JsVar *jswrap_ESP8266_getResetInfo() {
 
 //===== ESP8266.logDebug
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -116,7 +116,7 @@ void jswrap_ESP8266_logDebug(bool enable) {
   esp8266_logInit(enable ? LOG_MODE_ON1 : LOG_MODE_OFF);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -133,7 +133,7 @@ void jswrap_ESP8266_setLog(int mode) {
   esp8266_logInit(mode);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -152,7 +152,7 @@ void jswrap_ESP8266_printLog() {
   jsvUnLock(line);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -165,7 +165,7 @@ Returns one line from the log or up to 128 characters.
 
 //===== ESP8266.dumpSocketInfo
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -180,7 +180,7 @@ void jswrap_ESP8266_dumpSocketInfo(void) {
 
 //===== ESP8266.setCPUFreq
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -205,7 +205,7 @@ void jswrap_ESP8266_setCPUFreq(
 
 //===== ESP8266.getState
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -254,7 +254,7 @@ JsVar *jswrap_ESP8266_getState() {
 
 //===== ESP8266.getFreeFlash
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -290,7 +290,7 @@ uint32_t crc32(uint8_t *buf, uint32_t len) {
   return ~crc;
 }
 
-/*JSON{
+/*JSON{  //TODO
  "type"     : "staticmethod",
  "class"    : "ESP8266",
   "ifdef"   : "ESP8266",
@@ -320,7 +320,7 @@ JsVar *jswrap_ESP8266_crc32(JsVar *jsData) {
 // one : high typ 700ns, min 500ns; low typ 600ns, max 5us
 // latch: low min 6us
 
-/*JSON{
+/*JSON{  //TODO
  "type"     : "staticmethod",
  "class"    : "ESP8266",
   "ifdef"   : "ESP8266",
@@ -339,7 +339,7 @@ void jswrap_ESP8266_neopixelWrite(Pin pin, JsVar *jsArrayOfData) {
 }
 
 //===== ESP8266.deepSleep
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -350,8 +350,8 @@ void jswrap_ESP8266_neopixelWrite(Pin pin, JsVar *jsArrayOfData) {
     ["option", "JsVar", "posible values are 0, 1, 2 or 4"]
   ]
 }
-Put the ESP8266 into 'deep sleep' for the given number of microseconds, 
-reducing power consumption drastically. 
+Put the ESP8266 into 'deep sleep' for the given number of microseconds,
+reducing power consumption drastically.
 
 meaning of option values:
 
@@ -363,7 +363,7 @@ meaning of option values:
 
 4 - no RF after waking up. Power consumption is the lowest.
 
-**Note:** unlike normal Espruino boards' 'deep sleep' mode, ESP8266 deep sleep actually turns off the processor. After the given number of microseconds have elapsed, the ESP8266 will restart as if power had been turned off and then back on. *All contents of RAM will be lost*. 
+**Note:** unlike normal Espruino boards' 'deep sleep' mode, ESP8266 deep sleep actually turns off the processor. After the given number of microseconds have elapsed, the ESP8266 will restart as if power had been turned off and then back on. *All contents of RAM will be lost*.
 Connect GPIO 16 to RST to enable wakeup.
 
 **Special:** 0 microseconds cause sleep forever until external wakeup RST pull down occurs.
@@ -374,7 +374,7 @@ void   jswrap_ESP8266_deepSleep(JsVar *jsMicros, JsVar *jsOption) {
     jsExceptionHere(JSET_ERROR, "Invalid microseconds.");
     return;
   }
-  
+
   uint8_t option = jsvGetInteger(jsOption);
   system_deep_sleep_set_option(option);
 

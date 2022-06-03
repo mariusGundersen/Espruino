@@ -15,7 +15,7 @@
  */
 #include "jswrap_number.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Number",
   "check" : "jsvIsNumeric(var)"
@@ -23,7 +23,7 @@
 This is the built-in JavaScript class for numbers.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Number",
   "name" : "Number",
@@ -63,21 +63,21 @@ JsVar *jswrap_number_constructor(JsVar *args) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "NaN",
   "generate_full" : "NAN",
   "return" : ["float","Not a  Number"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "Infinity",
   "generate_full" : "INFINITY",
   "return" : ["float","Positive Infinity (1/0)"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "NaN",
@@ -85,7 +85,7 @@ JsVar *jswrap_number_constructor(JsVar *args) {
   "return" : ["float","Not a  Number"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "MAX_VALUE",
@@ -93,7 +93,7 @@ JsVar *jswrap_number_constructor(JsVar *args) {
   "return" : ["float","Maximum representable value"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "MIN_VALUE",
@@ -101,7 +101,7 @@ JsVar *jswrap_number_constructor(JsVar *args) {
   "return" : ["float","Smallest representable value"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "NEGATIVE_INFINITY",
@@ -109,7 +109,7 @@ JsVar *jswrap_number_constructor(JsVar *args) {
   "return" : ["float","Negative Infinity (-1/0)"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "POSITIVE_INFINITY",
@@ -117,7 +117,7 @@ JsVar *jswrap_number_constructor(JsVar *args) {
   "return" : ["float","Positive Infinity (1/0)"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Number",
   "name" : "toFixed",
@@ -137,14 +137,14 @@ JsVar *jswrap_number_toFixed(JsVar *parent, int decimals) {
   return jsvNewFromString(buf);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "HIGH",
   "generate_full" : "1",
   "return" : ["int32","Logic 1 for Arduino compatibility - this is the same as just typing `1`"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "LOW",
   "generate_full" : "0",

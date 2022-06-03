@@ -25,7 +25,7 @@
 #include "jswrap_puck.h" // jswrap_puck_getTemperature
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "E",
   "typedef": "class E"
@@ -33,7 +33,7 @@
 This is the built-in JavaScript class for Espruino utility functions.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "E",
   "name" : "init",
@@ -54,7 +54,7 @@ E.on('init', function() {
 rather than replacing the last one. This allows you to write modular code -
 something that was not possible with `onInit`.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "E",
   "name" : "kill",
@@ -76,7 +76,7 @@ example by removing power, hitting an actual reset button, or via
 a Watchdog timer reset.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "E",
   "name" : "errorFlag",
@@ -96,7 +96,7 @@ This event will only be emitted when error flag is set. If the error
 flag was already set nothing will be emitted. To clear error flags
 so that you do get a callback each time a flag is set, call `E.getErrorFlags()`.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "E",
   "name" : "touch",
@@ -125,7 +125,7 @@ E.on('touch',t=>{
 ```
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "getTemperature",
@@ -149,7 +149,7 @@ JsVarFloat jswrap_espruino_getTemperature() {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -187,7 +187,7 @@ int nativeCallGetCType() {
   return -1; // unknown
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -256,7 +256,7 @@ JsVar *jswrap_espruino_nativeCall(JsVarInt addr, JsVar *signature, JsVar *data) 
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -278,7 +278,7 @@ JsVarFloat jswrap_espruino_clip(JsVarFloat x, JsVarFloat min, JsVarFloat max) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -308,7 +308,7 @@ JsVarFloat jswrap_espruino_sum(JsVar *arr) {
   return sum;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -341,7 +341,7 @@ JsVarFloat jswrap_espruino_variance(JsVar *arr, JsVarFloat mean) {
   return variance;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -475,7 +475,7 @@ short FFT(short int dir,long m,FFTDATATYPE *x,FFTDATATYPE *y)
   return(TRUE);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -568,7 +568,7 @@ void jswrap_espruino_FFT(JsVar *arrReal, JsVar *arrImag, bool inverse) {
     _jswrap_espruino_FFT_setData(arrImag, vImag, 0, pow2);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -613,7 +613,7 @@ void jswrap_espruino_enableWatchdog(JsVarFloat time, JsVar *isAuto) {
   jshEnableWatchDog(time);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -644,7 +644,7 @@ JsVar *jswrap_espruino_getErrorFlagArray(JsErrorFlags flags) {
   return arr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -674,7 +674,7 @@ JsVar *jswrap_espruino_getErrorFlags() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "getFlags",
@@ -688,7 +688,7 @@ Get Espruino's interpreter flags that control the way it handles your JavaScript
 * `unsafeFlash` - Some platforms stop writes/erases to interpreter memory to stop you bricking the device accidentally - this removes that protection
 * `unsyncFiles` - When writing files, *don't* flush all data to the SD card after each command (the default is *to* flush). This is much faster, but can cause filesystem damage if power is lost without the filesystem unmounted.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "setFlags",
@@ -702,7 +702,7 @@ Set the Espruino interpreter flags that control the way it handles your JavaScri
 Run `E.getFlags()` and check its description for a list of available flags and their values.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "pipe",
@@ -715,7 +715,7 @@ Run `E.getFlags()` and check its description for a list of available flags and t
   ]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "toArrayBuffer",
@@ -735,7 +735,7 @@ JsVar *jswrap_espruino_toArrayBuffer(JsVar *str) {
   return jsvNewArrayBufferFromString(str, 0);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "toString",
@@ -800,7 +800,7 @@ JsVar *jswrap_espruino_toString(JsVar *args) {
   return str;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "toUint8Array",
@@ -851,7 +851,7 @@ JsVar *jswrap_espruino_toUint8Array(JsVar *args) {
   return arr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "toJS",
@@ -891,7 +891,7 @@ JsVar *jswrap_espruino_toJS(JsVar *v) {
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "memoryArea",
@@ -918,7 +918,7 @@ JsVar *jswrap_espruino_memoryArea(int addr, int len) {
   return jsvNewNativeString((char*)mappedAddr, (size_t)len);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "setBootCode",
@@ -951,7 +951,7 @@ void jswrap_espruino_setBootCode(JsVar *code, bool alwaysExec) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1000,7 +1000,7 @@ int jswrap_espruino_setClock(JsVar *options) {
   return (int)jshSetSystemClock(options);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1064,7 +1064,7 @@ void jswrap_espruino_setConsole(JsVar *deviceVar, JsVar *options) {
   jsiSetConsoleDevice(device, force);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "getConsole",
@@ -1081,7 +1081,7 @@ JsVar *jswrap_espruino_getConsole() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1105,7 +1105,7 @@ int jswrap_espruino_reverseByte(int v) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "dumpTimers",
@@ -1118,7 +1118,7 @@ void jswrap_espruino_dumpTimers() {
   jstDumpUtilityTimers();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "dumpLockedVars",
@@ -1133,7 +1133,7 @@ void jswrap_espruino_dumpLockedVars() {
 }
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "dumpFreeList",
@@ -1148,7 +1148,7 @@ void jswrap_espruino_dumpFreeList() {
 }
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "dumpFragmentation",
@@ -1185,7 +1185,7 @@ void jswrap_e_dumpFragmentation() {
   jsiConsolePrint("\n");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1235,7 +1235,7 @@ void jswrap_e_dumpVariables() {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1245,7 +1245,7 @@ void jswrap_e_dumpVariables() {
 BETA: defragment memory!
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1316,7 +1316,7 @@ JsVar *jswrap_espruino_getSizeOf(JsVar *v, int depth) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1346,7 +1346,7 @@ JsVarInt jswrap_espruino_getAddressOf(JsVar *v, bool flatAddress) {
   return (JsVarInt)(size_t)v;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
     "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1465,7 +1465,7 @@ void jswrap_espruino_mapInPlace(JsVar *from, JsVar *to, JsVar *map, JsVarInt bit
   jsvArrayBufferIteratorFree(&itTo);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "lookupNoCase",
@@ -1493,7 +1493,7 @@ JsVar *jswrap_espruino_lookupNoCase(JsVar *haystack, JsVar *needle, bool returnK
   } else return jsvObjectGetChildI(haystack, needleBuf);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1514,7 +1514,7 @@ JsVar *jswrap_e_dumpStr() {
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1527,7 +1527,7 @@ JsVar *jswrap_e_dumpStr() {
 Set the seed for the random number generator used by `Math.random()`.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1541,7 +1541,7 @@ rotating to try and make a relatively random value from the noise in the
 signal.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1569,7 +1569,7 @@ JsVar *jswrap_espruino_CRC32(JsVar *data) {
   return jsvNewFromLongInteger(~crc);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1637,7 +1637,7 @@ JsVar *jswrap_espruino_HSBtoRGB(JsVarFloat hue, JsVarFloat sat, JsVarFloat bri, 
   return arr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "setPassword",
@@ -1666,7 +1666,7 @@ void jswrap_espruino_setPassword(JsVar *pwd) {
   jsvUnLock(jsvObjectSetChild(execInfo.hiddenRoot, PASSWORD_VARIABLE_NAME, pwd));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "lockConsole",
@@ -1682,7 +1682,7 @@ void jswrap_espruino_lockConsole() {
   jsvUnLock(pwd);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "setTimeZone",
@@ -1702,7 +1702,7 @@ void jswrap_espruino_setTimeZone(JsVarFloat zone) {
       jsvNewFromInteger((int)(zone*60)));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1741,7 +1741,7 @@ JsVar *jswrap_espruino_memoryMap(JsVar *baseAddress, JsVar *registers) {
   "})",0,2,args);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1766,7 +1766,7 @@ void jswrap_espruino_asm(JsVar *callspec, JsVar *args) {
   jsExceptionHere(JSET_ERROR, "'E.asm' calls should have been replaced by the Espruino tools before upload");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1790,7 +1790,7 @@ void jswrap_espruino_compiledC(JsVar *code) {
   jsExceptionHere(JSET_ERROR, "'E.compiledC' calls should have been replaced by the Espruino tools before upload");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "E",
   "name" : "reboot",
@@ -1818,7 +1818,7 @@ void jswrap_espruino_reboot() {
 #ifdef USE_USB_HID
 #include "usbd_cdc_hid.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifdef" : "USE_USB_HID",
   "class" : "E",
@@ -1855,7 +1855,7 @@ void jswrap_espruino_setUSBHID(JsVar *arr) {
   jsvObjectSetChildAndUnLock(execInfo.hiddenRoot, JS_USB_HID_VAR_NAME, s);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifdef" : "USE_USB_HID",
   "class" : "E",
@@ -1878,7 +1878,7 @@ bool jswrap_espruino_sendUSBHID(JsVar *arr) {
 #endif
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "#if" : "defined(PUCKJS) || defined(PIXLJS) || defined(BANGLEJS)",
   "class" : "E",
@@ -1903,7 +1903,7 @@ JsVarInt jswrap_espruino_getBattery() {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "#if" : "defined(PICO) || defined(ESPRUINOWIFI) || defined(ESPRUINOBOARD)",
   "class" : "E",
@@ -1958,7 +1958,7 @@ void jswrap_espruino_setRTCPrescaler(int prescale) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "#if" : "defined(PICO) || defined(ESPRUINOWIFI) || defined(ESPRUINOBOARD)",
   "class" : "E",
@@ -1985,7 +1985,7 @@ int jswrap_espruino_getRTCPrescaler(bool calibrate) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",

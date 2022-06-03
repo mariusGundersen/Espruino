@@ -17,7 +17,7 @@
 #include "jswrap_io.h"
 #include "jstimer.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type"  : "class",
   "class" : "Pin",
   "check" : "jsvIsPin(var)",
@@ -28,7 +28,7 @@ This is the built-in class for Pins, such as D0,D1,LED1, or BTN
 You can call the methods on Pin, or you can use Wiring-style functions such as digitalWrite
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "constructor",
   "class"    : "Pin",
   "name"     : "Pin",
@@ -52,7 +52,7 @@ JsVar *jswrap_pin_constructor(JsVar *val) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "read",
@@ -69,7 +69,7 @@ bool jswrap_pin_read(JsVar *parent) {
   return jshPinInput(pin);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "set",
@@ -85,7 +85,7 @@ void jswrap_pin_set(JsVar *parent) {
   jshPinOutput(pin, 1);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "reset",
@@ -101,7 +101,7 @@ void jswrap_pin_reset(JsVar *parent) {
   jshPinOutput(pin, 0);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "write",
@@ -123,7 +123,7 @@ void jswrap_pin_write(
   jshPinOutput(pin, value);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "writeAtTime",
@@ -146,7 +146,7 @@ void jswrap_pin_writeAtTime(JsVar *parent, bool value, JsVarFloat time) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "getMode",
@@ -160,7 +160,7 @@ JsVar *jswrap_pin_getMode(JsVar *parent) {
   return jswrap_io_getPinMode(jshGetPinFromVar(parent));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "mode",
@@ -176,7 +176,7 @@ void jswrap_pin_mode(JsVar *parent, JsVar *mode) {
   jswrap_io_pinMode(jshGetPinFromVar(parent), mode, false);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "toggle",
@@ -199,7 +199,7 @@ bool jswrap_pin_toggle(JsVar *parent) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "getInfo",

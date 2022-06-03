@@ -557,14 +557,14 @@ void accel_off() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type": "class",
     "class" : "Puck",
     "ifdef" : "PUCKJS"
 }
 Class containing [Puck.js's](http://www.puck-js.com) utility functions.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "FET",
   "generate_full" : "26",
@@ -574,7 +574,7 @@ Class containing [Puck.js's](http://www.puck-js.com) utility functions.
 On Puck.js V2 (not v1.0) this is the pin that controls the FET, for high-powered outputs.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "mag",
@@ -617,7 +617,7 @@ JsVar *jswrap_puck_mag() {
   return to_xyz(mag_reading, 1);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "magTemp",
@@ -645,7 +645,7 @@ JsVarFloat jswrap_puck_magTemp() {
   return ((JsVarFloat)t) / 256.0;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Puck",
   "name" : "mag",
@@ -660,7 +660,7 @@ Check out [the Puck.js page on the magnetometer](http://www.espruino.com/Puck.js
 for more information.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Puck",
   "name" : "accel",
@@ -677,7 +677,7 @@ scaled to 1g. For more information see `Puck.accel()` or
 [the Puck.js page on the magnetometer](http://www.espruino.com/Puck.js#on-board-peripherals).
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "magOn",
@@ -701,7 +701,7 @@ Puck.on('mag', function(xyz) {
 
 This call will be ignored if the sampling is already on.
 
-If given an argument, the sample rate is set (if not, it's at 0.63 Hz). 
+If given an argument, the sample rate is set (if not, it's at 0.63 Hz).
 The sample rate must be one of the following (resulting in the given power consumption):
 
 * 80 Hz - 900uA
@@ -748,7 +748,7 @@ void jswrap_puck_magOn(JsVarFloat hz) {
   mag_enabled = true;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "magOff",
@@ -769,7 +769,7 @@ void jswrap_puck_magOff() {
   mag_enabled = false;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Puck",
     "name" : "magWr",
@@ -789,7 +789,7 @@ void jswrap_puck_magWr(JsVarInt reg, JsVarInt data) {
   mag_wr(reg, data);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Puck",
     "name" : "magRd",
@@ -835,7 +835,7 @@ void temp_off() {
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "getTemperature",
@@ -866,7 +866,7 @@ JsVarFloat jswrap_puck_getTemperature() {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "accelOn",
@@ -923,14 +923,14 @@ void jswrap_puck_accelOn(JsVarFloat hz) {
   accel_enabled = true;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "accelOff",
   "ifdef" : "PUCKJS",
   "generate" : "jswrap_puck_accelOff"
 }
-Turn the accelerometer off after it has been turned on by `Puck.accelOn()`. 
+Turn the accelerometer off after it has been turned on by `Puck.accelOn()`.
 
 Check out [the Puck.js page on the accelerometer](http://www.espruino.com/Puck.js#on-board-peripherals)
 for more information.
@@ -947,7 +947,7 @@ void jswrap_puck_accelOff() {
   accel_enabled = false;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "accel",
@@ -979,7 +979,7 @@ JsVar *jswrap_puck_accel() {
   return o;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Puck",
     "name" : "accelWr",
@@ -1006,7 +1006,7 @@ void jswrap_puck_accelWr(JsVarInt reg, JsVarInt data) {
   jsi2cWrite(&i2cAccel, ACCEL_ADDR, 2, buf, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Puck",
     "name" : "accelRd",
@@ -1034,7 +1034,7 @@ int jswrap_puck_accelRd(JsVarInt reg) {
   return buf[0];
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Puck",
   "name" : "IR",
@@ -1141,7 +1141,7 @@ void jswrap_puck_IR(JsVar *data, Pin cathode, Pin anode) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Puck",
     "name" : "capSense",
@@ -1155,13 +1155,13 @@ void jswrap_puck_IR(JsVar *data, Pin cathode, Pin anode) {
 }
 Capacitive sense - the higher the capacitance, the higher the number returned.
 
-If called without arguments, a value depending on the capacitance of what is 
+If called without arguments, a value depending on the capacitance of what is
 attached to pin D11 will be returned. If you attach a length of wire to D11,
 you'll be able to see a higher value returned when your hand is near the wire
 than when it is away.
 
 You can also supply pins to use yourself, however if you do this then
-the TX pin must be connected to RX pin and sense plate via a roughly 1MOhm 
+the TX pin must be connected to RX pin and sense plate via a roughly 1MOhm
 resistor.
 
 When not supplying pins, Puck.js uses an internal resistor between D12(tx)
@@ -1174,7 +1174,7 @@ int jswrap_puck_capSense(Pin tx, Pin rx) {
   return (int)nrf_utils_cap_sense(CAPSENSE_TX_PIN, CAPSENSE_RX_PIN);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Puck",
     "name" : "light",
@@ -1212,7 +1212,7 @@ JsVarFloat jswrap_puck_light() {
   return f;
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Puck",
     "ifdef" : "PUCKJS",
@@ -1282,7 +1282,7 @@ static bool selftest_check_pin(Pin pin, char *err) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Puck",
     "name" : "selfTest",
@@ -1484,7 +1484,7 @@ bool jswrap_puck_selfTest() {
   return ok;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_puck_init"
 }*/
@@ -1579,7 +1579,7 @@ void jswrap_puck_init() {
   jsble_check_error(err_code);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "kill",
   "generate" : "jswrap_puck_kill"
 }*/
@@ -1590,7 +1590,7 @@ void jswrap_puck_kill() {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_puck_idle"
 }*/

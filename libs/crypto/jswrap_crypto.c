@@ -38,7 +38,7 @@
 #endif
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "crypto",
   "ifdef" : "USE_CRYPTO"
@@ -49,7 +49,7 @@ Cryptographic functions
 */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "crypto",
   "class" : "AES",
@@ -59,7 +59,7 @@ Class containing AES encryption/decryption
 
 **Note:** This library is currently only included in builds for boards where there is space. For other boards there is `crypto.js` which implements SHA1 in JS.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "crypto",
   "name" : "AES",
@@ -86,7 +86,7 @@ const char *jswrap_crypto_error_to_str(int err) {
     case MBEDTLS_ERR_MD_ALLOC_FAILED: return "Not enough memory";
     case MBEDTLS_ERR_MD_FEATURE_UNAVAILABLE: return "Feature unavailable";
     case MBEDTLS_ERR_MD_BAD_INPUT_DATA: return "Bad input data";
-#ifdef USE_AES	
+#ifdef USE_AES
     case MBEDTLS_ERR_AES_INVALID_INPUT_LENGTH: return "Invalid input length";
 #endif
   }
@@ -175,7 +175,7 @@ JsVar *jswrap_crypto_SHAx(JsVar *message, int shaNum) {
   return outArr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA1",
@@ -194,7 +194,7 @@ Performs a SHA1 hash and returns the result as a 20 byte ArrayBuffer.
 isn't space for a fully unrolled SHA1 implementation so a slower
 all-JS implementation is used instead.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA224",
@@ -209,7 +209,7 @@ all-JS implementation is used instead.
 
 Performs a SHA224 hash and returns the result as a 28 byte ArrayBuffer
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA256",
@@ -224,7 +224,7 @@ Performs a SHA224 hash and returns the result as a 28 byte ArrayBuffer
 
 Performs a SHA256 hash and returns the result as a 32 byte ArrayBuffer
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA384",
@@ -239,7 +239,7 @@ Performs a SHA256 hash and returns the result as a 32 byte ArrayBuffer
 
 Performs a SHA384 hash and returns the result as a 48 byte ArrayBuffer
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA512",
@@ -256,7 +256,7 @@ Performs a SHA512 hash and returns the result as a 64 byte ArrayBuffer
 */
 
 #ifdef USE_TLS
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "PBKDF2",
@@ -443,7 +443,7 @@ static NO_INLINE JsVar *jswrap_crypto_AEScrypt(JsVar *message, JsVar *key, JsVar
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "AES",
   "name" : "encrypt",
@@ -462,7 +462,7 @@ JsVar *jswrap_crypto_AES_encrypt(JsVar *message, JsVar *key, JsVar *options) {
   return jswrap_crypto_AEScrypt(message, key, options, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "AES",
   "name" : "decrypt",

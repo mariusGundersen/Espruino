@@ -24,7 +24,7 @@
 #include "freertos/task.h"
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type"          : "function",
   "name"          : "peek8",
   "generate_full" : "jswrap_io_peek(addr,count,1)",
@@ -37,7 +37,7 @@
 }
 Read 8 bits of memory at the given location - DANGEROUS!
  */
-/*JSON{
+/*JSON{  //TODO
   "type"          : "function",
   "name"          : "poke8",
   "generate_full" : "jswrap_io_poke(addr,value,1)",
@@ -48,7 +48,7 @@ Read 8 bits of memory at the given location - DANGEROUS!
 }
 Write 8 bits of memory at the given location - VERY DANGEROUS!
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "peek16",
   "generate_full" : "jswrap_io_peek(addr,count,2)",
@@ -61,7 +61,7 @@ Write 8 bits of memory at the given location - VERY DANGEROUS!
 }
 Read 16 bits of memory at the given location - DANGEROUS!
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "poke16",
   "generate_full" : "jswrap_io_poke(addr,value,2)",
@@ -72,7 +72,7 @@ Read 16 bits of memory at the given location - DANGEROUS!
 }
 Write 16 bits of memory at the given location - VERY DANGEROUS!
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "peek32",
   "generate_full" : "jswrap_io_peek(addr,count,4)",
@@ -85,7 +85,7 @@ Write 16 bits of memory at the given location - VERY DANGEROUS!
 }
 Read 32 bits of memory at the given location - DANGEROUS!
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "poke32",
   "generate_full" : "jswrap_io_poke(addr,value,4)",
@@ -152,7 +152,7 @@ void jswrap_io_poke(JsVarInt addr, JsVar *data, int wordSize) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "analogRead",
   "generate" : "jshPinAnalog",
@@ -169,7 +169,7 @@ However only pins connected to an ADC will work (see the datasheet)
 
  **Note:** if you didn't call `pinMode` beforehand then this function will also reset pin's state to `"analog"`
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "analogWrite",
   "generate" : "jswrap_io_analogWrite",
@@ -203,7 +203,7 @@ void jswrap_io_analogWrite(Pin pin, JsVarFloat value, JsVar *options) {
   jshPinAnalogOutput(pin, value, freq, flags);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "digitalPulse",
   "generate" : "jswrap_io_digitalPulse",
@@ -263,7 +263,7 @@ void jswrap_io_digitalPulse(Pin pin, bool value, JsVar *times) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "function",
   "name"     : "digitalWrite",
   "generate" : "jswrap_io_digitalWrite",
@@ -318,7 +318,7 @@ void jswrap_io_digitalWrite(
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "function",
   "name"     : "digitalRead",
   "generate" : "jswrap_io_digitalRead",
@@ -369,7 +369,7 @@ JsVarInt jswrap_io_digitalRead(JsVar *pinVar) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "function",
   "name"     : "pinMode",
   "generate" : "jswrap_io_pinMode",
@@ -429,7 +429,7 @@ void jswrap_io_pinMode(
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "ifndef" : "SAVE_ON_FLASH",
   "name" : "getPinMode",
@@ -507,7 +507,7 @@ void jswrap_io_shiftOutCallback(int val, void *data) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "shiftOut",
   "generate" : "jswrap_io_shiftOut",
@@ -617,7 +617,7 @@ void jswrap_io_shiftOut(JsVar *pins, JsVar *options, JsVar *data) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "setWatch",
   "generate" : "jswrap_interface_setWatch",
@@ -786,7 +786,7 @@ JsVar *jswrap_interface_setWatch(
   return (itemIndex>=0) ? jsvNewFromInteger(itemIndex) : 0/*undefined*/;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "clearWatch",
   "generate" : "jswrap_interface_clearWatch",

@@ -21,7 +21,7 @@
 #include "jsinteractive.h"
 
 // force this because we don't currently export anything
-/*JSON{
+/*JSON{  //TODO
   "type" : "include",
   "include" : "jswrap_stream.c"
 }*/

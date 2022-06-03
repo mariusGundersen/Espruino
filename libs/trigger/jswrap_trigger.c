@@ -18,7 +18,7 @@
 #include "trigger.h"
 #include "jswrap_trigger.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Trig"
 }
@@ -27,7 +27,7 @@ This class exists in order to interface Espruino with fast-moving trigger wheels
 This class is currently in testing - it is NOT AVAILABLE on normal boards.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getPosAtTime",
@@ -46,7 +46,7 @@ JsVarFloat jswrap_trig_getPosAtTime(JsVarFloat time) {
   return wrapAround((position * 360 / trig->teethTotal) + trig->keyPosition, 360);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "setup",
@@ -107,7 +107,7 @@ void jswrap_trig_setup(Pin pin, JsVar *options) {
   jshPinWatch(trig->sensorPin, true, JSPW_HIGH_SPEED);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "setTrigger",
@@ -155,7 +155,7 @@ void jswrap_trig_setTrigger(JsVarInt num, JsVarFloat position, JsVar *pins, JsVa
   // all done!
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "killTrigger",
@@ -178,7 +178,7 @@ void jswrap_trig_killTrigger(JsVarInt num) {
   tp->newTooth = TRIGGERPOINT_TOOTH_DISABLE;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getTrigger",
@@ -223,7 +223,7 @@ JsVar *jswrap_trig_getTrigger(JsVarInt num) {
   return obj;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getRPM",
@@ -239,7 +239,7 @@ JsVarFloat jswrap_trig_getRPM() {
   return jshGetTimeFromMilliseconds(60000) / (JsVarFloat)(trig->avrTooth * trig->teethTotal);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getErrors",
@@ -255,7 +255,7 @@ JsVarInt jswrap_trig_getErrors() {
   return (JsVarInt)errors;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getErrorArray",

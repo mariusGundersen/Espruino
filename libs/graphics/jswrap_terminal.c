@@ -20,7 +20,7 @@
 #include "jsdevices.h"
 #include "jshardware.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Terminal",
   "instanceof" : "Serial",
@@ -199,7 +199,7 @@ void terminalSendChar(char chn) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_terminal_init"
 }*/
@@ -209,7 +209,7 @@ void jswrap_terminal_init() {
   terminalY = (unsigned char)(TERMINAL_HEIGHT-1);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_terminal_idle"
 }*/

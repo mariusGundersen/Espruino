@@ -65,7 +65,7 @@ typedef struct {
 static TelnetServer tnSrv;        ///< the telnet server, only one right now
 static uint8_t      tnSrvMode;    ///< current mode for the telnet server
 
-/*JSON{
+/*JSON{  //TODO
   "type"  : "library",
   "class" : "TelnetServer"
 }
@@ -76,7 +76,7 @@ port 23 on the ESP8266 and port 2323 on Linux.
 **Note:** To enable on Linux, run `./espruino --telnet`
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "TelnetServer",
   "name"     : "setOptions",
@@ -109,7 +109,7 @@ void jswrap_telnet_setOptions(JsVar *jsOptions) {
   jsvUnLock(jsMode);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "init",
   "class"    : "TelnetServer",
   "generate" : "jswrap_telnet_init"
@@ -123,7 +123,7 @@ void jswrap_telnet_init(void) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "kill",
   "class"    : "TelnetServer",
   "generate" : "jswrap_telnet_kill"
@@ -133,7 +133,7 @@ void jswrap_telnet_kill(void) {
   tnSrvMode = MODE_OFF;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "idle",
   "class"    : "TelnetServer",
   "generate" : "jswrap_telnet_idle"

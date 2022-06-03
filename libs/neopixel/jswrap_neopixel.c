@@ -38,7 +38,7 @@
 bool neopixelWrite(Pin pin, unsigned char *rgbData, size_t rgbSize);
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "neopixel"
 }
@@ -48,7 +48,7 @@ These use a high speed single-wire protocol which needs platform-specific
 implementation on some devices - hence this library to simplify things.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "neopixel",
   "name" : "write",

@@ -20,7 +20,7 @@
 #include "jsparse.h"
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "heatshrink",
   "ifndef" : "SAVE_ON_FLASH"
@@ -33,7 +33,7 @@ Functions here take and return buffers of data. There is no support for streamin
 */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "heatshrink",
   "name" : "compress",
@@ -76,7 +76,7 @@ JsVar *jswrap_heatshrink_compress(JsVar *data) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "heatshrink",
   "name" : "decompress",

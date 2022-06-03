@@ -54,7 +54,7 @@ if "check_output" not in dir( subprocess ):
 #
 # Comments look like:
 #
-#/*JSON{ "type":"staticmethod|staticproperty|constructor|method|property|function|variable|class|library|idle|init|kill|EV_xxx",
+#/*JSON{  //TODO "type":"staticmethod|staticproperty|constructor|method|property|function|variable|class|library|idle|init|kill|EV_xxx",
 #                      // class = built-in class that does not require instantiation
 #                      // library = built-in class that needs require('classname')
 #                      // idle = function to run on idle regardless
@@ -121,13 +121,13 @@ def get_jsondata(is_for_document, parseArgs = True, board = False):
             print("BOARD "+arg[2:]);
             print("Now ignore_ifdefs = False");
             ignore_ifdefs = False
-            board = importlib.import_module(arg[2:])            
+            board = importlib.import_module(arg[2:])
           elif arg[1]=="F":
             "" # -Fxxx.yy in args is filename xxx.yy, which is mandatory for build_jswrapper.py
           else:
             print("Unknown command-line option")
             exit(1)
-        elif arg[-2:]==".c": 
+        elif arg[-2:]==".c":
           # C file, all good
           explicit_files = True
           jswraps.append(arg)
@@ -149,12 +149,12 @@ def get_jsondata(is_for_document, parseArgs = True, board = False):
             print("board.defines: " + i);
             defines.append(i)
         if "makefile" in board.info["build"]:
-          for i in board.info["build"]["makefile"]:           
+          for i in board.info["build"]["makefile"]:
             print("board.makefile: " + i);
             i = i.strip()
-            if i.startswith("DEFINES"): 
+            if i.startswith("DEFINES"):
               defs = i[7:].strip()[2:].strip().split() # array of -Dsomething
-              for d in defs: 
+              for d in defs:
                 if not d.startswith("-D"):
                   print("WARNING: expecting -Ddefine, got " + d)
                 defines.append(d[2:])
@@ -245,7 +245,7 @@ def get_jsondata(is_for_document, parseArgs = True, board = False):
                if not key in ["type","class","name","patch"]:
                  print("Copying "+key+" --- "+jsondata[key]);
                  targetjsondata[key] = jsondata[key]
-            drop = True 
+            drop = True
           if not drop:
             jsondatas.append(jsondata)
         except ValueError as e:
@@ -286,7 +286,7 @@ def get_jsondata(is_for_document, parseArgs = True, board = False):
           "include" : "platform_config.h"
         })
 
-    jsondatas = sorted(jsondatas, key=lambda j: j["sortorder"] if "sortorder" in j else 0) 
+    jsondatas = sorted(jsondatas, key=lambda j: j["sortorder"] if "sortorder" in j else 0)
 
     return jsondatas
 

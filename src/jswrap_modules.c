@@ -24,7 +24,7 @@
 #include "jswrap_fs.h"
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Modules"
 }
@@ -35,7 +35,7 @@ static JsVar *jswrap_modules_getModuleList() {
   return jsvObjectGetChild(execInfo.hiddenRoot, JSPARSE_MODULE_CACHE_NAME, JSV_OBJECT);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "require",
   "generate" : "jswrap_require",
@@ -104,7 +104,7 @@ JsVar *jswrap_require(JsVar *moduleName) {
   if (!moduleExport) {
     const char *builtInJS = jswGetBuiltInJSLibrary(moduleNameBuf);
     if (builtInJS) {
-      JsVar *fileContents = jsvNewNativeString((char*)builtInJS, strlen(builtInJS));       
+      JsVar *fileContents = jsvNewNativeString((char*)builtInJS, strlen(builtInJS));
       if (fileContents) {
         moduleExport = jspEvaluateModule(fileContents);
         jsvUnLock(fileContents);
@@ -115,7 +115,7 @@ JsVar *jswrap_require(JsVar *moduleName) {
   // If we have filesystem support, look on the filesystem
 #ifdef USE_FILESYSTEM
   if (!moduleExport) {
-    JsVar *fileContents = 0;        
+    JsVar *fileContents = 0;
     JsVar *modulePath = jsvNewFromString("node_modules/");
     if (modulePath) { // out of memory
       jsvAppendString(modulePath, moduleNameBuf);
@@ -133,8 +133,8 @@ JsVar *jswrap_require(JsVar *moduleName) {
       jsvUnLock(fileContents);
     }
   }
-#endif    
-   
+#endif
+
 
   if (moduleExport) { // Found - now save module
     JsVar *moduleList = jswrap_modules_getModuleList();
@@ -158,7 +158,7 @@ JsVar *jswrap_require(JsVar *moduleName) {
   return moduleExport;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Modules",
   "name" : "getCached",
@@ -188,7 +188,7 @@ JsVar *jswrap_modules_getCached() {
   return arr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Modules",
   "name" : "removeCached",
@@ -218,7 +218,7 @@ void jswrap_modules_removeCached(JsVar *id) {
   jsvUnLock(moduleList);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Modules",
   "name" : "removeAllCached",
@@ -233,7 +233,7 @@ void jswrap_modules_removeAllCached() {
   jsvUnLock(moduleList);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Modules",
   "name" : "addCached",

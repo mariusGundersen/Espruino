@@ -410,7 +410,7 @@ NO_INLINE void _jswrap_drawImageSimple(JsGraphics *gfx, int xPos, int yPos, GfxD
 // ==========================================================================================
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Graphics"
 }
@@ -421,7 +421,7 @@ Use Graphics.createXXX to create a graphics object that renders in the way you w
 **Note:** On boards that contain an LCD, there is a built-in 'LCD' object of type Graphics. For instance to draw a line you'd type: ```LCD.drawLine(0,0,100,100)```
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "params" : [ ["all","bool","(only on some devices) If `true` then copy all pixels, not just those that have changed."] ],
@@ -450,7 +450,7 @@ accessed the `Graphics.buffer` directly then you
 may need to use `Graphics.flip(true)` to force
 a full update of the screen.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "Graphics",
   "name" : "buffer"
@@ -475,7 +475,7 @@ new Uint8Array([
 ```
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_graphics_idle"
 }*/
@@ -484,7 +484,7 @@ bool jswrap_graphics_idle() {
   return false;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_graphics_init",
   "sortorder" : -100
@@ -521,7 +521,7 @@ void jswrap_graphics_init() {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "getInstance",
@@ -542,7 +542,7 @@ static bool isValidBPP(int bpp) {
   return bpp==1 || bpp==2 || bpp==4 || bpp==8 || bpp==16 || bpp==24 || bpp==32; // currently one colour can't ever be spread across multiple bytes
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "createArrayBuffer",
@@ -627,7 +627,7 @@ JsVar *jswrap_graphics_createArrayBuffer(int width, int height, int bpp, JsVar *
   return parent;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "createCallback",
@@ -686,7 +686,7 @@ JsVar *jswrap_graphics_createCallback(int width, int height, int bpp, JsVar *cal
 }
 
 #ifdef USE_LCD_SDL
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "createSDL",
@@ -721,7 +721,7 @@ JsVar *jswrap_graphics_createSDL(int width, int height, int bpp) {
 #endif
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "createImage",
@@ -815,7 +815,7 @@ JsVar *jswrap_graphics_createImage(JsVar *data) {
   return img;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getWidth",
@@ -824,7 +824,7 @@ JsVar *jswrap_graphics_createImage(JsVar *data) {
 }
 The width of this Graphics instance
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getHeight",
@@ -837,7 +837,7 @@ int jswrap_graphics_getWidthOrHeight(JsVar *parent, bool height) {
   JsGraphics gfx; if (!graphicsGetFromVar(&gfx, parent)) return 0;
   return height ? graphicsGetHeight(&gfx) : graphicsGetWidth(&gfx);
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getBPP",
@@ -860,7 +860,7 @@ int jswrap_graphics_getBPP(JsVar *parent) {
   return gfx.data.bpp;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "reset",
@@ -880,7 +880,7 @@ JsVar *jswrap_graphics_reset(JsVar *parent) {
   return jswrap_graphics_setFontSizeX(parent, 1+JSGRAPHICS_FONTSIZE_4X6, false);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "clear",
@@ -970,7 +970,7 @@ JsVar *_jswrap_graphics_fillRect_col(JsVar *parent, JsVar *opt, int y1, int x2, 
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "fillRect",
@@ -995,7 +995,7 @@ JsVar *jswrap_graphics_fillRect(JsVar *parent, JsVar *opt, int y1, int x2, int y
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "clearRect",
@@ -1019,7 +1019,7 @@ JsVar *jswrap_graphics_clearRect(JsVar *parent, JsVar *opt, int y1, int x2, int 
   return _jswrap_graphics_fillRect_col(parent,opt,y1,x2,y2,false);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawRect",
@@ -1044,7 +1044,7 @@ JsVar *jswrap_graphics_drawRect(JsVar *parent, JsVar *opt, int y1, int x2, int y
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "fillCircle",
@@ -1064,7 +1064,7 @@ Draw a filled circle in the Foreground Color
    return jswrap_graphics_fillEllipse(parent, x-rad, y-rad, x+rad, y+rad);
  }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawCircle",
@@ -1084,7 +1084,7 @@ JsVar *jswrap_graphics_drawCircle(JsVar *parent, int x, int y, int rad) {
   return jswrap_graphics_drawEllipse(parent, x-rad, y-rad, x+rad, y+rad);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawCircleAA",
@@ -1110,7 +1110,7 @@ JsVar *jswrap_graphics_drawCircleAA(JsVar *parent, int x, int y, int r) {
 #endif
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "fillEllipse",
@@ -1134,7 +1134,7 @@ JsVar *jswrap_graphics_fillEllipse(JsVar *parent, int x, int y, int x2, int y2) 
    return jsvLockAgain(parent);
  }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawEllipse",
@@ -1158,7 +1158,7 @@ JsVar *jswrap_graphics_drawEllipse(JsVar *parent, int x, int y, int x2, int y2) 
    return jsvLockAgain(parent);
  }
 
- /*JSON{
+ /*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getPixel",
@@ -1176,7 +1176,7 @@ int jswrap_graphics_getPixel(JsVar *parent, int x, int y) {
   return (int)graphicsGetPixel(&gfx, x, y);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setPixel",
@@ -1203,7 +1203,7 @@ JsVar *jswrap_graphics_setPixel(JsVar *parent, int x, int y, JsVar *color) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "toColor",
@@ -1365,7 +1365,7 @@ unsigned int jswrap_graphics_toColor(JsVar *parent, JsVar *r, JsVar *g, JsVar *b
   return color;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setColor",
@@ -1396,7 +1396,7 @@ If you specified `color_order` when creating the `Graphics` instance, `r`,`g` an
 **Note:** On devices with low flash memory, `r` **must** be an integer representing the color in the current bit depth. It cannot
 be a floating point value, and `g` and `b` are ignored.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setBgColor",
@@ -1428,7 +1428,7 @@ JsVar *jswrap_graphics_setColorX(JsVar *parent, JsVar *r, JsVar *g, JsVar *b, bo
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getColor",
@@ -1437,7 +1437,7 @@ JsVar *jswrap_graphics_setColorX(JsVar *parent, JsVar *r, JsVar *g, JsVar *b, bo
 }
 Get the color to use for subsequent drawing operations
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getBgColor",
@@ -1452,7 +1452,7 @@ JsVarInt jswrap_graphics_getColorX(JsVar *parent, bool isForeground) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setClipRect",
@@ -1511,7 +1511,7 @@ JsVar *jswrap_graphics_setClipRect(JsVar *parent, int x1, int y1, int x2, int y2
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setFontBitmap",
@@ -1523,7 +1523,7 @@ Make subsequent calls to `drawString` use the built-in 4x6 pixel bitmapped Font
 
 It is recommended that you use `Graphics.setFont("4x6")` for more flexibility.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setFontVector",
@@ -1563,7 +1563,7 @@ JsVar *jswrap_graphics_setFontSizeX(JsVar *parent, int size, bool isVectorFont) 
 #endif
   return jsvLockAgain(parent);
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setFontCustom",
@@ -1624,7 +1624,7 @@ JsVar *jswrap_graphics_setFontCustom(JsVar *parent, JsVar *bitmap, int firstChar
   return jsvLockAgain(parent);
 }
 #endif
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setFontAlign",
@@ -1659,7 +1659,7 @@ JsVar *jswrap_graphics_setFontAlign(JsVar *parent, int x, int y, int r) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setFont",
@@ -1686,7 +1686,7 @@ You can also use these forms, but they are not recommended:
 
 `g.getFont()` will return the current font as a String.
 
-For a list of available font names, you can use `g.getFonts()`. 
+For a list of available font names, you can use `g.getFonts()`.
 
 */
 JsVar *jswrap_graphics_setFont(JsVar *parent, JsVar *fontId, int size) {
@@ -1758,7 +1758,7 @@ JsVar *jswrap_graphics_setFont(JsVar *parent, JsVar *fontId, int size) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getFont",
@@ -1799,7 +1799,7 @@ JsVar *jswrap_graphics_getFont(JsVar *parent) {
   }
   if (name) {
     int scale = gfx.data.fontSize & JSGRAPHICS_FONTSIZE_SCALE_MASK;
-    if (scale & JSGRAPHICS_FONTSIZE_SCALE_X_Y) 
+    if (scale & JSGRAPHICS_FONTSIZE_SCALE_X_Y)
       return jsvVarPrintf("%s:%dx%d",name, scale&JSGRAPHICS_FONTSIZE_SCALE_X_MASK, (scale & JSGRAPHICS_FONTSIZE_SCALE_Y_MASK)>>JSGRAPHICS_FONTSIZE_SCALE_Y_SHIFT);
     else if (scale>1) return jsvVarPrintf("%s:%d",name, scale);
     else return jsvNewFromString(name);
@@ -1810,7 +1810,7 @@ JsVar *jswrap_graphics_getFont(JsVar *parent) {
   return 0;
 #endif
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getFonts",
@@ -1909,7 +1909,7 @@ static int _jswrap_graphics_getCharWidth(JsGraphics *gfx, JsGraphicsFontInfo *in
   return 0;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getFontHeight",
@@ -1995,7 +1995,7 @@ JsVarInt _jswrap_graphics_stringWidth(JsGraphics *gfx, JsVar *var, int lineStart
   return w;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "stringWidth",
@@ -2012,7 +2012,7 @@ JsVarInt jswrap_graphics_stringWidth(JsVar *parent, JsVar *var) {
   return _jswrap_graphics_stringWidth(&gfx, var, -1);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "stringMetrics",
@@ -2036,7 +2036,7 @@ JsVar* jswrap_graphics_stringMetrics(JsVar *parent, JsVar *var) {
   return o;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "wrapString",
@@ -2142,7 +2142,7 @@ JsVar *jswrap_graphics_wrapString(JsVar *parent, JsVar *str, int maxWidth) {
   return lines;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawString",
@@ -2368,7 +2368,7 @@ void jswrap_graphics_drawCString(JsGraphics *gfx, int x, int y, char *str) {
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawLine",
@@ -2391,7 +2391,7 @@ JsVar *jswrap_graphics_drawLine(JsVar *parent, int x1, int y1, int x2, int y2) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawLineAA",
@@ -2422,7 +2422,7 @@ JsVar *jswrap_graphics_drawLineAA(JsVar *parent, double x1, double y1, double x2
 #endif
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "lineTo",
@@ -2445,7 +2445,7 @@ JsVar *jswrap_graphics_lineTo(JsVar *parent, int x, int y) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "moveTo",
@@ -2467,7 +2467,7 @@ JsVar *jswrap_graphics_moveTo(JsVar *parent, int x, int y) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawPoly",
@@ -2484,7 +2484,7 @@ Draw a polyline (lines between each of the points in `poly`) in the current fore
 
 **Note:** there is a limit of 64 points (128 XY elements) for polygons
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawPolyAA",
@@ -2551,7 +2551,7 @@ JsVar *jswrap_graphics_drawPoly_X(JsVar *parent, JsVar *poly, bool closed, bool 
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "fillPoly",
@@ -2582,7 +2582,7 @@ same pixels as `drawPoly` (drawing a line around the edge of the polygon).
 
 **Note:** there is a limit of 64 points (128 XY elements) for polygons
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "fillPolyAA",
@@ -2649,7 +2649,7 @@ JsVar *jswrap_graphics_fillPoly_X(JsVar *parent, JsVar *poly, bool antiAlias) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setRotation",
@@ -2694,7 +2694,7 @@ JsVar *jswrap_graphics_setRotation(JsVar *parent, int rotation, bool reflect) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "imageMetrics",
@@ -2729,7 +2729,7 @@ JsVar *jswrap_graphics_imageMetrics(JsVar *parent, JsVar *var) {
   return o;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawImage",
@@ -2945,7 +2945,7 @@ JsVar *jswrap_graphics_drawImage(JsVar *parent, JsVar *image, int xPos, int yPos
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "drawImages",
@@ -3078,7 +3078,7 @@ JsVar *jswrap_graphics_drawImages(JsVar *parent, JsVar *layersVar, JsVar *option
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "asImage",
@@ -3186,7 +3186,7 @@ JsVar *jswrap_graphics_asImage(JsVar *parent, JsVar *imgType) {
     return buffer;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "getModified",
@@ -3228,7 +3228,7 @@ JsVar *jswrap_graphics_getModified(JsVar *parent, bool reset) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "scroll",
@@ -3255,7 +3255,7 @@ JsVar *jswrap_graphics_scroll(JsVar *parent, int xdir, int ydir) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "blit",
@@ -3341,7 +3341,7 @@ JsVar *jswrap_graphics_blit(JsVar *parent, JsVar *options) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "asBMP",
@@ -3366,7 +3366,7 @@ JsVar *jswrap_graphics_asBMP(JsVar *parent) {
   else if (bpp>4 && bpp<8) bpp=8;
   bool hasPalette = bpp<=8;
   int rowstride = (((width*bpp)+31) >> 5) << 2; // padded to 32 bits
-  // palette length (byte size is 3x this) 
+  // palette length (byte size is 3x this)
   int paletteEntries = hasPalette?(1<<bpp):0;
   int headerLen = 14 + 12 + paletteEntries*3;
   int l = headerLen + height*rowstride;
@@ -3458,7 +3458,7 @@ JsVar *jswrap_graphics_asBMP(JsVar *parent) {
   return imgData;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "asURL",
@@ -3481,7 +3481,7 @@ JsVar *jswrap_graphics_asURL(JsVar *parent) {
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "dump",
@@ -3502,7 +3502,7 @@ void jswrap_graphics_dump(JsVar *parent) {
   jsiConsolePrint("\n");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "quadraticBezier",
@@ -3574,7 +3574,7 @@ JsVar *jswrap_graphics_quadraticBezier( JsVar *parent, JsVar *arr, JsVar *option
   return  result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "transformVertices",
@@ -3661,7 +3661,7 @@ JsVar *jswrap_graphics_transformVertices(JsVar *parent, JsVar *verts, JsVar *tra
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "Graphics",
   "name" : "theme",
@@ -3706,7 +3706,7 @@ JsVar *jswrap_graphics_theme(JsVar *parent) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Graphics",
   "name" : "setTheme",

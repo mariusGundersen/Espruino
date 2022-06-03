@@ -19,7 +19,7 @@
 #include "jsparse.h"
 #include "jswrap_arraybuffer.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "DataView",
   "ifndef" : "SAVE_ON_FLASH"
@@ -27,7 +27,7 @@
 This class helps
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "DataView",
   "name" : "DataView",
@@ -112,7 +112,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
 
 // =============================================================================  GET
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "getFloat32",
@@ -125,7 +125,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "getFloat64",
@@ -138,7 +138,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "getInt8",
@@ -151,7 +151,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "getInt16",
@@ -164,7 +164,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "getInt32",
@@ -177,7 +177,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "getUint8",
@@ -190,7 +190,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "getUint16",
@@ -203,7 +203,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "getUint32",
@@ -219,7 +219,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
 
 // =============================================================================  SET
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "setFloat32",
@@ -232,7 +232,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "setFloat64",
@@ -245,7 +245,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "setInt8",
@@ -258,7 +258,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "setInt16",
@@ -271,7 +271,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "setInt32",
@@ -284,7 +284,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "setUint8",
@@ -297,7 +297,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "setUint16",
@@ -310,7 +310,7 @@ void jswrap_dataview_set(JsVar *dataview, JsVarDataArrayBufferViewType type, int
   "ifndef" : "SAVE_ON_FLASH"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "DataView",
   "name" : "setUint32",

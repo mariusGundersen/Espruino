@@ -21,14 +21,14 @@
 #include "jspininfo.h"
 
 
-/*JSON{
+/*JSON{  //TODO
     "type": "class",
     "class" : "WioLTE"
 }
 Class containing utility functions for the Seeed WIO LTE board
 */
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "WioLTE",
     "name" : "LED",
@@ -52,7 +52,7 @@ void jswrap_wio_lte_led(int r, int g, int b) {
   stm32_neopixelWrite(JSH_PORTB_OFFSET+1, rgb, 3);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "WioLTE",
     "name" : "setGrovePower",
@@ -67,7 +67,7 @@ void jswrap_wio_lte_setGrovePower(bool pwr) {
   jshPinOutput(JSH_PORTB_OFFSET+10, pwr);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "WioLTE",
     "name" : "setLEDPower",
@@ -84,7 +84,7 @@ void jswrap_wio_lte_setLEDPower(bool pwr) {
   jshPinOutput(JSH_PORTA_OFFSET+8, pwr);
 }
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "D38",
@@ -92,7 +92,7 @@ void jswrap_wio_lte_setLEDPower(bool pwr) {
     "return" : [ "JsVar", ""]
 }
 */ // D38,D39
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "D20",
@@ -100,7 +100,7 @@ void jswrap_wio_lte_setLEDPower(bool pwr) {
     "return" : [ "JsVar", ""]
 }
 */ // D20,D19
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "A6",
@@ -109,7 +109,7 @@ void jswrap_wio_lte_setLEDPower(bool pwr) {
 }
 */ // A6,A7
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "I2C",
@@ -117,7 +117,7 @@ void jswrap_wio_lte_setLEDPower(bool pwr) {
     "return" : [ "JsVar", ""]
 }
 */ // I2C1 SCL,SDA
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "UART",
@@ -125,7 +125,7 @@ void jswrap_wio_lte_setLEDPower(bool pwr) {
     "return" : [ "JsVar", ""]
 }
 */ // UART1 RX,TX
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "A4",
@@ -134,7 +134,7 @@ void jswrap_wio_lte_setLEDPower(bool pwr) {
 }
 */ // A4,A5
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_wio_lte_init"
 }*/

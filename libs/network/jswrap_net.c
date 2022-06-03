@@ -20,7 +20,7 @@
 #include "socketserver.h"
 #include "network.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_net_idle"
 }*/
@@ -33,7 +33,7 @@ bool jswrap_net_idle() {
   return b;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "init",
   "generate" : "jswrap_net_init"
 }*/
@@ -41,7 +41,7 @@ void jswrap_net_init() {
   socketInit();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "kill",
   "generate" : "jswrap_net_kill"
 }*/
@@ -60,7 +60,7 @@ void jswrap_net_kill() {
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "url"
 }
@@ -68,7 +68,7 @@ This class helps to convert URLs into Objects of information ready for http.requ
 */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "url",
   "name" : "parse",
@@ -211,7 +211,7 @@ JsVar *jswrap_url_parse(JsVar *url, bool parseQuery) {
 // ---------------------------------------------------------------------------------
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "net"
 }
@@ -222,21 +222,21 @@ In order to use this, you will need an extra module to get network connectivity.
 This is designed to be a cut-down version of the [node.js library](http://nodejs.org/api/net.html). Please see the [Internet](/Internet) page for more information on how to use it.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "net",
   "class" : "Server"
 }
 The socket server created by `require('net').createServer`
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "net",
   "class" : "Socket"
 }
 An actual socket connection - allowing transmit/receive of TCP data
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Socket",
   "name" : "data",
@@ -246,7 +246,7 @@ An actual socket connection - allowing transmit/receive of TCP data
 }
 The 'data' event is called when data is received. If a handler is defined with `X.on('data', function(data) { ... })` then it will be called, otherwise data will be stored in an internal buffer, where it can be retrieved with `X.read()`
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Socket",
   "name" : "close",
@@ -256,7 +256,7 @@ The 'data' event is called when data is received. If a handler is defined with `
 }
 Called when the connection closes.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Socket",
   "name" : "error",
@@ -283,7 +283,7 @@ The error codes are:
 * -14: invalid SSL data
 
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Socket",
   "name" : "available",
@@ -292,7 +292,7 @@ The error codes are:
 }
 Return how many bytes are available to read. If there is already a listener for data, this will always return 0.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Socket",
   "name" : "read",
@@ -304,7 +304,7 @@ Return how many bytes are available to read. If there is already a listener for 
 }
 Return a string containing characters that have been received
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Socket",
   "name" : "pipe",
@@ -317,7 +317,7 @@ Return a string containing characters that have been received
 }
 Pipe this to a stream (an object with a 'write' method)
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Socket",
   "name" : "drain"
@@ -331,7 +331,7 @@ An event that is fired when the buffer is empty and it can accept more data to s
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "net",
   "name" : "createServer",
@@ -360,7 +360,7 @@ JsVar *jswrap_net_createServer(JsVar *callback) {
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "net",
   "name" : "connect",
@@ -426,7 +426,7 @@ JsVar *jswrap_net_connect(JsVar *options, JsVar *callback, SocketType socketType
   return rq;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "dgram"
 }
@@ -437,7 +437,7 @@ In order to use this, you will need an extra module to get network connectivity.
 This is designed to be a cut-down version of the [node.js library](http://nodejs.org/api/dgram.html). Please see the [Internet](/Internet) page for more information on how to use it.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "dgram",
   "name" : "createSocket",
@@ -459,14 +459,14 @@ JsVar *jswrap_dgram_createSocket(JsVar *type, JsVar *callback) {
   return connection;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "dgram",
   "class" : "dgramSocket"
 }
 An actual socket connection - allowing transmit/receive of TCP data
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "dgramSocket",
   "name" : "send",
@@ -515,7 +515,7 @@ void jswrap_dgram_socket_send(JsVar *parent, JsVar *buffer, JsVar *offset, JsVar
   networkFree(&net);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "dgramSocket",
   "name" : "message",
@@ -527,7 +527,7 @@ void jswrap_dgram_socket_send(JsVar *parent, JsVar *buffer, JsVar *offset, JsVar
 The 'message' event is called when a datagram message is received. If a handler is defined with `X.on('message', function(msg) { ... })` then it will be called`
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "dgramSocket",
   "name" : "bind",
@@ -549,7 +549,7 @@ JsVar *jswrap_dgramSocket_bind(JsVar *parent, unsigned short port, JsVar *callba
   return parent;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "dgramSocket",
   "name" : "close",
@@ -565,7 +565,7 @@ void jswrap_dgram_close(JsVar *parent) {
   networkFree(&net);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "dgramSocket",
   "name" : "addMembership",
@@ -583,7 +583,7 @@ void jswrap_dgram_addMembership(JsVar *parent, JsVar *group, JsVar *ip) {
   serverAddMembership(&net, parent, group, ip);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "dgramSocket",
   "name" : "close",
@@ -600,7 +600,7 @@ Called when the connection closes.
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "tls",
   "ifdef" : "USE_TLS"
@@ -612,7 +612,7 @@ In order to use this, you will need an extra module to get network connectivity.
 This is designed to be a cut-down version of the [node.js library](http://nodejs.org/api/tls.html). Please see the [Internet](/Internet) page for more information on how to use it.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "tls",
   "name" : "connect",
@@ -655,7 +655,7 @@ https://engineering.circle.com/https-authorized-certs-with-node-js/
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Server",
   "name" : "listen",
@@ -678,7 +678,7 @@ JsVar *jswrap_net_server_listen(JsVar *parent, int port, SocketType socketType) 
   return parent;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Server",
   "name" : "close",
@@ -699,7 +699,7 @@ void jswrap_net_server_close(JsVar *parent) {
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Socket",
   "name" : "write",
@@ -710,10 +710,10 @@ void jswrap_net_server_close(JsVar *parent) {
   "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"]
 }
 This function writes the `data` argument as a string. Data that is passed in
-(including arrays) will be converted to a string with the normal JavaScript 
+(including arrays) will be converted to a string with the normal JavaScript
 `toString` method.
 
-If you wish to send binary data then you need to convert that data directly to a 
+If you wish to send binary data then you need to convert that data directly to a
 String. This can be done with `String.fromCharCode`, however it's often easier
 and faster to use the Espruino-specific `E.toString`, which will read its arguments
 as an array of bytes and convert that to a String:
@@ -740,7 +740,7 @@ bool jswrap_net_socket_write(JsVar *parent, JsVar *data) {
   return false;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Socket",
   "name" : "end",

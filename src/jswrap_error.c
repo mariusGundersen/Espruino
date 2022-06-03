@@ -16,31 +16,31 @@
 #include "jswrap_error.h"
 #include "jsparse.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Error"
 }
 The base class for runtime errors
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "SyntaxError"
 }
 The base class for syntax errors
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "TypeError"
 }
 The base class for type errors
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "InternalError"
 }
 The base class for internal errors
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "ReferenceError"
 }
@@ -61,7 +61,7 @@ JsVar *_jswrap_error_constructor(JsVar *msg, char *type) {
   return d;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Error",
   "name" : "Error",
@@ -76,7 +76,7 @@ Creates an Error object
 JsVar *jswrap_error_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "Error");
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "SyntaxError",
   "name" : "SyntaxError",
@@ -91,7 +91,7 @@ Creates a SyntaxError object
 JsVar *jswrap_syntaxerror_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "SyntaxError");
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "TypeError",
   "name" : "TypeError",
@@ -106,7 +106,7 @@ Creates a TypeError object
 JsVar *jswrap_typeerror_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "TypeError");
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "InternalError",
   "name" : "InternalError",
@@ -122,7 +122,7 @@ JsVar *jswrap_internalerror_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "InternalError");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "ReferenceError",
   "name" : "ReferenceError",
@@ -138,35 +138,35 @@ JsVar *jswrap_referenceerror_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "ReferenceError");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Error",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
   "return" : ["JsVar","A String"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "SyntaxError",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
   "return" : ["JsVar","A String"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "TypeError",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
   "return" : ["JsVar","A String"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "InternalError",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
   "return" : ["JsVar","A String"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "ReferenceError",
   "name" : "toString",

@@ -23,7 +23,7 @@
 #error TV output wont work on non-STM32 devices
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "tv",
   "ifdef" : "STM32"
@@ -36,7 +36,7 @@ See the [Television](/Television) page for more information.
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "tv",
   "name" : "setup",

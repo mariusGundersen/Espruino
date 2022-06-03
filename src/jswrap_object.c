@@ -23,14 +23,14 @@
 #include "malloc.h" // needed for alloca
 #endif//__MINGW32__
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Object",
   "check" : "jsvIsObject(var)"
 }
 This is the built-in class for Objects
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Function",
   "check" : "jsvIsFunction(var)"
@@ -38,7 +38,7 @@ This is the built-in class for Objects
 This is the built-in class for Functions
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Object",
   "name" : "Object",
@@ -62,7 +62,7 @@ JsVar *jswrap_object_constructor(JsVar *value) {
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "Object",
   "name" : "length",
@@ -88,7 +88,7 @@ JsVar *jswrap_object_length(JsVar *parent) {
   return jsvNewFromInteger(l);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Object",
   "name" : "valueOf",
@@ -105,7 +105,7 @@ JsVar *jswrap_object_valueOf(JsVar *parent) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Object",
   "name" : "toString",
@@ -132,7 +132,7 @@ JsVar *jswrap_object_toString(JsVar *parent, JsVar *arg0) {
   return jsvAsString(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Object",
   "name" : "clone",
@@ -146,7 +146,7 @@ JsVar *jswrap_object_clone(JsVar *parent) {
   return jsvCopy(parent, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "keys",
@@ -158,7 +158,7 @@ JsVar *jswrap_object_clone(JsVar *parent) {
 }
 Return all enumerable keys of the given object
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "getOwnPropertyNames",
@@ -300,7 +300,7 @@ JsVar *jswrap_object_keys_or_property_names(
   return arr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "create",
@@ -329,7 +329,7 @@ JsVar *jswrap_object_create(JsVar *proto, JsVar *propertiesObject) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "getOwnPropertyDescriptor",
@@ -383,7 +383,7 @@ JsVar *jswrap_object_getOwnPropertyDescriptor(JsVar *parent, JsVar *name) {
   return obj;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Object",
   "name" : "hasOwnProperty",
@@ -428,7 +428,7 @@ bool jswrap_object_hasOwnProperty(JsVar *parent, JsVar *name) {
   return contains;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "defineProperty",
@@ -488,7 +488,7 @@ JsVar *jswrap_object_defineProperty(JsVar *parent, JsVar *propName, JsVar *desc)
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "defineProperties",
@@ -524,7 +524,7 @@ JsVar *jswrap_object_defineProperties(JsVar *parent, JsVar *props) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "getPrototypeOf",
@@ -541,7 +541,7 @@ JsVar *jswrap_object_getPrototypeOf(JsVar *object) {
   return jspGetNamedField(object, "__proto__", false);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "setPrototypeOf",
@@ -566,7 +566,7 @@ JsVar *jswrap_object_setPrototypeOf(JsVar *object, JsVar *proto) {
   return jsvLockAgainSafe(object);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "assign",
@@ -609,7 +609,7 @@ JsVar *jswrap_object_assign(JsVar *args) {
 // --------------------------------------------------------------------------
 //                                                         Misc constructors
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Boolean",
   "name" : "Boolean",
@@ -637,7 +637,7 @@ void jswrap_object_addEventListener(JsVar *parent, const char *eventName, void (
   jsvUnLock2(cb, n);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Object",
   "name" : "on",
@@ -731,7 +731,7 @@ void jswrap_object_on(JsVar *parent, JsVar *event, JsVar *listener) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Object",
   "name" : "emit",
@@ -783,7 +783,7 @@ void jswrap_object_emit(JsVar *parent, JsVar *event, JsVar *argArray) {
   jsvUnLockMany(n, args);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Object",
   "name" : "removeListener",
@@ -838,7 +838,7 @@ void jswrap_object_removeListener(JsVar *parent, JsVar *event, JsVar *callback) 
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Object",
   "name" : "removeAllListeners",
@@ -905,7 +905,7 @@ void jswrap_object_removeAllListeners_cstr(JsVar *parent, const char *event) {
 
 // ------------------------------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Function",
   "name" : "replaceWith",
@@ -975,7 +975,7 @@ void jswrap_function_replaceWith(JsVar *oldFunc, JsVar *newFunc) {
   jsvUnLock(prototype);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Function",
   "name" : "call",
@@ -991,7 +991,7 @@ This executes the function with the supplied 'this' argument and parameters
 // ... it just so happens that the way JsVarArray is parsed means that apply and call can be exactly the same function!
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Function",
   "name" : "apply",
@@ -1043,7 +1043,7 @@ JsVar *jswrap_function_apply_or_call(JsVar *parent, JsVar *thisArg, JsVar *argsA
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Function",
   "name" : "bind",

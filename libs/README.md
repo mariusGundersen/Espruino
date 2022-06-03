@@ -7,7 +7,7 @@ For more information on the actual build process, see [the build process page](.
 
 **For more detailed information, [check out these tutorials on the Espruino website](http://www.espruino.com/Extending+Espruino+1)**
 
-To get you started, here are some steps that can be made to enable `Hello.world()` in Espruino. 
+To get you started, here are some steps that can be made to enable `Hello.world()` in Espruino.
 Of course you have guessed that it will print "Hello World!" to the console. Let's get on with it!
 
 ## Create a directory to contain your library files
@@ -27,13 +27,13 @@ jswrap_hello.c
 #include "jsinteractive.h" // Pull inn the jsiConsolePrint function
 
 // Let's define the JavaScript class that will contain our `world()` method. We'll call it `Hello`
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Hello"
 }*/
 
 // Now, we define the `jswrap_hello_world` to be a `staticmethod` on the `Hello` class
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Hello",
   "name" : "world",
@@ -49,11 +49,11 @@ You can add more files here if you need. It's up to you!
 ## Modify the `Makefile`
 
 Find the text
-``` 
+```
 # ---------------------------------------------------------------------------------
 # When adding stuff here, also remember build_pininfo, platform_config.h, jshardware.c
 # TODO: Load more of this out of the BOARDNAME.py files if at all possible (see next section)
-# --------------------------------------------------------------------------------- 
+# ---------------------------------------------------------------------------------
 ```
 and add those two lines just before it
 
@@ -62,7 +62,7 @@ INCLUDE += -I$(ROOT)/libs/hello
 WRAPPERSOURCES += libs/hello/jswrap_hello.c #you can add more files here if your library depend on them
 ```
 
-If you want to make a pull request for your new library you'll need to make a `ifdef` guard for it, 
+If you want to make a pull request for your new library you'll need to make a `ifdef` guard for it,
 and specify which platforms should have access to your library.
 To see it in action, follow the `USE_TRIGGER` definition.
 

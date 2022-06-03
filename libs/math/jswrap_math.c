@@ -70,7 +70,7 @@ double jswrap_math_sin(double x) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Math"
 }
@@ -78,56 +78,56 @@ This is a standard JavaScript class that contains useful Maths routines
 */
 
 // -------------------------------------------------------------------- Math
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "E",
   "generate_full" : "2.718281828459045",
   "return" : ["float","The value of E - 2.718281828459045"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "PI",
   "generate_full" : "PI",
   "return" : ["float","The value of PI - 3.141592653589793"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "LN2",
   "generate_full" : "0.6931471805599453",
   "return" : ["float","The natural logarithm of 2 - 0.6931471805599453"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "LN10",
   "generate_full" : "2.302585092994046",
   "return" : ["float","The natural logarithm of 10 - 2.302585092994046"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "LOG2E",
   "generate_full" : "1.4426950408889634",
   "return" : ["float","The base 2 logarithm of e - 1.4426950408889634"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "LOG10E",
   "generate_full" : "0.4342944819032518",
   "return" : ["float","The base 10 logarithm of e - 0.4342944819032518"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "SQRT2",
   "generate_full" : "1.4142135623730951",
   "return" : ["float","The square root of 2 - 1.4142135623730951"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "SQRT1_2",
@@ -136,7 +136,7 @@ This is a standard JavaScript class that contains useful Maths routines
 }*/
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "abs",
@@ -149,7 +149,7 @@ This is a standard JavaScript class that contains useful Maths routines
 JsVarFloat jswrap_math_abs(JsVarFloat x) {
   return (x<0)?-x:x;
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -160,7 +160,7 @@ JsVarFloat jswrap_math_abs(JsVarFloat x) {
   ],
   "return" : ["float","The arc cosine of x, between 0 and PI"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -174,7 +174,7 @@ JsVarFloat jswrap_math_abs(JsVarFloat x) {
 JsVarFloat jswrap_math_asin(JsVarFloat x) {
   return jswrap_math_atan(x / jswrap_math_sqrt(1-x*x));
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "atan",
@@ -220,7 +220,7 @@ double jswrap_math_atan(double x) {
 #endif
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Math",
@@ -249,7 +249,7 @@ double jswrap_math_atan2(double y, double x) {
 }
 
 /* we use sin here, not cos, to try and save a bit of code space */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "cos",
@@ -325,7 +325,7 @@ double jswrap_math_pow(double x, double y) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -337,14 +337,14 @@ double jswrap_math_pow(double x, double y) {
   ],
   "return" : ["float","x raised to the power y (x^y)"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "random",
   "generate_full" : "(JsVarFloat)rand() / (JsVarFloat)RAND_MAX",
   "return" : ["float","A random number between 0 and 1"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "round",
@@ -363,7 +363,7 @@ JsVar *jswrap_math_round(double x) {
   return jsvNewFromLongInteger(i);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "sin",
@@ -373,7 +373,7 @@ JsVar *jswrap_math_round(double x) {
   ],
   "return" : ["float","The sine of theta"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "tan",
@@ -385,7 +385,7 @@ JsVar *jswrap_math_round(double x) {
 }*/ // note - we're trying to avoid having to use cos here
 
 /* we could use the real sqrt - but re-use pow to save on code space */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -401,7 +401,7 @@ double jswrap_math_sqrt(double x) {
   return (x>=0) ? exp(log(x) * 0.5) : NAN;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "ceil",
@@ -411,7 +411,7 @@ double jswrap_math_sqrt(double x) {
   ],
   "return" : ["float","x, rounded upwards to the nearest integer"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "floor",
@@ -422,7 +422,7 @@ double jswrap_math_sqrt(double x) {
   "return" : ["float","x, rounded downwards to the nearest integer"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -433,7 +433,7 @@ double jswrap_math_sqrt(double x) {
   ],
   "return" : ["float","E^x"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -445,7 +445,7 @@ double jswrap_math_sqrt(double x) {
   "return" : ["float","The log (base E) of x"]
 }*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Math",
@@ -466,7 +466,7 @@ JsVarFloat jswrap_math_clip(JsVarFloat x, JsVarFloat min, JsVarFloat max) {
   return x;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Math",
@@ -483,7 +483,7 @@ DEPRECATED - This is not part of standard JavaScript libraries
 Wrap a number around if it is less than 0 or greater than or equal to max. For instance you might do: ```Math.wrap(angleInDegrees, 360)```
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "min",
@@ -495,7 +495,7 @@ Wrap a number around if it is less than 0 or greater than or equal to max. For i
 }
 Find the minimum of a series of numbers
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "max",

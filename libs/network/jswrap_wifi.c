@@ -14,7 +14,7 @@
  * ----------------------------------------------------------------------------
  */
 
-/*JSON{
+/*JSON{  //TODO
    "type": "library",
    "class": "Wifi"
 }
@@ -51,7 +51,7 @@ On ESP32/ESP8266 if you want the connection to happen automatically at boot, add
 On other platforms, place `wifi.connect` in a function called `onInit`.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Wifi",
   "name" : "associated",
@@ -69,7 +69,7 @@ On ESP32/ESP8266 there is a `details` parameter which includes:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Wifi",
   "name" : "disconnected",
@@ -87,7 +87,7 @@ On ESP32/ESP8266 there is a `details` parameter which includes:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Wifi",
   "name" : "auth_change",
@@ -104,7 +104,7 @@ The details include:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Wifi",
   "name" : "dhcp_timeout",
@@ -113,7 +113,7 @@ The details include:
 The 'dhcp_timeout' event is called when a DHCP request to the connected access point fails and thus no IP address could be acquired (or renewed).
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Wifi",
   "name" : "connected",
@@ -131,7 +131,7 @@ On ESP32/ESP8266 there is a `details` parameter which includes:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Wifi",
   "name" : "sta_joined",
@@ -147,7 +147,7 @@ The details include:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Wifi",
   "name" : "sta_left",
@@ -163,7 +163,7 @@ The details include:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Wifi",
   "name" : "probe_recv",
@@ -180,7 +180,7 @@ The details include:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "disconnect",
@@ -192,7 +192,7 @@ The details include:
 Disconnect the wifi station from an access point and disable the station mode. It is OK to call `disconnect` to turn off station mode even if no connection exists (for example, connection attempts may be failing). Station mode can be re-enabled by calling `connect` or `scan`.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "stopAP",
@@ -204,7 +204,7 @@ Disconnect the wifi station from an access point and disable the station mode. I
 Stop being an access point and disable the AP operation mode. AP mode can be re-enabled by calling `startAP`.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "connect",
@@ -222,7 +222,7 @@ The options properties may contain:
 
 * `password` - Password string to be used to access the network.
 * `dnsServers` (array of String) - An array of up to two DNS servers in dotted decimal format string.
-* `channel`  - Wifi channel of the access point  (integer, typ 0..14, 0 means any channel), only on ESP8266. 
+* `channel`  - Wifi channel of the access point  (integer, typ 0..14, 0 means any channel), only on ESP8266.
 * `bssid`   -  Mac address of the access point (string, type "00:00:00:00:00:00"), only on ESP8266.
 
 Notes:
@@ -233,7 +233,7 @@ Notes:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "scan",
@@ -257,7 +257,7 @@ Notes:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "startAP",
@@ -286,7 +286,7 @@ Notes:
 */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getStatus",
@@ -309,7 +309,7 @@ Retrieve the current overall WiFi configuration. This call provides general info
 */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setConfig",
@@ -328,7 +328,7 @@ The settings available are:
 Note: esp8266 SDK programmers may be missing an "opmode" option to set the sta/ap/sta+ap operation mode. Please use connect/scan/disconnect/startAP/stopAP, which all set the esp8266 opmode indirectly.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getDetails",
@@ -350,7 +350,7 @@ Retrieve the wifi station configuration and status details. The details object h
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getAPDetails",
@@ -374,7 +374,7 @@ Retrieve the current access point configuration and status.  The details object 
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "save",
@@ -396,7 +396,7 @@ Save the current wifi configuration (station and access point) to flash and auto
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "restore",
@@ -406,7 +406,7 @@ Save the current wifi configuration (station and access point) to flash and auto
 Restores the saved Wifi configuration from flash. See `Wifi.save()`.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getIP",
@@ -426,7 +426,7 @@ Return the station IP information in an object as follows:
 Note that the `ip`, `netmask`, and `gw` fields are omitted if no connection is established:
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getAPIP",
@@ -445,7 +445,7 @@ Return the access point IP information in an object which contains:
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getHostByName",
@@ -461,7 +461,7 @@ Lookup the hostname and invoke a callback with the IP address as integer argumen
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getHostname",
@@ -475,7 +475,7 @@ Lookup the hostname and invoke a callback with the IP address as integer argumen
 Returns the hostname announced to the DHCP server and broadcast via mDNS when connecting to an access point.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setHostname",
@@ -491,12 +491,12 @@ If a DHCP lease currently exists changing the hostname will cause a disconnect a
 The mDNS announcement also includes an announcement for the "espruino" service.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setSNTP",
   "generate" : "jswrap_wifi_setSNTP",
-  "#if" : "defined(ESP8266) || defined(ESP32)",  
+  "#if" : "defined(ESP8266) || defined(ESP32)",
   "params"   : [
     ["server", "JsVar", "The NTP server to query, for example, `us.pool.ntp.org`"],
     ["tz_offset", "JsVar", "Local time zone offset in the range -11..13."]
@@ -508,7 +508,7 @@ The interval determines how often the time server is queried and Espruino's time
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setIP",
@@ -527,7 +527,7 @@ The `settings` object must contain the following properties.
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setAPIP",
@@ -548,7 +548,7 @@ The `settings` object must contain the following properties.
 
 //----------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "ping",
@@ -562,7 +562,7 @@ The `settings` object must contain the following properties.
 Issues a ping to the given host, and calls a callback with the time when the ping is received.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "turbo",

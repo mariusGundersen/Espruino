@@ -18,7 +18,7 @@
 #include "jsinteractive.h"
 #include "jsserial.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Serial"
 }
@@ -26,7 +26,7 @@ This class allows use of the built-in USARTs
 
 Methods may be called on the `USB`, `Serial1`, `Serial2`, `Serial3`, `Serial4`, `Serial5` and `Serial6` objects. While different processors provide different numbers of USARTs, on official Espruino boards you can always rely on at least `Serial1` being available
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Serial",
   "name" : "Serial",
@@ -40,7 +40,7 @@ Use `Serial.setup` to configure this port.
 JsVar *jswrap_serial_constructor() {
   return jspNewObject(0,"Serial");
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Serial",
   "name" : "data",
@@ -51,7 +51,7 @@ JsVar *jswrap_serial_constructor() {
 The `data` event is called when data is received. If a handler is defined with `X.on('data', function(data) { ... })` then it will be called, otherwise data will be stored in an internal buffer, where it can be retrieved with `X.read()`
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Serial",
   "name" : "framing"
@@ -68,7 +68,7 @@ passed to the `data` handler.
 
 **Note:** This only works on STM32 and NRF52 based devices (eg. all official Espruino boards)
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "Serial",
   "name" : "parity"
@@ -85,7 +85,7 @@ passed to the `data` handler.
  */
 // this is created in jsiIdle based on EV_SERIALx_STATUS ecents
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Serial",
   "name" : "find",
@@ -101,7 +101,7 @@ May return undefined if no device can be found.
 */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "USB",
   "instanceof" : "Serial",
@@ -109,7 +109,7 @@ May return undefined if no device can be found.
 }
 The USB Serial port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Serial1",
   "instanceof" : "Serial",
@@ -117,7 +117,7 @@ The USB Serial port
 }
 The first Serial (USART) port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Serial2",
   "instanceof" : "Serial",
@@ -125,7 +125,7 @@ The first Serial (USART) port
 }
 The second Serial (USART) port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Serial3",
   "instanceof" : "Serial",
@@ -133,7 +133,7 @@ The second Serial (USART) port
 }
 The third Serial (USART) port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Serial4",
   "instanceof" : "Serial",
@@ -141,7 +141,7 @@ The third Serial (USART) port
 }
 The fourth Serial (USART) port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Serial5",
   "instanceof" : "Serial",
@@ -149,7 +149,7 @@ The fourth Serial (USART) port
 }
 The fifth Serial (USART) port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Serial6",
   "instanceof" : "Serial",
@@ -158,21 +158,21 @@ The fifth Serial (USART) port
 The sixth Serial (USART) port
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "LoopbackA",
   "instanceof" : "Serial"
 }
 A loopback serial device. Data sent to `LoopbackA` comes out of `LoopbackB` and vice versa
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "LoopbackB",
   "instanceof" : "Serial"
 }
 A loopback serial device. Data sent to `LoopbackA` comes out of `LoopbackB` and vice versa
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "Telnet",
   "instanceof" : "Serial",
@@ -183,7 +183,7 @@ A telnet serial device that maps to the built-in telnet console server (devices 
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Serial",
   "name" : "setConsole",
@@ -208,7 +208,7 @@ void jswrap_serial_setConsole(JsVar *parent, bool force) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Serial",
   "name" : "setup",
@@ -235,7 +235,7 @@ The second argument can contain:
   ck:pin,                           // (default none) Clock Pin
   cts:pin,                          // (default none) Clear to Send Pin
   bytesize:8,                       // (default 8)How many data bits - 7 or 8
-  parity:null/'none'/'o'/'odd'/'e'/'even', 
+  parity:null/'none'/'o'/'odd'/'e'/'even',
                                     // (default none) Parity bit
   stopbits:1,                       // (default 1) Number of stop bits to use
   flow:null/undefined/'none'/'xon', // (default none) software flow control
@@ -244,14 +244,14 @@ The second argument can contain:
 }
 ```
 
-You can find out which pins to use by looking at [your board's reference page](#boards) 
+You can find out which pins to use by looking at [your board's reference page](#boards)
 and searching for pins with the `UART`/`USART` markers.
 
 If not specified in options, the default pins are used for rx and tx
-(usually the lowest numbered pins on the lowest port that supports 
+(usually the lowest numbered pins on the lowest port that supports
 this peripheral). `ck` and `cts` are not used unless specified.
 
-Note that even after changing the RX and TX pins, if you have called setup 
+Note that even after changing the RX and TX pins, if you have called setup
 before then the previous RX and TX pins will still be connected to the Serial
 port as well - until you set them to something else using `digitalWrite` or
 `pinMode`.
@@ -264,7 +264,7 @@ By default, framing or parity errors don't create `framing` or `parity` events
 on the `Serial` object because storing these errors uses up additional
 storage in the queue. If you're intending to receive a lot of malformed
 data then the queue might overflow `E.getErrorFlags()` would return `FIFO_FULL`.
-However if you need to respond to `framing` or `parity` errors then 
+However if you need to respond to `framing` or `parity` errors then
 you'll need to use `errors:true` when initialising serial.
 
 On Linux builds there is no default Serial device, so you must specify
@@ -331,7 +331,7 @@ void jswrap_serial_setup(JsVar *parent, JsVar *baud, JsVar *options) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Serial",
@@ -375,7 +375,7 @@ void jswrap_serial_unsetup(JsVar *parent) {
 #endif
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_serial_idle"
 }*/
@@ -402,7 +402,7 @@ void _jswrap_serial_print(JsVar *parent, JsVar *arg, bool isPrint, bool newLine)
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Serial",
   "name" : "print",
@@ -415,7 +415,7 @@ Print a string to the serial port - without a line feed
 
  **Note:** This function replaces any occurances of `\n` in the string with `\r\n`. To avoid this, use `Serial.write`.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Serial",
   "name" : "println",
@@ -434,7 +434,7 @@ void jswrap_serial_print(JsVar *parent, JsVar *str) {
 void jswrap_serial_println(JsVar *parent,  JsVar *str) {
   _jswrap_serial_print(parent, str, true, true);
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Serial",
   "name" : "write",
@@ -451,7 +451,7 @@ void jswrap_serial_write(JsVar *parent, JsVar *args) {
   _jswrap_serial_print(parent, args, false, false);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Serial",
@@ -483,7 +483,7 @@ void jswrap_serial_inject(JsVar *parent, JsVar *args) {
   jsvIterateCallback(args, _jswrap_serial_inject_cb, (void*)&device);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Serial",
   "name" : "available",
@@ -493,7 +493,7 @@ void jswrap_serial_inject(JsVar *parent, JsVar *args) {
 Return how many bytes are available to read. If there is already a listener for data, this will always return 0.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Serial",
   "name" : "read",
@@ -506,7 +506,7 @@ Return how many bytes are available to read. If there is already a listener for 
 Return a string containing characters that have been received
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Serial",
   "name" : "pipe",

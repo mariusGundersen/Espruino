@@ -17,18 +17,18 @@
 
 /* DO_NOT_INCLUDE_IN_DOCS - this is a special token for common.py */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "NRF"
 }
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Bluetooth"
 }
 */
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getSecurityStatus",
@@ -36,7 +36,7 @@
     "return" : ["JsVar", "An object" ]
 }
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getAddress",
@@ -44,7 +44,7 @@
     "return" : ["JsVar", "An object" ]
 }
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setServices",
@@ -54,7 +54,7 @@
       ["options","JsVar","Optional object containing options"]
     ]
 }*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setAdvertising",
@@ -64,7 +64,7 @@
       ["options","JsVar","An optional object of options"]
     ]
 }*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "staticmethod",
     "class" : "Bluetooth",
     "name" : "setConsole",

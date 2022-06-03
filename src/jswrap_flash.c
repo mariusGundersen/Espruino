@@ -19,7 +19,7 @@
 #include "jsvar.h"
 #include "jsvariterator.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "Flash",
   "ifndef" : "SAVE_ON_FLASH"
@@ -43,7 +43,7 @@ reported by `process.memory()`.
 'bricking' your device be damaging the bootloader. You can disable these with `E.setFlags({unsafeFlash:1})`
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Flash",
@@ -67,7 +67,7 @@ JsVar *jswrap_flash_getPage(int addr) {
   return obj;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type"     : "staticmethod",
     "ifndef" : "SAVE_ON_FLASH",
   "class"    : "Flash",
@@ -88,7 +88,7 @@ JsVar *jswrap_flash_getFree() {
   return arr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Flash",
@@ -108,7 +108,7 @@ void jswrap_flash_erasePage(JsVar *addr) {
   jshFlashErasePage((uint32_t)jsvGetInteger(addr));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Flash",
@@ -138,7 +138,7 @@ void jswrap_flash_write(JsVar *data, int addr) {
     jshFlashWriteAligned(flashData, (unsigned int)addr, (unsigned int)flashDataLen);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Flash",

@@ -29,17 +29,17 @@
 #define DBG(...)
 #endif
 
-const int STORAGEFILE_CHUNKSIZE = 
+const int STORAGEFILE_CHUNKSIZE =
 #if FLASH_SAVED_CODE_LENGTH < 1000000
   // for normal devices
   (((FLASH_PAGE_SIZE<4096)?FLASH_PAGE_SIZE:4096) - sizeof(JsfFileHeader)); // use 32 for testing
 #else
-  // where we have large external flash (eg Bangle.js), choose a chunk size much bigger than the 
+  // where we have large external flash (eg Bangle.js), choose a chunk size much bigger than the
   // page size. This allows us to have less chunks around, and to store much bigger files.
   (FLASH_PAGE_SIZE*10) - sizeof(JsfFileHeader);
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "Storage"
 }
@@ -65,7 +65,7 @@ file with `require("Storage").open(...)` and then read it with `require("Storage
 is 28 characters. However in 2v04 and earlier the max length is 8.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "eraseAll",
@@ -79,7 +79,7 @@ void jswrap_storage_eraseAll() {
   jsfEraseAll();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "erase",
@@ -97,7 +97,7 @@ void jswrap_storage_erase(JsVar *name) {
   jsfEraseFile(jsfNameFromVar(name));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "read",
@@ -128,7 +128,7 @@ JsVar *jswrap_storage_read(JsVar *name, int offset, int length) {
   return jsfReadFile(jsfNameFromVar(name), offset, length);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -163,7 +163,7 @@ JsVar *jswrap_storage_readJSON(JsVar *name, bool noExceptions) {
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -194,7 +194,7 @@ JsVar *jswrap_storage_readArrayBuffer(JsVar *name) {
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "write",
@@ -258,7 +258,7 @@ bool jswrap_storage_write(JsVar *name, JsVar *data, JsVarInt offset, JsVarInt _s
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -289,7 +289,7 @@ bool jswrap_storage_writeJSON(JsVar *name, JsVar *data) {
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "list",
@@ -334,7 +334,7 @@ JsVar *jswrap_storage_list(JsVar *regex, JsVar *filter) {
   return jsfListFiles(regex, containing, notContaining);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -367,7 +367,7 @@ JsVarInt jswrap_storage_hash(JsVar *regex) {
   return jsfHashFiles(regex, 0, JSFF_STORAGEFILE);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -394,7 +394,7 @@ void jswrap_storage_compact() {
   jsfCompact();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifdef" : "DEBUG",
   "class" : "Storage",
@@ -409,7 +409,7 @@ void jswrap_storage_debug() {
   jsfDebugFiles();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -426,7 +426,7 @@ int jswrap_storage_getFree() {
   return (int)jsfGetStorageStats(0,true).free;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -460,7 +460,7 @@ JsVar *jswrap_storage_getStats() {
   return o;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -563,7 +563,7 @@ JsVar *jswrap_storage_open(JsVar *name, JsVar *modeVar) {
   return f;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "StorageFile",
   "ifndef" : "SAVE_ON_FLASH"
@@ -694,7 +694,7 @@ JsVar *jswrap_storagefile_read_internal(JsVar *f, int len) {
   jsvObjectSetChildAndUnLock(f,"offset",jsvNewFromInteger(offset));
   return result;
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
@@ -715,7 +715,7 @@ JsVar *jswrap_storagefile_read(JsVar *f, int len) {
   if (len<0) len=0;
   return jswrap_storagefile_read_internal(f,len);
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
@@ -729,7 +729,7 @@ Read a line of data from the file (up to and including `"\n"`)
 JsVar *jswrap_storagefile_readLine(JsVar *f) {
   return jswrap_storagefile_read_internal(f,-1);
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
@@ -794,7 +794,7 @@ int jswrap_storagefile_getLength(JsVar *f) {
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
@@ -900,7 +900,7 @@ void jswrap_storagefile_write(JsVar *f, JsVar *_data) {
   jsvUnLock(data);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",

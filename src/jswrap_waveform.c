@@ -24,7 +24,7 @@
 
 #ifndef SAVE_ON_FLASH
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Waveform"
@@ -47,7 +47,7 @@ static JsVar *jswrap_waveform_getBuffer(JsVar *waveform, int bufferNumber, bool 
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_waveform_idle",
   "ifndef" : "SAVE_ON_FLASH"
@@ -103,7 +103,7 @@ bool jswrap_waveform_idle() {
   return false; // no need to stay awake - an IRQ will wake us
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "kill",
   "generate" : "jswrap_waveform_kill",
   "ifndef" : "SAVE_ON_FLASH"
@@ -133,7 +133,7 @@ void jswrap_waveform_kill() { // be sure to remove all waveforms...
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Waveform",
   "name" : "Waveform",
@@ -241,7 +241,7 @@ static void jswrap_waveform_start(JsVar *waveform, Pin pin, JsVarFloat freq, JsV
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Waveform",
   "name" : "startOutput",
@@ -259,7 +259,7 @@ void jswrap_waveform_startOutput(JsVar *waveform, Pin pin, JsVarFloat freq, JsVa
   jswrap_waveform_start(waveform, pin, freq, options, true/*write*/);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Waveform",
   "name" : "startInput",
@@ -280,7 +280,7 @@ void jswrap_waveform_startInput(JsVar *waveform, Pin pin, JsVarFloat freq, JsVar
   jswrap_waveform_start(waveform, pin, freq, options, false/*read*/);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Waveform",
   "name" : "stop",

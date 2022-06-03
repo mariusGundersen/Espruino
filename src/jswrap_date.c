@@ -159,7 +159,7 @@ static CalendarDate getCalendarDateFromDateVar(JsVar *date, bool forceGMT) {
   return getCalendarDate(getTimeFromDateVar(date, forceGMT).daysSinceEpoch);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Date"
 }
@@ -171,7 +171,7 @@ timezone using the `E.setTimeZone(...)` function.
 For example `E.setTimeZone(1)` will be GMT+0100
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Date",
   "name" : "now",
@@ -193,7 +193,7 @@ JsVar *jswrap_date_from_milliseconds(JsVarFloat time) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Date",
   "name" : "Date",
@@ -238,7 +238,7 @@ JsVar *jswrap_date_constructor(JsVar *args) {
   return jswrap_date_from_milliseconds(time);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Date",
@@ -257,7 +257,7 @@ int jswrap_date_getTimezoneOffset(JsVar *parent) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getTime",
@@ -266,7 +266,7 @@ int jswrap_date_getTimezoneOffset(JsVar *parent) {
 }
 Return the number of milliseconds since 1970
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "valueOf",
@@ -278,7 +278,7 @@ Return the number of milliseconds since 1970
 JsVarFloat jswrap_date_getTime(JsVar *date) {
   return jsvGetFloatAndUnLock(jsvObjectGetChild(date, "ms", 0));
 }
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "setTime",
@@ -297,7 +297,7 @@ JsVarFloat jswrap_date_setTime(JsVar *date, JsVarFloat timeValue) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getHours",
@@ -310,7 +310,7 @@ int jswrap_date_getHours(JsVar *parent) {
   return getTimeFromDateVar(parent, false/*system timezone*/).hour;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getMinutes",
@@ -323,7 +323,7 @@ int jswrap_date_getMinutes(JsVar *parent) {
   return getTimeFromDateVar(parent, false/*system timezone*/).min;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getSeconds",
@@ -336,7 +336,7 @@ int jswrap_date_getSeconds(JsVar *parent) {
   return getTimeFromDateVar(parent, false/*system timezone*/).sec;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getMilliseconds",
@@ -349,7 +349,7 @@ int jswrap_date_getMilliseconds(JsVar *parent) {
   return getTimeFromDateVar(parent, false/*system timezone*/).ms;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getDay",
@@ -362,7 +362,7 @@ int jswrap_date_getDay(JsVar *parent) {
   return getCalendarDateFromDateVar(parent, false/*system timezone*/).dow;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getDate",
@@ -376,7 +376,7 @@ int jswrap_date_getDate(JsVar *parent) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getMonth",
@@ -389,7 +389,7 @@ int jswrap_date_getMonth(JsVar *parent) {
   return getCalendarDateFromDateVar(parent, false/*system timezone*/).month;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "getFullYear",
@@ -405,7 +405,7 @@ int jswrap_date_getFullYear(JsVar *parent) {
 
 /// -------------------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Date",
@@ -433,7 +433,7 @@ JsVarFloat jswrap_date_setHours(JsVar *parent, int hoursValue, JsVar *minutesVal
   return jswrap_date_setTime(parent, fromTimeInDay(&td));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Date",
@@ -458,7 +458,7 @@ JsVarFloat jswrap_date_setMinutes(JsVar *parent, int minutesValue, JsVar *second
   return jswrap_date_setTime(parent, fromTimeInDay(&td));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Date",
@@ -480,7 +480,7 @@ JsVarFloat jswrap_date_setSeconds(JsVar *parent, int secondsValue, JsVar *millis
   return jswrap_date_setTime(parent, fromTimeInDay(&td));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Date",
@@ -498,7 +498,7 @@ JsVarFloat jswrap_date_setMilliseconds(JsVar *parent, int millisecondsValue) {
   return jswrap_date_setTime(parent, fromTimeInDay(&td));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Date",
@@ -520,7 +520,7 @@ JsVarFloat jswrap_date_setDate(JsVar *parent, int dayValue) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Date",
@@ -544,7 +544,7 @@ JsVarFloat jswrap_date_setMonth(JsVar *parent, int monthValue, JsVar *dayValue) 
   return jswrap_date_setTime(parent, fromTimeInDay(&td));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Date",
@@ -574,7 +574,7 @@ JsVarFloat jswrap_date_setFullYear(JsVar *parent, int yearValue, JsVar *monthVal
 /// -------------------------------------------------------
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "toString",
@@ -603,7 +603,7 @@ JsVar *jswrap_date_toString(JsVar *parent) {
       zonesign, ((zone/60)*100)+(zone%60));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "toUTCString",
@@ -621,7 +621,7 @@ JsVar *jswrap_date_toUTCString(JsVar *parent) {
   return jsvVarPrintf("%s, %d %s %d %02d:%02d:%02d GMT", &DAYNAMES[date.dow*4], date.day, &MONTHNAMES[date.month*4], date.year, time.hour, time.min, time.sec);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "toISOString",
@@ -632,7 +632,7 @@ Converts to a ISO 8601 String, eg: `2014-06-20T14:52:20.123Z`
 
  **Note:** This always assumes a timezone of GMT
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Date",
   "name" : "toJSON",
@@ -694,7 +694,7 @@ static bool _parse_time(TimeInDay *time, int initialChars) {
   return false;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Date",
   "name" : "parse",
@@ -704,7 +704,7 @@ static bool _parse_time(TimeInDay *time, int initialChars) {
   ],
   "return" : ["float","The number of milliseconds since 1970"]
 }
-Parse a date string and return milliseconds since 1970. Data can be either '2011-10-20T14:48:00', '2011-10-20' or 'Mon, 25 Dec 1995 13:30:00 +0430' 
+Parse a date string and return milliseconds since 1970. Data can be either '2011-10-20T14:48:00', '2011-10-20' or 'Mon, 25 Dec 1995 13:30:00 +0430'
  */
 JsVarFloat jswrap_date_parse(JsVar *str) {
   if (!jsvIsString(str)) return 0;

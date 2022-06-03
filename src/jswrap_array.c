@@ -21,7 +21,7 @@
 #define max(a,b) (((a)>(b))?(a):(b))
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "Array",
   "check" : "jsvIsArray(var)"
@@ -31,7 +31,7 @@ This is the built-in JavaScript class for arrays.
 Arrays can be defined with ```[]```, ```new Array()```, or ```new Array(length)```
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Array",
   "name" : "Array",
@@ -41,7 +41,7 @@ Arrays can be defined with ```[]```, ```new Array()```, or ```new Array(length)`
   ],
   "return" : ["JsVar","An Array"]
 }
-Create an Array. Either give it one integer argument (>=0) which is the length of the array, or any number of arguments 
+Create an Array. Either give it one integer argument (>=0) which is the length of the array, or any number of arguments
  */
 JsVar *jswrap_array_constructor(JsVar *args) {
   assert(args);
@@ -59,16 +59,16 @@ JsVar *jswrap_array_constructor(JsVar *args) {
         if (!arr) return 0; // out of memory
         jsvSetArrayLength(arr, count, false);
         return arr;
-      } 
+      }
     } else {
-      jsvUnLock(firstArg); 
+      jsvUnLock(firstArg);
     }
   }
   // Otherwise, we just return the array!
   return jsvLockAgain(args);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "toString",
@@ -81,7 +81,7 @@ JsVar *jswrap_array_constructor(JsVar *args) {
 Convert the Array to a string
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "Array",
   "name" : "length",
@@ -91,7 +91,7 @@ Convert the Array to a string
 Find the length of the array
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "indexOf",
@@ -111,7 +111,7 @@ JsVar *jswrap_array_indexOf(JsVar *parent, JsVar *value, JsVarInt startIdx) {
   return jsvNewFromInteger(jsvGetIntegerAndUnLock(idxName));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "includes",
@@ -152,7 +152,7 @@ bool jswrap_array_includes(JsVar *arr, JsVar *value, JsVarInt startIdx) {
   return false;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "join",
@@ -176,7 +176,7 @@ JsVar *jswrap_array_join(JsVar *parent, JsVar *filler) {
   return str;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "push",
@@ -202,13 +202,13 @@ JsVarInt jswrap_array_push(JsVar *parent, JsVar *args) {
     jsvObjectIteratorNext(&it);
   }
   jsvObjectIteratorFree(&it);
-  if (len<0) 
+  if (len<0)
     len = jsvGetArrayLength(parent);
   return len;
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "pop",
@@ -317,7 +317,7 @@ static JsVar *_jswrap_array_iterate_with_callback(
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "map",
@@ -334,7 +334,7 @@ JsVar *jswrap_array_map(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   return _jswrap_array_iterate_with_callback("map", parent, funcVar, thisVar, RETURN_ARRAY, false, false);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "forEach",
@@ -350,7 +350,7 @@ void jswrap_array_forEach(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   _jswrap_array_iterate_with_callback("forEach", parent, funcVar, thisVar, RETURN_BOOL, false, false);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "filter",
@@ -367,7 +367,7 @@ JsVar *jswrap_array_filter(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   return _jswrap_array_iterate_with_callback("filter", parent, funcVar, thisVar, RETURN_ARRAY, true, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "find",
@@ -389,7 +389,7 @@ JsVar *jswrap_array_find(JsVar *parent, JsVar *funcVar) {
   return _jswrap_array_iterate_with_callback("find", parent, funcVar, 0, RETURN_ARRAY_ELEMENT, true, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "findIndex",
@@ -413,7 +413,7 @@ JsVar *jswrap_array_findIndex(JsVar *parent, JsVar *funcVar) {
   return jsvNewFromInteger(-1);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "some",
@@ -430,7 +430,7 @@ JsVar *jswrap_array_some(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   return _jswrap_array_iterate_with_callback("some", parent, funcVar, thisVar, RETURN_BOOL, true, false);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "every",
@@ -447,7 +447,7 @@ JsVar *jswrap_array_every(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   return _jswrap_array_iterate_with_callback("every", parent, funcVar, thisVar, RETURN_BOOL, true, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "reduce",
@@ -511,7 +511,7 @@ JsVar *jswrap_array_reduce(JsVar *parent, JsVar *funcVar, JsVar *initialValue) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "splice",
@@ -598,7 +598,7 @@ JsVar *jswrap_array_splice(JsVar *parent, JsVarInt index, JsVar *howManyVar, JsV
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "shift",
@@ -627,7 +627,7 @@ JsVar *jswrap_array_shift(JsVar *parent) {
   return el;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "unshift",
@@ -651,7 +651,7 @@ JsVarInt jswrap_array_unshift(JsVar *parent, JsVar *elements) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "slice",
@@ -711,7 +711,7 @@ JsVar *jswrap_array_slice(JsVar *parent, JsVarInt start, JsVar *endVar) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "Array",
   "name" : "isArray",
@@ -812,7 +812,7 @@ NO_INLINE static void _jswrap_array_sort(JsvIterator *head, int n, JsVar *compar
     _jswrap_array_sort(head, nlo, compareFn);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "sort",
@@ -859,7 +859,7 @@ JsVar *jswrap_array_sort (JsVar *array, JsVar *compareFn) {
   return jsvLockAgain(array);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "concat",
@@ -895,7 +895,7 @@ JsVar *jswrap_array_concat(JsVar *parent, JsVar *args) {
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "fill",
@@ -980,7 +980,7 @@ void _jswrap_array_reverse_block(JsVar *parent, JsvIterator *it, int items) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "Array",
   "name" : "reverse",

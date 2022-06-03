@@ -20,7 +20,7 @@
 #include "jswrap_regexp.h"
 #endif
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "String",
   "check" : "jsvIsString(var)"
@@ -30,7 +30,7 @@ This is the built-in class for Text Strings.
 Text Strings in Espruino are not zero-terminated, so you can store zeros in them.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "String",
   "name" : "String",
@@ -48,7 +48,7 @@ JsVar *jswrap_string_constructor(JsVar *args) {
   return jsvAsStringAndUnLock(jsvGetArrayItem(args, 0));
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "property",
   "class" : "String",
   "name" : "length",
@@ -58,7 +58,7 @@ JsVar *jswrap_string_constructor(JsVar *args) {
 Find the length of the string
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "String",
   "name" : "fromCharCode",
@@ -88,7 +88,7 @@ JsVar *jswrap_string_fromCharCode(JsVar *arr) {
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "charAt",
@@ -115,7 +115,7 @@ JsVar *jswrap_string_charAt(JsVar *parent, JsVarInt idx) {
   return r;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "charCodeAt",
@@ -134,7 +134,7 @@ int jswrap_string_charCodeAt(JsVar *parent, JsVarInt idx) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "indexOf",
@@ -147,7 +147,7 @@ int jswrap_string_charCodeAt(JsVar *parent, JsVarInt idx) {
 }
 Return the index of substring in this string, or -1 if not found
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "lastIndexOf",
@@ -203,7 +203,7 @@ int jswrap_string_indexOf(JsVar *parent, JsVar *substring, JsVar *fromIndex, boo
   return -1;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "match",
@@ -292,7 +292,7 @@ JsVar *jswrap_string_match(JsVar *parent, JsVar *subStr) {
   return jsvNewNull();
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "replace",
@@ -404,7 +404,7 @@ JsVar *jswrap_string_replace(JsVar *parent, JsVar *subStr, JsVar *newSubStr) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "substring",
@@ -431,7 +431,7 @@ JsVar *jswrap_string_substring(JsVar *parent, JsVarInt pStart, JsVar *vEnd) {
   return res;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "substr",
@@ -454,7 +454,7 @@ JsVar *jswrap_string_substr(JsVar *parent, JsVarInt pStart, JsVar *vLen) {
   return res;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "slice",
@@ -480,7 +480,7 @@ JsVar *jswrap_string_slice(JsVar *parent, JsVarInt pStart, JsVar *vEnd) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "split",
@@ -560,7 +560,7 @@ JsVar *jswrap_string_split(JsVar *parent, JsVar *split) {
   return array;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "toLowerCase",
@@ -570,7 +570,7 @@ JsVar *jswrap_string_split(JsVar *parent, JsVar *split) {
   ],
   "return" : ["JsVar","The lowercase version of this string"]
 }*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "toUpperCase",
@@ -602,7 +602,7 @@ JsVar *jswrap_string_toUpperLowerCase(JsVar *parent, bool upper) {
   return res;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "trim",
@@ -639,7 +639,7 @@ JsVar *jswrap_string_trim(JsVar *parent) {
   return res;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "concat",
@@ -661,7 +661,7 @@ JsVar *jswrap_string_concat(JsVar *parent, JsVar *args) {
   return str;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "startsWith",
@@ -685,7 +685,7 @@ bool jswrap_string_startsWith(JsVar *parent, JsVar *search, int position) {
   return match;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "endsWith",
@@ -711,7 +711,7 @@ bool jswrap_string_endsWith(JsVar *parent, JsVar *search, JsVar *length) {
   return match;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "includes",
@@ -726,7 +726,7 @@ bool jswrap_string_endsWith(JsVar *parent, JsVar *search, JsVar *length) {
 */
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "repeat",
@@ -751,7 +751,7 @@ JsVar *jswrap_string_repeat(JsVar *parent, int count) {
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "padStart",
@@ -771,7 +771,7 @@ Pad this string at the beginnind to the required number of characters
 "123".padStart(10,".-") == ".-.-.-.123"
 ```
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "String",
   "name" : "padEnd",

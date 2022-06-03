@@ -146,7 +146,7 @@ static bool handlePipe(JsVar *arr, JsvObjectIterator *it, JsVar* pipe) {
   return dataTransferred;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "idle",
   "generate" : "jswrap_pipe_idle",
   "ifndef" : "SAVE_ON_FLASH"
@@ -169,7 +169,7 @@ bool jswrap_pipe_idle() {
   return wasBusy;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "kill",
   "generate" : "jswrap_pipe_kill",
   "ifndef" : "SAVE_ON_FLASH"
@@ -236,7 +236,7 @@ static void jswrap_pipe_dst_close_listener(JsVar *destination) {
   jswrap_pipe_close_listener(destination, "destination");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "pipe",
@@ -288,8 +288,8 @@ void jswrap_pipe(JsVar* source, JsVar* dest, JsVar* options) {
         // set up the rest of the pipe
         jsvObjectSetChildAndUnLock(pipe, "chunkSize", jsvNewFromInteger(chunkSize));
         jsvObjectSetChildAndUnLock(pipe, "end", jsvNewFromBool(callEnd));
-        jsvUnLock3(jsvAddNamedChild(pipe, position, "position"), 
-                   jsvAddNamedChild(pipe, source, "source"), 
+        jsvUnLock3(jsvAddNamedChild(pipe, position, "position"),
+                   jsvAddNamedChild(pipe, source, "source"),
                    jsvAddNamedChild(pipe, dest, "destination"));
         // add the pipe to our list
         jsvArrayPush(arr, pipe);

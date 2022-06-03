@@ -27,14 +27,14 @@ const unsigned int JSON_ITEMS_ON_LINE_OBJECT = 4; // How many items are allowed 
 const char *JSON_LIMIT_TEXT = " ... ";
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "JSON"
 }
 An Object that handles conversion to and from the JSON data interchange format
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "JSON",
   "name" : "stringify",
@@ -157,7 +157,7 @@ JsVar *jswrap_json_parse_internal() {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "JSON",
   "name" : "parse",

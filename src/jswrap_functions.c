@@ -20,7 +20,7 @@
 #include "jsinteractive.h"
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "variable",
   "name" : "arguments",
   "generate" : "jswrap_arguments",
@@ -39,7 +39,7 @@ hello(1,2,3)   // 3 [1,2,3]
 
 **Note:** Due to the way Espruino works this is doesn't behave exactly
 the same as in normal JavaScript. The length of the arguments array
-will never be less than the number of arguments specified in the 
+will never be less than the number of arguments specified in the
 function declaration: `(function(a){ return arguments.length; })() == 1`.
 Normal JavaScript interpreters would return `0` in the above case.
 
@@ -65,7 +65,7 @@ JsVar *jswrap_arguments() {
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "Function",
   "name" : "Function",
@@ -110,7 +110,7 @@ JsVar *jswrap_function_constructor(JsVar *args) {
   return fn;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "eval",
   "generate" : "jswrap_eval",
@@ -129,7 +129,7 @@ JsVar *jswrap_eval(JsVar *v) {
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "parseInt",
   "generate" : "jswrap_parseInt",
@@ -175,7 +175,7 @@ JsVar *jswrap_parseInt(JsVar *v, JsVar *radixVar) {
   return jsvNewFromLongInteger(i);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "parseFloat",
   "generate" : "jswrap_parseFloat",
@@ -203,7 +203,7 @@ JsVarFloat jswrap_parseFloat(JsVar *v) {
   return f;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "isFinite",
   "generate" : "jswrap_isFinite",
@@ -219,7 +219,7 @@ bool jswrap_isFinite(JsVar *v) {
   return !isnan(f) && f!=INFINITY && f!=-INFINITY;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "isNaN",
   "generate" : "jswrap_isNaN",
@@ -272,7 +272,7 @@ NO_INLINE static int jswrap_atob_decode(int c) {
   return -1; // not found
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "btoa",
   "ifndef" : "SAVE_ON_FLASH",
@@ -330,7 +330,7 @@ JsVar *jswrap_btoa(JsVar *binaryData) {
   return base64Data;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "atob",
   "ifndef" : "SAVE_ON_FLASH",
@@ -386,7 +386,7 @@ JsVar *jswrap_atob(JsVar *base64Data) {
   return binaryData;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "encodeURIComponent",
   "ifndef" : "SAVE_ON_FLASH",
@@ -434,7 +434,7 @@ JsVar *jswrap_encodeURIComponent(JsVar *arg) {
   return result;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "function",
   "name" : "decodeURIComponent",
   "ifndef" : "SAVE_ON_FLASH",

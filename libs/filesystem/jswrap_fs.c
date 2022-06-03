@@ -31,7 +31,7 @@
 #endif
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "fs"
 }
@@ -66,7 +66,7 @@ bool jsfsGetPathString(char *pathStr, JsVar *path);
 extern bool jsfsInit();
 extern void jsfsReportError(const char *msg, FRESULT res);
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "readdir",
@@ -80,7 +80,7 @@ List all files in the supplied directory, returning them as an array of strings.
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "readdirSync",
@@ -147,7 +147,7 @@ JsVar *jswrap_fs_readdir(JsVar *path) {
   return arr;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "writeFile",
@@ -162,7 +162,7 @@ Write the data to the given file
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "writeFileSync",
@@ -176,7 +176,7 @@ NOTE: Espruino does not yet support Async file IO, so this function behaves like
 }
 Write the data to the given file
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "appendFile",
@@ -191,7 +191,7 @@ Append the data to the given file, created a new file if it doesn't exist
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "appendFileSync",
@@ -217,7 +217,7 @@ bool jswrap_fs_writeOrAppendFile(JsVar *path, JsVar *data, bool append) {
   return amt>0;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "readFile",
@@ -231,7 +231,7 @@ Read all data from a file and return as a string
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "readFileSync",
@@ -257,7 +257,7 @@ JsVar *jswrap_fs_readFile(JsVar *path) {
   return buffer;
 }
 
-  /*JSON{
+  /*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "unlink",
@@ -272,7 +272,7 @@ Delete the given file
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "unlinkSync",
@@ -306,7 +306,7 @@ bool jswrap_fs_unlink(JsVar *path) {
   return true;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "statSync",
@@ -351,7 +351,7 @@ JsVar *jswrap_fs_stat(JsVar *path) {
       td.min = (int)((info.ftime>>5)&63);
       td.sec = (int)((info.ftime)&63);
       td.ms = 0;
-      td.zone = jsdGetTimeZone();  // TomWS: add adjustment for timezone offset introduced in date_from_milliseconds 
+      td.zone = jsdGetTimeZone();  // TomWS: add adjustment for timezone offset introduced in date_from_milliseconds
       jsvObjectSetChildAndUnLock(obj, "mtime", jswrap_date_from_milliseconds(fromTimeInDay(&td)));
       return obj;
     }
@@ -371,7 +371,7 @@ JsVar *jswrap_fs_stat(JsVar *path) {
   return 0;
 }
 
-  /*JSON{
+  /*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "mkdir",
@@ -386,7 +386,7 @@ Create the directory
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "mkdirSync",

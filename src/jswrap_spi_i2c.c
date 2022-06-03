@@ -20,14 +20,14 @@
 #include "jsinteractive.h"
 #include "jswrap_arraybuffer.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "SPI"
 }
 This class allows use of the built-in SPI ports. Currently it is SPI master only.
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "SPI1",
   "instanceof" : "SPI",
@@ -35,7 +35,7 @@ This class allows use of the built-in SPI ports. Currently it is SPI master only
 }
 The first SPI port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "SPI2",
   "instanceof" : "SPI",
@@ -43,7 +43,7 @@ The first SPI port
 }
 The second SPI port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "SPI3",
   "instanceof" : "SPI",
@@ -52,7 +52,7 @@ The second SPI port
 The third SPI port
  */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "SPI",
   "name" : "SPI",
@@ -67,7 +67,7 @@ JsVar *jswrap_spi_constructor() {
   return jspNewObject(0,"SPI");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "SPI",
   "name" : "find",
@@ -82,7 +82,7 @@ Try and find an SPI hardware device that will work on this pin (eg. `SPI1`)
 May return undefined if no device can be found.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "SPI",
   "name" : "setup",
@@ -97,12 +97,12 @@ Options can contain the following (defaults are shown where relevant):
 
 ```
 {
-  sck:pin, 
-  miso:pin, 
-  mosi:pin, 
+  sck:pin,
+  miso:pin,
+  mosi:pin,
   baud:integer=100000, // ignored on software SPI
   mode:integer=0, // between 0 and 3
-  order:string='msb' // can be 'msb' or 'lsb' 
+  order:string='msb' // can be 'msb' or 'lsb'
   bits:8 // only available for software SPI
 }
 ```
@@ -157,7 +157,7 @@ void jswrap_spi_setup(
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "SPI",
   "name" : "send",
@@ -290,7 +290,7 @@ void jswrap_spi_write_cb(
   callbackData->spiSend(data, NULL, len, &callbackData->spiSendData);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "SPI",
   "name" : "write",
@@ -345,7 +345,7 @@ void jswrap_spi_write(
   if (nss_pin!=PIN_UNDEFINED) jshPinOutput(nss_pin, true);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "SPI",
   "name" : "send4bit",
@@ -414,7 +414,7 @@ void jswrap_spi_send4bit(JsVar *parent, JsVar *srcdata, int bit0, int bit1, Pin 
   jshSPISet16(device, false); // back to 8 bit
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "SPI",
   "name" : "send8bit",
@@ -483,7 +483,7 @@ void jswrap_spi_send8bit(JsVar *parent, JsVar *srcdata, int bit0, int bit1, Pin 
   jshSPISet16(device, false); // back to 8 bit
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "I2C"
 }
@@ -491,7 +491,7 @@ This class allows use of the built-in I2C ports. Currently it allows I2C Master 
 
 All addresses are in 7 bit format. If you have an 8 bit address then you need to shift it one bit to the right.
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "constructor",
   "class" : "I2C",
   "name" : "I2C",
@@ -506,7 +506,7 @@ JsVar *jswrap_i2c_constructor() {
   return jspNewObject(0,"I2C");
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "I2C",
   "name" : "find",
@@ -521,7 +521,7 @@ Try and find an I2C hardware device that will work on this pin (eg. `I2C1`)
 May return undefined if no device can be found.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "I2C1",
   "instanceof" : "I2C",
@@ -529,7 +529,7 @@ May return undefined if no device can be found.
 }
 The first I2C port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "I2C2",
   "instanceof" : "I2C",
@@ -537,7 +537,7 @@ The first I2C port
 }
 The second I2C port
  */
-/*JSON{
+/*JSON{  //TODO
   "type" : "object",
   "name" : "I2C3",
   "instanceof" : "I2C",
@@ -548,7 +548,7 @@ The third I2C port
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "I2C",
   "name" : "setup",
@@ -611,7 +611,7 @@ static NO_INLINE int i2c_get_address(JsVar *address, bool *sendStop) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "I2C",
   "name" : "writeTo",
@@ -651,7 +651,7 @@ void jswrap_i2c_writeTo(JsVar *parent, JsVar *addressVar, JsVar *args) {
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "I2C",
   "name" : "readFrom",

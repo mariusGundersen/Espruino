@@ -35,13 +35,13 @@
 #define WLAN_CS_PIN       (Pin)(JSH_PORTB_OFFSET + 6) // active low
 // -------------------------------------------
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "CC3000"
 }
 
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "CC3000",
   "name" : "connect",
@@ -101,14 +101,14 @@ JsVar *jswrap_cc3000_connect(JsVar *spi, Pin cs, Pin en, Pin irq) {
   return wlanObj;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "class" : "WLAN"
 }
 An instantiation of a WiFi network adaptor
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "WLAN",
   "name" : "connect",
@@ -160,7 +160,7 @@ bool jswrap_wlan_connect(JsVar *wlanObj, JsVar *vAP, JsVar *vKey, JsVar *callbac
   return connected;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "WLAN",
   "name" : "disconnect",
@@ -180,7 +180,7 @@ void jswrap_wlan_disconnect(JsVar *wlanObj) {
   networkFree(&net);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "WLAN",
   "name" : "reconnect",
@@ -204,7 +204,7 @@ void jswrap_wlan_reconnect(JsVar *wlanObj) {
 
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "WLAN",
   "name" : "getIP",
@@ -252,7 +252,7 @@ static void _wlan_getIP_set_address(JsVar *options, char *name, unsigned char *p
   }
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "WLAN",
   "name" : "setIP",

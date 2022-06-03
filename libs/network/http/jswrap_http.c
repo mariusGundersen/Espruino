@@ -20,7 +20,7 @@
 
 #include "../network.h"
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "library",
   "class" : "http"
 }
@@ -31,7 +31,7 @@ In order to use this, you will need an extra module to get network connectivity 
 This is designed to be a cut-down version of the [node.js library](http://nodejs.org/api/http.html). Please see the [Internet](/Internet) page for more information on how to use it.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "http",
   "class" : "httpSrv"
@@ -40,14 +40,14 @@ The HTTP server created by `require('http').createServer`
 */
 // there is a 'connect' event on httpSrv, but it's used by createServer and isn't node-compliant
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "http",
   "class" : "httpSRq"
 }
 The HTTP server request
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpSRq",
   "name" : "data",
@@ -57,7 +57,7 @@ The HTTP server request
 }
 The 'data' event is called when data is received. If a handler is defined with `X.on('data', function(data) { ... })` then it will be called, otherwise data will be stored in an internal buffer, where it can be retrieved with `X.read()`
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpSRq",
   "name" : "close"
@@ -66,7 +66,7 @@ Called when the connection closes.
 */
 
 
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "httpSRq",
     "name" : "headers",
@@ -75,7 +75,7 @@ Called when the connection closes.
 }
 The headers to sent to the server with this HTTP request.
 *//*Documentation only*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "httpSRq",
     "name" : "method",
@@ -84,7 +84,7 @@ The headers to sent to the server with this HTTP request.
 }
 The HTTP method used with this request. Often `"GET"`.
 *//*Documentation only*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "httpSRq",
     "name" : "url",
@@ -97,7 +97,7 @@ The URL requested in this HTTP request, for instance:
 * `"/favicon.ico"` - the web page's icon
 *//*Documentation only*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSRq",
   "name" : "available",
@@ -106,7 +106,7 @@ The URL requested in this HTTP request, for instance:
 }
 Return how many bytes are available to read. If there is already a listener for data, this will always return 0.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSRq",
   "name" : "read",
@@ -118,7 +118,7 @@ Return how many bytes are available to read. If there is already a listener for 
 }
 Return a string containing characters that have been received
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSRq",
   "name" : "pipe",
@@ -132,21 +132,21 @@ Return a string containing characters that have been received
 Pipe this to a stream (an object with a 'write' method)
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "http",
   "class" : "httpSRs"
 }
 The HTTP server response
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpSRs",
   "name" : "drain"
 }
 An event that is fired when the buffer is empty and it can accept more data to send.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpSRs",
   "name" : "close"
@@ -154,21 +154,21 @@ An event that is fired when the buffer is empty and it can accept more data to s
 Called when the connection closes.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "http",
   "class" : "httpCRq"
 }
 The HTTP client request, returned by `http.request()` and `http.get()`.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpCRq",
   "name" : "drain"
 }
 An event that is fired when the buffer is empty and it can accept more data to send.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpCRq",
   "name" : "error"
@@ -176,14 +176,14 @@ An event that is fired when the buffer is empty and it can accept more data to s
 An event that is fired if there is an error making the request and the response callback has not been invoked. In this case the error event concludes the request attempt. The error event function receives an error object as parameter with a `code` field and a `message` field.
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "class",
   "library" : "http",
   "class" : "httpCRs"
 }
 The HTTP client response, passed to the callback of `http.request()` an `http.get()`.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpCRs",
   "name" : "data",
@@ -193,21 +193,21 @@ The HTTP client response, passed to the callback of `http.request()` an `http.ge
 }
 The 'data' event is called when data is received. If a handler is defined with `X.on('data', function(data) { ... })` then it will be called, otherwise data will be stored in an internal buffer, where it can be retrieved with `X.read()`
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpCRs",
   "name" : "close"
 }
 Called when the connection closes with one `hadError` boolean parameter, which indicates whether an error occurred.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "event",
   "class" : "httpCRs",
   "name" : "error"
 }
 An event that is fired if there is an error receiving the response. The error event function receives an error object as parameter with a `code` field and a `message` field. After the error event the close even will also be triggered to conclude the HTTP request/response.
 */
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "httpCRs",
     "name" : "headers",
@@ -216,7 +216,7 @@ An event that is fired if there is an error receiving the response. The error ev
 }
 The headers received along with the HTTP response
 *//*Documentation only*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "httpCRs",
     "name" : "statusCode",
@@ -225,7 +225,7 @@ The headers received along with the HTTP response
 }
 The HTTP response's status code - usually `"200"` if all went well
 *//*Documentation only*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "httpCRs",
     "name" : "statusMessage",
@@ -234,7 +234,7 @@ The HTTP response's status code - usually `"200"` if all went well
 }
 The HTTP response's status message - Usually `"OK"` if all went well
 *//*Documentation only*/
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "httpCRs",
     "name" : "httpVersion",
@@ -243,7 +243,7 @@ The HTTP response's status message - Usually `"OK"` if all went well
 }
 The HTTP version reported back by the server - usually `"1.1"`
 *//*Documentation only*/
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpCRs",
   "name" : "available",
@@ -252,7 +252,7 @@ The HTTP version reported back by the server - usually `"1.1"`
 }
 Return how many bytes are available to read. If there is a 'data' event handler, this will always return 0.
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpCRs",
   "name" : "read",
@@ -264,7 +264,7 @@ Return how many bytes are available to read. If there is a 'data' event handler,
 }
 Return a string containing characters that have been received
 */
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpCRs",
   "name" : "pipe",
@@ -287,7 +287,7 @@ Pipe this to a stream (an object with a 'write' method)
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "http",
   "name" : "createServer",
@@ -314,7 +314,7 @@ JsVar *jswrap_http_createServer(JsVar *callback) {
   return serverNew(ST_HTTP, callback);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "http",
   "name" : "request",
@@ -358,7 +358,7 @@ more information about these and how to use them.
 
 */
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "staticmethod",
   "class" : "http",
   "name" : "get",
@@ -411,7 +411,7 @@ JsVar *jswrap_http_get(JsVar *options, JsVar *callback) {
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSrv",
   "name" : "listen",
@@ -425,7 +425,7 @@ Start listening for new HTTP connections on the given port
 */
 // Re-use existing
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSrv",
   "name" : "close",
@@ -440,7 +440,7 @@ Stop listening for new HTTP connections
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{
+/*JSON{  //TODO
     "type" : "property",
     "class" : "httpSRs",
     "name" : "headers",
@@ -458,7 +458,7 @@ The default contents are:
 ```
 *//*Documentation only*/
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSRs",
   "name" : "write",
@@ -469,7 +469,7 @@ The default contents are:
   "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"]
 }
 This function writes the `data` argument as a string. Data that is passed in
-(including arrays) will be converted to a string with the normal JavaScript 
+(including arrays) will be converted to a string with the normal JavaScript
 `toString` method. For more information about sending binary data see `Socket.write`
 */
 bool jswrap_httpSRs_write(JsVar *parent, JsVar *data) {
@@ -477,7 +477,7 @@ bool jswrap_httpSRs_write(JsVar *parent, JsVar *data) {
   return false;
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSRs",
   "name" : "end",
@@ -494,7 +494,7 @@ void jswrap_httpSRs_end(JsVar *parent, JsVar *data) {
 }
 
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSRs",
   "name" : "writeHead",
@@ -515,7 +515,7 @@ void jswrap_httpSRs_writeHead(JsVar *parent, int statusCode, JsVar *headers) {
   serverResponseWriteHead(parent, statusCode, headers);
 }
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpSRs",
   "name" : "setHeader",
@@ -537,7 +537,7 @@ void jswrap_httpSRs_setHeader(JsVar *parent, JsVar *name, JsVar *value) {
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpCRq",
   "name" : "write",
@@ -548,12 +548,12 @@ void jswrap_httpSRs_setHeader(JsVar *parent, JsVar *name, JsVar *value) {
   "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"]
 }
 This function writes the `data` argument as a string. Data that is passed in
-(including arrays) will be converted to a string with the normal JavaScript 
+(including arrays) will be converted to a string with the normal JavaScript
 `toString` method. For more information about sending binary data see `Socket.write`
 */
 // Re-use existing
 
-/*JSON{
+/*JSON{  //TODO
   "type" : "method",
   "class" : "httpCRq",
   "name" : "end",
