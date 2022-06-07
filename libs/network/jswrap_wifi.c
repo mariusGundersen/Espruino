@@ -51,13 +51,14 @@ On ESP32/ESP8266 if you want the connection to happen automatically at boot, add
 On other platforms, place `wifi.connect` in a function called `onInit`.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Wifi",
   "name" : "associated",
   "params" : [
     ["details","JsVar","An object with event details"]
-  ]
+  ],
+  "typedef": "on(event: 'associated', callback: (details: {ssid:string,mac:string,channel:number}) => void): void"
 }
 The 'associated' event is called when an association with an access point has succeeded, i.e., a connection to the AP's network has been established.
 
@@ -69,13 +70,14 @@ On ESP32/ESP8266 there is a `details` parameter which includes:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Wifi",
   "name" : "disconnected",
   "params" : [
     ["details","JsVar","An object with event details"]
-  ]
+  ],
+  "typedef": "on(event: 'disconnected', callback: (details: {ssid:string,mac:string,reason:string}) => void): void"
 }
 The 'disconnected' event is called when an association with an access point has been lost.
 
@@ -87,14 +89,15 @@ On ESP32/ESP8266 there is a `details` parameter which includes:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Wifi",
   "name" : "auth_change",
   "#if" : "defined(ESP32) || defined(ESP8266)",
   "params" : [
     ["details","JsVar","An object with event details"]
-  ]
+  ],
+  "typedef": "on(event: 'auth_change', callback: (details: {oldMode:string,newMode:string}) => void): void"
 }
 The 'auth_change' event is called when the authentication mode with the associated access point changes.
 The details include:
@@ -104,22 +107,24 @@ The details include:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Wifi",
   "name" : "dhcp_timeout",
-  "#if" : "defined(ESP32) || defined(ESP8266)"
+  "#if" : "defined(ESP32) || defined(ESP8266)",
+  "typedef": "on(event: 'dhcp_timeout', callback: () => void): void"
 }
 The 'dhcp_timeout' event is called when a DHCP request to the connected access point fails and thus no IP address could be acquired (or renewed).
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Wifi",
   "name" : "connected",
   "params" : [
     ["details","JsVar","An object with event details"]
-  ]
+  ],
+  "typedef": "on(event: 'connected', callback: (details: {ip:string,netmask:string,gw:string}) => void): void"
 }
 The 'connected' event is called when the connection with an access point is ready for traffic. In the case of a dynamic IP address configuration this is when an IP address is obtained, in the case of static IP address allocation this happens when an association is formed (in that case the 'associated' and 'connected' events are fired in rapid succession).
 
@@ -131,14 +136,15 @@ On ESP32/ESP8266 there is a `details` parameter which includes:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Wifi",
   "name" : "sta_joined",
   "#if" : "defined(ESP32) || defined(ESP8266)",
   "params" : [
     ["details","JsVar","An object with event details"]
-  ]
+  ],
+  "typedef": "on(event: 'sta_joined', callback: (details: {mac:string}) => void): void"
 }
 The 'sta_joined' event is called when a station establishes an association (i.e. connects) with the esp8266's access point.
 The details include:
@@ -147,14 +153,15 @@ The details include:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Wifi",
   "name" : "sta_left",
   "#if" : "defined(ESP32) || defined(ESP8266)",
   "params" : [
     ["details","JsVar","An object with event details"]
-  ]
+  ],
+  "typedef": "on(event: 'sta_left', callback: (details: {mac:string}) => void): void"
 }
 The 'sta_left' event is called when a station disconnects from the esp8266's access point (or its association times out?).
 The details include:
@@ -163,14 +170,15 @@ The details include:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Wifi",
   "name" : "probe_recv",
   "#if" : "defined(ESP32) || defined(ESP8266)",
   "params" : [
     ["details","JsVar","An object with event details"]
-  ]
+  ],
+  "typedef": "on(event: 'probe_recv', callback: (details: {mac:string,rssi:number}) => void): void"
 }
 The 'probe_recv' event is called when a probe request is received from some station by the esp8266's access point.
 The details include:

@@ -129,7 +129,7 @@ Called whenever a step is detected by Bangle.js's pedometer.
   "name" : "health",
   "params" : [["info","JsVar","An object containing the last 10 minutes health data"]],
   "ifdef" : "BANGLEJS",
-  "typedef": "on('health', callback: (info: {}) => void): void"
+  "typedef": "on(event: 'health', callback: (info: {}) => void): void"
 }
 See `Bangle.getHealthStatus()` for more information. This is used for health tracking to
 allow Bangle.js to record historical exercise data.
@@ -140,7 +140,7 @@ allow Bangle.js to record historical exercise data.
   "name" : "faceUp",
   "params" : [["up","bool","`true` if face-up"]],
   "ifdef" : "BANGLEJS",
-  "typedef": "on('faceUp', callback: (up: boolean) => void): void"
+  "typedef": "on(event: 'faceUp', callback: (up: boolean) => void): void"
 }
 Has the watch been moved so that it is face-up, or not face up?
  */
@@ -149,7 +149,7 @@ Has the watch been moved so that it is face-up, or not face up?
   "class" : "Bangle",
   "name" : "twist",
   "ifdef" : "BANGLEJS",
-  "typedef": "on('twist', callback: () => void): void"
+  "typedef": "on(event: 'twist', callback: () => void): void"
 }
 This event happens when the watch has been twisted around it's axis - for instance as if it was rotated so someone could look at the time.
 
@@ -161,7 +161,7 @@ To tweak when this happens, see the `twist*` options in `Bangle.setOptions()`
   "name" : "charging",
   "params" : [["charging","bool","`true` if charging"]],
   "ifdef" : "BANGLEJS",
-  "typedef": "on('charging', callback: (charging: boolean) => void): void"
+  "typedef": "on(event: 'charging', callback: (charging: boolean) => void): void"
 }
 Is the battery charging or not?
  */
@@ -171,7 +171,7 @@ Is the battery charging or not?
   "name" : "mag",
   "params" : [["xyz","JsVar",""]],
   "ifdef" : "BANGLEJS",
-  "typedef": "on('mag', callback: (xyz: {x: number, y: number, z: number, dx: number, dy: number, dz: number, heading: number}) => void): void"
+  "typedef": "on(event: 'mag', callback: (xyz: {x: number, y: number, z: number, dx: number, dy: number, dz: number, heading: number}) => void): void"
 }
 Magnetometer/Compass data available with `{x,y,z,dx,dy,dz,heading}` object as a parameter
 
@@ -184,7 +184,7 @@ with `Bangle.setCompassPower(1)`.
 
 You can also retrieve the most recent reading with `Bangle.getCompass()`.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "GPS-raw",
@@ -192,19 +192,21 @@ You can also retrieve the most recent reading with `Bangle.getCompass()`.
      ["nmea","JsVar","A string containing the raw NMEA data from the GPS"],
      ["dataLoss","bool","This is set to true if some lines of GPS data have previously been lost (eg because system was too busy to queue up a GPS-raw event)"]
   ],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'GPS-raw', callback: (nmea: any, dataLoss: boolean) => void): void"
 }
 Raw NMEA GPS / u-blox data messages received as a string
 
 To get this event you must turn the GPS on
 with `Bangle.setGPSPower(1)`.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "GPS",
   "params" : [["fix","JsVar","An object with fix info (see below)"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'GPS', callback: (fix: {lat:number, lon:rumber,alt:number,speed:number,course:number,time:Date,sattelites:number,fix:number,hdop:number}) => void): void"
 }
 GPS data, as an object. Contains:
 
@@ -231,12 +233,13 @@ not be considered remotely accurate.
 To get this event you must turn the GPS on
 with `Bangle.setGPSPower(1)`.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "HRM",
   "params" : [["hrm","JsVar","An object with heart rate info (see below)"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'HRM', callback: (hrm: {bpm:number,confidence:number,raw:Uint8Array}) => void): void"
 }
 Heat rate data, as an object. Contains:
 
@@ -250,12 +253,13 @@ Heat rate data, as an object. Contains:
 To get this event you must turn the heart rate monitor on
 with `Bangle.setHRMPower(1)`.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "HRM-raw",
   "params" : [["hrm","JsVar","A object containing instant readings from the heart rate sensor"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'HRM-raw', callback: (hrm: {raw:number,filt:number,bpm:number,confidence:number}) => void): void"
 }
 Called when heart rate sensor data is available - see `Bangle.setHRMPower(1)`.
 
@@ -269,41 +273,45 @@ Called when heart rate sensor data is available - see `Bangle.setHRMPower(1)`.
 }
 ```
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "pressure",
   "params" : [["e","JsVar","An object containing `{temperature,pressure,altitude}`"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'pressure', callback: (e: {temperature:number,pressure:number,altitude:number}) => void): void"
 }
 When `Bangle.setBarometerPower(true)` is called, this event is fired containing barometer readings.
 
 Same format as `Bangle.getPressure()`
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "lcdPower",
   "params" : [["on","bool","`true` if screen is on"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'lcdPower', callback: (on: boolean) => void): void"
 }
 Has the screen been turned on or off? Can be used to stop tasks that are no longer useful if nothing is displayed.  Also see `Bangle.isLCDOn()`
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "lock",
   "params" : [["on","bool","`true` if screen is locked, `false` if it is unlocked and touchscreen/buttons will work"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'lock', callback: (on: boolean) => void): void"
 }
 Has the screen been locked? Also see `Bangle.isLocked()`
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "tap",
   "params" : [["data","JsVar","`{dir, double, x, y, z}`"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'tap', callback: (data: {dir:'left/right/top/bottom/front/back'}) => void): void"
 }
 If the watch is tapped, this event contains information on the way it was tapped.
 
@@ -318,22 +326,24 @@ If the watch is tapped, this event contains information on the way it was tapped
   z : -2 .. 2 // the axis of the tap
 ```
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "gesture",
   "params" : [["xyz","JsVar","An Int8Array of XYZXYZXYZ data"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'gesture', callback: (xyz: Int8Array) => void): void"
 }
 Emitted when a 'gesture' (fast movement) is detected
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "aiGesture",
   "params" : [["gesture","JsVar","The name of the gesture (if '.tfnames' exists, or the index. 'undefined' if not matching"],
               ["weights","JsVar","An array of floating point values output by the model"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'aiGesture', callback: (gesture: string, weights: number[]) => void): void"
 }
 Emitted when a 'gesture' (fast movement) is detected, and a Tensorflow model is in
 storage in the `".tfmodel"` file.
@@ -341,19 +351,20 @@ storage in the `".tfmodel"` file.
 If a `".tfnames"` file is specified as a comma-separated list of names, it will be used
 to decode `gesture` from a number into a string.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "swipe",
   "params" : [["directionLR","int","`-1` for left, `1` for right, `0` for up/down"],
               ["directionUD","int","`-1` for up, `1` for down, `0` for left/right (Bangle.js 2 only)"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'swipe', callback: (directionLR: number, directionUD: number) => void): void"
 }
 Emitted when a swipe on the touchscreen is detected (a movement from left->right, right->left, down->up or up->down)
 
 Bangle.js 1 is only capable of detecting left/right swipes as it only contains a 2 zone touchscreen.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "touch",
@@ -361,16 +372,18 @@ Bangle.js 1 is only capable of detecting left/right swipes as it only contains a
     ["button","int","`1` for left, `2` for right"],
     ["xy","JsVar","Object of form `{x,y}` containing touch coordinates (if the device supports full touch). Clipped to 0..175 (LCD pixel coordinates) on firmware 2v13 and later."]
   ],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'touch', callback: (button: number, xy: {x:number,y:number}) => void): void"
 }
 Emitted when the touchscreen is pressed
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "drag",
   "params" : [["event","JsVar","Object of form `{x,y,dx,dy,b}` containing touch coordinates, difference in touch coordinates, and an integer `b` containing number of touch points (currently 1 or 0)"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'drag', callback: (event: {x:number,y:number,dx:number,dy:number,b:number}) => void): void"
 }
 Emitted when the touchscreen is dragged or released
 
@@ -380,12 +393,13 @@ the LCD's pixels, if your finger goes towards the edge of the
 screen, `x` and `y` could end up larger than 175 (the screen's maximum pixel coordinates)
 or smaller than 0. Coordinates from the `touch` event are clipped.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "stroke",
   "params" : [["event","JsVar","Object of form `{xy:Uint8Array([x1,y1,x2,y2...])}` containing touch coordinates"]],
-  "ifdef" : "BANGLEJS2"
+  "ifdef" : "BANGLEJS2",
+  "typedef": "on(event: 'stroke', callback: (event: {xy:Uint8Array}) => void): void"
 }
 Emitted when the touchscreen is dragged for a large enough distance to count as a gesture.
 
@@ -410,11 +424,12 @@ Bangle.on('stroke',o=>{
 }
 ```
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "midnight",
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'midnight', callback: () => void): void"
 }
 Emitted at midnight (at the point the `day` health info is reset to 0).
 

@@ -33,11 +33,11 @@
 This is the built-in JavaScript class for Espruino utility functions.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "E",
   "name" : "init",
-  "typedef": "static on(event: 'init', callback: () => void): void"
+  "typedef": "static on(event: 'init', callback: () => void): void",
 }
 This event is called right after the board starts up, and has a similar effect
 to creating a function called `onInit`.
@@ -54,11 +54,11 @@ E.on('init', function() {
 rather than replacing the last one. This allows you to write modular code -
 something that was not possible with `onInit`.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "E",
   "name" : "kill",
-  "typedef": "static on(event: 'kill', callback: () => void): void"
+  "typedef": "static on(event: 'kill', callback: () => void): void",
 }
 This event is called just before the device shuts down for commands such as
 `reset()`, `load()`, `save()`, `E.reboot()` or `Bangle.off()`
@@ -76,14 +76,14 @@ example by removing power, hitting an actual reset button, or via
 a Watchdog timer reset.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "E",
   "name" : "errorFlag",
   "params" : [
     ["errorFlags","JsVar","An array of new error flags, as would be returned by `E.getErrorFlags()`. Error flags that were present before won't be reported."]
   ],
-  "typedef": "static on(event: 'errorFlag', callback: (errorFlags: ('FIFO_FULL' | 'BUFFER_FULL' | 'CALLBACK' | 'LOW_MEMORY' | 'MEMORY' | 'UART_OVERFLOW')[]) => void): void"
+  "typedef": "static on(event: 'errorFlag', callback: (errorFlags: ('FIFO_FULL' | 'BUFFER_FULL' | 'CALLBACK' | 'LOW_MEMORY' | 'MEMORY' | 'UART_OVERFLOW')[]) => void): void",
 }
 This event is called when an error is created by Espruino itself (rather
 than JS code) which changes the state of the error flags reported by
@@ -96,7 +96,7 @@ This event will only be emitted when error flag is set. If the error
 flag was already set nothing will be emitted. To clear error flags
 so that you do get a callback each time a flag is set, call `E.getErrorFlags()`.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "E",
   "name" : "touch",
@@ -105,7 +105,7 @@ so that you do get a callback each time a flag is set, call `E.getErrorFlags()`.
     ["y","int","Y coordinate in display coordinates"],
     ["b","int","Touch count - 0 for released, 1 for pressed"]
   ],
-  "typedef": "static on(event: 'touch', callback: (x: number, y: number, b: number) => void): void"
+  "typedef": "static on(event: 'touch', callback: (x: number, y: number, b: number) => void): void",
 }
 This event is called when a full touchscreen device on an Espruino
 is interacted with.

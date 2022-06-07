@@ -40,21 +40,23 @@ Use `Serial.setup` to configure this port.
 JsVar *jswrap_serial_constructor() {
   return jspNewObject(0,"Serial");
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Serial",
   "name" : "data",
   "params" : [
     ["data","JsVar","A string containing one or more characters of received data"]
-  ]
+  ],
+  "typedef": "on(event: 'data', callback: (data: string) => void): void"
 }
 The `data` event is called when data is received. If a handler is defined with `X.on('data', function(data) { ... })` then it will be called, otherwise data will be stored in an internal buffer, where it can be retrieved with `X.read()`
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Serial",
-  "name" : "framing"
+  "name" : "framing",
+  "typedef": "on(event: 'framing', callback: () => void): void"
 }
 The `framing` event is called when there was activity on the input to the UART
 but the `STOP` bit wasn't in the correct place. This is either because there
@@ -68,10 +70,11 @@ passed to the `data` handler.
 
 **Note:** This only works on STM32 and NRF52 based devices (eg. all official Espruino boards)
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Serial",
-  "name" : "parity"
+  "name" : "parity",
+  "typedef": "on(event: 'parity', callback: () => void): void"
 }
 The `parity` event is called when the UART was configured with a parity bit,
 and this doesn't match the bits that have actually been received.

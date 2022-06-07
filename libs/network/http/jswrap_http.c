@@ -47,20 +47,22 @@ The HTTP server created by `require('http').createServer`
 }
 The HTTP server request
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpSRq",
   "name" : "data",
   "params" : [
     ["data","JsVar","A string containing one or more characters of received data"]
-  ]
+  ],
+  "typedef": "on(event: 'data', callback: (data: string) => void): void"
 }
 The 'data' event is called when data is received. If a handler is defined with `X.on('data', function(data) { ... })` then it will be called, otherwise data will be stored in an internal buffer, where it can be retrieved with `X.read()`
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpSRq",
-  "name" : "close"
+  "name" : "close",
+  "typedef": "on(event: 'close', callback: () => void): void"
 }
 Called when the connection closes.
 */
@@ -139,17 +141,19 @@ Pipe this to a stream (an object with a 'write' method)
 }
 The HTTP server response
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpSRs",
-  "name" : "drain"
+  "name" : "drain",
+  "typedef": "on(event: 'drain', callback: () => void): void"
 }
 An event that is fired when the buffer is empty and it can accept more data to send.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpSRs",
-  "name" : "close"
+  "name" : "close",
+  "typedef": "on(event: 'close', callback: () => void): void"
 }
 Called when the connection closes.
 */
@@ -161,17 +165,19 @@ Called when the connection closes.
 }
 The HTTP client request, returned by `http.request()` and `http.get()`.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpCRq",
-  "name" : "drain"
+  "name" : "drain",
+  "typedef": "on(event: 'drain', callback: () => void): void"
 }
 An event that is fired when the buffer is empty and it can accept more data to send.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpCRq",
-  "name" : "error"
+  "name" : "error",
+  "typedef": "on(event: 'error', callback: () => void): void"
 }
 An event that is fired if there is an error making the request and the response callback has not been invoked. In this case the error event concludes the request attempt. The error event function receives an error object as parameter with a `code` field and a `message` field.
 */
@@ -183,27 +189,30 @@ An event that is fired if there is an error making the request and the response 
 }
 The HTTP client response, passed to the callback of `http.request()` an `http.get()`.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpCRs",
   "name" : "data",
   "params" : [
     ["data","JsVar","A string containing one or more characters of received data"]
-  ]
+  ],
+  "typedef": "on(event: 'data', callback: (data: string) => void): void"
 }
 The 'data' event is called when data is received. If a handler is defined with `X.on('data', function(data) { ... })` then it will be called, otherwise data will be stored in an internal buffer, where it can be retrieved with `X.read()`
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpCRs",
-  "name" : "close"
+  "name" : "close",
+  "typedef": "on(event: 'close', callback: () => void): void"
 }
 Called when the connection closes with one `hadError` boolean parameter, which indicates whether an error occurred.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "httpCRs",
-  "name" : "error"
+  "name" : "error",
+  "typedef": "on(event: 'error', callback: (error:{code:number,message:string}) => void): void"
 }
 An event that is fired if there is an error receiving the response. The error event function receives an error object as parameter with a `code` field and a `message` field. After the error event the close even will also be triggered to conclude the HTTP request/response.
 */

@@ -31,11 +31,12 @@
 This class contains information about Espruino itself
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "process",
   "name" : "uncaughtException",
-  "params" : [["exception","JsVar","The uncaught exception"]]
+  "params" : [["exception","JsVar","The uncaught exception"]],
+  "typedef": "on(event:'uncaughtException', callback: (exception: any) => void): void"
 }
 This event is called when an exception gets thrown and isn't caught (eg. it gets all the way back to the event loop).
 

@@ -236,33 +236,36 @@ The socket server created by `require('net').createServer`
 }
 An actual socket connection - allowing transmit/receive of TCP data
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Socket",
   "name" : "data",
   "params" : [
     ["data","JsVar","A string containing one or more characters of received data"]
-  ]
+  ],
+  "typedef": "on(event: 'data', callback: (data: string) => void): void"
 }
 The 'data' event is called when data is received. If a handler is defined with `X.on('data', function(data) { ... })` then it will be called, otherwise data will be stored in an internal buffer, where it can be retrieved with `X.read()`
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Socket",
   "name" : "close",
   "params" : [
     ["had_error","JsVar","A boolean indicating whether the connection had an error (use an error event handler to get error details)."]
-  ]
+  ],
+  "typedef": "on(event: 'close', callback: (had_error: boolean) => void): void"
 }
 Called when the connection closes.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Socket",
   "name" : "error",
   "params" : [
     ["details","JsVar","An error object with an error code (a negative integer) and a message."]
-  ]
+  ],
+  "typedef": "on(event: 'error', callback: (details: {code:number,message:string}) => void): void"
 }
 There was an error on this socket and it is closing (or wasn't opened in the first place). If a "connected" event was issued on this socket then the error event is always followed by a close event.
 The error codes are:
@@ -317,10 +320,11 @@ Return a string containing characters that have been received
 }
 Pipe this to a stream (an object with a 'write' method)
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Socket",
-  "name" : "drain"
+  "name" : "drain",
+  "typedef": "on(event: 'drain', callback: () => void): void"
 }
 An event that is fired when the buffer is empty and it can accept more data to send.
 */
@@ -515,14 +519,15 @@ void jswrap_dgram_socket_send(JsVar *parent, JsVar *buffer, JsVar *offset, JsVar
   networkFree(&net);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "dgramSocket",
   "name" : "message",
   "params" : [
     ["msg","JsVar","A string containing the received message"],
     ["rinfo","JsVar","Sender address,port containing information"]
-  ]
+  ],
+  "typedef": "on(event: 'message', callback: (msg: string, rinfo: {address:string,port:number,size:number}) => void): void"
 }
 The 'message' event is called when a datagram message is received. If a handler is defined with `X.on('message', function(msg) { ... })` then it will be called`
 */
@@ -583,13 +588,14 @@ void jswrap_dgram_addMembership(JsVar *parent, JsVar *group, JsVar *ip) {
   serverAddMembership(&net, parent, group, ip);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "dgramSocket",
   "name" : "close",
   "params" : [
     ["had_error","JsVar","A boolean indicating whether the connection had an error (use an error event handler to get error details)."]
-  ]
+  ],
+  "typedef": "on(event: 'close', callback: (had_error: boolean) => void): void"
 }
 Called when the connection closes.
 */

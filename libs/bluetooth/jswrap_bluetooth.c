@@ -317,23 +317,25 @@ Most functionality is related to Bluetooth Low Energy, however there are also so
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "connect",
   "params" : [
     ["addr","JsVar","The address of the device that has connected"]
-  ]
+  ],
+  "typedef": "on(event: 'connect', callback: (addr: string) => void): void"
 }
 Called when a host device connects to Espruino. The first argument contains the address.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "disconnect",
   "params" : [
     ["reason","int","The reason code reported back by the BLE stack - see Nordic's [`ble_hci.h` file](https://github.com/espruino/Espruino/blob/master/targetlibs/nrf5x_12/components/softdevice/s132/headers/ble_hci.h#L71) for more information"]
-  ]
+  ],
+  "typedef": "on(event: 'disconnect', callback: (reason: number) => void): void"
 }
 Called when a host device disconnects from Espruino.
 
@@ -341,23 +343,25 @@ The most common reason is:
 * 19 - `REMOTE_USER_TERMINATED_CONNECTION`
 * 22 - `LOCAL_HOST_TERMINATED_CONNECTION`
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "security",
   "params" : [
     ["status","JsVar","An object containing `{auth_status,bonded,lv4,kdist_own,kdist_peer}"]
-  ]
+  ],
+  "typedef": "on(event: 'security', callback: (status: {auth_status:number, bonded:boolean,lv4:any, kdist_own:any,kdist_peer:any}) => void): void"
 }
 Contains updates on the security of the current Bluetooth link.
 
 See Nordic's `ble_gap_evt_auth_status_t` structure for more information.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "HID",
-  "#if" : "defined(NRF52_SERIES)"
+  "#if" : "defined(NRF52_SERIES)",
+  "typedef": "on(event: 'HID', callback: () => void): void"
 }
 Called with a single byte value when Espruino is set up as
 a HID device and the computer it is connected to sends a
@@ -365,61 +369,67 @@ HID report back to Espruino. This is usually used for handling
 indications such as the Caps Lock LED.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "servicesDiscover",
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "on(event: 'servicesDiscover', callback: () => void): void"
 }
 Called with discovered services when discovery is finished
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "characteristicsDiscover",
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "on(event: 'characteristicsDiscover', callback: () => void): void"
 }
 Called with discovered characteristics when discovery is finished
  */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "NFCon",
-  "#if" : "defined(NRF52_SERIES) && defined(USE_NFC)"
+  "#if" : "defined(NRF52_SERIES) && defined(USE_NFC)",
+  "typedef": "on(event: 'NFCon', callback: () => void): void"
 }
 Called when an NFC field is detected
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "NFCoff",
-  "#if" : "defined(NRF52_SERIES) && defined(USE_NFC)"
+  "#if" : "defined(NRF52_SERIES) && defined(USE_NFC)",
+  "typedef": "on(event: 'NFCoff', callback: () => void): void"
 }
 Called when an NFC field is no longer detected
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "NRF",
   "name" : "NFCrx",
   "params" : [
     ["arr","JsVar","An ArrayBuffer containign the received data"]
   ],
-  "#if" : "defined(NRF52_SERIES) && defined(USE_NFC)"
+  "#if" : "defined(NRF52_SERIES) && defined(USE_NFC)",
+  "typedef": "on(event: 'NFCrx', callback: (arr: ArrayBuffer) => void): void"
 }
 When NFC is started with `NRF.nfcStart`, this is fired
 when NFC data is received. It doesn't get called if
 NFC is started with `NRF.nfcURL` or `NRF.nfcRaw`
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "BluetoothDevice",
   "name" : "gattserverdisconnected",
   "params" : [
     ["reason","int","The reason code reported back by the BLE stack - see Nordic's `ble_hci.h` file for more information"]
   ],
-  "ifdef" : "NRF52_SERIES"
+  "ifdef" : "NRF52_SERIES",
+  "typedef": "on(event: 'gattserverdisconnected', callback: (reason: number) => void): void"
 }
 Called when the device gets disconnected.
 
@@ -446,11 +456,12 @@ NRF.requestDevice(...).then(function(device) {
 });
 ```
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "BluetoothRemoteGATTCharacteristic",
   "name" : "characteristicvaluechanged",
-  "ifdef" : "NRF52_SERIES"
+  "ifdef" : "NRF52_SERIES",
+  "typedef": "on(event: 'characteristicvaluechanged', callback: () => void): void"
 }
 Called when a characteristic's value changes, *after* `BluetoothRemoteGATTCharacteristic.startNotifications` has been called.
 
@@ -2600,12 +2611,13 @@ void jswrap_ble_sendHIDReport(JsVar *data, JsVar *callback) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "E",
   "name" : "ANCS",
   "params" : [["info","JsVar","An object (see below)"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'ANCS', callback: (info: {event:string,uid:number,category:number,categoryCnt:number,silent:boolean,important:boolean,preExisting:boolean,positive:boolean,negative:boolean}) => void): void"
 }
 Called when a notification arrives on an Apple iOS device Bangle.js is connected to
 
@@ -2631,12 +2643,13 @@ NRF.ancsGetNotificationInfo( event.uid ).then(a=>print("Notify",E.toJS(a)));
 ```
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "E",
   "name" : "AMS",
   "params" : [["info","JsVar","An object (see below)"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on(event: 'AMS', callback: (info: {id:string,value:string,truncated:boolean}) => void): void"
 }
 Called when a media event arrives on an Apple iOS device Bangle.js is connected to
 
@@ -3424,14 +3437,15 @@ JsVar *jswrap_BluetoothDevice_gatt(JsVar *parent) {
     "return" : ["bool", "The last received RSSI (signal strength) for this device" ]
 }
 *//*Documentation only*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "event",
     "class" : "BluetoothDevice",
     "name" : "passkey",
     "ifdef" : "NRF52_SERIES",
     "params" : [
       ["passkey","JsVar","A 6 character numeric String to be displayed"]
-    ]
+    ],
+  "typedef": "on(event: 'passkey', callback: (passkey: string) => void): void"
 }
 Called when the device pairs and sends a passkey that Espruino should display.
 
@@ -3440,11 +3454,12 @@ For this to be used, you'll have to specify that there's a display using `NRF.se
 **This is not part of the Web Bluetooth Specification.** It has been added
 specifically for Espruino.
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "event",
     "class" : "BluetoothDevice",
     "name" : "passkeyRequest",
-    "ifdef" : "NRF52_SERIES"
+    "ifdef" : "NRF52_SERIES",
+  "typedef": "on(event: 'passkeyRequest', callback: () => void): void"
 }
 Called when the device pairs, displays a passkey, and wants Espruino to tell it what the passkey was.
 

@@ -645,11 +645,12 @@ JsVarFloat jswrap_puck_magTemp() {
   return ((JsVarFloat)t) / 256.0;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Puck",
   "name" : "mag",
-  "ifdef" : "PUCKJS"
+  "ifdef" : "PUCKJS",
+  "typedef": "on(event: 'mag', callback: (mag:{x:number,y:number,z:number}) => void): void"
 }
 Called after `Puck.magOn()` every time magnetometer data
 is sampled. There is one argument which is an object
@@ -660,11 +661,12 @@ Check out [the Puck.js page on the magnetometer](http://www.espruino.com/Puck.js
 for more information.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Puck",
   "name" : "accel",
-  "ifdef" : "PUCKJS"
+  "ifdef" : "PUCKJS",
+  "typedef": "on(event: 'accel', callback: (data:{acc:{x:number,y:number,z:number}, gyro:{x:number,y:number,z:number}}) => void): void"
 }
 Only on Puck.js v2.0
 

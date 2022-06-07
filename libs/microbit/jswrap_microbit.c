@@ -564,14 +564,15 @@ The micro:bit's microphone enable pin
 }
 Class containing [micro:bit's](https://www.espruino.com/MicroBit) utility functions.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Microbit",
   "name" : "gesture",
   "params" : [
     ["gesture","JsVar","An Int8Array containing the accelerations (X,Y,Z) from the last gesture detected by the accelerometer"]
   ],
-  "ifdef" : "MICROBIT2"
+  "ifdef" : "MICROBIT2",
+  "typedef": "on(event: 'gesture', callback: (gesture: Int8Array) => void): void"
 }
 Called when the Micro:bit is moved in a deliberate fashion, and includes data on the detected gesture.
  */
