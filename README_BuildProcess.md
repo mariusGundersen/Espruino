@@ -218,19 +218,21 @@ An example of a wrapper file might be:
 #include "jsinteractive.h" // Pull in the jsiConsolePrint function
 
 // Let's define the JavaScript class that will contain our `world()` method. We'll call it `Hello`
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Hello"
+  "class" : "Hello",
+  "typedef" : "class Hello"
 }
 Some info about this class
 */
 
 // Now, we define the `jswrap_hello_world` to be a `staticmethod` on the `Hello` class
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Hello",
   "name" : "world",
-  "generate" : "jswrap_hello_world"
+  "generate" : "jswrap_hello_world",
+  "typedef" : "static world(): void"
 }
 We can write simple markdown-formatted comments in here. These
 then get scanned and turned into the Espruino [Reference](http://www.espruino.com/Reference)

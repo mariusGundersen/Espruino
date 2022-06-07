@@ -74,31 +74,34 @@
 #include "unistroke.h"
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type": "class",
   "class" : "Bangle",
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef" : "class Bangle"
 }
 Class containing utility functions for the [Bangle.js Smart Watch](http://www.espruino.com/Bangle.js)
 */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "VIBRATE",
   "generate_full" : "VIBRATE_PIN",
   "ifdef" : "BANGLEJS",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef" : "declare VIBRATE:Pin;"
 }
 The Bangle.js's vibration motor.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "accel",
   "params" : [["xyz","JsVar",""]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef" : "on('accel', callback: (xyz: {x: number, y: number, z: number, diff: number, mag: number}) => void): void"
 }
 Accelerometer data available with `{x,y,z,diff,mag}` object as a parameter.
 
@@ -110,59 +113,65 @@ Accelerometer data available with `{x,y,z,diff,mag}` object as a parameter.
 
 You can also retrieve the most recent reading with `Bangle.getAccel()`.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "step",
   "params" : [["up","int","The number of steps since Bangle.js was last reset"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef" : "on('step', callback: (up: number) => void): void"
 }
 Called whenever a step is detected by Bangle.js's pedometer.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "health",
   "params" : [["info","JsVar","An object containing the last 10 minutes health data"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on('health', callback: (info: {}) => void): void"
 }
 See `Bangle.getHealthStatus()` for more information. This is used for health tracking to
 allow Bangle.js to record historical exercise data.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "faceUp",
   "params" : [["up","bool","`true` if face-up"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on('faceUp', callback: (up: boolean) => void): void"
 }
 Has the watch been moved so that it is face-up, or not face up?
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "twist",
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on('twist', callback: () => void): void"
 }
 This event happens when the watch has been twisted around it's axis - for instance as if it was rotated so someone could look at the time.
 
 To tweak when this happens, see the `twist*` options in `Bangle.setOptions()`
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "charging",
   "params" : [["charging","bool","`true` if charging"]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on('charging', callback: (charging: boolean) => void): void"
 }
 Is the battery charging or not?
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "event",
   "class" : "Bangle",
   "name" : "mag",
   "params" : [["xyz","JsVar",""]],
-  "ifdef" : "BANGLEJS"
+  "ifdef" : "BANGLEJS",
+  "typedef": "on('mag', callback: (xyz: {x: number, y: number, z: number, dx: number, dy: number, dz: number, heading: number}) => void): void"
 }
 Magnetometer/Compass data available with `{x,y,z,dx,dy,dz,heading}` object as a parameter
 

@@ -27,17 +27,19 @@ jswrap_hello.c
 #include "jsinteractive.h" // Pull inn the jsiConsolePrint function
 
 // Let's define the JavaScript class that will contain our `world()` method. We'll call it `Hello`
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Hello"
+  "class" : "Hello",
+  "typedef" : "class Hello"
 }*/
 
 // Now, we define the `jswrap_hello_world` to be a `staticmethod` on the `Hello` class
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Hello",
   "name" : "world",
-  "generate" : "jswrap_hello_world"
+  "generate" : "jswrap_hello_world",
+  "typedef" : "static world(): void"
 }*/
 void jswrap_hello_world() {
     jsiConsolePrint("Hello World!\r\n");
