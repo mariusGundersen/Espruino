@@ -70,9 +70,10 @@ double jswrap_math_sin(double x) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Math"
+  "class" : "Math",
+  "typedef": "class Math"
 }
 This is a standard JavaScript class that contains useful Maths routines
 */

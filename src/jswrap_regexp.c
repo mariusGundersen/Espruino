@@ -267,10 +267,11 @@ static JsVar *matchhere(char *regexp, JsvStringIterator *txtIt, matchInfo info) 
   return nomatchfound(&regexp[charLength], info);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "ifndef" : "SAVE_ON_FLASH",
-  "class" : "RegExp"
+  "class" : "RegExp",
+  "typedef": "class RegExp"
 }
 The built-in class for handling Regular Expressions
 

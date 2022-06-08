@@ -15,10 +15,11 @@
  */
 #include "jswrap_number.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "Number",
-  "check" : "jsvIsNumeric(var)"
+  "check" : "jsvIsNumeric(var)",
+  "typedef": "class Number"
 }
 This is the built-in JavaScript class for numbers.
  */

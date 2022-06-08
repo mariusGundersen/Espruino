@@ -16,33 +16,38 @@
 #include "jswrap_error.h"
 #include "jsparse.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Error"
+  "class" : "Error",
+  "typedef": "class Error"
 }
 The base class for runtime errors
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "SyntaxError"
+  "class" : "SyntaxError",
+  "typedef": "class SyntaxError"
 }
 The base class for syntax errors
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "TypeError"
+  "class" : "TypeError",
+  "typedef": "class TypeError"
 }
 The base class for type errors
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "InternalError"
+  "class" : "InternalError",
+  "typedef": "class InternalError"
 }
 The base class for internal errors
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "ReferenceError"
+  "class" : "ReferenceError",
+  "typedef": "class ReferenceError"
 }
 The base class for reference errors - where a variable
 which doesn't exist has been accessed.

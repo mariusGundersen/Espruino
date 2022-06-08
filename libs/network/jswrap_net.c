@@ -60,9 +60,10 @@ void jswrap_net_kill() {
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "url"
+  "class" : "url",
+  "typedef": "class url"
 }
 This class helps to convert URLs into Objects of information ready for http.request/get
 */
@@ -222,17 +223,19 @@ In order to use this, you will need an extra module to get network connectivity.
 This is designed to be a cut-down version of the [node.js library](http://nodejs.org/api/net.html). Please see the [Internet](/Internet) page for more information on how to use it.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "net",
-  "class" : "Server"
+  "class" : "Server",
+  "typedef": "class Server"
 }
 The socket server created by `require('net').createServer`
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "net",
-  "class" : "Socket"
+  "class" : "Socket",
+  "typedef": "class Socket"
 }
 An actual socket connection - allowing transmit/receive of TCP data
 */
@@ -463,10 +466,11 @@ JsVar *jswrap_dgram_createSocket(JsVar *type, JsVar *callback) {
   return connection;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "dgram",
-  "class" : "dgramSocket"
+  "class" : "dgramSocket",
+  "typedef": "class dgramSocket"
 }
 An actual socket connection - allowing transmit/receive of TCP data
 */

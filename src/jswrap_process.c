@@ -24,9 +24,10 @@
 #include "jswrap_puck.h" // process.env
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "process"
+  "class" : "process",
+  "typedef": "class process"
 }
 This class contains information about Espruino itself
  */

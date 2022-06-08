@@ -34,9 +34,10 @@
 
 const Pin PIXL_IO_PINS[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19};
 
-/*JSON{  //TODO
+/*JSON{
     "type": "class",
-    "class" : "Pixl"
+    "class" : "Pixl",
+    "typedef": "class Pixl"
 }
 Class containing utility functions for [Pixl.js](http://www.espruino.com/Pixl.js)
 */

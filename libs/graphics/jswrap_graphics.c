@@ -410,9 +410,10 @@ NO_INLINE void _jswrap_drawImageSimple(JsGraphics *gfx, int xPos, int yPos, GfxD
 // ==========================================================================================
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Graphics"
+  "class" : "Graphics",
+  "typedef": "class Graphics"
 }
 This class provides Graphics operations that can be applied to a surface.
 

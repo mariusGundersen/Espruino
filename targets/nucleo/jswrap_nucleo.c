@@ -16,9 +16,10 @@
 
 #include "jswrap_nucleo.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Nucleo"
+  "class" : "Nucleo",
+  "typedef": "class Nucleo"
 }
 This is the built-in class for the Arduino-style pin namings on ST Nucleo boards
 */

@@ -557,10 +557,11 @@ The micro:bit's microphone pin
 The micro:bit's microphone enable pin
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type": "class",
     "class" : "Microbit",
-    "ifdef" : "MICROBIT"
+    "ifdef" : "MICROBIT",
+    "typedef": "class Microbit"
 }
 Class containing [micro:bit's](https://www.espruino.com/MicroBit) utility functions.
 */

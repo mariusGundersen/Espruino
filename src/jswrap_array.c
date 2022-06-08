@@ -21,10 +21,11 @@
 #define max(a,b) (((a)>(b))?(a):(b))
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "Array",
-  "check" : "jsvIsArray(var)"
+  "check" : "jsvIsArray(var)",
+  "typedef": "class Array"
 }
 This is the built-in JavaScript class for arrays.
 

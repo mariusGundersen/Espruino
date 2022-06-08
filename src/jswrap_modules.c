@@ -24,9 +24,10 @@
 #include "jswrap_fs.h"
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Modules"
+  "class" : "Modules",
+  "typedef": "class Modules"
 }
 Built-in class that caches the modules used by the `require` command
  */

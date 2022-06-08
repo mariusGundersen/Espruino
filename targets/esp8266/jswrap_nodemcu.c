@@ -16,9 +16,10 @@
 
 #include "jswrap_nodemcu.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "NodeMCU"
+  "class" : "NodeMCU",
+  "typedef": "class NodeMCU"
 }
 This is a built-in class to allow you to use the ESP8266 NodeMCU boards's pin namings to access pins. It is only available on ESP8266-based boards.
 */

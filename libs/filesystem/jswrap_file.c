@@ -161,9 +161,10 @@ void jswrap_E_connectSDCard(JsVar *spi, Pin csPin) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "File"
+  "class" : "File",
+  "typedef": "class File"
 }
 This is the File object - it allows you to stream data to and from files (As opposed to the `require('fs').readFile(..)` style functions that read an entire file).
 

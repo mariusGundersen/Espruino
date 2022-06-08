@@ -20,9 +20,10 @@
 #include "jsinteractive.h"
 #include "jswrap_arraybuffer.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "SPI"
+  "class" : "SPI",
+  "typedef": "class SPI"
 }
 This class allows use of the built-in SPI ports. Currently it is SPI master only.
  */
@@ -483,9 +484,10 @@ void jswrap_spi_send8bit(JsVar *parent, JsVar *srcdata, int bit0, int bit1, Pin 
   jshSPISet16(device, false); // back to 8 bit
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "I2C"
+  "class" : "I2C",
+  "typedef": "class I2C"
 }
 This class allows use of the built-in I2C ports. Currently it allows I2C Master mode only.
 

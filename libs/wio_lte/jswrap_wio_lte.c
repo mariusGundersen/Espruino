@@ -21,9 +21,10 @@
 #include "jspininfo.h"
 
 
-/*JSON{  //TODO
+/*JSON{
     "type": "class",
-    "class" : "WioLTE"
+    "class" : "WioLTE",
+    "typedef": "class WioLTE"
 }
 Class containing utility functions for the Seeed WIO LTE board
 */

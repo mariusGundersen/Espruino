@@ -31,19 +31,21 @@ In order to use this, you will need an extra module to get network connectivity 
 This is designed to be a cut-down version of the [node.js library](http://nodejs.org/api/http.html). Please see the [Internet](/Internet) page for more information on how to use it.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "http",
-  "class" : "httpSrv"
+  "class" : "httpSrv",
+  "typedef": "class httpSrv"
 }
 The HTTP server created by `require('http').createServer`
 */
 // there is a 'connect' event on httpSrv, but it's used by createServer and isn't node-compliant
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "http",
-  "class" : "httpSRq"
+  "class" : "httpSRq",
+  "typedef": "class httpSRq"
 }
 The HTTP server request
 */
@@ -134,10 +136,11 @@ Return a string containing characters that have been received
 Pipe this to a stream (an object with a 'write' method)
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "http",
-  "class" : "httpSRs"
+  "class" : "httpSRs",
+  "typedef": "class httpSRs"
 }
 The HTTP server response
 */
@@ -158,10 +161,11 @@ An event that is fired when the buffer is empty and it can accept more data to s
 Called when the connection closes.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "http",
-  "class" : "httpCRq"
+  "class" : "httpCRq",
+  "typedef": "class httpCRq"
 }
 The HTTP client request, returned by `http.request()` and `http.get()`.
 */
@@ -182,10 +186,11 @@ An event that is fired when the buffer is empty and it can accept more data to s
 An event that is fired if there is an error making the request and the response callback has not been invoked. In this case the error event concludes the request attempt. The error event function receives an error object as parameter with a `code` field and a `message` field.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "http",
-  "class" : "httpCRs"
+  "class" : "httpCRs",
+  "typedef": "class httpCRs"
 }
 The HTTP client response, passed to the callback of `http.request()` an `http.get()`.
 */

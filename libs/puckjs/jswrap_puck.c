@@ -557,10 +557,11 @@ void accel_off() {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type": "class",
     "class" : "Puck",
-    "ifdef" : "PUCKJS"
+    "ifdef" : "PUCKJS",
+    "typedef": "class Puck"
 }
 Class containing [Puck.js's](http://www.puck-js.com) utility functions.
 */

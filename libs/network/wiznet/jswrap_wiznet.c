@@ -162,10 +162,11 @@ JsVar *jswrap_wiznet_connect(JsVar *spi, Pin cs) {
   return ethObj;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "Ethernet",
-  "ifdef" : "USE_WIZNET"
+  "ifdef" : "USE_WIZNET",
+  "typedef": "class Ethernet"
 }
 An instantiation of an Ethernet network adaptor
 */

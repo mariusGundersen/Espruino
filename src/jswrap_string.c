@@ -20,10 +20,11 @@
 #include "jswrap_regexp.h"
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "String",
-  "check" : "jsvIsString(var)"
+  "check" : "jsvIsString(var)",
+  "typedef": "class String"
 }
 This is the built-in class for Text Strings.
 

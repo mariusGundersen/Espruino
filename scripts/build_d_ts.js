@@ -11,16 +11,23 @@ require("./common.js").readAllWrapperFiles(function(json) {
     .filter(j => j.type !== 'class' && j.class);
 
   for(const member of members){
-    classes.get(member.class).members.push(member)
+    const owner = classes.get(member.class);
+    if(!owner) console.error('missing owner for ', member.name, 'expected', member.class);
+    else owner.members.push(member)
   }
 
   let content = [...classes.values()]
-    .map(c => c.typedef + ' {\n' + c.members.map(m => renderMember(m).split('\n').map(l => '  '+l).join('\n')).join('\n') + '\n}\n\n').join('\n');
+    .map(c => typeComment(c) + c.typedef + ' {\n' + c.members.map(m => renderMember(m).split('\n').map(l => '  '+l).join('\n')).join('\n\n') + '\n}\n\n').join('\n');
 
   content = content.concat(json.filter( j => !j.class).map(renderMember).join('\n\n'));
 
   fs.writeFileSync('./types.d.ts', content);
 });
+
+function typeComment(c){
+  if(!c.description) return '';
+  return '/**\n'+ c.description.split('\r\n').map(l => ' * '+l).join('\n')+'\n */\n';
+}
 
 function renderMember(member){
   return [
@@ -29,7 +36,7 @@ function renderMember(member){
 
     ...(member.params ? member.params.map(p => ' * @param '+p[0]+' '+p[2]) : []),
     ...(member.return ? [' * @returns ' + member.return[1]] : []),
-    '*/',
+    ' */',
     ...(Array.isArray(member.typedef) ? member.typedef : [member.typedef])
   ].join('\n')
 }

@@ -25,10 +25,11 @@
 #define JS_PROMISE_RESOLVED_NAME "resolved"
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "Promise",
-  "ifndef" : "SAVE_ON_FLASH"
+  "ifndef" : "SAVE_ON_FLASH",
+  "typedef": "class Promise"
 }
 This is the built-in class for ES6 Promises
 */

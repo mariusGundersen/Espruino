@@ -101,9 +101,10 @@ JsVar *jswrap_cc3000_connect(JsVar *spi, Pin cs, Pin en, Pin irq) {
   return wlanObj;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "WLAN"
+  "class" : "WLAN",
+  "typedef": "class WLAN"
 }
 An instantiation of a WiFi network adaptor
 */

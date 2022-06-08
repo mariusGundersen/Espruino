@@ -17,9 +17,10 @@
 #include "jsdevices.h"
 #include "jsinteractive.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "OneWire"
+  "class" : "OneWire",
+  "typedef": "class OneWire"
 }
 This class provides a software-defined OneWire master. It is designed to be similar to Arduino's OneWire library.
  */

@@ -49,11 +49,12 @@ Cryptographic functions
 */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "crypto",
   "class" : "AES",
-  "ifdef" : "USE_AES"
+  "ifdef" : "USE_AES",
+  "typedef": "class AES"
 }
 Class containing AES encryption/decryption
 

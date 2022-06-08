@@ -101,7 +101,7 @@ The Bangle.js's vibration motor.
   "name" : "accel",
   "params" : [["xyz","JsVar",""]],
   "ifdef" : "BANGLEJS",
-  "typedef" : "on('accel', callback: (xyz: {x: number, y: number, z: number, diff: number, mag: number}) => void): void"
+  "typedef" : "on(event: 'accel', callback: (xyz: {x: number, y: number, z: number, diff: number, mag: number}) => void): void"
 }
 Accelerometer data available with `{x,y,z,diff,mag}` object as a parameter.
 
@@ -119,7 +119,7 @@ You can also retrieve the most recent reading with `Bangle.getAccel()`.
   "name" : "step",
   "params" : [["up","int","The number of steps since Bangle.js was last reset"]],
   "ifdef" : "BANGLEJS",
-  "typedef" : "on('step', callback: (up: number) => void): void"
+  "typedef" : "on(event: 'step', callback: (up: number) => void): void"
 }
 Called whenever a step is detected by Bangle.js's pedometer.
  */

@@ -93,11 +93,12 @@ JsVar *jswrap_tensorflow_create(int arena_size, JsVar *model) {
   return tfmi;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "library" : "tensorflow",
   "class" : "TFMicroInterpreter",
-  "ifdef" : "USE_TENSORFLOW"
+  "ifdef" : "USE_TENSORFLOW",
+  "typedef": "class TFMicroInterpreter"
 }
 Class containing an instance of TFMicroInterpreter
 */

@@ -17,14 +17,16 @@
 
 /* DO_NOT_INCLUDE_IN_DOCS - this is a special token for common.py */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "NRF"
+  "class" : "NRF",
+  "typedef": "class NRF"
 }
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Bluetooth"
+  "class" : "Bluetooth",
+  "typedef": "class Bluetooth"
 }
 */
 

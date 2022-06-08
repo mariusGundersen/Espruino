@@ -304,9 +304,10 @@ void jswrap_ble_dumpBluetoothInitialisation(vcbprintf_callback user_callback, vo
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
 
-/*JSON{  //TODO
+/*JSON{
     "type": "class",
-    "class" : "NRF"
+    "class" : "NRF",
+    "typedef": "class NRF"
 }
 The NRF class is for controlling functionality of the Nordic nRF51/nRF52 chips.
 
@@ -3378,10 +3379,11 @@ JsVar *jswrap_ble_startBonding(bool forceRePair) {
    return 0;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "BluetoothDevice",
-  "ifdef" : "NRF52_SERIES"
+  "ifdef" : "NRF52_SERIES",
+  "typedef": "class BluetoothDevice"
 }
 A Web Bluetooth-style device - you can request one using `NRF.requestDevice(address)`
 
@@ -3591,10 +3593,11 @@ JsVar *jswrap_ble_BluetoothRemoteGATTServer_connect(JsVar *parent, JsVar *option
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "BluetoothRemoteGATTServer",
-    "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "class BluetoothRemoteGATTServer"
 }
 Web Bluetooth-style GATT server - get this using `NRF.connect(address)`
 or `NRF.requestDevice(options)` and `response.gatt.connect`
@@ -3846,10 +3849,11 @@ void jswrap_BluetoothRemoteGATTServer_setRSSIHandler(JsVar *parent, JsVar *callb
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "BluetoothRemoteGATTService",
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "class BluetoothRemoteGATTService"
 }
 Web Bluetooth-style GATT service - get this using `BluetoothRemoteGATTServer.getPrimaryService(s)`
 
@@ -3916,10 +3920,11 @@ JsVar *jswrap_BluetoothRemoteGATTService_getCharacteristics(JsVar *parent) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "BluetoothRemoteGATTCharacteristic",
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "class BluetoothRemoteGATTCharacteristic"
 }
 Web Bluetooth-style GATT characteristic - get this using `BluetoothRemoteGATTService.getCharacteristic(s)`
 

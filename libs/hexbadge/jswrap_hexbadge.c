@@ -160,9 +160,10 @@ The pin connected to Corner #6
 
 
 
-/*JSON{  //TODO
+/*JSON{
     "type": "class",
-    "class" : "Badge"
+    "class" : "Badge",
+    "typedef": "class Badge"
 }
 Class containing utility functions for accessing IO on the hexagonal badge
 */

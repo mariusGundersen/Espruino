@@ -17,9 +17,10 @@
 #include "jsparse.h"
 #include "rtosutil.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type"    : "class",
-  "class"   : "Queue"
+  "class"   : "Queue",
+  "typedef": "class Queue"
 }
 A class to support some simple Queue handling for RTOS queues
 */
@@ -83,9 +84,10 @@ void jswrap_Queue_log(JsVar *parent) {
   return;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"    : "class",
-  "class"   : "Task"
+  "class"   : "Task",
+  "typedef": "class Task"
 }
 A class to support some simple Task handling for RTOS tasks
 */
@@ -171,9 +173,10 @@ void jswrap_Task_log(JsVar *parent) {
   return;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"	: "class",
-  "class"	: "Timer"
+  "class"	: "Timer",
+  "typedef": "class Timer"
 }
 A class to handle Timer on base of ESP32 Timer
 */

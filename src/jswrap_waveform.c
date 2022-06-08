@@ -24,10 +24,11 @@
 
 #ifndef SAVE_ON_FLASH
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "ifndef" : "SAVE_ON_FLASH",
-  "class" : "Waveform"
+  "class" : "Waveform",
+  "typedef": "class Waveform"
 }
 This class handles waveforms. In Espruino, a Waveform is a set of data that you want to input or output.
  */

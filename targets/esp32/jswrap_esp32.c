@@ -33,10 +33,11 @@
 #include "jsinteractive.h"
 #include "jsparse.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type": "class",
   "class" : "ESP32",
-  "ifdef" : "ESP32"
+  "ifdef" : "ESP32",
+  "typedef": "class ESP32"
 }
 Class containing utility functions for the [ESP32](http://www.espruino.com/ESP32)
 */

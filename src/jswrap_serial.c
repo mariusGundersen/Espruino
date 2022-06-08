@@ -18,9 +18,10 @@
 #include "jsinteractive.h"
 #include "jsserial.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Serial"
+  "class" : "Serial",
+  "typedef": "class Serial"
 }
 This class allows use of the built-in USARTs
 

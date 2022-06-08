@@ -159,9 +159,10 @@ static CalendarDate getCalendarDateFromDateVar(JsVar *date, bool forceGMT) {
   return getCalendarDate(getTimeFromDateVar(date, forceGMT).daysSinceEpoch);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Date"
+  "class" : "Date",
+  "typedef": "class Date"
 }
 The built-in class for handling Dates.
 

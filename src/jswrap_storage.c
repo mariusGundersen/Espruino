@@ -563,10 +563,11 @@ JsVar *jswrap_storage_open(JsVar *name, JsVar *modeVar) {
   return f;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "StorageFile",
-  "ifndef" : "SAVE_ON_FLASH"
+  "ifndef" : "SAVE_ON_FLASH",
+  "typedef": "class StorageFile"
 }
 
 These objects are created from `require("Storage").open`

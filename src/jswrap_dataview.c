@@ -19,10 +19,11 @@
 #include "jsparse.h"
 #include "jswrap_arraybuffer.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "DataView",
-  "ifndef" : "SAVE_ON_FLASH"
+  "ifndef" : "SAVE_ON_FLASH",
+  "typedef": "class DataView"
 }
 This class helps
  */

@@ -35,10 +35,11 @@ typedef long long int64_t;
 #include <jswrap_neopixel.h>
 
 
-/*JSON{  //TODO
+/*JSON{
   "type": "class",
   "class" : "ESP8266",
-  "ifdef" : "ESP8266"
+  "ifdef" : "ESP8266",
+  "typedef": "class ESP8266"
 }
 Class containing utility functions for the [ESP8266](http://www.espruino.com/EspruinoESP8266)
 */

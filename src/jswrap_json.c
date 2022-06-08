@@ -27,9 +27,10 @@ const unsigned int JSON_ITEMS_ON_LINE_OBJECT = 4; // How many items are allowed 
 const char *JSON_LIMIT_TEXT = " ... ";
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "JSON"
+  "class" : "JSON",
+  "typedef": "class JSON"
 }
 An Object that handles conversion to and from the JSON data interchange format
  */

@@ -18,9 +18,10 @@
 #include "trigger.h"
 #include "jswrap_trigger.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "Trig"
+  "class" : "Trig",
+  "typedef": "class Trig"
 }
 This class exists in order to interface Espruino with fast-moving trigger wheels. Trigger wheels are physical discs with evenly spaced teeth cut into them, and often with one or two teeth next to each other missing. A sensor sends a signal whenever a tooth passed by, and this allows a device to measure not only RPM, but absolute position.
 

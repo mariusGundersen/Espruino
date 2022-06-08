@@ -25,7 +25,7 @@
 #include "jswrap_puck.h" // jswrap_puck_getTemperature
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "E",
   "typedef": "class E"

@@ -23,17 +23,19 @@
 #include "malloc.h" // needed for alloca
 #endif//__MINGW32__
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "Object",
-  "check" : "jsvIsObject(var)"
+  "check" : "jsvIsObject(var)",
+  "typedef": "class Object"
 }
 This is the built-in class for Objects
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
   "class" : "Function",
-  "check" : "jsvIsFunction(var)"
+  "check" : "jsvIsFunction(var)",
+  "typedef": "class Function"
 }
 This is the built-in class for Functions
  */

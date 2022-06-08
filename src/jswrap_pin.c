@@ -17,7 +17,7 @@
 #include "jswrap_io.h"
 #include "jstimer.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type"  : "class",
   "class" : "Pin",
   "check" : "jsvIsPin(var)",

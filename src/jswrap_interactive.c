@@ -22,9 +22,10 @@
 #include "jsinteractive.h"
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "class",
-  "class" : "console"
+  "class" : "console",
+  "typedef": "class console"
 }
 An Object that contains functions for writing to the interactive console
  */
