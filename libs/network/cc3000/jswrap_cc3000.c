@@ -41,7 +41,7 @@
 }
 
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "CC3000",
   "name" : "connect",
@@ -53,7 +53,8 @@
     ["irq", "pin", "The pin to use for Interrupts"]
   ],
   "return" : ["JsVar","A WLAN Object"],
-  "return_object" : "WLAN"
+  "return_object" : "WLAN",
+  "typedef": "static connect(spi: SPI, cs: Pin, en: Pin, irq: Pin): WLAN"
 }
 Initialise the CC3000 and return a WLAN object
 */

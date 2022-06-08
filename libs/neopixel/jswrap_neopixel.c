@@ -48,7 +48,7 @@ These use a high speed single-wire protocol which needs platform-specific
 implementation on some devices - hence this library to simplify things.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "neopixel",
   "name" : "write",
@@ -56,7 +56,8 @@ implementation on some devices - hence this library to simplify things.
   "params" : [
     ["pin", "pin", "The Pin the LEDs are connected to"],
     ["data","JsVar","The data to write to the LED strip (must be a multiple of 3 bytes long)"]
-  ]
+  ],
+  "typedef": "static write(pin: Pin, data: any): void"
 }
 Write to a strip of NeoPixel/WS281x/APA104/APA106/SK6812-style LEDs
 attached to the given pin.

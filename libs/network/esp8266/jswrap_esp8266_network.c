@@ -1270,7 +1270,7 @@ void jswrap_ESP8266_wifi_soft_init() {
   DBGV("< Wifi.soft_init\n");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "ESP8266",
   "ifdef"    : "ESP8266",
@@ -1279,7 +1279,8 @@ void jswrap_ESP8266_wifi_soft_init() {
   "params"   : [
     ["ipAddr", "JsVar", "A string representation of an IP address."],
     ["pingCallback", "JsVar", "Optional callback function."]
-  ]
+  ],
+  "typedef": "static ping(ipAddr: string, pingCallback: (response: {}) => void): void"
 }
 **DEPRECATED** - please use `Wifi.ping` instead.
 
