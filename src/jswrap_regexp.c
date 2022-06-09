@@ -311,7 +311,7 @@ JsVar *jswrap_regexp_constructor(JsVar *str, JsVar *flags) {
   return r;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "RegExp",
@@ -320,7 +320,8 @@ JsVar *jswrap_regexp_constructor(JsVar *str, JsVar *flags) {
     ["str","JsVar","A string to match on"]
   ],
   "generate" : "jswrap_regexp_exec",
-  "return" : ["JsVar","A result array, or null"]
+  "return" : ["JsVar","A result array, or null"],
+  "typedef": "exec(str: any): any"
 }
 Test this regex on a string - returns a result array on success, or `null` otherwise.
 
@@ -381,7 +382,7 @@ JsVar *jswrap_regexp_exec(JsVar *parent, JsVar *arg) {
   return rmatch;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "RegExp",
@@ -390,7 +391,8 @@ JsVar *jswrap_regexp_exec(JsVar *parent, JsVar *arg) {
     ["str","JsVar","A string to match on"]
   ],
   "generate" : "jswrap_regexp_test",
-  "return" : ["bool","true for a match, or false"]
+  "return" : ["bool","true for a match, or false"],
+  "typedef": "test(str: any): boolean"
 }
 Test this regex on a string - returns `true` on a successful match, or `false` otherwise
  */

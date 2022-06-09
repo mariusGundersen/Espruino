@@ -242,7 +242,7 @@ static void jswrap_waveform_start(JsVar *waveform, Pin pin, JsVarFloat freq, JsV
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Waveform",
   "name" : "startOutput",
@@ -252,7 +252,8 @@ static void jswrap_waveform_start(JsVar *waveform, Pin pin, JsVarFloat freq, JsV
     ["output","pin","The pin to output on"],
     ["freq","float","The frequency to output each sample at"],
     ["options","JsVar","Optional options struct `{time:float,repeat:bool}` where: `time` is the that the waveform with start output at, e.g. `getTime()+1` (otherwise it is immediate), `repeat` is a boolean specifying whether to repeat the give sample"]
-  ]
+  ],
+  "typedef": "startOutput(output: Pin, freq: number, options: any): void"
 }
 Will start outputting the waveform on the given pin - the pin must have previously been initialised with analogWrite. If not repeating, it'll emit a `finish` event when it is done.
  */
@@ -260,7 +261,7 @@ void jswrap_waveform_startOutput(JsVar *waveform, Pin pin, JsVarFloat freq, JsVa
   jswrap_waveform_start(waveform, pin, freq, options, true/*write*/);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Waveform",
   "name" : "startInput",
@@ -270,7 +271,8 @@ void jswrap_waveform_startOutput(JsVar *waveform, Pin pin, JsVarFloat freq, JsVa
     ["output","pin","The pin to output on"],
     ["freq","float","The frequency to output each sample at"],
     ["options","JsVar","Optional options struct `{time:float,repeat:bool}` where: `time` is the that the waveform with start output at, e.g. `getTime()+1` (otherwise it is immediate), `repeat` is a boolean specifying whether to repeat the give sample"]
-  ]
+  ],
+  "typedef": "startInput(output: Pin, freq: number, options: any): void"
 }
 Will start inputting the waveform on the given pin that supports analog. If not repeating, it'll emit a `finish` event when it is done.
  */
@@ -281,12 +283,13 @@ void jswrap_waveform_startInput(JsVar *waveform, Pin pin, JsVarFloat freq, JsVar
   jswrap_waveform_start(waveform, pin, freq, options, false/*read*/);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Waveform",
   "name" : "stop",
   "ifndef" : "SAVE_ON_FLASH",
-  "generate" : "jswrap_waveform_stop"
+  "generate" : "jswrap_waveform_stop",
+  "typedef": "stop(): void"
 }
 Stop a waveform that is currently outputting
  */

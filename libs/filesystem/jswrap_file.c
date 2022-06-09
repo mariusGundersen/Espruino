@@ -352,11 +352,12 @@ JsVar *jswrap_E_openFile(JsVar* path, JsVar* mode) {
   return file.fileVar;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "File",
   "name" : "close",
-  "generate_full" : "jswrap_file_close(parent)"
+  "generate_full" : "jswrap_file_close(parent)",
+  "typedef": "close(): void"
 }
 Close an open file.
 */
@@ -386,7 +387,7 @@ void jswrap_file_close(JsVar* parent) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "File",
   "name" : "write",
@@ -394,7 +395,8 @@ void jswrap_file_close(JsVar* parent) {
   "params" : [
     ["buffer","JsVar","A string containing the bytes to write"]
   ],
-  "return" : ["int32","the number of bytes written"]
+  "return" : ["int32","the number of bytes written"],
+  "typedef": "write(buffer: any): int32"
 }
 Write data to a file.
 
@@ -455,7 +457,7 @@ size_t jswrap_file_write(JsVar* parent, JsVar* buffer) {
   return bytesWritten;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "File",
   "name" : "read",
@@ -463,7 +465,8 @@ size_t jswrap_file_write(JsVar* parent, JsVar* buffer) {
   "params" : [
     ["length","int32","is an integer specifying the number of bytes to read."]
   ],
-  "return" : ["JsVar","A string containing the characters that were read"]
+  "return" : ["JsVar","A string containing the characters that were read"],
+  "typedef": "read(length: int32): any"
 }
 Read data in a file in byte size chunks
 */
@@ -529,25 +532,27 @@ JsVar *jswrap_file_read(JsVar* parent, int length) {
   return buffer;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "File",
   "name" : "skip",
   "generate_full" : "jswrap_file_skip_or_seek(parent,nBytes,true)",
   "params" : [
     ["nBytes","int32","is a positive integer specifying the number of bytes to skip forwards."]
-  ]
+  ],
+  "typedef": "skip(nBytes: int32): void"
 }
 Skip the specified number of bytes forward in the file
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "File",
   "name" : "seek",
   "generate_full" : "jswrap_file_skip_or_seek(parent,nBytes,false)",
   "params" : [
     ["nBytes","int32","is an integer specifying the number of bytes to skip forwards."]
-  ]
+  ],
+  "typedef": "seek(nBytes: int32): void"
 }
 Seek to a certain position in the file
 */
@@ -575,7 +580,7 @@ void jswrap_file_skip_or_seek(JsVar* parent, int nBytes, bool is_skip) {
   if (res) jsfsReportError(is_skip?"Unable to skip":"Unable to seek", res);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "File",
   "name" : "pipe",
@@ -584,7 +589,8 @@ void jswrap_file_skip_or_seek(JsVar* parent, int nBytes, bool is_skip) {
   "params" : [
     ["destination","JsVar","The destination file/stream that will receive content from the source."],
     ["options","JsVar",["An optional object `{ chunkSize : int=32, end : bool=true, complete : function }`","chunkSize : The amount of data to pipe from source to destination at a time","complete : a function to call when the pipe activity is complete","end : call the 'end' function on the destination when the source is finished"]]
-  ]
+  ],
+  "typedef": "pipe(destination: any, options: any): void"
 }
 Pipe this file to a stream (an object with a 'write' method)
 */

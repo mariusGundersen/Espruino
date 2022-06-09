@@ -188,14 +188,15 @@ A telnet serial device that maps to the built-in telnet console server (devices 
 
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Serial",
   "name" : "setConsole",
   "generate" : "jswrap_serial_setConsole",
   "params" : [
     ["force","bool","Whether to force the console to this port"]
-  ]
+  ],
+  "typedef": "setConsole(force: boolean): void"
 }
 Set this Serial port as the port for the JavaScript console (REPL).
 
@@ -213,7 +214,7 @@ void jswrap_serial_setConsole(JsVar *parent, bool force) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Serial",
   "name" : "setup",
@@ -221,7 +222,8 @@ void jswrap_serial_setConsole(JsVar *parent, bool force) {
   "params" : [
     ["baudrate","JsVar","The baud rate - the default is 9600"],
     ["options","JsVar","An optional structure containing extra information on initialising the serial port - see below."]
-  ]
+  ],
+  "typedef": "setup(baudrate: any, options: any): void"
 }
 Setup this Serial port with the given baud rate and options.
 
@@ -336,12 +338,13 @@ void jswrap_serial_setup(JsVar *parent, JsVar *baud, JsVar *options) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Serial",
   "name" : "unsetup",
-  "generate" : "jswrap_serial_unsetup"
+  "generate" : "jswrap_serial_unsetup",
+  "typedef": "unsetup(): void"
 }
 If the serial (or software serial) device was set up,
 uninitialise it.
@@ -407,27 +410,29 @@ void _jswrap_serial_print(JsVar *parent, JsVar *arg, bool isPrint, bool newLine)
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Serial",
   "name" : "print",
   "generate" : "jswrap_serial_print",
   "params" : [
     ["string","JsVar","A String to print"]
-  ]
+  ],
+  "typedef": "print(string: any): void"
 }
 Print a string to the serial port - without a line feed
 
  **Note:** This function replaces any occurances of `\n` in the string with `\r\n`. To avoid this, use `Serial.write`.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Serial",
   "name" : "println",
   "generate" : "jswrap_serial_println",
   "params" : [
     ["string","JsVar","A String to print"]
-  ]
+  ],
+  "typedef": "println(string: any): void"
 }
 Print a line to the serial port with a newline (`\r\n`) at the end of it.
 
@@ -439,14 +444,15 @@ void jswrap_serial_print(JsVar *parent, JsVar *str) {
 void jswrap_serial_println(JsVar *parent,  JsVar *str) {
   _jswrap_serial_print(parent, str, true, true);
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Serial",
   "name" : "write",
   "generate" : "jswrap_serial_write",
   "params" : [
     ["data","JsVarArray","One or more items to write. May be ints, strings, arrays, or special objects (see `E.toUint8Array` for more info)."]
-  ]
+  ],
+  "typedef": "write(data: JsVarArray): void"
 }
 Write a character or array of data to the serial port
 
@@ -456,7 +462,7 @@ void jswrap_serial_write(JsVar *parent, JsVar *args) {
   _jswrap_serial_print(parent, args, false, false);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Serial",
@@ -464,7 +470,8 @@ void jswrap_serial_write(JsVar *parent, JsVar *args) {
   "generate" : "jswrap_serial_inject",
   "params" : [
     ["data","JsVarArray","One or more items to write. May be ints, strings, arrays, or special objects (see `E.toUint8Array` for more info)."]
-  ]
+  ],
+  "typedef": "inject(data: JsVarArray): void"
 }
 Add data to this device as if it came directly from the input - it will be
 returned via `serial.on('data', ...)`;
@@ -488,17 +495,18 @@ void jswrap_serial_inject(JsVar *parent, JsVar *args) {
   jsvIterateCallback(args, _jswrap_serial_inject_cb, (void*)&device);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Serial",
   "name" : "available",
   "generate" : "jswrap_stream_available",
-  "return" : ["int","How many bytes are available"]
+  "return" : ["int","How many bytes are available"],
+  "typedef": "available(): number"
 }
 Return how many bytes are available to read. If there is already a listener for data, this will always return 0.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Serial",
   "name" : "read",
@@ -506,12 +514,13 @@ Return how many bytes are available to read. If there is already a listener for 
   "params" : [
     ["chars","int","The number of characters to read, or undefined/0 for all available"]
   ],
-  "return" : ["JsVar","A string containing the required bytes."]
+  "return" : ["JsVar","A string containing the required bytes."],
+  "typedef": "read(chars: number): any"
 }
 Return a string containing characters that have been received
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Serial",
   "name" : "pipe",
@@ -520,7 +529,8 @@ Return a string containing characters that have been received
   "params" : [
     ["destination","JsVar","The destination file/stream that will receive content from the source."],
     ["options","JsVar",["An optional object `{ chunkSize : int=32, end : bool=true, complete : function }`","chunkSize : The amount of data to pipe from source to destination at a time","complete : a function to call when the pipe activity is complete","end : call the 'end' function on the destination when the source is finished"]]
-  ]
+  ],
+  "typedef": "pipe(destination: any, options: any): void"
 }
 Pipe this USART to a stream (an object with a 'write' method)
  */

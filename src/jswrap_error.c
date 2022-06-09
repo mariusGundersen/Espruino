@@ -143,40 +143,45 @@ JsVar *jswrap_referenceerror_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "ReferenceError");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Error",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
-  "return" : ["JsVar","A String"]
+  "return" : ["JsVar","A String"],
+  "typedef": "toString(): any"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "SyntaxError",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
-  "return" : ["JsVar","A String"]
+  "return" : ["JsVar","A String"],
+  "typedef": "toString(): any"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "TypeError",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
-  "return" : ["JsVar","A String"]
+  "return" : ["JsVar","A String"],
+  "typedef": "toString(): any"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "InternalError",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
-  "return" : ["JsVar","A String"]
+  "return" : ["JsVar","A String"],
+  "typedef": "toString(): any"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ReferenceError",
   "name" : "toString",
   "generate" : "jswrap_error_toString",
-  "return" : ["JsVar","A String"]
+  "return" : ["JsVar","A String"],
+  "typedef": "toString(): any"
 }*/
 JsVar *jswrap_error_toString(JsVar *parent) {
   JsVar *str = jsvObjectGetChild(parent, "type", 0);

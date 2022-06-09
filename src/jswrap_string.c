@@ -90,7 +90,7 @@ JsVar *jswrap_string_fromCharCode(JsVar *arr) {
   return r;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "charAt",
@@ -98,7 +98,8 @@ JsVar *jswrap_string_fromCharCode(JsVar *arr) {
   "params" : [
     ["pos","int","The character number in the string. Negative values return characters from end of string (-1 = last char)"]
   ],
-  "return" : ["JsVar","The character in the string"]
+  "return" : ["JsVar","The character in the string"],
+  "typedef": "charAt(pos: number): any"
 }
 Return a single character at the given position in the String.
  */
@@ -117,7 +118,7 @@ JsVar *jswrap_string_charAt(JsVar *parent, JsVarInt idx) {
   return r;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "charCodeAt",
@@ -125,7 +126,8 @@ JsVar *jswrap_string_charAt(JsVar *parent, JsVarInt idx) {
   "params" : [
     ["pos","int","The character number in the string. Negative values return characters from end of string (-1 = last char)"]
   ],
-  "return" : ["int32","The integer value of a character in the string"]
+  "return" : ["int32","The integer value of a character in the string"],
+  "typedef": "charCodeAt(pos: number): int32"
 }
 Return the integer value of a single character at the given position in the String.
 
@@ -136,7 +138,7 @@ int jswrap_string_charCodeAt(JsVar *parent, JsVarInt idx) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "indexOf",
@@ -145,11 +147,12 @@ int jswrap_string_charCodeAt(JsVar *parent, JsVarInt idx) {
     ["substring","JsVar","The string to search for"],
     ["fromIndex","JsVar","Index to search from"]
   ],
-  "return" : ["int32","The index of the string, or -1 if not found"]
+  "return" : ["int32","The index of the string, or -1 if not found"],
+  "typedef": "indexOf(substring: any, fromIndex: any): int32"
 }
 Return the index of substring in this string, or -1 if not found
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "lastIndexOf",
@@ -158,7 +161,8 @@ Return the index of substring in this string, or -1 if not found
     ["substring","JsVar","The string to search for"],
     ["fromIndex","JsVar","Index to search from"]
   ],
-  "return" : ["int32","The index of the string, or -1 if not found"]
+  "return" : ["int32","The index of the string, or -1 if not found"],
+  "typedef": "lastIndexOf(substring: any, fromIndex: any): int32"
 }
 Return the last index of substring in this string, or -1 if not found
  */
@@ -205,7 +209,7 @@ int jswrap_string_indexOf(JsVar *parent, JsVar *substring, JsVar *fromIndex, boo
   return -1;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "match",
@@ -213,7 +217,8 @@ int jswrap_string_indexOf(JsVar *parent, JsVar *substring, JsVar *fromIndex, boo
   "params" : [
     ["substr","JsVar","Substring or RegExp to match"]
   ],
-  "return" : ["JsVar","A match array or `null` (see below):"]
+  "return" : ["JsVar","A match array or `null` (see below):"],
+  "typedef": "match(substr: any): any"
 }
 Matches an occurrence `subStr` in the string.
 
@@ -294,7 +299,7 @@ JsVar *jswrap_string_match(JsVar *parent, JsVar *subStr) {
   return jsvNewNull();
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "replace",
@@ -303,7 +308,8 @@ JsVar *jswrap_string_match(JsVar *parent, JsVar *subStr) {
     ["subStr","JsVar","The string to search for"],
     ["newSubStr","JsVar","The string to replace it with"]
   ],
-  "return" : ["JsVar","This string with `subStr` replaced"]
+  "return" : ["JsVar","This string with `subStr` replaced"],
+  "typedef": "replace(subStr: any, newSubStr: any): any"
 }
 Search and replace ONE occurrance of `subStr` with `newSubStr` and return the result. This doesn't alter the original string. Regular expressions not supported.
  */
@@ -406,7 +412,7 @@ JsVar *jswrap_string_replace(JsVar *parent, JsVar *subStr, JsVar *newSubStr) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "substring",
@@ -415,7 +421,8 @@ JsVar *jswrap_string_replace(JsVar *parent, JsVar *subStr, JsVar *newSubStr) {
     ["start","int","The start character index"],
     ["end","JsVar","The end character index"]
   ],
-  "return" : ["JsVar","The part of this string between start and end"]
+  "return" : ["JsVar","The part of this string between start and end"],
+  "typedef": "substring(start: number, end: any): any"
 }*/
 JsVar *jswrap_string_substring(JsVar *parent, JsVarInt pStart, JsVar *vEnd) {
   JsVar *res;
@@ -433,7 +440,7 @@ JsVar *jswrap_string_substring(JsVar *parent, JsVarInt pStart, JsVar *vEnd) {
   return res;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "substr",
@@ -442,7 +449,8 @@ JsVar *jswrap_string_substring(JsVar *parent, JsVarInt pStart, JsVar *vEnd) {
     ["start","int","The start character index"],
     ["len","JsVar","The number of characters"]
   ],
-  "return" : ["JsVar","Part of this string from start for len characters"]
+  "return" : ["JsVar","Part of this string from start for len characters"],
+  "typedef": "substr(start: number, len: any): any"
 }*/
 JsVar *jswrap_string_substr(JsVar *parent, JsVarInt pStart, JsVar *vLen) {
   JsVar *res;
@@ -456,7 +464,7 @@ JsVar *jswrap_string_substr(JsVar *parent, JsVarInt pStart, JsVar *vLen) {
   return res;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "slice",
@@ -465,7 +473,8 @@ JsVar *jswrap_string_substr(JsVar *parent, JsVarInt pStart, JsVar *vLen) {
     ["start","int","The start character index, if negative it is from the end of the string"],
     ["end","JsVar","The end character index, if negative it is from the end of the string, and if omitted it is the end of the string"]
   ],
-  "return" : ["JsVar","Part of this string from start for len characters"]
+  "return" : ["JsVar","Part of this string from start for len characters"],
+  "typedef": "slice(start: number, end: any): any"
 }*/
 JsVar *jswrap_string_slice(JsVar *parent, JsVarInt pStart, JsVar *vEnd) {
   JsVar *res;
@@ -482,7 +491,7 @@ JsVar *jswrap_string_slice(JsVar *parent, JsVarInt pStart, JsVar *vEnd) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "split",
@@ -490,7 +499,8 @@ JsVar *jswrap_string_slice(JsVar *parent, JsVarInt pStart, JsVar *vEnd) {
   "params" : [
     ["separator","JsVar","The separator `String` or `RegExp` to use"]
   ],
-  "return" : ["JsVar","Part of this string from start for len characters"]
+  "return" : ["JsVar","Part of this string from start for len characters"],
+  "typedef": "split(separator: any): any"
 }
 Return an array made by splitting this string up by the separator. eg. ```'1,2,3'.split(',')==['1', '2', '3']```
 
@@ -562,7 +572,7 @@ JsVar *jswrap_string_split(JsVar *parent, JsVar *split) {
   return array;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "toLowerCase",
@@ -570,9 +580,10 @@ JsVar *jswrap_string_split(JsVar *parent, JsVar *split) {
   "params" : [
 
   ],
-  "return" : ["JsVar","The lowercase version of this string"]
+  "return" : ["JsVar","The lowercase version of this string"],
+  "typedef": "toLowerCase(): any"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "toUpperCase",
@@ -580,7 +591,8 @@ JsVar *jswrap_string_split(JsVar *parent, JsVar *split) {
   "params" : [
 
   ],
-  "return" : ["JsVar","The uppercase version of this string"]
+  "return" : ["JsVar","The uppercase version of this string"],
+  "typedef": "toUpperCase(): any"
 }*/
 JsVar *jswrap_string_toUpperLowerCase(JsVar *parent, bool upper) {
   JsVar *res = jsvNewFromEmptyString();
@@ -604,13 +616,14 @@ JsVar *jswrap_string_toUpperLowerCase(JsVar *parent, bool upper) {
   return res;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "trim",
   "generate" : "jswrap_string_trim",
   "return" : ["JsVar","A String with Whitespace removed from the beginning and end"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "trim(): String"
 }
 Return a new string with any whitespace (tabs, space, form feed, newline,
 carriage return, etc) removed from the beginning and end.
@@ -641,7 +654,7 @@ JsVar *jswrap_string_trim(JsVar *parent) {
   return res;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "concat",
@@ -650,7 +663,8 @@ JsVar *jswrap_string_trim(JsVar *parent) {
   "params" : [
     ["args","JsVarArray","Strings to append"]
   ],
-  "return" : ["JsVar","The result of appending all arguments to this string"]
+  "return" : ["JsVar","The result of appending all arguments to this string"],
+  "typedef": "concat(args: JsVarArray): any"
 }
 Append all arguments to this `String` and return the result. Does not modify the original `String`.
 */
@@ -663,7 +677,7 @@ JsVar *jswrap_string_concat(JsVar *parent, JsVar *args) {
   return str;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "startsWith",
@@ -673,7 +687,8 @@ JsVar *jswrap_string_concat(JsVar *parent, JsVar *args) {
     ["searchString","JsVar","The string to search for"],
     ["position","int","The start character index (or 0 if not defined)"]
   ],
-  "return" : ["bool","`true` if the given characters are found at the beginning of the string, otherwise, `false`."]
+  "return" : ["bool","`true` if the given characters are found at the beginning of the string, otherwise, `false`."],
+  "typedef": "startsWith(searchString: any, position: number): boolean"
 }
 */
 bool jswrap_string_startsWith(JsVar *parent, JsVar *search, int position) {
@@ -687,7 +702,7 @@ bool jswrap_string_startsWith(JsVar *parent, JsVar *search, int position) {
   return match;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "endsWith",
@@ -697,7 +712,8 @@ bool jswrap_string_startsWith(JsVar *parent, JsVar *search, int position) {
     ["searchString","JsVar","The string to search for"],
     ["length","JsVar","The 'end' of the string - if left off the actual length of the string is used"]
   ],
-  "return" : ["bool","`true` if the given characters are found at the end of the string, otherwise, `false`."]
+  "return" : ["bool","`true` if the given characters are found at the end of the string, otherwise, `false`."],
+  "typedef": "endsWith(searchString: any, length: any): boolean"
 }
 */
 bool jswrap_string_endsWith(JsVar *parent, JsVar *search, JsVar *length) {
@@ -713,7 +729,7 @@ bool jswrap_string_endsWith(JsVar *parent, JsVar *search, JsVar *length) {
   return match;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "includes",
@@ -723,12 +739,13 @@ bool jswrap_string_endsWith(JsVar *parent, JsVar *search, JsVar *length) {
     ["substring","JsVar","The string to search for"],
     ["fromIndex","JsVar","The start character index (or 0 if not defined)"]
   ],
-  "return" : ["bool","`true` if the given characters are in the string, otherwise, `false`."]
+  "return" : ["bool","`true` if the given characters are in the string, otherwise, `false`."],
+  "typedef": "includes(substring: any, fromIndex: any): boolean"
 }
 */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "repeat",
@@ -738,7 +755,8 @@ bool jswrap_string_endsWith(JsVar *parent, JsVar *search, JsVar *length) {
     ["count","int","An integer with the amount of times to repeat this String"]
   ],
   "return" : ["JsVar","A string containing repetitions of this string"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "repeat(count: number): String"
 }
 Repeat this string the given number of times.
 */
@@ -753,7 +771,7 @@ JsVar *jswrap_string_repeat(JsVar *parent, int count) {
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "padStart",
@@ -764,7 +782,8 @@ JsVar *jswrap_string_repeat(JsVar *parent, int count) {
     ["padString","JsVar","[optional] The string to pad with, default is `' '`"]
   ],
   "return" : ["JsVar","A string containing this string padded to the correct length"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "padStart(targetLength: number, padString: any): String"
 }
 Pad this string at the beginnind to the required number of characters
 
@@ -773,7 +792,7 @@ Pad this string at the beginnind to the required number of characters
 "123".padStart(10,".-") == ".-.-.-.123"
 ```
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "String",
   "name" : "padEnd",
@@ -784,7 +803,8 @@ Pad this string at the beginnind to the required number of characters
     ["padString","JsVar","[optional] The string to pad with, default is `' '`"]
   ],
   "return" : ["JsVar","A string containing this string padded to the correct length"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "padEnd(targetLength: number, padString: any): String"
 }
 Pad this string at the end to the required number of characters
 

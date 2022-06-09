@@ -3513,7 +3513,7 @@ For this to be used, you'll have to specify that there's a keyboard using `NRF.s
 **This is not part of the Web Bluetooth Specification.** It has been added
 specifically for Espruino.
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothDevice",
     "name" : "sendPasskey",
@@ -3521,7 +3521,8 @@ specifically for Espruino.
     "generate" : "jswrap_ble_BluetoothDevice_sendPasskey",
     "params" : [
       ["passkey","JsVar","A 6 character numeric String to be returned to the device"]
-    ]
+    ],
+    "typedef": "sendPasskey(passkey: any): void"
 }
 To be used as a response when the event `BluetoothDevice.sendPasskey` has been received.
 
@@ -3540,7 +3541,7 @@ void jswrap_ble_BluetoothDevice_sendPasskey(JsVar *parent, JsVar *passkeyVar) {
 }
 #endif
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothRemoteGATTServer",
     "name" : "connect",
@@ -3550,7 +3551,8 @@ void jswrap_ble_BluetoothDevice_sendPasskey(JsVar *parent, JsVar *passkeyVar) {
       ["options","JsVar","(Espruino-specific) An object of connection options (see below)"]
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the connection is complete" ],
-    "return_object" : "Promise"
+    "return_object" : "Promise",
+    "typedef": "connect(options: any): Promise"
 }
 Connect to a BLE device - returns a promise,
 the argument of which is the `BluetoothRemoteGATTServer` connection.
@@ -3653,14 +3655,15 @@ https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattserver
     "return" : ["bool", "Whether the device is connected or not" ]
 }
 *//*Documentation only*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothRemoteGATTServer",
     "name" : "disconnect",
     "generate" : "jswrap_BluetoothRemoteGATTServer_disconnect",
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the disconnection is complete (non-standard)" ],
     "return_object" : "Promise",
-    "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+    "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+    "typedef": "disconnect(): Promise"
 }
 Disconnect from a previously connected BLE device connected with
 `BluetoothRemoteGATTServer.connect` - this does not disconnect from something that has
@@ -3705,7 +3708,7 @@ JsVar *jswrap_BluetoothRemoteGATTServer_disconnect(JsVar *parent) {
   return 0;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothRemoteGATTServer",
     "name" : "startBonding",
@@ -3715,7 +3718,8 @@ JsVar *jswrap_BluetoothRemoteGATTServer_disconnect(JsVar *parent) {
       ["forceRePair","bool","If the device is already bonded, re-pair it"]
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the bonding is complete" ],
-    "return_object" : "Promise"
+    "return_object" : "Promise",
+    "typedef": "startBonding(forceRePair: boolean): Promise"
 }
 Start negotiating bonding (secure communications) with the connected device,
 and return a Promise that is completed on success or failure.
@@ -3755,13 +3759,14 @@ JsVar *jswrap_ble_BluetoothRemoteGATTServer_startBonding(JsVar *parent, bool for
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothRemoteGATTServer",
     "name" : "getSecurityStatus",
     "ifdef" : "NRF52_SERIES",
     "generate" : "jswrap_ble_BluetoothRemoteGATTServer_getSecurityStatus",
-    "return" : ["JsVar", "An object" ]
+    "return" : ["JsVar", "An object" ],
+    "typedef": "getSecurityStatus(): any"
 }
 Return an object with information about the security
 state of the current connection:
@@ -3791,7 +3796,7 @@ JsVar *jswrap_ble_BluetoothRemoteGATTServer_getSecurityStatus(JsVar *parent) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "BluetoothRemoteGATTServer",
   "name" : "getPrimaryService",
@@ -3799,7 +3804,8 @@ JsVar *jswrap_ble_BluetoothRemoteGATTServer_getSecurityStatus(JsVar *parent) {
   "params" : [ ["service","JsVar","The service UUID"] ],
   "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the primary service is found (the argument contains a `BluetoothRemoteGATTService`)" ],
     "return_object" : "Promise",
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "getPrimaryService(service: any): Promise"
 }
 See `NRF.connect` for usage examples.
 */
@@ -3825,14 +3831,15 @@ JsVar *jswrap_BluetoothRemoteGATTServer_getPrimaryService(JsVar *parent, JsVar *
   return 0;
 #endif
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "BluetoothRemoteGATTServer",
   "name" : "getPrimaryServices",
   "generate" : "jswrap_BluetoothRemoteGATTServer_getPrimaryServices",
   "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the primary services are found (the argument contains an array of `BluetoothRemoteGATTService`)" ],
     "return_object" : "Promise",
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "getPrimaryServices(): Promise"
 }
 */
 JsVar *jswrap_BluetoothRemoteGATTServer_getPrimaryServices(JsVar *parent) {
@@ -3851,7 +3858,7 @@ JsVar *jswrap_BluetoothRemoteGATTServer_getPrimaryServices(JsVar *parent) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "BluetoothRemoteGATTServer",
   "name" : "setRSSIHandler",
@@ -3859,7 +3866,8 @@ JsVar *jswrap_BluetoothRemoteGATTServer_getPrimaryServices(JsVar *parent) {
   "params" : [
     ["callback","JsVar","The callback to call with the RSSI value, or undefined to stop"]
   ],
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "setRSSIHandler(callback: any): void"
 }
 
 Start/stop listening for RSSI values on the active GATT connection
@@ -3900,7 +3908,7 @@ Web Bluetooth-style GATT service - get this using `BluetoothRemoteGATTServer.get
 
 https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattservice
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "BluetoothRemoteGATTService",
   "name" : "getCharacteristic",
@@ -3908,7 +3916,8 @@ https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattservice
   "params" : [ ["characteristic","JsVar","The characteristic UUID"] ],
   "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the characteristic is found (the argument contains a `BluetoothRemoteGATTCharacteristic`)" ],
     "return_object" : "Promise",
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "getCharacteristic(characteristic: any): Promise"
 }
 See `NRF.connect` for usage examples.
 */
@@ -3934,14 +3943,15 @@ JsVar *jswrap_BluetoothRemoteGATTService_getCharacteristic(JsVar *parent, JsVar 
   return 0;
 #endif
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "BluetoothRemoteGATTService",
   "name" : "getCharacteristics",
   "generate" : "jswrap_BluetoothRemoteGATTService_getCharacteristics",
   "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the characteristic is found (the argument contains an array of `BluetoothRemoteGATTCharacteristic`)" ],
     "return_object" : "Promise",
-  "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+  "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+  "typedef": "getCharacteristics(): Promise"
 }
 */
 JsVar *jswrap_BluetoothRemoteGATTService_getCharacteristics(JsVar *parent) {
@@ -3971,7 +3981,7 @@ Web Bluetooth-style GATT characteristic - get this using `BluetoothRemoteGATTSer
 
 https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattcharacteristic
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothRemoteGATTCharacteristic",
     "name" : "writeValue",
@@ -3981,7 +3991,8 @@ https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattcharacteristi
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the characteristic is written" ],
     "return_object" : "Promise",
-    "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+    "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+    "typedef": "writeValue(data: any): Promise"
 }
 
 Write a characteristic's value
@@ -4019,14 +4030,15 @@ JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_writeValue(JsVar *characteri
   return 0;
 #endif
 }
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothRemoteGATTCharacteristic",
     "name" : "readValue",
     "generate" : "jswrap_ble_BluetoothRemoteGATTCharacteristic_readValue",
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) with a `DataView` when the characteristic is read" ],
     "return_object" : "Promise",
-    "#if" : "defined(NRF52_SERIES) || defined(ESP32)"
+    "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
+    "typedef": "readValue(): Promise"
 }
 
 Read a characteristic's value, return a promise containing a `DataView`
@@ -4063,14 +4075,15 @@ JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_readValue(JsVar *characteris
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothRemoteGATTCharacteristic",
     "name" : "startNotifications",
     "generate" : "jswrap_ble_BluetoothRemoteGATTCharacteristic_startNotifications",
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) with data when notifications have been added" ],
     "return_object" : "Promise",
-    "ifdef" : "NRF52_SERIES"
+    "ifdef" : "NRF52_SERIES",
+    "typedef": "startNotifications(): Promise"
 }
 Starts notifications - whenever this characteristic's value changes, a `characteristicvaluechanged` event is fired
 and `characteristic.value` will then contain the new value as a `DataView`.
@@ -4150,14 +4163,15 @@ JsVar *jswrap_ble_BluetoothRemoteGATTCharacteristic_startNotifications(JsVar *ch
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "method",
     "class" : "BluetoothRemoteGATTCharacteristic",
     "name" : "stopNotifications",
     "generate" : "jswrap_ble_BluetoothRemoteGATTCharacteristic_stopNotifications",
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) with data when notifications have been removed" ],
     "return_object" : "Promise",
-    "ifdef" : "NRF52_SERIES"
+    "ifdef" : "NRF52_SERIES",
+    "typedef": "stopNotifications(): Promise"
 }
 Stop notifications (that were requested with `BluetoothRemoteGATTCharacteristic.startNotifications`)
 */

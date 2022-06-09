@@ -101,16 +101,17 @@ The URL requested in this HTTP request, for instance:
 * `"/favicon.ico"` - the web page's icon
 *//*Documentation only*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSRq",
   "name" : "available",
   "generate" : "jswrap_stream_available",
-  "return" : ["int","How many bytes are available"]
+  "return" : ["int","How many bytes are available"],
+  "typedef": "available(): number"
 }
 Return how many bytes are available to read. If there is already a listener for data, this will always return 0.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSRq",
   "name" : "read",
@@ -118,11 +119,12 @@ Return how many bytes are available to read. If there is already a listener for 
   "params" : [
     ["chars","int","The number of characters to read, or undefined/0 for all available"]
   ],
-  "return" : ["JsVar","A string containing the required bytes."]
+  "return" : ["JsVar","A string containing the required bytes."],
+  "typedef": "read(chars: number): any"
 }
 Return a string containing characters that have been received
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSRq",
   "name" : "pipe",
@@ -131,7 +133,8 @@ Return a string containing characters that have been received
   "params" : [
     ["destination","JsVar","The destination file/stream that will receive content from the source."],
     ["options","JsVar",["An optional object `{ chunkSize : int=32, end : bool=true, complete : function }`","chunkSize : The amount of data to pipe from source to destination at a time","complete : a function to call when the pipe activity is complete","end : call the 'end' function on the destination when the source is finished"]]
-  ]
+  ],
+  "typedef": "pipe(destination: any, options: any): void"
 }
 Pipe this to a stream (an object with a 'write' method)
 */
@@ -257,16 +260,17 @@ The HTTP response's status message - Usually `"OK"` if all went well
 }
 The HTTP version reported back by the server - usually `"1.1"`
 *//*Documentation only*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpCRs",
   "name" : "available",
   "generate" : "jswrap_stream_available",
-  "return" : ["int","How many bytes are available"]
+  "return" : ["int","How many bytes are available"],
+  "typedef": "available(): number"
 }
 Return how many bytes are available to read. If there is a 'data' event handler, this will always return 0.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpCRs",
   "name" : "read",
@@ -274,11 +278,12 @@ Return how many bytes are available to read. If there is a 'data' event handler,
   "params" : [
     ["chars","int","The number of characters to read, or undefined/0 for all available"]
   ],
-  "return" : ["JsVar","A string containing the required bytes."]
+  "return" : ["JsVar","A string containing the required bytes."],
+  "typedef": "read(chars: number): any"
 }
 Return a string containing characters that have been received
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpCRs",
   "name" : "pipe",
@@ -287,7 +292,8 @@ Return a string containing characters that have been received
   "params" : [
     ["destination","JsVar","The destination file/stream that will receive content from the source."],
     ["options","JsVar",["An optional object `{ chunkSize : int=32, end : bool=true, complete : function }`","chunkSize : The amount of data to pipe from source to destination at a time","complete : a function to call when the pipe activity is complete","end : call the 'end' function on the destination when the source is finished"]]
-  ]
+  ],
+  "typedef": "pipe(destination: any, options: any): void"
 }
 Pipe this to a stream (an object with a 'write' method)
 */
@@ -428,7 +434,7 @@ JsVar *jswrap_http_get(JsVar *options, JsVar *callback) {
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSrv",
   "name" : "listen",
@@ -436,17 +442,19 @@ JsVar *jswrap_http_get(JsVar *options, JsVar *callback) {
   "params" : [
     ["port","int32","The port to listen on"]
   ],
-  "return" : ["JsVar","The HTTP server instance that 'listen' was called on"]
+  "return" : ["JsVar","The HTTP server instance that 'listen' was called on"],
+  "typedef": "listen(port: int32): any"
 }
 Start listening for new HTTP connections on the given port
 */
 // Re-use existing
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSrv",
   "name" : "close",
-  "generate" : "jswrap_net_server_close"
+  "generate" : "jswrap_net_server_close",
+  "typedef": "close(): void"
 }
 Stop listening for new HTTP connections
 */
@@ -475,7 +483,7 @@ The default contents are:
 ```
 *//*Documentation only*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSRs",
   "name" : "write",
@@ -483,7 +491,8 @@ The default contents are:
   "params" : [
     ["data","JsVar","A string containing data to send"]
   ],
-  "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"]
+  "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"],
+  "typedef": "write(data: any): boolean"
 }
 This function writes the `data` argument as a string. Data that is passed in
 (including arrays) will be converted to a string with the normal JavaScript
@@ -494,14 +503,15 @@ bool jswrap_httpSRs_write(JsVar *parent, JsVar *data) {
   return false;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSRs",
   "name" : "end",
   "generate" : "jswrap_httpSRs_end",
   "params" : [
     ["data","JsVar","A string containing data to send"]
-  ]
+  ],
+  "typedef": "end(data: any): void"
 }
 See `Socket.write` for more information about the data argument
 */
@@ -511,7 +521,7 @@ void jswrap_httpSRs_end(JsVar *parent, JsVar *data) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSRs",
   "name" : "writeHead",
@@ -519,7 +529,8 @@ void jswrap_httpSRs_end(JsVar *parent, JsVar *data) {
   "params" : [
     ["statusCode","int32","The HTTP status code"],
     ["headers","JsVar","An object containing the headers"]
-  ]
+  ],
+  "typedef": "writeHead(statusCode: int32, headers: any): void"
 }
 Send the given status code and headers. If not explicitly called
 this will be done automatically the first time data is written
@@ -532,7 +543,7 @@ void jswrap_httpSRs_writeHead(JsVar *parent, int statusCode, JsVar *headers) {
   serverResponseWriteHead(parent, statusCode, headers);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpSRs",
   "name" : "setHeader",
@@ -540,7 +551,8 @@ void jswrap_httpSRs_writeHead(JsVar *parent, int statusCode, JsVar *headers) {
   "params" : [
     ["name","JsVar","The name of the header as a String"],
     ["value","JsVar","The value of the header as a String"]
-  ]
+  ],
+  "typedef": "setHeader(name: any, value: any): void"
 }
 Set a value to send in the header of this HTTP response. This updates the `httpSRs.headers` property.
 
@@ -554,7 +566,7 @@ void jswrap_httpSRs_setHeader(JsVar *parent, JsVar *name, JsVar *value) {
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpCRq",
   "name" : "write",
@@ -562,7 +574,8 @@ void jswrap_httpSRs_setHeader(JsVar *parent, JsVar *name, JsVar *value) {
   "params" : [
     ["data","JsVar","A string containing data to send"]
   ],
-  "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"]
+  "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"],
+  "typedef": "write(data: any): boolean"
 }
 This function writes the `data` argument as a string. Data that is passed in
 (including arrays) will be converted to a string with the normal JavaScript
@@ -570,14 +583,15 @@ This function writes the `data` argument as a string. Data that is passed in
 */
 // Re-use existing
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "httpCRq",
   "name" : "end",
   "generate" : "jswrap_net_socket_end",
   "params" : [
     ["data","JsVar","A string containing data to send"]
-  ]
+  ],
+  "typedef": "end(data: any): void"
 }
 Finish this HTTP request - optional data to append as an argument
 

@@ -402,7 +402,7 @@ static JsVar *jswrap_promise_get_chained_promise(JsVar *parent) {
   return chainedPromise;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Promise",
   "name" : "then",
@@ -412,7 +412,8 @@ static JsVar *jswrap_promise_get_chained_promise(JsVar *parent) {
     ["onFulfilled","JsVar","A callback that is called when this promise is resolved"],
     ["onRejected","JsVar","A callback that is called when this promise is rejected (or nothing)"]
   ],
-  "return" : ["JsVar","The original Promise"]
+  "return" : ["JsVar","The original Promise"],
+  "typedef": "then(onFulfilled: any, onRejected: any): any"
 }
  */
 JsVar *jswrap_promise_then(JsVar *parent, JsVar *onFulfilled, JsVar *onRejected) {
@@ -422,7 +423,7 @@ JsVar *jswrap_promise_then(JsVar *parent, JsVar *onFulfilled, JsVar *onRejected)
   return jswrap_promise_get_chained_promise(parent);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Promise",
   "name" : "catch",
@@ -431,7 +432,8 @@ JsVar *jswrap_promise_then(JsVar *parent, JsVar *onFulfilled, JsVar *onRejected)
   "params" : [
     ["onRejected","JsVar","A callback that is called when this promise is rejected"]
   ],
-  "return" : ["JsVar","The original Promise"]
+  "return" : ["JsVar","The original Promise"],
+  "typedef": "catch(onRejected: any): any"
 }
  */
 JsVar *jswrap_promise_catch(JsVar *parent, JsVar *onRejected) {

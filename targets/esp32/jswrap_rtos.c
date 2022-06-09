@@ -43,11 +43,12 @@ JsVar *jswrap_Queue_constructor(JsVar *queueName){
   jsvObjectSetChildAndUnLock(queue, "index", jsvNewFromInteger(idx));
   return queue;
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Queue",
  "name"     : "read",
- "generate" : "jswrap_Queue_read"
+ "generate" : "jswrap_Queue_read",
+ "typedef": "read(): void"
 }
 reads one character from queue, if available
 */
@@ -58,12 +59,13 @@ void jswrap_Queue_read(JsVar *parent) {
   jsvUnLock(idx);
   return;
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Queue",
  "name"     : "writeChar",
  "params"   : [ ["char", "JsVar", "char to be send"] ],
- "generate" : "jswrap_Queue_writeChar"
+ "generate" : "jswrap_Queue_writeChar",
+ "typedef": "writeChar(char: any): void"
 }
 Writes one character to queue
 */
@@ -71,11 +73,12 @@ void jswrap_Queue_writeChar(JsVar *parent,char c){
   JsVar *idx = jsvObjectGetChild(parent,"index",1);
   queue_writeChar(idx,c);
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Queue",
  "name"     : "log",
- "generate" : "jswrap_Queue_log"
+ "generate" : "jswrap_Queue_log",
+ "typedef": "log(): void"
 }
 logs list of queues
 */
@@ -110,11 +113,12 @@ JsVar *jswrap_Task_constructor(JsVar *taskName){
   jsvObjectSetChildAndUnLock(task, "index", jsvNewFromInteger(idx));
   return task;
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Task",
  "name"     : "suspend",
- "generate" : "jswrap_Task_suspend"
+ "generate" : "jswrap_Task_suspend",
+ "typedef": "suspend(): void"
 }
 Suspend task, be careful not to suspend Espruino task itself
 */
@@ -123,11 +127,12 @@ void jswrap_Task_suspend(JsVar *parent){
   task_Suspend(jsvGetInteger(idx));
   return;
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Task",
  "name"     : "resume",
- "generate" : "jswrap_Task_resume"
+ "generate" : "jswrap_Task_resume",
+ "typedef": "resume(): void"
 }
 Resumes a suspended task
 */
@@ -136,23 +141,25 @@ void jswrap_Task_resume(JsVar *parent){
   task_Resume(jsvGetInteger(idx));
   return;
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Task",
  "name"     : "getCurrent",
  "generate" : "jswrap_Task_getCurrent",
- "return"   : ["JsVar","Name of current task"]
+ "return"   : ["JsVar","Name of current task"],
+ "typedef": "getCurrent(): any"
 }
 returns name of actual task
 */
 JsVar *jswrap_Task_getCurrent(JsVar *parent){
   return jsvNewFromString(task_getCurrentName());
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Task",
  "name"     : "notify",
- "generate" : "jswrap_Task_notify"
+ "generate" : "jswrap_Task_notify",
+ "typedef": "notify(): void"
 }
 Sends a binary notify to task
 */
@@ -160,11 +167,12 @@ void jswrap_Task_notify(JsVar *parent){
   JsVar *idx = jsvObjectGetChild(parent,"index",1);
   task_notify(jsvGetInteger(idx));
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Task",
  "name"     : "log",
- "generate" : "jswrap_Task_log"
+ "generate" : "jswrap_Task_log",
+ "typedef": "log(): void"
 }
 logs list of tasks
 */
@@ -202,12 +210,13 @@ JsVar *jswrap_Timer_constructor(JsVar *timerName,int group, int index, int isrIn
   jsvObjectSetChildAndUnLock(timer, "index", jsvNewFromInteger(idx));
   return timer;
 }
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Timer",
   "name"     : "start",
   "params"   : [["duration","int","duration of timmer in micro secs"]],
-  "generate" : "jswrap_Timer_start"
+  "generate" : "jswrap_Timer_start",
+  "typedef": "start(duration: number): void"
 }
 Starts a timer
 */
@@ -215,12 +224,13 @@ void jswrap_Timer_start(JsVar *parent, int duration){
   JsVar *idx = jsvObjectGetChild(parent,"index",1);
   timer_Start(jsvGetInteger(idx),duration);
 }
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Timer",
   "name"     : "reschedule",
   "params"   : [["duration","int","duration of timmer in micro secs"]],
-  "generate" : "jswrap_Timer_reschedule"
+  "generate" : "jswrap_Timer_reschedule",
+  "typedef": "reschedule(duration: number): void"
 }
 Reschedules a timer, needs to be started at least once
 */
@@ -228,11 +238,12 @@ void jswrap_Timer_reschedule(JsVar *parent, int duration){
   JsVar *idx = jsvObjectGetChild(parent,"index",1);
   timer_Reschedule(jsvGetInteger(idx),duration);
 }
-/*JSON{  //TODO
+/*JSON{
  "type"     : "method",
  "class"    : "Timer",
  "name"     : "log",
- "generate" : "jswrap_Timer_log"
+ "generate" : "jswrap_Timer_log",
+ "typedef": "log(): void"
 }
 logs list of timers
 */

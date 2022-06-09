@@ -118,7 +118,7 @@ JsVar *jswrap_number_constructor(JsVar *args) {
   "return" : ["float","Positive Infinity (1/0)"]
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Number",
   "name" : "toFixed",
@@ -126,7 +126,8 @@ JsVar *jswrap_number_constructor(JsVar *args) {
   "params" : [
     ["decimalPlaces","int32","A number between 0 and 20 specifying the number of decimal digits after the decimal point"]
   ],
-  "return" : ["JsVar","A string"]
+  "return" : ["JsVar","A string"],
+  "typedef": "toFixed(decimalPlaces: int32): any"
 }
 Format the number as a fixed point number
  */

@@ -172,7 +172,7 @@ JsVar *jswrap_wiznet_connect(JsVar *spi, Pin cs) {
 An instantiation of an Ethernet network adaptor
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -181,7 +181,8 @@ An instantiation of an Ethernet network adaptor
   "params" : [
     ["options","JsVar","An optional `callback(err, ipinfo)` function to be called back with the IP information."]
   ],
-  "return" : ["JsVar",""]
+  "return" : ["JsVar",""],
+  "typedef": "getIP(options: any): any"
 }
 Get the current IP address, subnet, gateway and mac address.
 */
@@ -235,7 +236,7 @@ static void _eth_getIP_set_address(JsVar *options, char *name, unsigned char *pt
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -245,7 +246,8 @@ static void _eth_getIP_set_address(JsVar *options, char *name, unsigned char *pt
     ["options","JsVar","Object containing IP address options `{ ip : '1.2.3.4', subnet : '...', gateway: '...', dns:'...', mac:':::::'  }`, or do not supply an object in order to force DHCP."],
     ["callback","JsVar","An optional `callback(err)` function to invoke when ip is set. `err==null` on success, or a string on failure."]
   ],
-  "return" : ["bool","True on success"]
+  "return" : ["bool","True on success"],
+  "typedef": "setIP(options: any, callback: any): boolean"
 }
 Set the current IP address or get an IP from DHCP (if no options object is specified)
 
@@ -323,7 +325,7 @@ bool jswrap_ethernet_setIP(JsVar *wlanObj, JsVar *options, JsVar *callback) {
   return errorMessage==0;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -333,7 +335,8 @@ bool jswrap_ethernet_setIP(JsVar *wlanObj, JsVar *options, JsVar *callback) {
     ["hostname","JsVar","hostname as string"],
     ["callback","JsVar","An optional `callback(err)` function to be called back with null or error text."]
   ],
-  "return" : ["bool","True on success"]
+  "return" : ["bool","True on success"],
+  "typedef": "setHostname(hostname: any, callback: any): boolean"
 }
 Set hostname allow to set the hosname used during the dhcp request.
 min 8 and max 12 char, best set before calling `eth.setIP()`
@@ -364,7 +367,7 @@ bool jswrap_ethernet_setHostname(JsVar *wlanObj, JsVar *jsHostname, JsVar *callb
   return errorMessage==0;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -373,7 +376,8 @@ bool jswrap_ethernet_setHostname(JsVar *wlanObj, JsVar *jsHostname, JsVar *callb
   "params" : [
     ["callback","JsVar","An optional `callback(err,hostname)` function to be called back with the status information."]
   ],
-  "return" : ["JsVar" ]
+  "return" : ["JsVar" ],
+  "typedef": "getHostname(callback: any): any"
 }
 Returns the hostname
 */
@@ -393,7 +397,7 @@ JsVar * jswrap_ethernet_getHostname(JsVar *wlanObj, JsVar *callback) {
   return jsvNewFromString(hostname);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Ethernet",
   "ifdef" : "USE_WIZNET",
@@ -402,7 +406,8 @@ JsVar * jswrap_ethernet_getHostname(JsVar *wlanObj, JsVar *callback) {
   "params" : [
     ["options","JsVar","An optional `callback(err, status)` function to be called back with the status information."]
   ],
-  "return" : ["JsVar" ]
+  "return" : ["JsVar" ],
+  "typedef": "getStatus(options: any): any"
 }
 Get the current status of the ethernet device
 

@@ -52,13 +52,14 @@ JsVar *jswrap_pin_constructor(JsVar *val) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "read",
   "generate" : "jswrap_pin_read",
   "return"   : ["bool","Whether pin is a logical 1 or 0"],
-  "typedef"  : "read(): boolean"
+  "typedef"  : "read(): boolean",
+  "typedef": "read(): boolean"
 }
 Returns the input state of the pin as a boolean.
 
@@ -69,12 +70,13 @@ bool jswrap_pin_read(JsVar *parent) {
   return jshPinInput(pin);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "set",
   "generate" : "jswrap_pin_set",
-  "typedef"  : "set(): void"
+  "typedef"  : "set(): void",
+  "typedef": "set(): void"
 }
 Sets the output state of the pin to a 1
 
@@ -85,12 +87,13 @@ void jswrap_pin_set(JsVar *parent) {
   jshPinOutput(pin, 1);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "reset",
   "generate" : "jswrap_pin_reset",
-  "typedef"  : "reset(): void"
+  "typedef"  : "reset(): void",
+  "typedef": "reset(): void"
 }
 Sets the output state of the pin to a 0
 
@@ -101,7 +104,7 @@ void jswrap_pin_reset(JsVar *parent) {
   jshPinOutput(pin, 0);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "write",
@@ -109,7 +112,8 @@ void jswrap_pin_reset(JsVar *parent) {
   "params"   : [
     ["value", "bool", "Whether to set output high (true/1) or low (false/0)"]
   ],
-  "typedef"  : "write(value: boolean): void"
+  "typedef"  : "write(value: boolean): void",
+  "typedef": "write(value: boolean): void"
 }
 Sets the output state of the pin to the parameter given
 
@@ -123,7 +127,7 @@ void jswrap_pin_write(
   jshPinOutput(pin, value);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "writeAtTime",
@@ -133,7 +137,8 @@ void jswrap_pin_write(
     ["value", "bool", "Whether to set output high (true/1) or low (false/0)"],
     ["time", "float", "Time at which to write"]
   ],
-  "typedef"  : "writeAtTime(value: boolean, time: number): void"
+  "typedef"  : "writeAtTime(value: boolean, time: number): void",
+  "typedef": "writeAtTime(value: boolean, time: number): void"
 }
 Sets the output state of the pin to the parameter given at the specified time.
 
@@ -146,13 +151,14 @@ void jswrap_pin_writeAtTime(JsVar *parent, bool value, JsVarFloat time) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "getMode",
   "generate" : "jswrap_pin_getMode",
   "return"   : ["JsVar", "The pin mode, as a string"],
-  "typedef"  : "getMode(): 'analog' | 'input' | 'input_pullup' | 'input_pulldown' | 'output' | 'opendrain' | 'af_output' | 'af_opendrain'"
+  "typedef"  : "getMode(): 'analog' | 'input' | 'input_pullup' | 'input_pulldown' | 'output' | 'opendrain' | 'af_output' | 'af_opendrain'",
+  "typedef": "getMode(): any"
 }
 Return the current mode of the given pin. See `pinMode` for more information.
  */
@@ -160,7 +166,7 @@ JsVar *jswrap_pin_getMode(JsVar *parent) {
   return jswrap_io_getPinMode(jshGetPinFromVar(parent));
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "mode",
@@ -168,7 +174,8 @@ JsVar *jswrap_pin_getMode(JsVar *parent) {
   "params" : [
     ["mode", "JsVar", "The mode - a string that is either 'analog', 'input', 'input_pullup', 'input_pulldown', 'output', 'opendrain', 'af_output' or 'af_opendrain'. Do not include this argument if you want to revert to automatic pin mode setting."]
   ],
-  "typedef": "mode(mode: 'analog' | 'input' | 'input_pullup' | 'input_pulldown' | 'output' | 'opendrain' | 'af_output' | 'af_opendrain'): void"
+  "typedef": "mode(mode: 'analog' | 'input' | 'input_pullup' | 'input_pulldown' | 'output' | 'opendrain' | 'af_output' | 'af_opendrain'): void",
+  "typedef": "mode(mode: any): void"
 }
 Set the mode of the given pin. See [`pinMode`](#l__global_pinMode) for more information on pin modes.
  */
@@ -176,13 +183,14 @@ void jswrap_pin_mode(JsVar *parent, JsVar *mode) {
   jswrap_io_pinMode(jshGetPinFromVar(parent), mode, false);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "toggle",
   "generate" : "jswrap_pin_toggle",
   "return"   : ["bool", "True if the pin is high after calling the function"],
-  "typedef"  : "toggle(): boolean"
+  "typedef"  : "toggle(): boolean",
+  "typedef": "toggle(): boolean"
 }
 Toggles the state of the pin from off to on, or from on to off.
 
@@ -199,14 +207,15 @@ bool jswrap_pin_toggle(JsVar *parent) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "method",
   "class"    : "Pin",
   "name"     : "getInfo",
   "ifndef"   : "SAVE_ON_FLASH",
   "generate" : "jswrap_pin_getInfo",
   "return"   : ["JsVar","An object containing information about this pins"],
-  "typedef"  : "getInfo(): {port: string, numb: number, in_addr: number, out_addr: number}"
+  "typedef"  : "getInfo(): {port: string, numb: number, in_addr: number, out_addr: number}",
+  "typedef": "getInfo(): any"
 }
 Get information about this pin and its capabilities. Of the form:
 

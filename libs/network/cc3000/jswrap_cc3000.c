@@ -110,7 +110,7 @@ JsVar *jswrap_cc3000_connect(JsVar *spi, Pin cs, Pin en, Pin irq) {
 An instantiation of a WiFi network adaptor
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "WLAN",
   "name" : "connect",
@@ -120,7 +120,8 @@ An instantiation of a WiFi network adaptor
     ["key","JsVar","WPA2 key (or undefined for unsecured connection)"],
     ["callback","JsVar","Function to call back with connection status. It has one argument which is one of 'connect'/'disconnect'/'dhcp'"]
   ],
-  "return" : ["bool","True if connection succeeded, false if it didn't."]
+  "return" : ["bool","True if connection succeeded, false if it didn't."],
+  "typedef": "connect(ap: any, key: any, callback: any): boolean"
 }
 Connect to a wireless network
 */
@@ -162,11 +163,12 @@ bool jswrap_wlan_connect(JsVar *wlanObj, JsVar *vAP, JsVar *vKey, JsVar *callbac
   return connected;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "WLAN",
   "name" : "disconnect",
-  "generate" : "jswrap_wlan_disconnect"
+  "generate" : "jswrap_wlan_disconnect",
+  "typedef": "disconnect(): void"
 }
 Completely uninitialise and power down the CC3000. After this you'll have to use ```require("CC3000").connect()``` again.
 */
@@ -182,11 +184,12 @@ void jswrap_wlan_disconnect(JsVar *wlanObj) {
   networkFree(&net);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "WLAN",
   "name" : "reconnect",
-  "generate" : "jswrap_wlan_reconnect"
+  "generate" : "jswrap_wlan_reconnect",
+  "typedef": "reconnect(): void"
 }
 Completely uninitialise and power down the CC3000, then reconnect to the old access point.
 */
@@ -206,12 +209,13 @@ void jswrap_wlan_reconnect(JsVar *wlanObj) {
 
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "WLAN",
   "name" : "getIP",
   "generate" : "jswrap_wlan_getIP",
-  "return" : ["JsVar",""]
+  "return" : ["JsVar",""],
+  "typedef": "getIP(): any"
 }
 Get the current IP address
 */
@@ -254,7 +258,7 @@ static void _wlan_getIP_set_address(JsVar *options, char *name, unsigned char *p
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "WLAN",
   "name" : "setIP",
@@ -262,7 +266,8 @@ static void _wlan_getIP_set_address(JsVar *options, char *name, unsigned char *p
   "params" : [
     ["options","JsVar","Object containing IP address options `{ ip : '1,2,3,4', subnet, gateway, dns  }`, or do not supply an object in otder to force DHCP."]
   ],
-  "return" : ["bool","True on success"]
+  "return" : ["bool","True on success"],
+  "typedef": "setIP(options: any): boolean"
 }
 Set the current IP address for get an IP from DHCP (if no options object is specified).
 

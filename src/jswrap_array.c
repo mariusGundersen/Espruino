@@ -69,7 +69,7 @@ JsVar *jswrap_array_constructor(JsVar *args) {
   return jsvLockAgain(args);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "toString",
@@ -77,7 +77,8 @@ JsVar *jswrap_array_constructor(JsVar *args) {
   "params" : [
     ["radix","JsVar","unused"]
   ],
-  "return" : ["JsVar","A String representing the array"]
+  "return" : ["JsVar","A String representing the array"],
+  "typedef": "toString(radix: any): any"
 }
 Convert the Array to a string
  */
@@ -92,7 +93,7 @@ Convert the Array to a string
 Find the length of the array
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "indexOf",
@@ -101,7 +102,8 @@ Find the length of the array
     ["value","JsVar","The value to check for"],
     ["startIndex","int","(optional) the index to search from, or 0 if not specified"]
   ],
-  "return" : ["JsVar","the index of the value in the array, or -1"]
+  "return" : ["JsVar","the index of the value in the array, or -1"],
+  "typedef": "indexOf(value: any, startIndex: number): any"
 }
 Return the index of the value in the array, or -1
  */
@@ -112,7 +114,7 @@ JsVar *jswrap_array_indexOf(JsVar *parent, JsVar *value, JsVarInt startIdx) {
   return jsvNewFromInteger(jsvGetIntegerAndUnLock(idxName));
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "includes",
@@ -122,7 +124,8 @@ JsVar *jswrap_array_indexOf(JsVar *parent, JsVar *value, JsVarInt startIdx) {
     ["value","JsVar","The value to check for"],
     ["startIndex","int","(optional) the index to search from, or 0 if not specified"]
   ],
-  "return" : ["bool","`true` if the array includes the value, `false` otherwise"]
+  "return" : ["bool","`true` if the array includes the value, `false` otherwise"],
+  "typedef": "includes(value: any, startIndex: number): boolean"
 }
 Return `true` if the array includes the value, `false` otherwise
  */
@@ -153,7 +156,7 @@ bool jswrap_array_includes(JsVar *arr, JsVar *value, JsVarInt startIdx) {
   return false;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "join",
@@ -161,7 +164,8 @@ bool jswrap_array_includes(JsVar *arr, JsVar *value, JsVarInt startIdx) {
   "params" : [
     ["separator","JsVar","The separator"]
   ],
-  "return" : ["JsVar","A String representing the Joined array"]
+  "return" : ["JsVar","A String representing the Joined array"],
+  "typedef": "join(separator: any): any"
 }
 Join all elements of this array together into one string, using 'separator' between them. eg. ```[1,2,3].join(' ')=='1 2 3'```
  */
@@ -177,7 +181,7 @@ JsVar *jswrap_array_join(JsVar *parent, JsVar *filler) {
   return str;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "push",
@@ -185,7 +189,8 @@ JsVar *jswrap_array_join(JsVar *parent, JsVar *filler) {
   "params" : [
     ["arguments","JsVarArray","One or more arguments to add"]
   ],
-  "return" : ["int","The new size of the array"]
+  "return" : ["int","The new size of the array"],
+  "typedef": "push(arguments: JsVarArray): number"
 }
 Push a new value onto the end of this array'
 
@@ -209,12 +214,13 @@ JsVarInt jswrap_array_push(JsVar *parent, JsVar *args) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "pop",
   "generate_full" : "jsvSkipNameAndUnLock(jsvArrayPop(parent))",
-  "return" : ["JsVar","The value that is popped off"]
+  "return" : ["JsVar","The value that is popped off"],
+  "typedef": "pop(): any"
 }
 Remove and return the value on the end of this array.
 
@@ -318,7 +324,7 @@ static JsVar *_jswrap_array_iterate_with_callback(
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "map",
@@ -327,7 +333,8 @@ static JsVar *_jswrap_array_iterate_with_callback(
     ["function","JsVar","Function used to map one item to another"],
     ["thisArg","JsVar","if specified, the function is called with 'this' set to thisArg (optional)"]
   ],
-  "return" : ["JsVar","An array containing the results"]
+  "return" : ["JsVar","An array containing the results"],
+  "typedef": "map(function: any, thisArg: any): any"
 }
 Return an array which is made from the following: ```A.map(function) = [function(A[0]), function(A[1]), ...]```
  */
@@ -335,7 +342,7 @@ JsVar *jswrap_array_map(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   return _jswrap_array_iterate_with_callback("map", parent, funcVar, thisVar, RETURN_ARRAY, false, false);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "forEach",
@@ -343,7 +350,8 @@ JsVar *jswrap_array_map(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   "params" : [
     ["function","JsVar","Function to be executed"],
     ["thisArg","JsVar","if specified, the function is called with 'this' set to thisArg (optional)"]
-  ]
+  ],
+  "typedef": "forEach(function: any, thisArg: any): void"
 }
 Executes a provided function once per array element.
  */
@@ -351,7 +359,7 @@ void jswrap_array_forEach(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   _jswrap_array_iterate_with_callback("forEach", parent, funcVar, thisVar, RETURN_BOOL, false, false);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "filter",
@@ -360,7 +368,8 @@ void jswrap_array_forEach(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
     ["function","JsVar","Function to be executed"],
     ["thisArg","JsVar","if specified, the function is called with 'this' set to thisArg (optional)"]
   ],
-  "return" : ["JsVar","An array containing the results"]
+  "return" : ["JsVar","An array containing the results"],
+  "typedef": "filter(function: any, thisArg: any): any"
 }
 Return an array which contains only those elements for which the callback function returns 'true'
  */
@@ -368,7 +377,7 @@ JsVar *jswrap_array_filter(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   return _jswrap_array_iterate_with_callback("filter", parent, funcVar, thisVar, RETURN_ARRAY, true, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "find",
@@ -377,7 +386,8 @@ JsVar *jswrap_array_filter(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   "params" : [
     ["function","JsVar","Function to be executed"]
   ],
-  "return" : ["JsVar","The array element where `function` returns `true`, or `undefined`"]
+  "return" : ["JsVar","The array element where `function` returns `true`, or `undefined`"],
+  "typedef": "find(function: any): any"
 }
 Return the array element where `function` returns `true`, or `undefined` if it doesn't returns `true` for any element.
 
@@ -390,7 +400,7 @@ JsVar *jswrap_array_find(JsVar *parent, JsVar *funcVar) {
   return _jswrap_array_iterate_with_callback("find", parent, funcVar, 0, RETURN_ARRAY_ELEMENT, true, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "findIndex",
@@ -399,7 +409,8 @@ JsVar *jswrap_array_find(JsVar *parent, JsVar *funcVar) {
   "params" : [
     ["function","JsVar","Function to be executed"]
   ],
-  "return" : ["JsVar","The array element's index where `function` returns `true`, or `-1`"]
+  "return" : ["JsVar","The array element's index where `function` returns `true`, or `-1`"],
+  "typedef": "findIndex(function: any): any"
 }
 Return the array element's index where `function` returns `true`, or `-1` if it doesn't returns `true` for any element.
 
@@ -414,7 +425,7 @@ JsVar *jswrap_array_findIndex(JsVar *parent, JsVar *funcVar) {
   return jsvNewFromInteger(-1);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "some",
@@ -423,7 +434,8 @@ JsVar *jswrap_array_findIndex(JsVar *parent, JsVar *funcVar) {
     ["function","JsVar","Function to be executed"],
     ["thisArg","JsVar","if specified, the function is called with 'this' set to thisArg (optional)"]
   ],
-  "return" : ["JsVar","A boolean containing the result"]
+  "return" : ["JsVar","A boolean containing the result"],
+  "typedef": "some(function: any, thisArg: any): any"
 }
 Return 'true' if the callback returns 'true' for any of the elements in the array
  */
@@ -431,7 +443,7 @@ JsVar *jswrap_array_some(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   return _jswrap_array_iterate_with_callback("some", parent, funcVar, thisVar, RETURN_BOOL, true, false);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "every",
@@ -440,7 +452,8 @@ JsVar *jswrap_array_some(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
     ["function","JsVar","Function to be executed"],
     ["thisArg","JsVar","if specified, the function is called with 'this' set to thisArg (optional)"]
   ],
-  "return" : ["JsVar","A boolean containing the result"]
+  "return" : ["JsVar","A boolean containing the result"],
+  "typedef": "every(function: any, thisArg: any): any"
 }
 Return 'true' if the callback returns 'true' for every element in the array
  */
@@ -448,7 +461,7 @@ JsVar *jswrap_array_every(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
   return _jswrap_array_iterate_with_callback("every", parent, funcVar, thisVar, RETURN_BOOL, true, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "reduce",
@@ -458,7 +471,8 @@ JsVar *jswrap_array_every(JsVar *parent, JsVar *funcVar, JsVar *thisVar) {
     ["callback","JsVar","Function used to reduce the array"],
     ["initialValue","JsVar","if specified, the initial value to pass to the function"]
   ],
-  "return" : ["JsVar","The value returned by the last function called"]
+  "return" : ["JsVar","The value returned by the last function called"],
+  "typedef": "reduce(callback: any, initialValue: any): any"
 }
 Execute `previousValue=initialValue` and then `previousValue = callback(previousValue, currentValue, index, array)` for each element in the array, and finally return previousValue.
  */
@@ -512,7 +526,7 @@ JsVar *jswrap_array_reduce(JsVar *parent, JsVar *funcVar, JsVar *initialValue) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "splice",
@@ -522,7 +536,8 @@ JsVar *jswrap_array_reduce(JsVar *parent, JsVar *funcVar, JsVar *initialValue) {
     ["howMany","JsVar","An integer indicating the number of old array elements to remove. If howMany is 0, no elements are removed."],
     ["elements","JsVarArray","One or more items to add to the array"]
   ],
-  "return" : ["JsVar","An array containing the removed elements. If only one element is removed, an array of one element is returned."]
+  "return" : ["JsVar","An array containing the removed elements. If only one element is removed, an array of one element is returned."],
+  "typedef": "splice(index: number, howMany: any, elements: JsVarArray): any"
 }
 Both remove and add items to an array
  */
@@ -599,7 +614,7 @@ JsVar *jswrap_array_splice(JsVar *parent, JsVarInt index, JsVar *howManyVar, JsV
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "shift",
@@ -608,7 +623,8 @@ JsVar *jswrap_array_splice(JsVar *parent, JsVarInt index, JsVar *howManyVar, JsV
   "params" : [
 
   ],
-  "return" : ["JsVar","The element that was removed"]
+  "return" : ["JsVar","The element that was removed"],
+  "typedef": "shift(): any"
 }
 Remove and return the first element of the array.
 
@@ -628,7 +644,7 @@ JsVar *jswrap_array_shift(JsVar *parent) {
   return el;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "unshift",
@@ -637,7 +653,8 @@ JsVar *jswrap_array_shift(JsVar *parent) {
   "params" : [
     ["elements","JsVarArray","One or more items to add to the beginning of the array"]
   ],
-  "return" : ["int","The new array length"]
+  "return" : ["int","The new array length"],
+  "typedef": "unshift(elements: JsVarArray): number"
 }
 Add one or more items to the start of the array, and return its new length.
 
@@ -652,7 +669,7 @@ JsVarInt jswrap_array_unshift(JsVar *parent, JsVar *elements) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "slice",
@@ -661,7 +678,8 @@ JsVarInt jswrap_array_unshift(JsVar *parent, JsVar *elements) {
     ["start","int","Start index"],
     ["end","JsVar","End index (optional)"]
   ],
-  "return" : ["JsVar","A new array"]
+  "return" : ["JsVar","A new array"],
+  "typedef": "slice(start: number, end: any): any"
 }
 Return a copy of a portion of this array (in a new array)
  */
@@ -814,7 +832,7 @@ NO_INLINE static void _jswrap_array_sort(JsvIterator *head, int n, JsVar *compar
     _jswrap_array_sort(head, nlo, compareFn);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "sort",
@@ -823,7 +841,8 @@ NO_INLINE static void _jswrap_array_sort(JsvIterator *head, int n, JsVar *compar
   "params" : [
     ["var","JsVar","A function to use to compare array elements (or undefined)"]
   ],
-  "return" : ["JsVar","This array object"]
+  "return" : ["JsVar","This array object"],
+  "typedef": "sort(var: any): any"
 }
 Do an in-place quicksort of the array
  */
@@ -861,7 +880,7 @@ JsVar *jswrap_array_sort (JsVar *array, JsVar *compareFn) {
   return jsvLockAgain(array);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "concat",
@@ -870,7 +889,8 @@ JsVar *jswrap_array_sort (JsVar *array, JsVar *compareFn) {
   "params" : [
     ["args","JsVarArray","Any items to add to the array"]
   ],
-  "return" : ["JsVar","An Array"]
+  "return" : ["JsVar","An Array"],
+  "typedef": "concat(args: JsVarArray): any"
 }
 Create a new array, containing the elements from this one and any arguments, if any argument is an array then those elements will be added.
  */
@@ -897,7 +917,7 @@ JsVar *jswrap_array_concat(JsVar *parent, JsVar *args) {
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "fill",
@@ -908,7 +928,8 @@ JsVar *jswrap_array_concat(JsVar *parent, JsVar *args) {
     ["start","int","Optional. The index to start from (or 0). If start is negative, it is treated as length+start where length is the length of the array"],
     ["end","JsVar","Optional. The index to end at (or the array length). If end is negative, it is treated as length+end."]
   ],
-  "return" : ["JsVar","This array"]
+  "return" : ["JsVar","This array"],
+  "typedef": "fill(value: any, start: number, end: any): any"
 }
 Fill this array with the given value, for every index `>= start` and `< end`
  */
@@ -982,13 +1003,14 @@ void _jswrap_array_reverse_block(JsVar *parent, JsvIterator *it, int items) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Array",
   "name" : "reverse",
   "ifndef" : "SAVE_ON_FLASH",
   "generate" : "jswrap_array_reverse",
-  "return" : ["JsVar","The array, but reversed."]
+  "return" : ["JsVar","The array, but reversed."],
+  "typedef": "reverse(): any"
 }
 Reverse all elements in this array (in place)
  */

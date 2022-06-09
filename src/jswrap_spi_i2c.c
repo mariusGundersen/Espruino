@@ -84,14 +84,15 @@ Try and find an SPI hardware device that will work on this pin (eg. `SPI1`)
 May return undefined if no device can be found.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "SPI",
   "name" : "setup",
   "generate" : "jswrap_spi_setup",
   "params" : [
     ["options","JsVar","An Object containing extra information on initialising the SPI port"]
-  ]
+  ],
+  "typedef": "setup(options: any): void"
 }
 Set up this SPI port as an SPI Master.
 
@@ -159,7 +160,7 @@ void jswrap_spi_setup(
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "SPI",
   "name" : "send",
@@ -168,7 +169,8 @@ void jswrap_spi_setup(
     ["data","JsVar","The data to send - either an Integer, Array, String, or Object of the form `{data: ..., count:#}`"],
     ["nss_pin","pin","An nSS pin - this will be lowered before SPI output and raised afterwards (optional). There will be a small delay between when this is lowered and when sending starts, and also between sending finishing and it being raised."]
   ],
-  "return" : ["JsVar","The data that was returned"]
+  "return" : ["JsVar","The data that was returned"],
+  "typedef": "send(data: any, nss_pin: Pin): any"
 }
 Send data down SPI, and return the result. Sending an integer will return an integer, a String will return a String, and anything else will return a Uint8Array.
 
@@ -292,14 +294,15 @@ void jswrap_spi_write_cb(
   callbackData->spiSend(data, NULL, len, &callbackData->spiSendData);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "SPI",
   "name" : "write",
   "generate" : "jswrap_spi_write",
   "params" : [
     ["data","JsVarArray",["One or more items to write. May be ints, strings, arrays, or special objects (see `E.toUint8Array` for more info).","If the last argument is a pin, it is taken to be the NSS pin"]]
-  ]
+  ],
+  "typedef": "write(data: JsVarArray): void"
 }
 Write a character or array of characters to SPI - without reading the result back.
 
@@ -347,7 +350,7 @@ void jswrap_spi_write(
   if (nss_pin!=PIN_UNDEFINED) jshPinOutput(nss_pin, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "SPI",
   "name" : "send4bit",
@@ -357,7 +360,8 @@ void jswrap_spi_write(
     ["bit0","int32","The 4 bits to send for a 0 (MSB first)"],
     ["bit1","int32","The 4 bits to send for a 1 (MSB first)"],
     ["nss_pin","pin","An nSS pin - this will be lowered before SPI output and raised afterwards (optional). There will be a small delay between when this is lowered and when sending starts, and also between sending finishing and it being raised."]
-  ]
+  ],
+  "typedef": "send4bit(data: any, bit0: int32, bit1: int32, nss_pin: Pin): void"
 }
 Send data down SPI, using 4 bits for each 'real' bit (MSB first). This can be useful for faking one-wire style protocols
 
@@ -416,7 +420,7 @@ void jswrap_spi_send4bit(JsVar *parent, JsVar *srcdata, int bit0, int bit1, Pin 
   jshSPISet16(device, false); // back to 8 bit
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "SPI",
   "name" : "send8bit",
@@ -427,7 +431,8 @@ void jswrap_spi_send4bit(JsVar *parent, JsVar *srcdata, int bit0, int bit1, Pin 
     ["bit0","int32","The 8 bits to send for a 0 (MSB first)"],
     ["bit1","int32","The 8 bits to send for a 1 (MSB first)"],
     ["nss_pin","pin","An nSS pin - this will be lowered before SPI output and raised afterwards (optional). There will be a small delay between when this is lowered and when sending starts, and also between sending finishing and it being raised"]
-  ]
+  ],
+  "typedef": "send8bit(data: any, bit0: int32, bit1: int32, nss_pin: Pin): void"
 }
 Send data down SPI, using 8 bits for each 'real' bit (MSB first). This can be useful for faking one-wire style protocols
 
@@ -552,14 +557,15 @@ The third I2C port
 
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "I2C",
   "name" : "setup",
   "generate" : "jswrap_i2c_setup",
   "params" : [
     ["options","JsVar",["An optional structure containing extra information on initialising the I2C port","```{scl:pin, sda:pin, bitrate:100000}```","You can find out which pins to use by looking at [your board's reference page](#boards) and searching for pins with the `I2C` marker. Note that 400kHz is the maximum bitrate for most parts."]]
-  ]
+  ],
+  "typedef": "setup(options: any): void"
 }
 Set up this I2C port
 
@@ -615,7 +621,7 @@ static NO_INLINE int i2c_get_address(JsVar *address, bool *sendStop) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "I2C",
   "name" : "writeTo",
@@ -623,7 +629,8 @@ static NO_INLINE int i2c_get_address(JsVar *address, bool *sendStop) {
   "params" : [
     ["address","JsVar","The 7 bit address of the device to transmit to, or an object of the form `{address:12, stop:false}` to send this data without a STOP signal."],
     ["data","JsVarArray","One or more items to write. May be ints, strings, arrays, or special objects (see `E.toUint8Array` for more info)."]
-  ]
+  ],
+  "typedef": "writeTo(address: any, data: JsVarArray): void"
 }
 Transmit to the slave device with the given address. This is like Arduino's beginTransmission, write, and endTransmission rolled up into one.
  */
@@ -655,7 +662,7 @@ void jswrap_i2c_writeTo(JsVar *parent, JsVar *addressVar, JsVar *args) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "I2C",
   "name" : "readFrom",
@@ -665,7 +672,8 @@ void jswrap_i2c_writeTo(JsVar *parent, JsVar *addressVar, JsVar *args) {
     ["quantity","int32","The number of bytes to request"]
   ],
   "return" : ["JsVar","The data that was returned - as a Uint8Array"],
-  "return_object" : "Uint8Array"
+  "return_object" : "Uint8Array",
+  "typedef": "readFrom(address: any, quantity: int32): Uint8Array"
 }
 Request bytes from the given slave device, and return them as a Uint8Array (packed array of bytes). This is like using Arduino Wire's requestFrom, available and read functions.  Sends a STOP
  */

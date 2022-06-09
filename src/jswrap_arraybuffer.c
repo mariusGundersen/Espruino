@@ -488,7 +488,7 @@ The length, in bytes, of the `ArrayBufferView`
 The offset, in bytes, to the first byte of the view within the backing `ArrayBuffer`
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "set",
@@ -496,7 +496,8 @@ The offset, in bytes, to the first byte of the view within the backing `ArrayBuf
   "params" : [
     ["arr","JsVar","Floating point index to access"],
     ["offset","int32","The offset in this array at which to write the values (optional)"]
-  ]
+  ],
+  "typedef": "set(arr: any, offset: int32): void"
 }
 Copy the contents of `array` into this one, mapping `this[x+offset]=array[x];`
  */
@@ -549,7 +550,7 @@ void jswrap_arraybufferview_set(JsVar *parent, JsVar *arr, int offset) {
 
 
 // 'special' ArrayBufferView.map as it needs to return an ArrayBuffer
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "map",
@@ -559,7 +560,8 @@ void jswrap_arraybufferview_set(JsVar *parent, JsVar *arr, int offset) {
     ["thisArg","JsVar","if specified, the function is called with 'this' set to thisArg (optional)"]
   ],
   "return" : ["JsVar","An array containing the results"],
-  "return_object" : "ArrayBufferView"
+  "return_object" : "ArrayBufferView",
+  "typedef": "map(function: any, thisArg: any): ArrayBufferView"
 }
 Return an array which is made from the following: ```A.map(function) = [function(A[0]), function(A[1]), ...]```
 
@@ -616,7 +618,7 @@ JsVar *jswrap_arraybufferview_map(JsVar *parent, JsVar *funcVar, JsVar *thisVar)
   return array;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "subarray",
@@ -627,7 +629,8 @@ JsVar *jswrap_arraybufferview_map(JsVar *parent, JsVar *funcVar, JsVar *thisVar)
     ["end","JsVar","Element to end at, exclusive. If negative, it is relative to the end of the array. If not specified the whole array is included"]
   ],
   "return" : ["JsVar","An `ArrayBufferView` of the same type as this one, referencing the same data"],
-  "return_object" : "ArrayBufferView"
+  "return_object" : "ArrayBufferView",
+  "typedef": "subarray(begin: number, end: any): ArrayBufferView"
 }
 Returns a smaller part of this array which references the same data (it doesn't copy it).
  */
@@ -667,7 +670,7 @@ JsVar *jswrap_arraybufferview_subarray(JsVar *parent, JsVarInt begin, JsVar *end
 //                                                                      Steal Array's methods for this
 // -----------------------------------------------------------------------------------------------------
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "indexOf",
@@ -676,11 +679,12 @@ JsVar *jswrap_arraybufferview_subarray(JsVar *parent, JsVarInt begin, JsVar *end
     ["value","JsVar","The value to check for"],
     ["startIndex","int","(optional) the index to search from, or 0 if not specified"]
   ],
-  "return" : ["JsVar","the index of the value in the array, or -1"]
+  "return" : ["JsVar","the index of the value in the array, or -1"],
+  "typedef": "indexOf(value: any, startIndex: number): any"
 }
 Return the index of the value in the array, or `-1`
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "includes",
@@ -690,11 +694,12 @@ Return the index of the value in the array, or `-1`
     ["value","JsVar","The value to check for"],
     ["startIndex","int","(optional) the index to search from, or 0 if not specified"]
   ],
-  "return" : ["bool","`true` if the array includes the value, `false` otherwise"]
+  "return" : ["bool","`true` if the array includes the value, `false` otherwise"],
+  "typedef": "includes(value: any, startIndex: number): boolean"
 }
 Return `true` if the array includes the value, `false` otherwise
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "join",
@@ -702,11 +707,12 @@ Return `true` if the array includes the value, `false` otherwise
   "params" : [
     ["separator","JsVar","The separator"]
   ],
-  "return" : ["JsVar","A String representing the Joined array"]
+  "return" : ["JsVar","A String representing the Joined array"],
+  "typedef": "join(separator: any): any"
 }
 Join all elements of this array together into one string, using 'separator' between them. eg. ```[1,2,3].join(' ')=='1 2 3'```
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "sort",
@@ -716,7 +722,8 @@ Join all elements of this array together into one string, using 'separator' betw
     ["var","JsVar","A function to use to compare array elements (or undefined)"]
   ],
   "return" : ["JsVar","This array object"],
-  "return_object" : "ArrayBufferView"
+  "return_object" : "ArrayBufferView",
+  "typedef": "sort(var: any): ArrayBufferView"
 }
 Do an in-place quicksort of the array
  */
@@ -744,7 +751,7 @@ JsVar *jswrap_arraybufferview_sort(JsVar *array, JsVar *compareFn) {
   return r;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "forEach",
@@ -752,11 +759,12 @@ JsVar *jswrap_arraybufferview_sort(JsVar *array, JsVar *compareFn) {
   "params" : [
     ["function","JsVar","Function to be executed"],
     ["thisArg","JsVar","if specified, the function is called with 'this' set to thisArg (optional)"]
-  ]
+  ],
+  "typedef": "forEach(function: any, thisArg: any): void"
 }
 Executes a provided function once per array element.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "reduce",
@@ -766,11 +774,12 @@ Executes a provided function once per array element.
     ["callback","JsVar","Function used to reduce the array"],
     ["initialValue","JsVar","if specified, the initial value to pass to the function"]
   ],
-  "return" : ["JsVar","The value returned by the last function called"]
+  "return" : ["JsVar","The value returned by the last function called"],
+  "typedef": "reduce(callback: any, initialValue: any): any"
 }
 Execute `previousValue=initialValue` and then `previousValue = callback(previousValue, currentValue, index, array)` for each element in the array, and finally return previousValue.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "fill",
@@ -782,11 +791,12 @@ Execute `previousValue=initialValue` and then `previousValue = callback(previous
     ["end","JsVar","Optional. The index to end at (or the array length). If end is negative, it is treated as length+end."]
   ],
   "return" : ["JsVar","This array"],
-  "return_object" : "ArrayBufferView"
+  "return_object" : "ArrayBufferView",
+  "typedef": "fill(value: any, start: number, end: any): ArrayBufferView"
 }
 Fill this array with the given value, for every index `>= start` and `< end`
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "filter",
@@ -796,11 +806,12 @@ Fill this array with the given value, for every index `>= start` and `< end`
     ["function","JsVar","Function to be executed"],
     ["thisArg","JsVar","if specified, the function is called with 'this' set to thisArg (optional)"]
   ],
-  "return" : ["JsVar","An array containing the results"]
+  "return" : ["JsVar","An array containing the results"],
+  "typedef": "filter(function: any, thisArg: any): any"
 }
 Return an array which contains only those elements for which the callback function returns 'true'
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "find",
@@ -809,11 +820,12 @@ Return an array which contains only those elements for which the callback functi
   "params" : [
     ["function","JsVar","Function to be executed"]
   ],
-  "return" : ["JsVar","The array element where `function` returns `true`, or `undefined`"]
+  "return" : ["JsVar","The array element where `function` returns `true`, or `undefined`"],
+  "typedef": "find(function: any): any"
 }
 Return the array element where `function` returns `true`, or `undefined` if it doesn't returns `true` for any element.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "findIndex",
@@ -822,22 +834,24 @@ Return the array element where `function` returns `true`, or `undefined` if it d
   "params" : [
     ["function","JsVar","Function to be executed"]
   ],
-  "return" : ["JsVar","The array element's index where `function` returns `true`, or `-1`"]
+  "return" : ["JsVar","The array element's index where `function` returns `true`, or `-1`"],
+  "typedef": "findIndex(function: any): any"
 }
 Return the array element's index where `function` returns `true`, or `-1` if it doesn't returns `true` for any element.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "reverse",
   "ifndef" : "SAVE_ON_FLASH",
   "generate" : "jswrap_array_reverse",
   "return" : ["JsVar","This array"],
-  "return_object" : "ArrayBufferView"
+  "return_object" : "ArrayBufferView",
+  "typedef": "reverse(): ArrayBufferView"
 }
 Reverse the contents of this `ArrayBufferView` in-place
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "ArrayBufferView",
   "name" : "slice",
@@ -848,7 +862,8 @@ Reverse the contents of this `ArrayBufferView` in-place
     ["end","JsVar","End index (optional)"]
   ],
   "return" : ["JsVar","A new array"],
-  "return_object" : "Array"
+  "return_object" : "Array",
+  "typedef": "slice(start: number, end: any): Array"
 }
 Return a copy of a portion of this array (in a new array).
 

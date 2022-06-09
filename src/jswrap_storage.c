@@ -709,7 +709,7 @@ JsVar *jswrap_storagefile_read_internal(JsVar *f, int len) {
   jsvObjectSetChildAndUnLock(f,"offset",jsvNewFromInteger(offset));
   return result;
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
@@ -719,7 +719,8 @@ JsVar *jswrap_storagefile_read_internal(JsVar *f, int len) {
     ["len","int","How many bytes to read"]
   ],
   "return" : ["JsVar","A String, or undefined "],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "read(len: number): String"
 }
 Read 'len' bytes of data from the file, and return a String containing those bytes.
 
@@ -730,27 +731,29 @@ JsVar *jswrap_storagefile_read(JsVar *f, int len) {
   if (len<0) len=0;
   return jswrap_storagefile_read_internal(f,len);
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
   "name" : "readLine",
   "generate" : "jswrap_storagefile_readLine",
   "return" : ["JsVar","A line of data"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "readLine(): String"
 }
 Read a line of data from the file (up to and including `"\n"`)
 */
 JsVar *jswrap_storagefile_readLine(JsVar *f) {
   return jswrap_storagefile_read_internal(f,-1);
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
   "name" : "getLength",
   "generate" : "jswrap_storagefile_getLength",
-  "return" : ["int","The current length in bytes of the file"]
+  "return" : ["int","The current length in bytes of the file"],
+  "typedef": "getLength(): number"
 }
 Return the length of the current file.
 
@@ -809,7 +812,7 @@ int jswrap_storagefile_getLength(JsVar *f) {
 
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
@@ -817,7 +820,8 @@ int jswrap_storagefile_getLength(JsVar *f) {
   "generate" : "jswrap_storagefile_write",
   "params" : [
     ["data","JsVar","The data to write. This should not include `'\\xFF'` (character code 255)"]
-  ]
+  ],
+  "typedef": "write(data: any): void"
 }
 Append the given data to a file. You should not attempt to append  `"\xFF"` (character code 255).
 */
@@ -915,12 +919,13 @@ void jswrap_storagefile_write(JsVar *f, JsVar *_data) {
   jsvUnLock(data);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "StorageFile",
   "name" : "erase",
-  "generate" : "jswrap_storagefile_erase"
+  "generate" : "jswrap_storagefile_erase",
+  "typedef": "erase(): void"
 }
 Erase this file
 */

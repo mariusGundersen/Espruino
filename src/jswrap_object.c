@@ -90,12 +90,13 @@ JsVar *jswrap_object_length(JsVar *parent) {
   return jsvNewFromInteger(l);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Object",
   "name" : "valueOf",
   "generate" : "jswrap_object_valueOf",
-  "return" : ["JsVar","The primitive value of this object"]
+  "return" : ["JsVar","The primitive value of this object"],
+  "typedef": "valueOf(): any"
 }
 Returns the primitive value of this object.
  */
@@ -107,7 +108,7 @@ JsVar *jswrap_object_valueOf(JsVar *parent) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Object",
   "name" : "toString",
@@ -115,7 +116,8 @@ JsVar *jswrap_object_valueOf(JsVar *parent) {
   "params" : [
     ["radix","JsVar","If the object is an integer, the radix (between 2 and 36) to use. NOTE: Setting a radix does not work on floating point numbers."]
   ],
-  "return" : ["JsVar","A String representing the object"]
+  "return" : ["JsVar","A String representing the object"],
+  "typedef": "toString(radix: any): any"
 }
 Convert the Object to a string
  */
@@ -134,12 +136,13 @@ JsVar *jswrap_object_toString(JsVar *parent, JsVar *arg0) {
   return jsvAsString(parent);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Object",
   "name" : "clone",
   "generate" : "jswrap_object_clone",
-  "return" : ["JsVar","A copy of this Object"]
+  "return" : ["JsVar","A copy of this Object"],
+  "typedef": "clone(): any"
 }
 Copy this object completely
  */
@@ -389,7 +392,7 @@ JsVar *jswrap_object_getOwnPropertyDescriptor(JsVar *parent, JsVar *name) {
   return obj;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Object",
   "name" : "hasOwnProperty",
@@ -397,7 +400,8 @@ JsVar *jswrap_object_getOwnPropertyDescriptor(JsVar *parent, JsVar *name) {
   "params" : [
     ["name","JsVar","The name of the property to search for"]
   ],
-  "return" : ["bool","True if it exists, false if it doesn't"]
+  "return" : ["bool","True if it exists, false if it doesn't"],
+  "typedef": "hasOwnProperty(name: any): boolean"
 }
 Return true if the object (not its prototype) has the given property.
 
@@ -648,7 +652,7 @@ void jswrap_object_addEventListener(JsVar *parent, const char *eventName, void (
   jsvUnLock2(cb, n);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Object",
   "name" : "on",
@@ -656,7 +660,8 @@ void jswrap_object_addEventListener(JsVar *parent, const char *eventName, void (
   "params" : [
     ["event","JsVar","The name of the event, for instance 'data'"],
     ["listener","JsVar","The listener to call when this event is received"]
-  ]
+  ],
+  "typedef": "on(event: any, listener: any): void"
 }
 Register an event listener for this object, for instance `Serial1.on('data', function(d) {...})`.
 
@@ -742,7 +747,7 @@ void jswrap_object_on(JsVar *parent, JsVar *event, JsVar *listener) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Object",
   "name" : "emit",
@@ -750,7 +755,8 @@ void jswrap_object_on(JsVar *parent, JsVar *event, JsVar *listener) {
   "params" : [
     ["event","JsVar","The name of the event, for instance 'data'"],
     ["args","JsVarArray","Optional arguments"]
-  ]
+  ],
+  "typedef": "emit(event: any, args: JsVarArray): void"
 }
 Call any event listeners that were added to this object with `Object.on`, for instance `obj.emit('data', 'Foo')`.
 
@@ -794,7 +800,7 @@ void jswrap_object_emit(JsVar *parent, JsVar *event, JsVar *argArray) {
   jsvUnLockMany(n, args);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Object",
   "name" : "removeListener",
@@ -802,7 +808,8 @@ void jswrap_object_emit(JsVar *parent, JsVar *event, JsVar *argArray) {
   "params" : [
     ["event","JsVar","The name of the event, for instance 'data'"],
     ["listener","JsVar","The listener to remove"]
-  ]
+  ],
+  "typedef": "removeListener(event: any, listener: any): void"
 }
 Removes the specified event listener.
 
@@ -849,14 +856,15 @@ void jswrap_object_removeListener(JsVar *parent, JsVar *event, JsVar *callback) 
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Object",
   "name" : "removeAllListeners",
   "generate" : "jswrap_object_removeAllListeners",
   "params" : [
     ["event","JsVar","The name of the event, for instance `'data'`. If not specified *all* listeners are removed."]
-  ]
+  ],
+  "typedef": "removeAllListeners(event: any): void"
 }
 Removes all listeners (if `event===undefined`), or those of the specified event.
 
@@ -916,14 +924,15 @@ void jswrap_object_removeAllListeners_cstr(JsVar *parent, const char *event) {
 
 // ------------------------------------------------------------------------------
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Function",
   "name" : "replaceWith",
   "generate" : "jswrap_function_replaceWith",
   "params" : [
     ["newFunc","JsVar","The new function to replace this function with"]
-  ]
+  ],
+  "typedef": "replaceWith(newFunc: any): void"
 }
 This replaces the function with the one in the argument - while keeping the old function's scope.
 This allows inner functions to be edited, and is used when edit() is called on an inner function.
@@ -986,7 +995,7 @@ void jswrap_function_replaceWith(JsVar *oldFunc, JsVar *newFunc) {
   jsvUnLock(prototype);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Function",
   "name" : "call",
@@ -995,14 +1004,15 @@ void jswrap_function_replaceWith(JsVar *oldFunc, JsVar *newFunc) {
     ["this","JsVar","The value to use as the 'this' argument when executing the function"],
     ["params","JsVarArray","Optional Parameters"]
   ],
-  "return" : ["JsVar","The return value of executing this function"]
+  "return" : ["JsVar","The return value of executing this function"],
+  "typedef": "call(this: any, params: JsVarArray): any"
 }
 This executes the function with the supplied 'this' argument and parameters
  */
 // ... it just so happens that the way JsVarArray is parsed means that apply and call can be exactly the same function!
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Function",
   "name" : "apply",
@@ -1011,7 +1021,8 @@ This executes the function with the supplied 'this' argument and parameters
     ["this","JsVar","The value to use as the 'this' argument when executing the function"],
     ["args","JsVar","Optional Array of Arguments"]
   ],
-  "return" : ["JsVar","The return value of executing this function"]
+  "return" : ["JsVar","The return value of executing this function"],
+  "typedef": "apply(this: any, args: any): any"
 }
 This executes the function with the supplied 'this' argument and parameters
  */
@@ -1054,7 +1065,7 @@ JsVar *jswrap_function_apply_or_call(JsVar *parent, JsVar *thisArg, JsVar *argsA
   return r;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Function",
   "name" : "bind",
@@ -1063,7 +1074,8 @@ JsVar *jswrap_function_apply_or_call(JsVar *parent, JsVar *thisArg, JsVar *argsA
     ["this","JsVar","The value to use as the 'this' argument when executing the function"],
     ["params","JsVarArray","Optional Default parameters that are prepended to the call"]
   ],
-  "return" : ["JsVar","The 'bound' function"]
+  "return" : ["JsVar","The 'bound' function"],
+  "typedef": "bind(this: any, params: JsVarArray): any"
 }
 This executes the function with the supplied 'this' argument and parameters
  */

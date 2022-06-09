@@ -290,16 +290,17 @@ The error codes are:
 * -14: invalid SSL data
 
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Socket",
   "name" : "available",
   "generate" : "jswrap_stream_available",
-  "return" : ["int","How many bytes are available"]
+  "return" : ["int","How many bytes are available"],
+  "typedef": "available(): number"
 }
 Return how many bytes are available to read. If there is already a listener for data, this will always return 0.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Socket",
   "name" : "read",
@@ -307,11 +308,12 @@ Return how many bytes are available to read. If there is already a listener for 
   "params" : [
     ["chars","int","The number of characters to read, or undefined/0 for all available"]
   ],
-  "return" : ["JsVar","A string containing the required bytes."]
+  "return" : ["JsVar","A string containing the required bytes."],
+  "typedef": "read(chars: number): any"
 }
 Return a string containing characters that have been received
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Socket",
   "name" : "pipe",
@@ -320,7 +322,8 @@ Return a string containing characters that have been received
   "params" : [
     ["destination","JsVar","The destination file/stream that will receive content from the source."],
     ["options","JsVar",["An optional object `{ chunkSize : int=32, end : bool=true, complete : function }`","chunkSize : The amount of data to pipe from source to destination at a time","complete : a function to call when the pipe activity is complete","end : call the 'end' function on the destination when the source is finished"]]
-  ]
+  ],
+  "typedef": "pipe(destination: any, options: any): void"
 }
 Pipe this to a stream (an object with a 'write' method)
 */
@@ -478,7 +481,7 @@ JsVar *jswrap_dgram_createSocket(JsVar *type, JsVar *callback) {
 }
 An actual socket connection - allowing transmit/receive of TCP data
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "dgramSocket",
   "name" : "send",
@@ -488,7 +491,8 @@ An actual socket connection - allowing transmit/receive of TCP data
     ["offset","JsVar","Offset in the passed string where the message starts [optional]"],
     ["length","JsVar","Number of bytes in the message [optional]"],
     ["args","JsVarArray","Destination port number, Destination IP address string"]
-  ]
+  ],
+  "typedef": "send(buffer: any, offset: any, length: any, args: JsVarArray): void"
 }*/
 // There are futher arguments within the 'args' JsVarArray:
 //  ["port","JsVar","Destination port number to send the message to"],
@@ -540,7 +544,7 @@ void jswrap_dgram_socket_send(JsVar *parent, JsVar *buffer, JsVar *offset, JsVar
 The 'message' event is called when a datagram message is received. If a handler is defined with `X.on('message', function(msg) { ... })` then it will be called`
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "dgramSocket",
   "name" : "bind",
@@ -549,7 +553,8 @@ The 'message' event is called when a datagram message is received. If a handler 
     ["port","int32","The port to bind at"],
     ["callback","JsVar","A function(res) that will be called when the socket is bound. You can then call `res.on('message', function(message, info) { ... })` and `res.on('close', function() { ... })` to deal with the response."]
   ],
-  "return" : ["JsVar","The dgramSocket instance that 'bind' was called on"]
+  "return" : ["JsVar","The dgramSocket instance that 'bind' was called on"],
+  "typedef": "bind(port: int32, callback: any): any"
 }
 */
 JsVar *jswrap_dgramSocket_bind(JsVar *parent, unsigned short port, JsVar *callback) {
@@ -562,11 +567,12 @@ JsVar *jswrap_dgramSocket_bind(JsVar *parent, unsigned short port, JsVar *callba
   return parent;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "dgramSocket",
   "name" : "close",
-  "generate" : "jswrap_dgram_close"
+  "generate" : "jswrap_dgram_close",
+  "typedef": "close(): void"
 }
 Close the socket
 */
@@ -578,7 +584,7 @@ void jswrap_dgram_close(JsVar *parent) {
   networkFree(&net);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "dgramSocket",
   "name" : "addMembership",
@@ -586,7 +592,8 @@ void jswrap_dgram_close(JsVar *parent) {
   "params" : [
     ["group","JsVar","A string containing the group ip to join"],
     ["ip","JsVar","A string containing the ip to join with"]
-  ]
+  ],
+  "typedef": "addMembership(group: any, ip: any): void"
 }
 */
 void jswrap_dgram_addMembership(JsVar *parent, JsVar *group, JsVar *ip) {
@@ -670,7 +677,7 @@ https://engineering.circle.com/https-authorized-certs-with-node-js/
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Server",
   "name" : "listen",
@@ -678,7 +685,8 @@ https://engineering.circle.com/https-authorized-certs-with-node-js/
   "params" : [
     ["port","int32","The port to listen on"]
   ],
-  "return" : ["JsVar","The HTTP server instance that 'listen' was called on"]
+  "return" : ["JsVar","The HTTP server instance that 'listen' was called on"],
+  "typedef": "listen(port: int32): any"
 }
 Start listening for new connections on the given port
 */
@@ -693,11 +701,12 @@ JsVar *jswrap_net_server_listen(JsVar *parent, int port, SocketType socketType) 
   return parent;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Server",
   "name" : "close",
-  "generate" : "jswrap_net_server_close"
+  "generate" : "jswrap_net_server_close",
+  "typedef": "close(): void"
 }
 Stop listening for new connections
 */
@@ -714,7 +723,7 @@ void jswrap_net_server_close(JsVar *parent) {
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Socket",
   "name" : "write",
@@ -722,7 +731,8 @@ void jswrap_net_server_close(JsVar *parent) {
   "params" : [
     ["data","JsVar","A string containing data to send"]
   ],
-  "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"]
+  "return" : ["bool","For node.js compatibility, returns the boolean false. When the send buffer is empty, a `drain` event will be sent"],
+  "typedef": "write(data: any): boolean"
 }
 This function writes the `data` argument as a string. Data that is passed in
 (including arrays) will be converted to a string with the normal JavaScript
@@ -755,14 +765,15 @@ bool jswrap_net_socket_write(JsVar *parent, JsVar *data) {
   return false;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Socket",
   "name" : "end",
   "generate" : "jswrap_net_socket_end",
   "params" : [
     ["data","JsVar","A string containing data to send"]
-  ]
+  ],
+  "typedef": "end(data: any): void"
 }
 Close this socket - optional data to append as an argument.
 

@@ -169,7 +169,7 @@ static const unsigned char fontWidths[] = {
 };
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "Graphics",
   "name" : "setFont6x15",
@@ -178,7 +178,8 @@ static const unsigned char fontWidths[] = {
     ["scale","int","(optional) If >1 the font will be scaled up by that amount"]
   ],
   "return" : ["JsVar","The instance of Graphics this was called on, to allow call chaining"],
-  "return_object" : "Graphics"
+  "return_object" : "Graphics",
+  "typedef": "setFont6x15(scale: number): Graphics"
 }
 Set the current font
 */

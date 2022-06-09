@@ -137,35 +137,38 @@ JsVar *jswrap_tfmicrointerpreter_tensorToArrayBuffer(JsVar *parent, bool isInput
   jsvUnLock2(ab,mi);
   return b;
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "TFMicroInterpreter",
   "name" : "getInput",
   "generate" : "jswrap_tfmicrointerpreter_getInput",
   "return" : ["JsVar","An arraybuffer referencing the input data"],
-  "return_object" : "ArrayBufferView"
+  "return_object" : "ArrayBufferView",
+  "typedef": "getInput(): ArrayBufferView"
 }
 */
 JsVar *jswrap_tfmicrointerpreter_getInput(JsVar *parent) {
   return jswrap_tfmicrointerpreter_tensorToArrayBuffer(parent, true);
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "TFMicroInterpreter",
   "name" : "getOutput",
   "generate" : "jswrap_tfmicrointerpreter_getOutput",
   "return" : ["JsVar","An arraybuffer referencing the output data"],
-  "return_object" : "ArrayBufferView"
+  "return_object" : "ArrayBufferView",
+  "typedef": "getOutput(): ArrayBufferView"
 }
 */
 JsVar *jswrap_tfmicrointerpreter_getOutput(JsVar *parent) {
   return jswrap_tfmicrointerpreter_tensorToArrayBuffer(parent, false);
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "TFMicroInterpreter",
   "name" : "invoke",
-  "generate" : "jswrap_tfmicrointerpreter_invoke"
+  "generate" : "jswrap_tfmicrointerpreter_invoke",
+  "typedef": "invoke(): void"
 }
 */
 void jswrap_tfmicrointerpreter_invoke(JsVar *parent) {

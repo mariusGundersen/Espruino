@@ -109,12 +109,13 @@ JsVar *jswrap_onewire_constructor(Pin pin) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "OneWire",
   "name" : "reset",
   "generate" : "jswrap_onewire_reset",
-  "return" : ["bool","True is a device was present (it held the bus low)"]
+  "return" : ["bool","True is a device was present (it held the bus low)"],
+  "typedef": "reset(): boolean"
 }
 Perform a reset cycle
  */
@@ -124,14 +125,15 @@ bool jswrap_onewire_reset(JsVar *parent) {
   return OneWireReset(pin);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "OneWire",
   "name" : "select",
   "generate" : "jswrap_onewire_select",
   "params" : [
     ["rom","JsVar","The device to select (get this using `OneWire.search()`)"]
-  ]
+  ],
+  "typedef": "select(rom: any): void"
 }
 Select a ROM - always performs a reset first
  */
@@ -166,11 +168,12 @@ void jswrap_onewire_select(JsVar *parent, JsVar *rom) {
   OneWireWrite(pin, 64, romdata);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "OneWire",
   "name" : "skip",
-  "generate" : "jswrap_onewire_skip"
+  "generate" : "jswrap_onewire_skip",
+  "typedef": "skip(): void"
 }
 Skip a ROM
  */
@@ -180,7 +183,7 @@ void jswrap_onewire_skip(JsVar *parent) {
   OneWireWrite(pin, 8, 0xCC);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "OneWire",
   "name" : "write",
@@ -188,7 +191,8 @@ void jswrap_onewire_skip(JsVar *parent) {
   "params" : [
     ["data","JsVar","A byte (or array of bytes) to write"],
     ["power","bool","Whether to leave power on after write (default is false)"]
-  ]
+  ],
+  "typedef": "write(data: any, power: boolean): void"
 }
 Write one or more bytes
  */
@@ -215,13 +219,14 @@ void jswrap_onewire_write(JsVar *parent, JsVar *data, bool leavePowerOn) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "OneWire",
   "name" : "read",
   "generate" : "jswrap_onewire_read",
   "params" : [["count","JsVar","(optional) The amount of bytes to read"]],
-  "return" : ["JsVar","The byte that was read, or a Uint8Array if count was specified and >=0"]
+  "return" : ["JsVar","The byte that was read, or a Uint8Array if count was specified and >=0"],
+  "typedef": "read(count: any): any"
 }
 Read a byte
  */
@@ -246,7 +251,7 @@ JsVar *jswrap_onewire_read(JsVar *parent, JsVar *count) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "method",
   "class" : "OneWire",
   "name" : "search",
@@ -254,7 +259,8 @@ JsVar *jswrap_onewire_read(JsVar *parent, JsVar *count) {
   "params" : [
     ["command","int32","(Optional) command byte. If not specified (or zero), this defaults to 0xF0. This can could be set to 0xEC to perform a DS18B20 'Alarm Search Command'"]
   ],
-  "return" : ["JsVar","An array of devices that were found"]
+  "return" : ["JsVar","An array of devices that were found"],
+  "typedef": "search(command: int32): any"
 }
 Search for devices
  */
