@@ -20,11 +20,12 @@
 #include "jsinteractive.h"
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "arguments",
   "generate" : "jswrap_arguments",
-  "return" : ["JsVar","An array containing all the arguments given to the function"]
+  "return" : ["JsVar","An array containing all the arguments given to the function"],
+  "typedef": "declare var arguments: any"
 }
 A variable containing the arguments given to the function:
 

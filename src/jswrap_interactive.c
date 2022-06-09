@@ -30,11 +30,12 @@
 An Object that contains functions for writing to the interactive console
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "global",
   "generate_full" : "jsvLockAgain(execInfo.root)",
-  "return" : ["JsVar","The global scope"]
+  "return" : ["JsVar","The global scope"],
+  "typedef": "declare var global: any"
 }
 A reference to the global scope, where everything is defined.
  */

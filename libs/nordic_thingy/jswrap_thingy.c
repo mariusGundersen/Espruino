@@ -104,21 +104,21 @@ JshPinState jshVirtualPinGetState(Pin pin) {
   return JSHPINSTATE_UNDEFINED;
 }
 
-/*JSON{  //TODO"type" : "variable", "name" : "MOS1", "generate_full" : "18", "return" : ["pin","A Pin"]
+/*JSON{"type" : "variable", "name" : "MOS1", "generate_full" : "18", "return" : ["pin","A Pin"],"typedef": "declare var MOS1: Pin"
 }*/
-/*JSON{  //TODO"type" : "variable", "name" : "MOS2", "generate_full" : "19", "return" : ["pin","A Pin"]
+/*JSON{"type" : "variable", "name" : "MOS2", "generate_full" : "19", "return" : ["pin","A Pin"],"typedef": "declare var MOS2: Pin"
 }*/
-/*JSON{  //TODO"type" : "variable", "name" : "MOS3", "generate_full" : "20", "return" : ["pin","A Pin"]
+/*JSON{"type" : "variable", "name" : "MOS3", "generate_full" : "20", "return" : ["pin","A Pin"],"typedef": "declare var MOS3: Pin"
 }*/
-/*JSON{  //TODO"type" : "variable", "name" : "MOS4", "generate_full" : "21", "return" : ["pin","A Pin"]
+/*JSON{"type" : "variable", "name" : "MOS4", "generate_full" : "21", "return" : ["pin","A Pin"],"typedef": "declare var MOS4: Pin"
 }*/
-/*JSON{  //TODO"type" : "variable", "name" : "IOEXT0", "generate_full" : "JSH_PORTV_OFFSET + 0", "return" : ["pin","A Pin"]
+/*JSON{"type" : "variable", "name" : "IOEXT0", "generate_full" : "JSH_PORTV_OFFSET + 0", "return" : ["pin","A Pin"],"typedef": "declare var IOEXT0: Pin"
 }*/
-/*JSON{  //TODO"type" : "variable", "name" : "IOEXT1", "generate_full" : "JSH_PORTV_OFFSET + 1", "return" : ["pin","A Pin"]
+/*JSON{"type" : "variable", "name" : "IOEXT1", "generate_full" : "JSH_PORTV_OFFSET + 1", "return" : ["pin","A Pin"],"typedef": "declare var IOEXT1: Pin"
 }*/
-/*JSON{  //TODO"type" : "variable", "name" : "IOEXT2", "generate_full" : "JSH_PORTV_OFFSET + 2", "return" : ["pin","A Pin"]
+/*JSON{"type" : "variable", "name" : "IOEXT2", "generate_full" : "JSH_PORTV_OFFSET + 2", "return" : ["pin","A Pin"],"typedef": "declare var IOEXT2: Pin"
 }*/
-/*JSON{  //TODO"type" : "variable", "name" : "IOEXT3", "generate_full" : "JSH_PORTV_OFFSET + 3", "return" : ["pin","A Pin"]
+/*JSON{"type" : "variable", "name" : "IOEXT3", "generate_full" : "JSH_PORTV_OFFSET + 3", "return" : ["pin","A Pin"],"typedef": "declare var IOEXT3: Pin"
 }*/
 
 

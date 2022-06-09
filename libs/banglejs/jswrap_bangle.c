@@ -5142,12 +5142,13 @@ E.showAlert("These are\nLots of\nLines","My Title").then(function() {
 To remove the window, call `E.showAlert()` with no arguments.
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "variable",
     "name" : "LED",
     "generate" : "gen_jswrap_LED1",
     "return" : ["JsVar","A `Pin` object for a fake LED which appears on "],
-    "ifdef" : "BANGLEJS", "no_docs":1
+    "ifdef" : "BANGLEJS", "no_docs":1,
+    "typedef": "declare var LED: any"
 }
 
 On most Espruino board there are LEDs, in which case `LED` will be an actual Pin.
@@ -5156,12 +5157,13 @@ On Bangle.js there are no LEDs, so to remain compatible with example code that m
 expect an LED, this is an object that behaves like a pin, but which just displays
 a circle on the display
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "variable",
     "name" : "LED1",
     "generate_js" : "libs/js/banglejs/LED1.min.js",
     "return" : ["JsVar","A `Pin` object for a fake LED which appears on "],
-    "ifdef" : "BANGLEJS", "no_docs":1
+    "ifdef" : "BANGLEJS", "no_docs":1,
+    "typedef": "declare var LED1: any"
 }
 
 On most Espruino board there are LEDs, in which case `LED1` will be an actual Pin.
@@ -5170,12 +5172,13 @@ On Bangle.js there are no LEDs, so to remain compatible with example code that m
 expect an LED, this is an object that behaves like a pin, but which just displays
 a circle on the display
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "variable",
     "name" : "LED2",
     "generate_js" : "libs/js/banglejs/LED2.min.js",
     "return" : ["JsVar","A `Pin` object for a fake LED which appears on "],
-    "ifdef" : "BANGLEJS", "no_docs":1
+    "ifdef" : "BANGLEJS", "no_docs":1,
+    "typedef": "declare var LED2: any"
 }
 
 On most Espruino board there are LEDs, in which case `LED2` will be an actual Pin.

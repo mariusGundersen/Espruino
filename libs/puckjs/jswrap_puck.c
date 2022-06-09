@@ -565,12 +565,13 @@ void accel_off() {
 }
 Class containing [Puck.js's](http://www.puck-js.com) utility functions.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "FET",
   "generate_full" : "26",
   "ifdef" : "PUCKJS",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var FET: Pin"
 }
 On Puck.js V2 (not v1.0) this is the pin that controls the FET, for high-powered outputs.
 */

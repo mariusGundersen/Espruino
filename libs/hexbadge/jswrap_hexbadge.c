@@ -61,99 +61,111 @@ const Pin LCD_SCK = 14;
 const Pin LCD_MOSI = 15;
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "BTNA",
   "generate_full" : "19",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var BTNA: Pin"
 }
 The pin connected to the 'A' button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "BTNB",
   "generate_full" : "20",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var BTNB: Pin"
 }
 The pin connected to the 'B' button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "BTNU",
   "generate_full" : "31",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var BTNU: Pin"
 }
 The pin connected to the up button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "BTND",
   "generate_full" : "16",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var BTND: Pin"
 }
 The pin connected to the down button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "BTNL",
   "generate_full" : "17",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var BTNL: Pin"
 }
 The pin connected to the left button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "BTNR",
   "generate_full" : "18",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var BTNR: Pin"
 }
 The pin connected to the right button. Reads as `1` when pressed, `0` when not
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "CORNER1",
   "generate_full" : "25",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var CORNER1: Pin"
 }
 The pin connected to Corner #1
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "CORNER2",
   "generate_full" : "26",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var CORNER2: Pin"
 }
 The pin connected to Corner #2
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "CORNER3",
   "generate_full" : "27",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var CORNER3: Pin"
 }
 The pin connected to Corner #3
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "CORNER4",
   "generate_full" : "28",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var CORNER4: Pin"
 }
 The pin connected to Corner #4
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "CORNER5",
   "generate_full" : "29",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var CORNER5: Pin"
 }
 The pin connected to Corner #5
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "CORNER6",
   "generate_full" : "30",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "declare var CORNER6: Pin"
 }
 The pin connected to Corner #6
 */

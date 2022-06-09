@@ -64,18 +64,20 @@ JsVar *jswrap_number_constructor(JsVar *args) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "NaN",
   "generate_full" : "NAN",
-  "return" : ["float","Not a  Number"]
+  "return" : ["float","Not a  Number"],
+  "typedef": "declare var NaN: number"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "Infinity",
   "generate_full" : "INFINITY",
-  "return" : ["float","Positive Infinity (1/0)"]
+  "return" : ["float","Positive Infinity (1/0)"],
+  "typedef": "declare var Infinity: number"
 }*/
 
 /*JSON{
@@ -144,16 +146,18 @@ JsVar *jswrap_number_toFixed(JsVar *parent, int decimals) {
   return jsvNewFromString(buf);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "HIGH",
   "generate_full" : "1",
-  "return" : ["int32","Logic 1 for Arduino compatibility - this is the same as just typing `1`"]
+  "return" : ["int32","Logic 1 for Arduino compatibility - this is the same as just typing `1`"],
+  "typedef": "declare var HIGH: number"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "variable",
   "name" : "LOW",
   "generate_full" : "0",
-  "return" : ["int32","Logic 0 for Arduino compatibility - this is the same as just typing `0`"]
+  "return" : ["int32","Logic 0 for Arduino compatibility - this is the same as just typing `0`"],
+  "typedef": "declare var LOW: number"
 }*/
