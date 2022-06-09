@@ -49,12 +49,13 @@ JsVar *jswrap_string_constructor(JsVar *args) {
   return jsvAsStringAndUnLock(jsvGetArrayItem(args, 0));
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "String",
   "name" : "length",
   "generate" : "jswrap_object_length",
-  "return" : ["JsVar","The value of the string"]
+  "return" : ["JsVar","The value of the string"],
+  "typedef": "length: any"
 }
 Find the length of the string
  */

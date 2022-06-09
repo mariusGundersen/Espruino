@@ -233,12 +233,13 @@ JsVar *jswrap_arraybuffer_constructor(JsVarInt byteLength) {
   return v;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "ArrayBuffer",
   "name" : "byteLength",
   "generate_full" : "(JsVarInt)(parent->varData.arraybuffer.length)",
-  "return" : ["int","The Length in bytes"]
+  "return" : ["int","The Length in bytes"],
+  "typedef": "byteLength: number"
 }
 The length, in bytes, of the `ArrayBuffer`
  */
@@ -460,30 +461,33 @@ JsVar *jswrap_typedarray_constructor(JsVarDataArrayBufferViewType type, JsVar *a
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "ArrayBufferView",
   "name" : "buffer",
   "generate_full" : "jsvLock(jsvGetFirstChild(parent))",
-  "return" : ["JsVar","An ArrayBuffer object"]
+  "return" : ["JsVar","An ArrayBuffer object"],
+  "typedef": "buffer: any"
 }
 The buffer this view references
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "ArrayBufferView",
   "name" : "byteLength",
   "generate_full" : "(JsVarInt)(parent->varData.arraybuffer.length * JSV_ARRAYBUFFER_GET_SIZE(parent->varData.arraybuffer.type))",
-  "return" : ["int","The Length"]
+  "return" : ["int","The Length"],
+  "typedef": "byteLength: number"
 }
 The length, in bytes, of the `ArrayBufferView`
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "ArrayBufferView",
   "name" : "byteOffset",
   "generate_full" : "parent->varData.arraybuffer.byteOffset",
-  "return" : ["int","The byte Offset"]
+  "return" : ["int","The byte Offset"],
+  "typedef": "byteOffset: number"
 }
 The offset, in bytes, to the first byte of the view within the backing `ArrayBuffer`
  */

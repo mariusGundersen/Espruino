@@ -70,30 +70,33 @@ Called when the connection closes.
 */
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "httpSRq",
     "name" : "headers",
     "generate" : false,
-    "return" : ["JsVar", "An object mapping header name to value" ]
+    "return" : ["JsVar", "An object mapping header name to value" ],
+    "typedef": "headers: any"
 }
 The headers to sent to the server with this HTTP request.
 *//*Documentation only*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "httpSRq",
     "name" : "method",
     "generate" : false,
-    "return" : ["JsVar", "A string" ]
+    "return" : ["JsVar", "A string" ],
+    "typedef": "method: any"
 }
 The HTTP method used with this request. Often `"GET"`.
 *//*Documentation only*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "httpSRq",
     "name" : "url",
     "generate" : false,
-    "return" : ["JsVar", "A string representing the URL" ]
+    "return" : ["JsVar", "A string representing the URL" ],
+    "typedef": "url: any"
 }
 The URL requested in this HTTP request, for instance:
 
@@ -224,39 +227,43 @@ Called when the connection closes with one `hadError` boolean parameter, which i
 }
 An event that is fired if there is an error receiving the response. The error event function receives an error object as parameter with a `code` field and a `message` field. After the error event the close even will also be triggered to conclude the HTTP request/response.
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "httpCRs",
     "name" : "headers",
     "generate" : false,
-    "return" : ["JsVar", "An object mapping header name to value" ]
+    "return" : ["JsVar", "An object mapping header name to value" ],
+    "typedef": "headers: any"
 }
 The headers received along with the HTTP response
 *//*Documentation only*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "httpCRs",
     "name" : "statusCode",
     "generate" : false,
-    "return" : ["JsVar", "The status code as a String" ]
+    "return" : ["JsVar", "The status code as a String" ],
+    "typedef": "statusCode: any"
 }
 The HTTP response's status code - usually `"200"` if all went well
 *//*Documentation only*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "httpCRs",
     "name" : "statusMessage",
     "generate" : false,
-    "return" : ["JsVar", "An String Status Message" ]
+    "return" : ["JsVar", "An String Status Message" ],
+    "typedef": "statusMessage: any"
 }
 The HTTP response's status message - Usually `"OK"` if all went well
 *//*Documentation only*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "httpCRs",
     "name" : "httpVersion",
     "generate" : false,
-    "return" : ["JsVar", "Th" ]
+    "return" : ["JsVar", "Th" ],
+    "typedef": "httpVersion: any"
 }
 The HTTP version reported back by the server - usually `"1.1"`
 *//*Documentation only*/
@@ -465,12 +472,13 @@ Stop listening for new HTTP connections
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "httpSRs",
     "name" : "headers",
     "generate" : false,
-    "return" : ["JsVar", "An object mapping header name to value" ]
+    "return" : ["JsVar", "An object mapping header name to value" ],
+    "typedef": "headers: any"
 }
 The headers to send back along with the HTTP response.
 

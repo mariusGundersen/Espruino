@@ -3447,13 +3447,14 @@ NRF.requestDevice({ filters: [{ name: 'Puck.js abcd' }] }).then(function(device)
 });
 ```
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "BluetoothDevice",
     "name" : "gatt",
     "#if" : "defined(NRF52_SERIES) || defined(ESP32)",
     "generate" : "jswrap_BluetoothDevice_gatt",
-    "return" : ["JsVar", "A `BluetoothRemoteGATTServer` for this device" ]
+    "return" : ["JsVar", "A `BluetoothRemoteGATTServer` for this device" ],
+    "typedef": "gatt: any"
 }
 */
 JsVar *jswrap_BluetoothDevice_gatt(JsVar *parent) {
@@ -3471,13 +3472,14 @@ JsVar *jswrap_BluetoothDevice_gatt(JsVar *parent) {
   return 0;
 #endif
 }
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "BluetoothDevice",
     "name" : "rssi",
     "ifdef" : "NRF52_SERIES",
     "generate" : false,
-    "return" : ["bool", "The last received RSSI (signal strength) for this device" ]
+    "return" : ["bool", "The last received RSSI (signal strength) for this device" ],
+    "typedef": "rssi: boolean"
 }
 *//*Documentation only*/
 /*JSON{
@@ -3647,12 +3649,13 @@ or `NRF.requestDevice(options)` and `response.gatt.connect`
 
 https://webbluetoothcg.github.io/web-bluetooth/#bluetoothremotegattserver
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "property",
     "class" : "BluetoothDevice",
     "name" : "connected",
     "generate" : false,
-    "return" : ["bool", "Whether the device is connected or not" ]
+    "return" : ["bool", "Whether the device is connected or not" ],
+    "typedef": "connected: boolean"
 }
 *//*Documentation only*/
 /*JSON{

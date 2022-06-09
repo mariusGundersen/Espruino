@@ -83,12 +83,13 @@ JsVar *jswrap_array_constructor(JsVar *args) {
 Convert the Array to a string
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "Array",
   "name" : "length",
   "generate" : "jswrap_object_length",
-  "return" : ["JsVar","The value of the array"]
+  "return" : ["JsVar","The value of the array"],
+  "typedef": "length: any"
 }
 Find the length of the array
  */

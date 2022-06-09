@@ -452,10 +452,11 @@ accessed the `Graphics.buffer` directly then you
 may need to use `Graphics.flip(true)` to force
 a full update of the screen.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "Graphics",
-  "name" : "buffer"
+  "name" : "buffer",
+  "typedef": "buffer: void"
 }
 On Graphics instances with an offscreen buffer, this
 is an `ArrayBuffer` that provides access to the underlying
@@ -3722,13 +3723,14 @@ JsVar *jswrap_graphics_transformVertices(JsVar *parent, JsVar *verts, JsVar *tra
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "Graphics",
   "name" : "theme",
   "#if" : "!defined(SAVE_ON_FLASH) && !defined(ESPRUINOBOARD)",
   "generate" : "jswrap_graphics_theme",
-  "return" : ["JsVar","An object containing the current 'theme' (see below)"]
+  "return" : ["JsVar","An object containing the current 'theme' (see below)"],
+  "typedef": "theme: any"
 }
 Returns an object of the form:
 

@@ -64,12 +64,13 @@ JsVar *jswrap_object_constructor(JsVar *value) {
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "property",
   "class" : "Object",
   "name" : "length",
   "generate" : "jswrap_object_length",
-  "return" : ["JsVar","The length of the object"]
+  "return" : ["JsVar","The length of the object"],
+  "typedef": "length: any"
 }
 Find the length of the object
  */
