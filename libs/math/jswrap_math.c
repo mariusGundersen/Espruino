@@ -79,61 +79,69 @@ This is a standard JavaScript class that contains useful Maths routines
 */
 
 // -------------------------------------------------------------------- Math
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "E",
   "generate_full" : "2.718281828459045",
-  "return" : ["float","The value of E - 2.718281828459045"]
+  "return" : ["float","The value of E - 2.718281828459045"],
+  "typedef": "static E: number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "PI",
   "generate_full" : "PI",
-  "return" : ["float","The value of PI - 3.141592653589793"]
+  "return" : ["float","The value of PI - 3.141592653589793"],
+  "typedef": "static PI: number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "LN2",
   "generate_full" : "0.6931471805599453",
-  "return" : ["float","The natural logarithm of 2 - 0.6931471805599453"]
+  "return" : ["float","The natural logarithm of 2 - 0.6931471805599453"],
+  "typedef": "static LN2: number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "LN10",
   "generate_full" : "2.302585092994046",
-  "return" : ["float","The natural logarithm of 10 - 2.302585092994046"]
+  "return" : ["float","The natural logarithm of 10 - 2.302585092994046"],
+  "typedef": "static LN10: number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "LOG2E",
   "generate_full" : "1.4426950408889634",
-  "return" : ["float","The base 2 logarithm of e - 1.4426950408889634"]
+  "return" : ["float","The base 2 logarithm of e - 1.4426950408889634"],
+  "typedef": "static LOG2E: number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "LOG10E",
   "generate_full" : "0.4342944819032518",
-  "return" : ["float","The base 10 logarithm of e - 0.4342944819032518"]
+  "return" : ["float","The base 10 logarithm of e - 0.4342944819032518"],
+  "typedef": "static LOG10E: number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "SQRT2",
   "generate_full" : "1.4142135623730951",
-  "return" : ["float","The square root of 2 - 1.4142135623730951"]
+  "return" : ["float","The square root of 2 - 1.4142135623730951"],
+  "typedef": "static SQRT2: number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Math",
   "name" : "SQRT1_2",
   "generate_full" : "0.7071067811865476",
-  "return" : ["float","The square root of 1/2 - 0.7071067811865476"]
+  "return" : ["float","The square root of 1/2 - 0.7071067811865476"],
+  "typedef": "static SQRT1_2: number"
 }*/
 
 

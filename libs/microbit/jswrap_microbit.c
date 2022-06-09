@@ -524,35 +524,38 @@ void jswrap_microbit_accelHandler() {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Microbit",
   "name" : "SPEAKER",
   "generate_full" : "SPEAKER_PIN",
   "ifdef" : "MICROBIT2",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "static SPEAKER: Pin"
 }
 The micro:bit's speaker pin
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Microbit",
   "name" : "MIC",
   "generate_full" : "MIC_PIN",
   "ifdef" : "MICROBIT2",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "static MIC: Pin"
 }
 The micro:bit's microphone pin
 
 `MIC_ENABLE` should be set to 1 before using this
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Microbit",
   "name" : "MIC_ENABLE",
   "generate_full" : "MIC_ENABLE_PIN",
   "ifdef" : "MICROBIT2",
-  "return" : ["pin",""]
+  "return" : ["pin",""],
+  "typedef": "static MIC_ENABLE: Pin"
 }
 The micro:bit's microphone enable pin
 */

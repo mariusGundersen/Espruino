@@ -60,14 +60,15 @@ Class containing AES encryption/decryption
 
 **Note:** This library is currently only included in builds for boards where there is space. For other boards there is `crypto.js` which implements SHA1 in JS.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "crypto",
   "name" : "AES",
   "generate_full" : "jspNewBuiltin(\"AES\");",
   "return" : ["JsVar"],
   "return_object" : "AES",
-  "ifdef" : "USE_AES"
+  "ifdef" : "USE_AES",
+  "typedef": "static AES: AES"
 }
 Class containing AES encryption/decryption
 */

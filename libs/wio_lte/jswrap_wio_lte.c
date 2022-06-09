@@ -88,53 +88,59 @@ void jswrap_wio_lte_setLEDPower(bool pwr) {
   jshPinOutput(JSH_PORTA_OFFSET+8, pwr);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "D38",
     "generate_full" : "jspEvaluate(\"[C6,C7]\",true)",
-    "return" : [ "JsVar", ""]
+    "return" : [ "JsVar", ""],
+    "typedef": "static D38: any"
 }
 */ // D38,D39
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "D20",
     "generate_full" : "jspEvaluate(\"[B4,B3]\",true)",
-    "return" : [ "JsVar", ""]
+    "return" : [ "JsVar", ""],
+    "typedef": "static D20: any"
 }
 */ // D20,D19
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "A6",
     "generate_full" : "jspEvaluate(\"[A6,A7]\",true)",
-    "return" : [ "JsVar", ""]
+    "return" : [ "JsVar", ""],
+    "typedef": "static A6: any"
 }
 */ // A6,A7
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "I2C",
     "generate_full" : "jspEvaluate(\"[B8,B9]\",true)",
-    "return" : [ "JsVar", ""]
+    "return" : [ "JsVar", ""],
+    "typedef": "static I2C: any"
 }
 */ // I2C1 SCL,SDA
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "UART",
     "generate_full" : "jspEvaluate(\"[B7,B6]\",true)",
-    "return" : [ "JsVar", ""]
+    "return" : [ "JsVar", ""],
+    "typedef": "static UART: any"
 }
 */ // UART1 RX,TX
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticproperty",
     "class" : "WioLTE",
     "name" : "A4",
     "generate_full" : "jspEvaluate(\"[A4,A5]\",true)",
-    "return" : [ "JsVar", ""]
+    "return" : [ "JsVar", ""],
+    "typedef": "static A4: any"
 }
 */ // A4,A5
 

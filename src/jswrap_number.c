@@ -78,44 +78,49 @@ JsVar *jswrap_number_constructor(JsVar *args) {
   "return" : ["float","Positive Infinity (1/0)"]
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "NaN",
   "generate_full" : "NAN",
-  "return" : ["float","Not a  Number"]
+  "return" : ["float","Not a  Number"],
+  "typedef": "static NaN: number"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "MAX_VALUE",
   "generate_full" : "DBL_MAX",
-  "return" : ["float","Maximum representable value"]
+  "return" : ["float","Maximum representable value"],
+  "typedef": "static MAX_VALUE: number"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "MIN_VALUE",
   "generate_full" : "DBL_MIN",
-  "return" : ["float","Smallest representable value"]
+  "return" : ["float","Smallest representable value"],
+  "typedef": "static MIN_VALUE: number"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "NEGATIVE_INFINITY",
   "generate_full" : "-INFINITY",
-  "return" : ["float","Negative Infinity (-1/0)"]
+  "return" : ["float","Negative Infinity (-1/0)"],
+  "typedef": "static NEGATIVE_INFINITY: number"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "Number",
   "name" : "POSITIVE_INFINITY",
   "generate_full" : "INFINITY",
-  "return" : ["float","Positive Infinity (1/0)"]
+  "return" : ["float","Positive Infinity (1/0)"],
+  "typedef": "static POSITIVE_INFINITY: number"
 }*/
 
 /*JSON{

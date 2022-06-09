@@ -26,29 +26,29 @@ This is a built-in class to allow you to use the ESP8266 NodeMCU boards's pin na
 
 // TODO: Sigh - because everyone is using `Pin(..)` now, we can't have a proper 'A0' pin defined because it'd shift all the pins created by`Pin(..)`
 
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "A0",  "generate_full" : "0",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "A0",  "generate_full" : "0",  "return" : ["pin","A Pin"],"typedef": "static A0: Pin"
 }*/
 
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D0",  "generate_full" : "16",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D0",  "generate_full" : "16",  "return" : ["pin","A Pin"],"typedef": "static D0: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D1",  "generate_full" : "5",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D1",  "generate_full" : "5",  "return" : ["pin","A Pin"],"typedef": "static D1: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D2",  "generate_full" : "4",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D2",  "generate_full" : "4",  "return" : ["pin","A Pin"],"typedef": "static D2: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D3",  "generate_full" : "0",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D3",  "generate_full" : "0",  "return" : ["pin","A Pin"],"typedef": "static D3: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D4",  "generate_full" : "2",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D4",  "generate_full" : "2",  "return" : ["pin","A Pin"],"typedef": "static D4: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D5",  "generate_full" : "14",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D5",  "generate_full" : "14",  "return" : ["pin","A Pin"],"typedef": "static D5: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D6",  "generate_full" : "12",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D6",  "generate_full" : "12",  "return" : ["pin","A Pin"],"typedef": "static D6: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D7",  "generate_full" : "13",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D7",  "generate_full" : "13",  "return" : ["pin","A Pin"],"typedef": "static D7: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D8",  "generate_full" : "15",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D8",  "generate_full" : "15",  "return" : ["pin","A Pin"],"typedef": "static D8: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D9",  "generate_full" : "3",  "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D9",  "generate_full" : "3",  "return" : ["pin","A Pin"],"typedef": "static D9: Pin"
 }*/
-/*JSON{  //TODO"type" : "staticproperty","class" : "NodeMCU","name" : "D10", "generate_full" : "1", "return" : ["pin","A Pin"]
+/*JSON{"type" : "staticproperty","class" : "NodeMCU","name" : "D10", "generate_full" : "1", "return" : ["pin","A Pin"],"typedef": "static D10: Pin"
 }*/
 

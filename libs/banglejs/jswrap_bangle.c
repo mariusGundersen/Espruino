@@ -3923,13 +3923,14 @@ bool jswrap_banglejs_gps_character(char ch) {
   return true; // handled
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticproperty",
     "class" : "Bangle",
     "name" : "F_BEEPSET",
     "generate_full" : "true",
     "return" : ["bool",""],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static F_BEEPSET: boolean"
 }
 Feature flag - If true, this Bangle.js firmware reads `setting.json` and
 modifies beep & buzz behaviour accordingly (the bootloader
@@ -5278,13 +5279,14 @@ void jswrap_banglejs_factoryReset() {
   jsiStatus |= JSIS_TODO_FLASH_LOAD;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticproperty",
     "class" : "Bangle",
     "name" : "appRect",
     "generate" : "jswrap_banglejs_appRect",
     "return" : ["JsVar","An object of the form `{x,y,w,h,x2,y2}`"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static appRect: any"
 }
 Returns the rectangle on the screen that is currently
 reserved for the app.

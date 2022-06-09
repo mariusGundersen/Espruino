@@ -60,12 +60,13 @@ function checkError() {
 may make debugging difficult!
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "process",
   "name" : "version",
   "generate_full" : "jsvNewFromString(JS_VERSION)",
-  "return" : ["JsVar","The version of Espruino"]
+  "return" : ["JsVar","The version of Espruino"],
+  "typedef": "static version: any"
 }
 Returns the version of Espruino as a String
  */
@@ -95,12 +96,13 @@ const void * const exportPtrs[] = {
 };
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticproperty",
   "class" : "process",
   "name" : "env",
   "generate" : "jswrap_process_env",
-  "return" : ["JsVar","An object"]
+  "return" : ["JsVar","An object"],
+  "typedef": "static env: any"
 }
 Returns an Object containing various pre-defined variables. standard ones are BOARD, VERSION, FLASH, RAM, MODULES.
 
