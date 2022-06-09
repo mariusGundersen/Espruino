@@ -33,7 +33,7 @@ Functions here take and return buffers of data. There is no support for streamin
 */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "heatshrink",
   "name" : "compress",
@@ -43,7 +43,8 @@ Functions here take and return buffers of data. There is no support for streamin
   ],
   "return" : ["JsVar","Returns the result as an ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifndef" : "SAVE_ON_FLASH"
+  "ifndef" : "SAVE_ON_FLASH",
+  "typedef": "static compress(data: any): ArrayBuffer"
 }
 */
 JsVar *jswrap_heatshrink_compress(JsVar *data) {
@@ -76,7 +77,7 @@ JsVar *jswrap_heatshrink_compress(JsVar *data) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "heatshrink",
   "name" : "decompress",
@@ -86,7 +87,8 @@ JsVar *jswrap_heatshrink_compress(JsVar *data) {
   ],
   "return" : ["JsVar","Returns the result as an ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifndef" : "SAVE_ON_FLASH"
+  "ifndef" : "SAVE_ON_FLASH",
+  "typedef": "static decompress(data: any): ArrayBuffer"
 }
 */
 JsVar *jswrap_heatshrink_decompress(JsVar *data) {

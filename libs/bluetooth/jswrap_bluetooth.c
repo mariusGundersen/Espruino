@@ -490,11 +490,12 @@ will then contain the new value (as a DataView).
 The Bluetooth Serial port - used when data is sent or received over Bluetooth Smart on nRF51/nRF52 chips.
  */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "disconnect",
-    "generate" : "jswrap_ble_disconnect"
+    "generate" : "jswrap_ble_disconnect",
+    "typedef": "static disconnect(): void"
 }
 If a device is connected to Espruino, disconnect from it.
 */
@@ -506,11 +507,12 @@ void jswrap_ble_disconnect() {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "sleep",
-    "generate" : "jswrap_ble_sleep"
+    "generate" : "jswrap_ble_sleep",
+    "typedef": "static sleep(): void"
 }
 Disable Bluetooth advertising and disconnect from any device that
 connected to Puck.js as a peripheral (this won't affect any devices
@@ -530,11 +532,12 @@ void jswrap_ble_sleep() {
   jswrap_ble_disconnect();
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "wake",
-    "generate" : "jswrap_ble_wake"
+    "generate" : "jswrap_ble_wake",
+    "typedef": "static wake(): void"
 }
 Enable Bluetooth advertising (this is enabled by default), which
 allows other devices to discover and connect to Puck.js.
@@ -546,14 +549,15 @@ void jswrap_ble_wake() {
   jsble_check_error(jsble_advertising_start());
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "restart",
     "generate" : "jswrap_ble_restart",
     "params" : [
       ["callback","JsVar","An optional function to be called while the softdevice is uninitialised. Use with caution - accessing console/bluetooth will almost certainly result in a crash."]
-    ]
+    ],
+    "typedef": "static restart(callback: any): void"
 }
 Restart the Bluetooth softdevice (if there is currently a BLE connection,
 it will queue a restart to be done when the connection closes).
@@ -575,12 +579,13 @@ void jswrap_ble_restart(JsVar *callback) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getAddress",
     "generate" : "jswrap_ble_getAddress",
-    "return" : ["JsVar", "MAC address - a string of the form 'aa:bb:cc:dd:ee:ff'" ]
+    "return" : ["JsVar", "MAC address - a string of the form 'aa:bb:cc:dd:ee:ff'" ],
+    "typedef": "static getAddress(): any"
 }
 Get this device's default Bluetooth MAC address.
 
@@ -604,7 +609,7 @@ JsVar *jswrap_ble_getAddress() {
       ((addr0    )&0xFF));
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setAddress",
@@ -612,7 +617,8 @@ JsVar *jswrap_ble_getAddress() {
     "generate" : "jswrap_ble_setAddress",
     "params" : [
       ["addr","JsVar","The address to use (as a string)"]
-    ]
+    ],
+    "typedef": "static setAddress(addr: any): void"
 }
 Set this device's default Bluetooth MAC address:
 
@@ -645,12 +651,13 @@ void jswrap_ble_setAddress(JsVar *address) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getBattery",
     "generate" : "jswrap_ble_getBattery",
-    "return" : ["float", "Battery level in volts" ]
+    "return" : ["float", "Battery level in volts" ],
+    "typedef": "static getBattery(): number"
 }
 Get the battery level in volts (the voltage that the NRF chip is running off of).
 
@@ -661,7 +668,7 @@ JsVarFloat jswrap_ble_getBattery() {
   return jshReadVRef();
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setAdvertising",
@@ -669,7 +676,8 @@ JsVarFloat jswrap_ble_getBattery() {
     "params" : [
       ["data","JsVar","The service data to advertise as an object - see below for more info"],
       ["options","JsVar","An optional object of options"]
-    ]
+    ],
+    "typedef": "static setAdvertising(data: any, options: any): void"
 }
 Change the data that Espruino advertises.
 
@@ -940,7 +948,7 @@ JsVar *jswrap_ble_getCurrentAdvertisingData() {
   return adv;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getAdvertisingData",
@@ -949,7 +957,8 @@ JsVar *jswrap_ble_getCurrentAdvertisingData() {
       ["data","JsVar","The data to advertise as an object"],
       ["options","JsVar","An optional object of options"]
     ],
-    "return" : ["JsVar", "An array containing the advertising data" ]
+    "return" : ["JsVar", "An array containing the advertising data" ],
+    "typedef": "static getAdvertisingData(data: any, options: any): any"
 }
 This is just like `NRF.setAdvertising`, except instead of advertising
 the data, it returns the packet that would be advertised as an array.
@@ -1081,14 +1090,15 @@ JsVar *jswrap_ble_getAdvertisingData(JsVar *data, JsVar *options) {
   return jsvNewArrayBufferWithData(len_advdata, encoded_advdata);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setScanResponse",
     "generate" : "jswrap_ble_setScanResponse",
     "params" : [
       ["data","JsVar","The data to for the scan response"]
-    ]
+    ],
+    "typedef": "static setScanResponse(data: any): void"
 }
 
 The raw scan response data should be supplied as an array. For example to return "Sample" for the device name:
@@ -1148,7 +1158,7 @@ void jswrap_ble_setScanResponse(JsVar *data) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setServices",
@@ -1156,7 +1166,8 @@ void jswrap_ble_setScanResponse(JsVar *data) {
     "params" : [
       ["data","JsVar","The service (and characteristics) to advertise"],
       ["options","JsVar","Optional object containing options"]
-    ]
+    ],
+    "typedef": "static setServices(data: any, options: any): void"
 }
 
 Change the services and characteristics Espruino advertises.
@@ -1379,14 +1390,15 @@ void jswrap_ble_setServices(JsVar *data, JsVar *options) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "updateServices",
     "generate" : "jswrap_ble_updateServices",
     "params" : [
       ["data","JsVar","The service (and characteristics) to update"]
-    ]
+    ],
+    "typedef": "static updateServices(data: any): void"
 }
 
 Update values for the services and characteristics Espruino advertises.
@@ -1678,7 +1690,7 @@ bool jswrap_ble_filter_device(JsVar *filters, JsVar *device) {
   return matches;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setScan",
@@ -1686,7 +1698,8 @@ bool jswrap_ble_filter_device(JsVar *filters, JsVar *device) {
     "params" : [
       ["callback","JsVar","The callback to call with received advertising packets, or undefined to stop"],
       ["options","JsVar","An optional object `{filters: ...}` (as would be passed to `NRF.requestDevice`) to filter devices by"]
-    ]
+    ],
+    "typedef": "static setScan(callback: any, options: any): void"
 }
 
 Start/stop listening for BLE advertising packets within range. Returns a
@@ -1887,7 +1900,7 @@ void jswrap_ble_setScan(JsVar *callback, JsVar *options) {
   jsvUnLock(filters);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "filterDevices",
@@ -1896,7 +1909,8 @@ void jswrap_ble_setScan(JsVar *callback, JsVar *options) {
       ["devices","JsVar","An array of `BluetoothDevice` objects, from `NRF.findDevices` or similar"],
       ["filters","JsVar","A list of filters (as would be passed to `NRF.requestDevice`) to filter devices by"]
     ],
-    "return" : ["JsVar","An array of `BluetoothDevice` objects that match the given filters"]
+    "return" : ["JsVar","An array of `BluetoothDevice` objects that match the given filters"],
+    "typedef": "static filterDevices(devices: any, filters: any): any"
 }
 This function can be used to quickly filter through Bluetooth devices.
 
@@ -1939,7 +1953,7 @@ JsVar *jswrap_ble_filterDevices(JsVar *devices, JsVar *filters) {
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "findDevices",
@@ -1947,7 +1961,8 @@ JsVar *jswrap_ble_filterDevices(JsVar *devices, JsVar *filters) {
     "params" : [
       ["callback","JsVar","The callback to call with received advertising packets (as `BluetoothDevice`), or undefined to stop"],
       ["options","JsVar","A time in milliseconds to scan for (defaults to 2000), Or an optional object `{filters: ..., timeout : ..., active: bool}` (as would be passed to `NRF.requestDevice`) to filter devices by"]
-    ]
+    ],
+    "typedef": "static findDevices(callback: any, options: any): void"
 }
 Utility function to return a list of BLE devices detected in range. Behind the scenes,
 this uses `NRF.setScan(...)` and collates the results.
@@ -2095,14 +2110,15 @@ void jswrap_ble_findDevices(JsVar *callback, JsVar *options) {
   jsvUnLock(jsiSetTimeout(jswrap_ble_findDevices_timeout_cb, time));
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setRSSIHandler",
     "generate" : "jswrap_ble_setRSSIHandler",
     "params" : [
       ["callback","JsVar","The callback to call with the RSSI value, or undefined to stop"]
-    ]
+    ],
+    "typedef": "static setRSSIHandler(callback: any): void"
 }
 
 Start/stop listening for RSSI values on the currently active connection
@@ -2131,14 +2147,15 @@ void jswrap_ble_setRSSIHandler(JsVar *callback) {
 
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setTxPower",
     "generate" : "jswrap_ble_setTxPower",
     "params" : [
       ["power","int","Transmit power. Accepted values are -40(nRF52 only), -30(nRF51 only), -20, -16, -12, -8, -4, 0, and 4 dBm. On nRF52840 (eg Bangle.js 2) 5/6/7/8 dBm are available too. Others will give an error code."]
-    ]
+    ],
+    "typedef": "static setTxPower(power: number): void"
 }
 Set the BLE radio transmit power. The default TX power is 0 dBm, and
 */
@@ -2147,14 +2164,15 @@ void jswrap_ble_setTxPower(JsVarInt pwr) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setLowPowerConnection",
     "generate" : "jswrap_ble_setLowPowerConnection",
     "params" : [
       ["lowPower","bool","Whether the connection is low power or not"]
-    ]
+    ],
+    "typedef": "static setLowPowerConnection(lowPower: boolean): void"
 }
 
 **THIS IS DEPRECATED** - please use `NRF.setConnectionInterval` for
@@ -2188,7 +2206,7 @@ void jswrap_ble_setLowPowerConnection(bool lowPower) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcURL",
@@ -2196,7 +2214,8 @@ void jswrap_ble_setLowPowerConnection(bool lowPower) {
     "generate" : "jswrap_nfc_URL",
     "params" : [
       ["url","JsVar","The URL string to expose on NFC, or `undefined` to disable NFC"]
-    ]
+    ],
+    "typedef": "static nfcURL(url: any): void"
 }
 Enables NFC and starts advertising the given URL. For example:
 
@@ -2266,7 +2285,7 @@ void jswrap_nfc_URL(JsVar *url) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcPair",
@@ -2274,7 +2293,8 @@ void jswrap_nfc_URL(JsVar *url) {
     "generate" : "jswrap_nfc_pair",
     "params" : [
       ["key","JsVar","16 byte out of band key"]
-    ]
+    ],
+    "typedef": "static nfcPair(key: any): void"
 }
 Enables NFC and with an out of band 16 byte pairing key.
 
@@ -2327,7 +2347,7 @@ void jswrap_nfc_pair(JsVar *key) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcAndroidApp",
@@ -2335,7 +2355,8 @@ void jswrap_nfc_pair(JsVar *key) {
     "generate" : "jswrap_nfc_androidApp",
     "params" : [
       ["app","JsVar","The unique identifier of the given Android App"]
-    ]
+    ],
+    "typedef": "static nfcAndroidApp(app: any): void"
 }
 Enables NFC with a record that will launch the given android app.
 
@@ -2386,7 +2407,7 @@ void jswrap_nfc_androidApp(JsVar *appName) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcRaw",
@@ -2394,7 +2415,8 @@ void jswrap_nfc_androidApp(JsVar *appName) {
     "generate" : "jswrap_nfc_raw",
     "params" : [
       ["payload","JsVar","The NFC NDEF message to deliver to the reader"]
-    ]
+    ],
+    "typedef": "static nfcRaw(payload: any): void"
 }
 Enables NFC and starts advertising with Raw data. For example:
 
@@ -2448,7 +2470,7 @@ void jswrap_nfc_raw(JsVar *payload) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcStart",
@@ -2457,7 +2479,8 @@ void jswrap_nfc_raw(JsVar *payload) {
     "params" : [
       ["payload","JsVar","Optional 7 byte UID"]
     ],
-    "return" : ["JsVar", "Internal tag memory (first 10 bytes of tag data)" ]
+    "return" : ["JsVar", "Internal tag memory (first 10 bytes of tag data)" ],
+    "typedef": "static nfcStart(payload: any): any"
 }
 **Advanced NFC Functionality.** If you just want to advertise a URL, use `NRF.nfcURL` instead.
 
@@ -2517,13 +2540,14 @@ JsVar *jswrap_nfc_start(JsVar *payload) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcStop",
     "#if" : "defined(NRF52_SERIES) && defined(USE_NFC)",
     "generate" : "jswrap_nfc_stop",
-    "params" : [ ]
+    "params" : [ ],
+    "typedef": "static nfcStop(): void"
 }
 **Advanced NFC Functionality.** If you just want to advertise a URL, use `NRF.nfcURL` instead.
 
@@ -2541,7 +2565,7 @@ void jswrap_nfc_stop() {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "nfcSend",
@@ -2549,7 +2573,8 @@ void jswrap_nfc_stop() {
     "generate" : "jswrap_nfc_send",
     "params" : [
       ["payload","JsVar","Optional tx data"]
-    ]
+    ],
+    "typedef": "static nfcSend(payload: any): void"
 }
 **Advanced NFC Functionality.** If you just want to advertise a URL, use `NRF.nfcURL` instead.
 
@@ -2585,7 +2610,7 @@ void jswrap_nfc_send(JsVar *payload) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "sendHIDReport",
@@ -2594,7 +2619,8 @@ void jswrap_nfc_send(JsVar *payload) {
     "params" : [
       ["data","JsVar","Input report data as an array"],
       ["callback","JsVar","A callback function to be called when the data is sent"]
-    ]
+    ],
+    "typedef": "static sendHIDReport(data: any, callback: any): void"
 }
 Send a USB HID report. HID must first be enabled with `NRF.setServices({}, {hid: hid_report})`
 */
@@ -2665,14 +2691,15 @@ truncated : bool // the 'value' was too big to be sent completely
 
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "ancsIsActive",
     "ifdef" : "NRF52_SERIES",
     "generate" : "jswrap_ble_ancsIsActive",
     "params" : [ ],
-    "return" : ["bool", "True if Apple Notification Center Service (ANCS) has been initialised and is active" ]
+    "return" : ["bool", "True if Apple Notification Center Service (ANCS) has been initialised and is active" ],
+    "typedef": "static ancsIsActive(): boolean"
 }
 Check if Apple Notification Center Service (ANCS) is currently active on the BLE connection
 */
@@ -2682,7 +2709,7 @@ bool jswrap_ble_ancsIsActive() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "ancsAction",
@@ -2691,7 +2718,8 @@ bool jswrap_ble_ancsIsActive() {
     "params" : [
       ["uid","int","The UID of the notification to respond to"],
       ["positive","bool","`true` for positive action, `false` for negative"]
-    ]
+    ],
+    "typedef": "static ancsAction(uid: number, positive: boolean): void"
 }
 Send an ANCS action for a specific Notification UID. Corresponds to posaction/negaction in the 'ANCS' event that was received
 */
@@ -2705,7 +2733,7 @@ void jswrap_ble_ancsAction(int uid, bool isPositive) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "ancsGetNotificationInfo",
@@ -2715,7 +2743,8 @@ void jswrap_ble_ancsAction(int uid, bool isPositive) {
       ["uid","int","The UID of the notification to get information for"]
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the connection is complete" ],
-    "return_object" : "Promise"
+    "return_object" : "Promise",
+    "typedef": "static ancsGetNotificationInfo(uid: number): Promise"
 }
 Get ANCS info for a notification, eg:
 
@@ -2738,7 +2767,7 @@ JsVar *jswrap_ble_ancsGetNotificationInfo(JsVarInt uid) {
   return promise;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "ancsGetAppInfo",
@@ -2748,7 +2777,8 @@ JsVar *jswrap_ble_ancsGetNotificationInfo(JsVarInt uid) {
       ["id","JsVar","The app ID to get information for"]
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the connection is complete" ],
-    "return_object" : "Promise"
+    "return_object" : "Promise",
+    "typedef": "static ancsGetAppInfo(id: any): Promise"
 }
 Get ANCS info for an app (add id is available via `ancsGetNotificationInfo`)
 
@@ -2787,14 +2817,15 @@ JsVar *jswrap_ble_ancsGetAppInfo(JsVar *appId) {
   return promise;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "amsIsActive",
     "ifdef" : "NRF52_SERIES",
     "generate" : "jswrap_ble_amsIsActive",
     "params" : [ ],
-    "return" : ["bool", "True if Apple Media Service (AMS) has been initialised and is active" ]
+    "return" : ["bool", "True if Apple Media Service (AMS) has been initialised and is active" ],
+    "typedef": "static amsIsActive(): boolean"
 }
 Check if Apple Media Service (AMS) is currently active on the BLE connection
 */
@@ -2804,7 +2835,7 @@ bool jswrap_ble_amsIsActive() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "amsGetPlayerInfo",
@@ -2814,7 +2845,8 @@ bool jswrap_ble_amsIsActive() {
       ["id","JsVar","Either 'name', 'playbackinfo' or 'volume'"]
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the connection is complete" ],
-    "return_object" : "Promise"
+    "return_object" : "Promise",
+    "typedef": "static amsGetPlayerInfo(id: any): Promise"
 }
 Get Apple Media Service (AMS) info for the current media player.
 "playbackinfo" returns a concatenation of three comma-separated values:
@@ -2852,7 +2884,7 @@ JsVar *jswrap_ble_amsGetPlayerInfo(JsVar *id) {
   return promise;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "amsGetTrackInfo",
@@ -2862,7 +2894,8 @@ JsVar *jswrap_ble_amsGetPlayerInfo(JsVar *id) {
       ["id","JsVar","Either 'artist', 'album', 'title' or 'duration'"]
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the connection is complete" ],
-    "return_object" : "Promise"
+    "return_object" : "Promise",
+    "typedef": "static amsGetTrackInfo(id: any): Promise"
 }
 Get Apple Media Service (AMS) info for the currently-playing track
 */
@@ -2891,7 +2924,7 @@ JsVar *jswrap_ble_amsGetTrackInfo(JsVar *id) {
   return promise;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "amsCommand",
@@ -2899,7 +2932,8 @@ JsVar *jswrap_ble_amsGetTrackInfo(JsVar *id) {
     "generate" : "jswrap_ble_amsCommand",
     "params" : [
       ["id","JsVar","For example, 'play', 'pause', 'volup' or 'voldown'"]
-    ]
+    ],
+    "typedef": "static amsCommand(id: any): void"
 }
 Send an AMS command to an Apple Media Service device to control music playback
 
@@ -2934,7 +2968,7 @@ void jswrap_ble_amsCommand(JsVar *id) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "requestDevice",
@@ -2944,7 +2978,8 @@ void jswrap_ble_amsCommand(JsVar *id) {
       ["options","JsVar","Options used to filter the device to use"]
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the connection is complete" ],
-    "return_object" : "Promise"
+    "return_object" : "Promise",
+    "typedef": "static requestDevice(options: any): Promise"
 }
 Search for available devices matching the given filters. Since we have no UI here,
 Espruino will pick the FIRST device it finds, or it'll call `catch`.
@@ -3078,7 +3113,7 @@ JsVar *jswrap_ble_requestDevice(JsVar *options) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "connect",
@@ -3089,7 +3124,8 @@ JsVar *jswrap_ble_requestDevice(JsVar *options) {
       ["options","JsVar","(Espruino-specific) An object of connection options (see `BluetoothRemoteGATTServer.connect` for full details)"]
     ],
     "return" : ["JsVar", "A `Promise` that is resolved (or rejected) when the connection is complete" ],
-    "return_object" : "Promise"
+    "return_object" : "Promise",
+    "typedef": "static connect(mac: any, options: any): Promise"
 }
 Connect to a BLE device by MAC address. Returns a promise,
 the argument of which is the `BluetoothRemoteGATTServer` connection.
@@ -3143,7 +3179,7 @@ JsVar *jswrap_ble_connect(JsVar *mac, JsVar *options) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setWhitelist",
@@ -3151,7 +3187,8 @@ JsVar *jswrap_ble_connect(JsVar *mac, JsVar *options) {
     "generate" : "jswrap_ble_setWhitelist",
     "params" : [
       ["whitelisting","bool","Are we using a whitelist? (default false)"]
-    ]
+    ],
+    "typedef": "static setWhitelist(whitelisting: boolean): void"
 }
 If set to true, whenever a device bonds it will be added to the
 whitelist.
@@ -3168,7 +3205,7 @@ void jswrap_ble_setWhitelist(bool whitelist) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setConnectionInterval",
@@ -3176,7 +3213,8 @@ void jswrap_ble_setWhitelist(bool whitelist) {
     "generate" : "jswrap_ble_setConnectionInterval",
     "params" : [
       ["interval","JsVar","The connection interval to use (see below)"]
-    ]
+    ],
+    "typedef": "static setConnectionInterval(interval: any): void"
 }
 When connected, Bluetooth LE devices communicate at a set interval.
 Lowering the interval (eg. more packets/second) means a lower delay when
@@ -3222,7 +3260,7 @@ void jswrap_ble_setConnectionInterval(JsVar *interval) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setSecurity",
@@ -3230,7 +3268,8 @@ void jswrap_ble_setConnectionInterval(JsVar *interval) {
     "generate" : "jswrap_ble_setSecurity",
     "params" : [
       ["options","JsVar","An object containing security-related options (see below)"]
-    ]
+    ],
+    "typedef": "static setSecurity(options: any): void"
 }
 Sets the security options used when connecting/pairing. This applies to both central
 *and* peripheral mode.
@@ -3329,13 +3368,14 @@ void jswrap_ble_setSecurity(JsVar *options) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getSecurityStatus",
     "ifdef" : "NRF52_SERIES",
     "generate" : "jswrap_ble_getSecurityStatus",
-    "return" : ["JsVar", "An object" ]
+    "return" : ["JsVar", "An object" ],
+    "typedef": "static getSecurityStatus(): any"
 }
 Return an object with information about the security
 state of the current peripheral connection:
@@ -3358,7 +3398,7 @@ JsVar *jswrap_ble_getSecurityStatus(JsVar *parent) {
   return jsble_get_security_status(m_peripheral_conn_handle);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "startBonding",
@@ -3367,7 +3407,8 @@ JsVar *jswrap_ble_getSecurityStatus(JsVar *parent) {
     "params" : [
       ["forceRepair","bool","True if we should force repairing even if there is already valid pairing info"]
     ],
-    "return" : ["JsVar", "A promise" ]
+    "return" : ["JsVar", "A promise" ],
+    "typedef": "static startBonding(forceRepair: boolean): any"
 }
 */
 JsVar *jswrap_ble_startBonding(bool forceRePair) {

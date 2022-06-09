@@ -176,7 +176,7 @@ JsVar *jswrap_crypto_SHAx(JsVar *message, int shaNum) {
   return outArr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA1",
@@ -186,7 +186,8 @@ JsVar *jswrap_crypto_SHAx(JsVar *message, int shaNum) {
   ],
   "return" : ["JsVar","Returns a 20 byte ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifdef" : "USE_CRYPTO"
+  "ifdef" : "USE_CRYPTO",
+  "typedef": "static SHA1(message: any): ArrayBuffer"
 }
 
 Performs a SHA1 hash and returns the result as a 20 byte ArrayBuffer.
@@ -195,7 +196,7 @@ Performs a SHA1 hash and returns the result as a 20 byte ArrayBuffer.
 isn't space for a fully unrolled SHA1 implementation so a slower
 all-JS implementation is used instead.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA224",
@@ -205,12 +206,13 @@ all-JS implementation is used instead.
   ],
   "return" : ["JsVar","Returns a 20 byte ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifdef" : "USE_SHA256"
+  "ifdef" : "USE_SHA256",
+  "typedef": "static SHA224(message: any): ArrayBuffer"
 }
 
 Performs a SHA224 hash and returns the result as a 28 byte ArrayBuffer
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA256",
@@ -220,12 +222,13 @@ Performs a SHA224 hash and returns the result as a 28 byte ArrayBuffer
   ],
   "return" : ["JsVar","Returns a 20 byte ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifdef" : "USE_SHA256"
+  "ifdef" : "USE_SHA256",
+  "typedef": "static SHA256(message: any): ArrayBuffer"
 }
 
 Performs a SHA256 hash and returns the result as a 32 byte ArrayBuffer
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA384",
@@ -235,12 +238,13 @@ Performs a SHA256 hash and returns the result as a 32 byte ArrayBuffer
   ],
   "return" : ["JsVar","Returns a 20 byte ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifdef" : "USE_SHA512"
+  "ifdef" : "USE_SHA512",
+  "typedef": "static SHA384(message: any): ArrayBuffer"
 }
 
 Performs a SHA384 hash and returns the result as a 48 byte ArrayBuffer
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "SHA512",
@@ -250,14 +254,15 @@ Performs a SHA384 hash and returns the result as a 48 byte ArrayBuffer
   ],
   "return" : ["JsVar","Returns a 32 byte ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifdef" : "USE_SHA512"
+  "ifdef" : "USE_SHA512",
+  "typedef": "static SHA512(message: any): ArrayBuffer"
 }
 
 Performs a SHA512 hash and returns the result as a 64 byte ArrayBuffer
 */
 
 #ifdef USE_TLS
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "crypto",
   "name" : "PBKDF2",
@@ -269,7 +274,8 @@ Performs a SHA512 hash and returns the result as a 64 byte ArrayBuffer
   ],
   "return" : ["JsVar","Returns an ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifdef" : "USE_TLS"
+  "ifdef" : "USE_TLS",
+  "typedef": "static PBKDF2(passphrase: any, salt: any, options: any): ArrayBuffer"
 }
 
 Password-Based Key Derivation Function 2 algorithm, using SHA512
@@ -444,7 +450,7 @@ static NO_INLINE JsVar *jswrap_crypto_AEScrypt(JsVar *message, JsVar *key, JsVar
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "AES",
   "name" : "encrypt",
@@ -456,14 +462,15 @@ static NO_INLINE JsVar *jswrap_crypto_AEScrypt(JsVar *message, JsVar *key, JsVar
   ],
   "return" : ["JsVar","Returns an ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifdef" : "USE_AES"
+  "ifdef" : "USE_AES",
+  "typedef": "static encrypt(passphrase: any, key: any, options: any): ArrayBuffer"
 }
 */
 JsVar *jswrap_crypto_AES_encrypt(JsVar *message, JsVar *key, JsVar *options) {
   return jswrap_crypto_AEScrypt(message, key, options, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "AES",
   "name" : "decrypt",
@@ -475,7 +482,8 @@ JsVar *jswrap_crypto_AES_encrypt(JsVar *message, JsVar *key, JsVar *options) {
   ],
   "return" : ["JsVar","Returns an ArrayBuffer"],
   "return_object" : "ArrayBuffer",
-  "ifdef" : "USE_AES"
+  "ifdef" : "USE_AES",
+  "typedef": "static decrypt(passphrase: any, key: any, options: any): ArrayBuffer"
 }
 */
 JsVar *jswrap_crypto_AES_decrypt(JsVar *message, JsVar *key, JsVar *options) {

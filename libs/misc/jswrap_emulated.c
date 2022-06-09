@@ -30,23 +30,25 @@
 }
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getSecurityStatus",
     "generate_full" : "jsvNewObject()",
-    "return" : ["JsVar", "An object" ]
+    "return" : ["JsVar", "An object" ],
+    "typedef": "static getSecurityStatus(): any"
 }
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "getAddress",
     "generate_full" : "jsvNewFromString(\"12:34:56:78:90:ab\")",
-    "return" : ["JsVar", "An object" ]
+    "return" : ["JsVar", "An object" ],
+    "typedef": "static getAddress(): any"
 }
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setServices",
@@ -54,9 +56,10 @@
     "params" : [
       ["data","JsVar","The service (and characteristics) to advertise"],
       ["options","JsVar","Optional object containing options"]
-    ]
+    ],
+    "typedef": "static setServices(data: any, options: any): void"
 }*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "NRF",
     "name" : "setAdvertising",
@@ -64,12 +67,14 @@
     "params" : [
       ["data","JsVar","The data to advertise as an object - see below for more info"],
       ["options","JsVar","An optional object of options"]
-    ]
+    ],
+    "typedef": "static setAdvertising(data: any, options: any): void"
 }*/
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bluetooth",
     "name" : "setConsole",
-    "generate_full" : ""
+    "generate_full" : "",
+    "typedef": "static setConsole(): void"
 }
 */

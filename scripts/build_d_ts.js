@@ -32,10 +32,10 @@ function typeComment(c){
 function renderMember(member){
   return [
     '/**',
-    ...member.description.split('\r\n').map(l => ' * '+l),
+    ...(member.description?.split('\r\n').map(l => ' * '+l) ?? []),
 
-    ...(member.params ? member.params.map(p => ' * @param '+p[0]+' '+p[2]) : []),
-    ...(member.return ? [' * @returns ' + member.return[1]] : []),
+    ...(member.params?.map(p => ' * @param '+p[0]+' '+p[2]) ?? []),
+    ...(member.return?.[' * @returns ' + member.return[1]] ?? []),
     ' */',
     ...(Array.isArray(member.typedef) ? member.typedef : [member.typedef])
   ].join('\n')

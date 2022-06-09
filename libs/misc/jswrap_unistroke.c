@@ -14,7 +14,7 @@
 #include "jswrap_unistroke.h"
 #include "unistroke.h"
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Unistroke",
     "name" : "new",
@@ -23,7 +23,8 @@
     "params" : [
       ["xy","JsVar","An array of interleaved XY coordinates"]
     ],
-    "return" : ["JsVar","A string of data representing this unistroke"]
+    "return" : ["JsVar","A string of data representing this unistroke"],
+    "typedef": "static new(xy: any): any"
 }
 Create a new Unistroke based on XY coordinates
 */
@@ -31,7 +32,7 @@ JsVar *jswrap_unistroke_new(JsVar *xy) {
   return unistroke_convert(xy);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Unistroke",
     "name" : "recognise",
@@ -41,7 +42,8 @@ JsVar *jswrap_unistroke_new(JsVar *xy) {
       ["strokes","JsVar","An object of named strokes : `{arrow:..., circle:...}`"],
       ["xy","JsVar","An array of interleaved XY coordinates"]
     ],
-    "return" : ["JsVar","The key name of the matched stroke"]
+    "return" : ["JsVar","The key name of the matched stroke"],
+    "typedef": "static recognise(strokes: any, xy: any): any"
 }
 Recognise based on an object of named strokes, and a list of XY coordinates
 */

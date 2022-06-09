@@ -172,12 +172,13 @@ timezone using the `E.setTimeZone(...)` function.
 For example `E.setTimeZone(1)` will be GMT+0100
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Date",
   "name" : "now",
   "generate" : "jswrap_date_now",
-  "return" : ["float",""]
+  "return" : ["float",""],
+  "typedef": "static now(): number"
 }
 Get the number of milliseconds elapsed since 1970 (or on embedded platforms, since startup)
  */
@@ -695,7 +696,7 @@ static bool _parse_time(TimeInDay *time, int initialChars) {
   return false;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Date",
   "name" : "parse",
@@ -703,7 +704,8 @@ static bool _parse_time(TimeInDay *time, int initialChars) {
   "params" : [
     ["str","JsVar","A String"]
   ],
-  "return" : ["float","The number of milliseconds since 1970"]
+  "return" : ["float","The number of milliseconds since 1970"],
+  "typedef": "static parse(str: any): number"
 }
 Parse a date string and return milliseconds since 1970. Data can be either '2011-10-20T14:48:00', '2011-10-20' or 'Mon, 25 Dec 1995 13:30:00 +0430'
  */

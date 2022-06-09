@@ -35,7 +35,7 @@ const char *JSON_LIMIT_TEXT = " ... ";
 An Object that handles conversion to and from the JSON data interchange format
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "JSON",
   "name" : "stringify",
@@ -45,7 +45,8 @@ An Object that handles conversion to and from the JSON data interchange format
     ["replacer","JsVar","This value is ignored"],
     ["space","JsVar","The number of spaces to use for padding, a string, or null/undefined for no whitespace "]
   ],
-  "return" : ["JsVar","A JSON string"]
+  "return" : ["JsVar","A JSON string"],
+  "typedef": "static stringify(data: any, replacer: any, space: any): any"
 }
 Convert the given object into a JSON string which can subsequently be parsed with JSON.parse or eval.
 
@@ -158,7 +159,7 @@ JsVar *jswrap_json_parse_internal() {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "JSON",
   "name" : "parse",
@@ -166,7 +167,8 @@ JsVar *jswrap_json_parse_internal() {
   "params" : [
     ["string","JsVar","A JSON string"]
   ],
-  "return" : ["JsVar","The JavaScript object created by parsing the data string"]
+  "return" : ["JsVar","The JavaScript object created by parsing the data string"],
+  "typedef": "static parse(string: any): any"
 }
 Parse the given JSON string into a JavaScript object
 

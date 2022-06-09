@@ -66,7 +66,7 @@ bool jsfsGetPathString(char *pathStr, JsVar *path);
 extern bool jsfsInit();
 extern void jsfsReportError(const char *msg, FRESULT res);
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "readdir",
@@ -74,13 +74,14 @@ extern void jsfsReportError(const char *msg, FRESULT res);
   "params" : [
     ["path","JsVar","The path of the directory to list. If it is not supplied, '' is assumed, which will list the root directory"]
   ],
-  "return" : ["JsVar","An array of filename strings (or undefined if the directory couldn't be listed)"]
+  "return" : ["JsVar","An array of filename strings (or undefined if the directory couldn't be listed)"],
+  "typedef": "static readdir(path: any): any"
 }
 List all files in the supplied directory, returning them as an array of strings.
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "readdirSync",
@@ -89,7 +90,8 @@ NOTE: Espruino does not yet support Async file IO, so this function behaves like
   "params" : [
     ["path","JsVar","The path of the directory to list. If it is not supplied, '' is assumed, which will list the root directory"]
   ],
-  "return" : ["JsVar","An array of filename strings (or undefined if the directory couldn't be listed)"]
+  "return" : ["JsVar","An array of filename strings (or undefined if the directory couldn't be listed)"],
+  "typedef": "static readdirSync(path: any): any"
 }
 List all files in the supplied directory, returning them as an array of strings.
 */
@@ -147,7 +149,7 @@ JsVar *jswrap_fs_readdir(JsVar *path) {
   return arr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "writeFile",
@@ -156,13 +158,14 @@ JsVar *jswrap_fs_readdir(JsVar *path) {
     ["path","JsVar","The path of the file to write"],
     ["data","JsVar","The data to write to the file"]
   ],
-  "return" : ["bool","True on success, false on failure"]
+  "return" : ["bool","True on success, false on failure"],
+  "typedef": "static writeFile(path: any, data: any): boolean"
 }
 Write the data to the given file
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "writeFileSync",
@@ -172,11 +175,12 @@ NOTE: Espruino does not yet support Async file IO, so this function behaves like
     ["path","JsVar","The path of the file to write"],
     ["data","JsVar","The data to write to the file"]
   ],
-  "return" : ["bool","True on success, false on failure"]
+  "return" : ["bool","True on success, false on failure"],
+  "typedef": "static writeFileSync(path: any, data: any): boolean"
 }
 Write the data to the given file
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "appendFile",
@@ -185,13 +189,14 @@ Write the data to the given file
     ["path","JsVar","The path of the file to write"],
     ["data","JsVar","The data to write to the file"]
   ],
-  "return" : ["bool","True on success, false on failure"]
+  "return" : ["bool","True on success, false on failure"],
+  "typedef": "static appendFile(path: any, data: any): boolean"
 }
 Append the data to the given file, created a new file if it doesn't exist
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "appendFileSync",
@@ -201,7 +206,8 @@ NOTE: Espruino does not yet support Async file IO, so this function behaves like
     ["path","JsVar","The path of the file to write"],
     ["data","JsVar","The data to write to the file"]
   ],
-  "return" : ["bool","True on success, false on failure"]
+  "return" : ["bool","True on success, false on failure"],
+  "typedef": "static appendFileSync(path: any, data: any): boolean"
 }
 Append the data to the given file, created a new file if it doesn't exist
 */
@@ -217,7 +223,7 @@ bool jswrap_fs_writeOrAppendFile(JsVar *path, JsVar *data, bool append) {
   return amt>0;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "readFile",
@@ -225,13 +231,14 @@ bool jswrap_fs_writeOrAppendFile(JsVar *path, JsVar *data, bool append) {
   "params" : [
     ["path","JsVar","The path of the file to read"]
   ],
-  "return" : ["JsVar","A string containing the contents of the file (or undefined if the file doesn't exist)"]
+  "return" : ["JsVar","A string containing the contents of the file (or undefined if the file doesn't exist)"],
+  "typedef": "static readFile(path: any): any"
 }
 Read all data from a file and return as a string
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "readFileSync",
@@ -240,7 +247,8 @@ NOTE: Espruino does not yet support Async file IO, so this function behaves like
   "params" : [
     ["path","JsVar","The path of the file to read"]
   ],
-  "return" : ["JsVar","A string containing the contents of the file (or undefined if the file doesn't exist)"]
+  "return" : ["JsVar","A string containing the contents of the file (or undefined if the file doesn't exist)"],
+  "typedef": "static readFileSync(path: any): any"
 }
 Read all data from a file and return as a string.
 
@@ -257,7 +265,7 @@ JsVar *jswrap_fs_readFile(JsVar *path) {
   return buffer;
 }
 
-  /*JSON{  //TODO
+  /*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "unlink",
@@ -266,13 +274,14 @@ JsVar *jswrap_fs_readFile(JsVar *path) {
   "params" : [
     ["path","JsVar","The path of the file to delete"]
   ],
-  "return" : ["bool","True on success, or false on failure"]
+  "return" : ["bool","True on success, or false on failure"],
+  "typedef": "static unlink(path: any): boolean"
 }
 Delete the given file
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "unlinkSync",
@@ -281,7 +290,8 @@ NOTE: Espruino does not yet support Async file IO, so this function behaves like
   "params" : [
     ["path","JsVar","The path of the file to delete"]
   ],
-  "return" : ["bool","True on success, or false on failure"]
+  "return" : ["bool","True on success, or false on failure"],
+  "typedef": "static unlinkSync(path: any): boolean"
 }
 Delete the given file
 */
@@ -306,7 +316,7 @@ bool jswrap_fs_unlink(JsVar *path) {
   return true;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "statSync",
@@ -315,7 +325,8 @@ bool jswrap_fs_unlink(JsVar *path) {
   "params" : [
     ["path","JsVar","The path of the file to get information on"]
   ],
-  "return" : ["JsVar","An object describing the file, or undefined on failure"]
+  "return" : ["JsVar","An object describing the file, or undefined on failure"],
+  "typedef": "static statSync(path: any): any"
 }
 Return information on the given file. This returns an object with the following
 fields:
@@ -371,7 +382,7 @@ JsVar *jswrap_fs_stat(JsVar *path) {
   return 0;
 }
 
-  /*JSON{  //TODO
+  /*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "mkdir",
@@ -380,13 +391,14 @@ JsVar *jswrap_fs_stat(JsVar *path) {
   "params" : [
     ["path","JsVar","The name of the directory to create"]
   ],
-  "return" : ["bool","True on success, or false on failure"]
+  "return" : ["bool","True on success, or false on failure"],
+  "typedef": "static mkdir(path: any): boolean"
 }
 Create the directory
 
 NOTE: Espruino does not yet support Async file IO, so this function behaves like the 'Sync' version.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "fs",
   "name" : "mkdirSync",
@@ -395,7 +407,8 @@ NOTE: Espruino does not yet support Async file IO, so this function behaves like
   "params" : [
     ["path","JsVar","The name of the directory to create"]
   ],
-  "return" : ["bool","True on success, or false on failure"]
+  "return" : ["bool","True on success, or false on failure"],
+  "typedef": "static mkdirSync(path: any): boolean"
 }
 Create the directory
 */

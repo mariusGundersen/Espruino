@@ -76,14 +76,15 @@ port 23 on the ESP8266 and port 2323 on Linux.
 **Note:** To enable on Linux, run `./espruino --telnet`
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "TelnetServer",
   "name"     : "setOptions",
   "generate" : "jswrap_telnet_setOptions",
   "params": [
     [ "options", "JsVar", "Options controlling the telnet console server `{ mode : 'on|off'}`" ]
-  ]
+  ],
+  "typedef": "static setOptions(options: any): void"
 }
 */
 void jswrap_telnet_setOptions(JsVar *jsOptions) {

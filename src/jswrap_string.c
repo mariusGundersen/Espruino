@@ -59,7 +59,7 @@ JsVar *jswrap_string_constructor(JsVar *args) {
 Find the length of the string
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "String",
   "name" : "fromCharCode",
@@ -67,7 +67,8 @@ Find the length of the string
   "params" : [
     ["code","JsVarArray","One or more character codes to create a string from (range 0-255)."]
   ],
-  "return" : ["JsVar","The character"]
+  "return" : ["JsVar","The character"],
+  "typedef": "static fromCharCode(code: JsVarArray): any"
 }
 Return the character(s) represented by the given character code(s).
  */

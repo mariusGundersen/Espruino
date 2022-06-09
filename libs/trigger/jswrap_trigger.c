@@ -28,7 +28,7 @@ This class exists in order to interface Espruino with fast-moving trigger wheels
 This class is currently in testing - it is NOT AVAILABLE on normal boards.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getPosAtTime",
@@ -36,7 +36,8 @@ This class is currently in testing - it is NOT AVAILABLE on normal boards.
   "params" : [
     ["time","float","The time at which to find the position"]
   ],
-  "return" : ["float","The position of the trigger wheel in degrees - as a floating point number"]
+  "return" : ["float","The position of the trigger wheel in degrees - as a floating point number"],
+  "typedef": "static getPosAtTime(time: number): number"
 }
 Get the position of the trigger wheel at the given time (from getTime)
 */
@@ -47,7 +48,7 @@ JsVarFloat jswrap_trig_getPosAtTime(JsVarFloat time) {
   return wrapAround((position * 360 / trig->teethTotal) + trig->keyPosition, 360);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "setup",
@@ -55,7 +56,8 @@ JsVarFloat jswrap_trig_getPosAtTime(JsVarFloat time) {
   "params" : [
     ["pin","pin","The pin to use for triggering"],
     ["options","JsVar","Additional options as an object. defaults are: ```{teethTotal:60,teethMissing:2,minRPM:30,keyPosition:0}```"]
-  ]
+  ],
+  "typedef": "static setup(pin: Pin, options: any): void"
 }
 Initialise the trigger class
 */
@@ -108,7 +110,7 @@ void jswrap_trig_setup(Pin pin, JsVar *options) {
   jshPinWatch(trig->sensorPin, true, JSPW_HIGH_SPEED);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "setTrigger",
@@ -118,7 +120,8 @@ void jswrap_trig_setup(Pin pin, JsVar *options) {
     ["pos","float","The position (in degrees) to fire the trigger at"],
     ["pins","JsVar","An array of pins to pulse (max 4)"],
     ["pulseLength","float","The time (in msec) to pulse for"]
-  ]
+  ],
+  "typedef": "static setTrigger(num: number, pos: number, pins: any, pulseLength: number): void"
 }
 Set a trigger for a certain point in the cycle
 */
@@ -156,14 +159,15 @@ void jswrap_trig_setTrigger(JsVarInt num, JsVarFloat position, JsVar *pins, JsVa
   // all done!
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "killTrigger",
   "generate" : "jswrap_trig_killTrigger",
   "params" : [
     ["num","int","The trigger number (0..7)"]
-  ]
+  ],
+  "typedef": "static killTrigger(num: number): void"
 }
 Disable a trigger
 */
@@ -179,7 +183,7 @@ void jswrap_trig_killTrigger(JsVarInt num) {
   tp->newTooth = TRIGGERPOINT_TOOTH_DISABLE;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getTrigger",
@@ -187,7 +191,8 @@ void jswrap_trig_killTrigger(JsVarInt num) {
   "params" : [
     ["num","int","The trigger number (0..7)"]
   ],
-  "return" : ["JsVar","A structure containing all information about the trigger"]
+  "return" : ["JsVar","A structure containing all information about the trigger"],
+  "typedef": "static getTrigger(num: number): any"
 }
 Get the current state of a trigger
 */
@@ -224,12 +229,13 @@ JsVar *jswrap_trig_getTrigger(JsVarInt num) {
   return obj;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getRPM",
   "generate" : "jswrap_trig_getRPM",
-  "return" : ["float","The current RPM of the trigger wheel"]
+  "return" : ["float","The current RPM of the trigger wheel"],
+  "typedef": "static getRPM(): number"
 }
 Get the RPM of the trigger wheel
 */
@@ -240,12 +246,13 @@ JsVarFloat jswrap_trig_getRPM() {
   return jshGetTimeFromMilliseconds(60000) / (JsVarFloat)(trig->avrTooth * trig->teethTotal);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getErrors",
   "generate" : "jswrap_trig_getErrors",
-  "return" : ["int","The error flags"]
+  "return" : ["int","The error flags"],
+  "typedef": "static getErrors(): number"
 }
 Get the current error flags from the trigger wheel - and zero them
 */
@@ -256,12 +263,13 @@ JsVarInt jswrap_trig_getErrors() {
   return (JsVarInt)errors;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Trig",
   "name" : "getErrorArray",
   "generate" : "jswrap_trig_getErrorArray",
-  "return" : ["JsVar","An array of error strings"]
+  "return" : ["JsVar","An array of error strings"],
+  "typedef": "static getErrorArray(): any"
 }
 Get the current error flags from the trigger wheel - and zero them
 */

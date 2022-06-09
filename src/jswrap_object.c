@@ -148,7 +148,7 @@ JsVar *jswrap_object_clone(JsVar *parent) {
   return jsvCopy(parent, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "keys",
@@ -156,11 +156,12 @@ JsVar *jswrap_object_clone(JsVar *parent) {
   "params" : [
     ["object","JsVar","The object to return keys for"]
   ],
-  "return" : ["JsVar","An array of strings - one for each key on the given object"]
+  "return" : ["JsVar","An array of strings - one for each key on the given object"],
+  "typedef": "static keys(object: any): any"
 }
 Return all enumerable keys of the given object
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "getOwnPropertyNames",
@@ -168,7 +169,8 @@ Return all enumerable keys of the given object
   "params" : [
     ["object","JsVar","The Object to return a list of property names for"]
   ],
-  "return" : ["JsVar","An array of the Object's own properties"]
+  "return" : ["JsVar","An array of the Object's own properties"],
+  "typedef": "static getOwnPropertyNames(object: any): any"
 }
 Returns an array of all properties (enumerable or not) found directly on a given object.
 */
@@ -302,7 +304,7 @@ JsVar *jswrap_object_keys_or_property_names(
   return arr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "create",
@@ -311,7 +313,8 @@ JsVar *jswrap_object_keys_or_property_names(
     ["proto","JsVar","A prototype object"],
     ["propertiesObject","JsVar","An object containing properties. NOT IMPLEMENTED"]
   ],
-  "return" : ["JsVar","A new object"]
+  "return" : ["JsVar","A new object"],
+  "typedef": "static create(proto: any, propertiesObject: any): any"
 }
 Creates a new object with the specified prototype object and properties. properties are currently unsupported.
  */
@@ -331,7 +334,7 @@ JsVar *jswrap_object_create(JsVar *proto, JsVar *propertiesObject) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "getOwnPropertyDescriptor",
@@ -340,7 +343,8 @@ JsVar *jswrap_object_create(JsVar *proto, JsVar *propertiesObject) {
     ["obj","JsVar","The object"],
     ["name","JsVar","The name of the property"]
   ],
-  "return" : ["JsVar","An object with a description of the property. The values of writable/enumerable/configurable may not be entirely correct due to Espruino's implementation."]
+  "return" : ["JsVar","An object with a description of the property. The values of writable/enumerable/configurable may not be entirely correct due to Espruino's implementation."],
+  "typedef": "static getOwnPropertyDescriptor(obj: any, name: any): any"
 }
 Get information on the given property in the object, or undefined
  */
@@ -430,7 +434,7 @@ bool jswrap_object_hasOwnProperty(JsVar *parent, JsVar *name) {
   return contains;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "defineProperty",
@@ -440,7 +444,8 @@ bool jswrap_object_hasOwnProperty(JsVar *parent, JsVar *name) {
     ["name","JsVar","The name of the property"],
     ["desc","JsVar","The property descriptor"]
   ],
-  "return" : ["JsVar","The object, obj."]
+  "return" : ["JsVar","The object, obj."],
+  "typedef": "static defineProperty(obj: any, name: any, desc: any): any"
 }
 Add a new property to the Object. 'Desc' is an object with the following fields:
 
@@ -490,7 +495,7 @@ JsVar *jswrap_object_defineProperty(JsVar *parent, JsVar *propName, JsVar *desc)
   return jsvLockAgain(parent);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "defineProperties",
@@ -499,7 +504,8 @@ JsVar *jswrap_object_defineProperty(JsVar *parent, JsVar *propName, JsVar *desc)
     ["obj","JsVar","An object"],
     ["props","JsVar","An object whose fields represent property names, and whose values are property descriptors."]
   ],
-  "return" : ["JsVar","The object, obj."]
+  "return" : ["JsVar","The object, obj."],
+  "typedef": "static defineProperties(obj: any, props: any): any"
 }
 Adds new properties to the Object. See `Object.defineProperty` for more information
  */
@@ -526,7 +532,7 @@ JsVar *jswrap_object_defineProperties(JsVar *parent, JsVar *props) {
   return jsvLockAgain(parent);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "getPrototypeOf",
@@ -534,7 +540,8 @@ JsVar *jswrap_object_defineProperties(JsVar *parent, JsVar *props) {
   "params" : [
     ["object","JsVar","An object"]
   ],
-  "return" : ["JsVar","The prototype"]
+  "return" : ["JsVar","The prototype"],
+  "typedef": "static getPrototypeOf(object: any): any"
 }
 Get the prototype of the given object - this is like writing `object.__proto__`
 but is the 'proper' ES6 way of doing it
@@ -543,7 +550,7 @@ JsVar *jswrap_object_getPrototypeOf(JsVar *object) {
   return jspGetNamedField(object, "__proto__", false);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "setPrototypeOf",
@@ -552,7 +559,8 @@ JsVar *jswrap_object_getPrototypeOf(JsVar *object) {
     ["object","JsVar","An object"],
     ["prototype","JsVar","The prototype to set on the object"]
   ],
-  "return" : ["JsVar","The object passed in"]
+  "return" : ["JsVar","The object passed in"],
+  "typedef": "static setPrototypeOf(object: any, prototype: any): any"
 }
 Set the prototype of the given object - this is like writing
 `object.__proto__ = prototype` but is the 'proper' ES6 way of doing it
@@ -568,7 +576,7 @@ JsVar *jswrap_object_setPrototypeOf(JsVar *object, JsVar *proto) {
   return jsvLockAgainSafe(object);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Object",
   "name" : "assign",
@@ -576,7 +584,8 @@ JsVar *jswrap_object_setPrototypeOf(JsVar *object, JsVar *proto) {
   "params" : [
     ["args","JsVarArray","The target object, then any items objects to use as sources of keys"]
   ],
-  "return" : ["JsVar","The target object"]
+  "return" : ["JsVar","The target object"],
+  "typedef": "static assign(args: JsVarArray): any"
 }
 Appends all keys and values in any subsequent objects to the first object
 

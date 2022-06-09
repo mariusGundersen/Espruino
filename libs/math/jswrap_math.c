@@ -137,7 +137,7 @@ This is a standard JavaScript class that contains useful Maths routines
 }*/
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "abs",
@@ -145,12 +145,13 @@ This is a standard JavaScript class that contains useful Maths routines
   "params" : [
     ["x","float","A floating point value"]
   ],
-  "return" : ["float","The absolute value of x (eg, ```Math.abs(2)==2```, but also ```Math.abs(-2)==2```)"]
+  "return" : ["float","The absolute value of x (eg, ```Math.abs(2)==2```, but also ```Math.abs(-2)==2```)"],
+  "typedef": "static abs(x: number): number"
 }*/
 JsVarFloat jswrap_math_abs(JsVarFloat x) {
   return (x<0)?-x:x;
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -159,9 +160,10 @@ JsVarFloat jswrap_math_abs(JsVarFloat x) {
   "params" : [
     ["x","float","The value to get the arc cosine of"]
   ],
-  "return" : ["float","The arc cosine of x, between 0 and PI"]
+  "return" : ["float","The arc cosine of x, between 0 and PI"],
+  "typedef": "static acos(x: number): number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -170,12 +172,13 @@ JsVarFloat jswrap_math_abs(JsVarFloat x) {
   "params" : [
     ["x","float","The value to get the arc sine of"]
   ],
-  "return" : ["float","The arc sine of x, between -PI/2 and PI/2"]
+  "return" : ["float","The arc sine of x, between -PI/2 and PI/2"],
+  "typedef": "static asin(x: number): number"
 }*/
 JsVarFloat jswrap_math_asin(JsVarFloat x) {
   return jswrap_math_atan(x / jswrap_math_sqrt(1-x*x));
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "atan",
@@ -183,7 +186,8 @@ JsVarFloat jswrap_math_asin(JsVarFloat x) {
   "params" : [
     ["x","float","The value to get the arc tangent  of"]
   ],
-  "return" : ["float","The arc tangent of x, between -PI/2 and PI/2"]
+  "return" : ["float","The arc tangent of x, between -PI/2 and PI/2"],
+  "typedef": "static atan(x: number): number"
 }*/
 double jswrap_math_atan(double x) {
 #ifdef SAVE_ON_FLASH_MATH
@@ -221,7 +225,7 @@ double jswrap_math_atan(double x) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Math",
@@ -231,7 +235,8 @@ double jswrap_math_atan(double x) {
     ["y","float","The Y-part of the angle to get the arc tangent of"],
     ["x","float","The X-part of the angle to get the arc tangent of"]
   ],
-  "return" : ["float","The arctangent of Y/X, between -PI and PI"]
+  "return" : ["float","The arctangent of Y/X, between -PI and PI"],
+  "typedef": "static atan2(y: number, x: number): number"
 }*/
 double jswrap_math_atan2(double y, double x) {
 #ifdef SAVE_ON_FLASH_MATH
@@ -250,7 +255,7 @@ double jswrap_math_atan2(double y, double x) {
 }
 
 /* we use sin here, not cos, to try and save a bit of code space */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "cos",
@@ -258,7 +263,8 @@ double jswrap_math_atan2(double y, double x) {
   "params" : [
     ["theta","float","The angle to get the cosine of"]
   ],
-  "return" : ["float","The cosine of theta"]
+  "return" : ["float","The cosine of theta"],
+  "typedef": "static cos(theta: number): number"
 }*/
 
 double jswrap_math_mod(double x, double y) {
@@ -326,7 +332,7 @@ double jswrap_math_pow(double x, double y) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -336,16 +342,18 @@ double jswrap_math_pow(double x, double y) {
     ["x","float","The value to raise to the power"],
     ["y","float","The power x should be raised to"]
   ],
-  "return" : ["float","x raised to the power y (x^y)"]
+  "return" : ["float","x raised to the power y (x^y)"],
+  "typedef": "static pow(x: number, y: number): number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "random",
   "generate_full" : "(JsVarFloat)rand() / (JsVarFloat)RAND_MAX",
-  "return" : ["float","A random number between 0 and 1"]
+  "return" : ["float","A random number between 0 and 1"],
+  "typedef": "static random(): number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "round",
@@ -353,7 +361,8 @@ double jswrap_math_pow(double x, double y) {
   "params" : [
     ["x","float","The value to round"]
   ],
-  "return" : ["JsVar","x, rounded to the nearest integer"]
+  "return" : ["JsVar","x, rounded to the nearest integer"],
+  "typedef": "static round(x: number): any"
 }*/
 JsVar *jswrap_math_round(double x) {
   if (!isfinite(x) || isNegativeZero(x)) return jsvNewFromFloat(x);
@@ -364,7 +373,7 @@ JsVar *jswrap_math_round(double x) {
   return jsvNewFromLongInteger(i);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "sin",
@@ -372,9 +381,10 @@ JsVar *jswrap_math_round(double x) {
   "params" : [
     ["theta","float","The angle to get the sine of"]
   ],
-  "return" : ["float","The sine of theta"]
+  "return" : ["float","The sine of theta"],
+  "typedef": "static sin(theta: number): number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "tan",
@@ -382,11 +392,12 @@ JsVar *jswrap_math_round(double x) {
   "params" : [
     ["theta","float","The angle to get the tangent of"]
   ],
-  "return" : ["float","The tangent of theta"]
+  "return" : ["float","The tangent of theta"],
+  "typedef": "static tan(theta: number): number"
 }*/ // note - we're trying to avoid having to use cos here
 
 /* we could use the real sqrt - but re-use pow to save on code space */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -395,14 +406,15 @@ JsVar *jswrap_math_round(double x) {
   "params" : [
     ["x","float","The value to take the square root of"]
   ],
-  "return" : ["float","The square root of x"]
+  "return" : ["float","The square root of x"],
+  "typedef": "static sqrt(x: number): number"
 }*/
 
 double jswrap_math_sqrt(double x) {
   return (x>=0) ? exp(log(x) * 0.5) : NAN;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "ceil",
@@ -410,9 +422,10 @@ double jswrap_math_sqrt(double x) {
   "params" : [
     ["x","float","The value to round up"]
   ],
-  "return" : ["float","x, rounded upwards to the nearest integer"]
+  "return" : ["float","x, rounded upwards to the nearest integer"],
+  "typedef": "static ceil(x: number): number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "floor",
@@ -420,10 +433,11 @@ double jswrap_math_sqrt(double x) {
   "params" : [
     ["x","float","The value to round down"]
   ],
-  "return" : ["float","x, rounded downwards to the nearest integer"]
+  "return" : ["float","x, rounded downwards to the nearest integer"],
+  "typedef": "static floor(x: number): number"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -432,9 +446,10 @@ double jswrap_math_sqrt(double x) {
   "params" : [
     ["x","float","The value raise E to the power of"]
   ],
-  "return" : ["float","E^x"]
+  "return" : ["float","E^x"],
+  "typedef": "static exp(x: number): number"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH_EXTREME",
   "class" : "Math",
@@ -443,10 +458,11 @@ double jswrap_math_sqrt(double x) {
   "params" : [
     ["x","float","The value to take the logarithm (base E) root of"]
   ],
-  "return" : ["float","The log (base E) of x"]
+  "return" : ["float","The log (base E) of x"],
+  "typedef": "static log(x: number): number"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Math",
@@ -457,7 +473,8 @@ double jswrap_math_sqrt(double x) {
     ["min","float","The smallest the value should be"],
     ["max","float","The largest the value should be"]
   ],
-  "return" : ["float","The value of x, clipped so as not to be below min or above max."]
+  "return" : ["float","The value of x, clipped so as not to be below min or above max."],
+  "typedef": "static clip(x: number, min: number, max: number): number"
 }
 DEPRECATED - Please use `E.clip()` instead. Clip a number to be between min and max (inclusive)
 */
@@ -467,7 +484,7 @@ JsVarFloat jswrap_math_clip(JsVarFloat x, JsVarFloat min, JsVarFloat max) {
   return x;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Math",
@@ -477,14 +494,15 @@ JsVarFloat jswrap_math_clip(JsVarFloat x, JsVarFloat min, JsVarFloat max) {
     ["x","float","A floating point value to wrap"],
     ["max","float","The largest the value should be"]
   ],
-  "return" : ["float","The value of x, wrapped so as not to be below min or above max."]
+  "return" : ["float","The value of x, wrapped so as not to be below min or above max."],
+  "typedef": "static wrap(x: number, max: number): number"
 }
 DEPRECATED - This is not part of standard JavaScript libraries
 
 Wrap a number around if it is less than 0 or greater than or equal to max. For instance you might do: ```Math.wrap(angleInDegrees, 360)```
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "min",
@@ -492,11 +510,12 @@ Wrap a number around if it is less than 0 or greater than or equal to max. For i
   "params" : [
     ["args","JsVarArray","Floating point values to clip"]
   ],
-  "return" : ["float","The minimum of the supplied values"]
+  "return" : ["float","The minimum of the supplied values"],
+  "typedef": "static min(args: JsVarArray): number"
 }
 Find the minimum of a series of numbers
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Math",
   "name" : "max",
@@ -504,7 +523,8 @@ Find the minimum of a series of numbers
   "params" : [
     ["args","JsVarArray","Floating point values to clip"]
   ],
-  "return" : ["float","The maximum of the supplied values"]
+  "return" : ["float","The maximum of the supplied values"],
+  "typedef": "static max(args: JsVarArray): number"
 }
 Find the maximum of a series of numbers
 */

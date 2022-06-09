@@ -712,7 +712,7 @@ JsVar *jswrap_array_slice(JsVar *parent, JsVarInt start, JsVar *endVar) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Array",
   "name" : "isArray",
@@ -720,7 +720,8 @@ JsVar *jswrap_array_slice(JsVar *parent, JsVarInt start, JsVar *endVar) {
   "params" : [
     ["var","JsVar","The variable to be tested"]
   ],
-  "return" : ["bool","True if var is an array, false if not."]
+  "return" : ["bool","True if var is an array, false if not."],
+  "typedef": "static isArray(var: any): boolean"
 }
 Returns true if the provided object is an array
  */

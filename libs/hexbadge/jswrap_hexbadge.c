@@ -167,7 +167,7 @@ The pin connected to Corner #6
 }
 Class containing utility functions for accessing IO on the hexagonal badge
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Badge",
     "name" : "capSense",
@@ -175,7 +175,8 @@ Class containing utility functions for accessing IO on the hexagonal badge
     "params" : [
       ["corner","int","The corner to use"]
     ],
-    "return" : ["int", "Capacitive sense counter" ]
+    "return" : ["int", "Capacitive sense counter" ],
+    "typedef": "static capSense(corner: number): number"
 }
 Capacitive sense - the higher the capacitance, the higher the number returned.
 
@@ -188,12 +189,13 @@ int jswrap_badge_capSense(int corner) {
   return 0;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Badge",
     "name" : "getBatteryPercentage",
     "generate" : "jswrap_badge_getBatteryPercentage",
-    "return" : ["int", "A percentage between 0 and 100" ]
+    "return" : ["int", "A percentage between 0 and 100" ],
+    "typedef": "static getBatteryPercentage(): number"
 }
 Return an approximate battery percentage remaining based on
 a normal CR2032 battery (2.8 - 2.2v)
@@ -238,14 +240,15 @@ void badge_lcd_flip(JsVar *g) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Badge",
     "name" : "setContrast",
     "generate" : "jswrap_badge_setContrast",
     "params" : [
       ["c","float","Contrast between 0 and 1"]
-    ]
+    ],
+    "typedef": "static setContrast(c: number): void"
 }
 Set the LCD's contrast */
 void jswrap_badge_setContrast(JsVarFloat c) {

@@ -1732,7 +1732,7 @@ static void jswrap_banglejs_setLCDPowerBacklight(bool isOn) {
 
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setLCDPower",
@@ -1740,7 +1740,8 @@ static void jswrap_banglejs_setLCDPowerBacklight(bool isOn) {
     "params" : [
       ["isOn","bool","True if the LCD should be on, false if not"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setLCDPower(isOn: boolean): void"
 }
 This function can be used to turn Bangle.js's LCD off or on.
 
@@ -1787,7 +1788,7 @@ void jswrap_banglejs_setLCDPower(bool isOn) {
 
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setLCDBrightness",
@@ -1795,7 +1796,8 @@ void jswrap_banglejs_setLCDPower(bool isOn) {
     "params" : [
       ["brightness","float","The brightness of Bangle.js's display - from 0(off) to 1(on full)"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setLCDBrightness(brightness: number): void"
 }
 This function can be used to adjust the brightness of Bangle.js's display, and
 hence prolong its battery life.
@@ -1822,7 +1824,7 @@ void jswrap_banglejs_setLCDBrightness(JsVarFloat v) {
     jswrap_banglejs_setLCDPowerBacklight(1);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setLCDMode",
@@ -1830,7 +1832,8 @@ void jswrap_banglejs_setLCDBrightness(JsVarFloat v) {
     "params" : [
       ["mode","JsVar","The LCD mode (See below)"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setLCDMode(mode: any): void"
 }
 This function can be used to change the way graphics is handled on Bangle.js.
 
@@ -1911,13 +1914,14 @@ void jswrap_banglejs_setLCDMode(JsVar *mode) {
   jsExceptionHere(JSET_ERROR, "setLCDMode is unsupported on this device");
 #endif
 }
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getLCDMode",
     "generate" : "jswrap_banglejs_getLCDMode",
     "return" : ["JsVar","The LCD mode as a String"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static getLCDMode(): any"
 }
 The current LCD mode.
 
@@ -1948,7 +1952,7 @@ JsVar *jswrap_banglejs_getLCDMode() {
   return jsvNewFromString(name);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setLCDOffset",
@@ -1956,7 +1960,8 @@ JsVar *jswrap_banglejs_getLCDMode() {
     "params" : [
       ["y","int","The amount of pixels to shift the LCD up or down"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setLCDOffset(y: number): void"
 }
 This can be used to move the displayed memory area up or down temporarily. It's
 used for displaying notifications while keeping the main display contents
@@ -1968,7 +1973,7 @@ void jswrap_banglejs_setLCDOffset(int y) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setLCDTimeout",
@@ -1976,7 +1981,8 @@ void jswrap_banglejs_setLCDOffset(int y) {
     "params" : [
       ["isOn","float","The timeout of the display in seconds, or `0`/`undefined` to turn power saving off. Default is 10 seconds."]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setLCDTimeout(isOn: number): void"
 }
 This function can be used to turn Bangle.js's LCD power saving on or off.
 
@@ -1997,7 +2003,7 @@ void jswrap_banglejs_setLCDTimeout(JsVarFloat timeout) {
   lockTimeout = timeout*1000;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setPollInterval",
@@ -2005,7 +2011,8 @@ void jswrap_banglejs_setLCDTimeout(JsVarFloat timeout) {
     "params" : [
       ["interval","float","Polling interval in milliseconds (Default is 80ms - 12.5Hz to match accelerometer)"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setPollInterval(interval: number): void"
 }
 Set how often the watch should poll for new acceleration/gyro data and kick the Watchdog timer. It isn't
 recommended that you make this interval much larger than 1000ms, but values up to 4000ms are allowed.
@@ -2022,7 +2029,7 @@ void jswrap_banglejs_setPollInterval(JsVarFloat interval) {
   jswrap_banglejs_setPollInterval_internal((uint16_t)interval);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setOptions",
@@ -2030,7 +2037,8 @@ void jswrap_banglejs_setPollInterval(JsVarFloat interval) {
     "params" : [
       ["options","JsVar",""]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setOptions(options: any): void"
 }
 Set internal options used for gestures, etc...
 
@@ -2121,13 +2129,14 @@ JsVar * _jswrap_banglejs_setOptions(JsVar *options, bool createObject) {
 void jswrap_banglejs_setOptions(JsVar *options) {
   _jswrap_banglejs_setOptions(options, false);
 }
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getOptions",
     "generate" : "jswrap_banglejs_getOptions",
     "return" : ["JsVar","The current state of all options"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static getOptions(): any"
 }
 Return the current state of options as set by `Bangle.setOptions`
 */
@@ -2135,13 +2144,14 @@ JsVar *jswrap_banglejs_getOptions() {
   return _jswrap_banglejs_setOptions(NULL, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "isLCDOn",
     "generate" : "jswrap_banglejs_isLCDOn",
     "return" : ["bool","Is the display on or not?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static isLCDOn(): boolean"
 }
 Also see the `Bangle.lcdPower` event
 */
@@ -2150,7 +2160,7 @@ int jswrap_banglejs_isLCDOn() {
   return (bangleFlags&JSBF_LCD_ON)!=0;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setLocked",
@@ -2158,7 +2168,8 @@ int jswrap_banglejs_isLCDOn() {
     "params" : [
       ["isLocked","bool","`true` if the Bangle is locked (no user input allowed)"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setLocked(isLocked: boolean): void"
 }
 This function can be used to lock or unlock Bangle.js
 (eg whether buttons and touchscreen work or not)
@@ -2192,13 +2203,14 @@ void jswrap_banglejs_setLocked(bool isLocked) {
   inactivityTimer = 0;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "isLocked",
     "generate" : "jswrap_banglejs_isLocked",
     "return" : ["bool","Is the screen locked or not?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static isLocked(): boolean"
 }
 Also see the `Bangle.lock` event
 */
@@ -2207,13 +2219,14 @@ int jswrap_banglejs_isLocked() {
   return (bangleFlags&JSBF_LOCKED)!=0;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "isCharging",
     "generate" : "jswrap_banglejs_isCharging",
     "return" : ["bool","Is the battery charging or not?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static isCharging(): boolean"
 }
 */
 // emscripten bug means we can't use 'bool' as return value here!
@@ -2266,7 +2279,7 @@ JsVarInt jswrap_banglejs_getBattery() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "lcdWr",
@@ -2275,7 +2288,8 @@ JsVarInt jswrap_banglejs_getBattery() {
       ["cmd","int",""],
       ["data","JsVar",""]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static lcdWr(cmd: number, data: any): void"
 }
 Writes a command directly to the ST7735 LCD controller
 */
@@ -2289,7 +2303,7 @@ void jswrap_banglejs_lcdWr(JsVarInt cmd, JsVar *data) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setHRMPower",
@@ -2299,7 +2313,8 @@ void jswrap_banglejs_lcdWr(JsVarInt cmd, JsVar *data) {
       ["appID","JsVar","A string with the app's name in, used to ensure one app can't turn off something another app is using"]
     ],
     "return" : ["bool","Is HRM on?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setHRMPower(isOn: boolean, appID: any): boolean"
 }
 Set the power to the Heart rate monitor
 
@@ -2333,13 +2348,14 @@ bool jswrap_banglejs_setHRMPower(bool isOn, JsVar *appId) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "isHRMOn",
     "generate" : "jswrap_banglejs_isHRMOn",
     "return" : ["bool","Is HRM on?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static isHRMOn(): boolean"
 }
 Is the Heart rate monitor powered?
 
@@ -2361,7 +2377,7 @@ void gpsClearLine() {
 }
 #endif
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setGPSPower",
@@ -2371,7 +2387,8 @@ void gpsClearLine() {
       ["appID","JsVar","A string with the app's name in, used to ensure one app can't turn off something another app is using"]
     ],
     "return" : ["bool","Is the GPS on?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setGPSPower(isOn: boolean, appID: any): boolean"
 }
 Set the power to the GPS.
 
@@ -2411,13 +2428,14 @@ bool jswrap_banglejs_setGPSPower(bool isOn, JsVar *appId) {
   return false;
 #endif
 }
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "isGPSOn",
     "generate" : "jswrap_banglejs_isGPSOn",
     "return" : ["bool","Is the GPS on?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static isGPSOn(): boolean"
 }
 Is the GPS powered?
 
@@ -2428,13 +2446,14 @@ int jswrap_banglejs_isGPSOn() {
   return bangleFlags & JSBF_GPS_ON;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getGPSFix",
     "generate" : "jswrap_banglejs_getGPSFix",
     "return" : ["JsVar","A GPS fix object with `{lat,lon,...}`"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static getGPSFix(): any"
 }
 Get the last available GPS fix info (or `undefined` if GPS is off).
 
@@ -2449,7 +2468,7 @@ JsVar *jswrap_banglejs_getGPSFix() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setCompassPower",
@@ -2459,7 +2478,8 @@ JsVar *jswrap_banglejs_getGPSFix() {
       ["appID","JsVar","A string with the app's name in, used to ensure one app can't turn off something another app is using"]
     ],
     "return" : ["bool","Is the Compass on?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setCompassPower(isOn: boolean, appID: any): boolean"
 }
 Set the power to the Compass
 
@@ -2502,13 +2522,14 @@ bool jswrap_banglejs_setCompassPower(bool isOn, JsVar *appId) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "isCompassOn",
     "generate" : "jswrap_banglejs_isCompassOn",
     "return" : ["bool","Is the Compass on?"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static isCompassOn(): boolean"
 }
 Is the compass powered?
 
@@ -2519,13 +2540,14 @@ int jswrap_banglejs_isCompassOn() {
   return bangleFlags & JSBF_COMPASS_ON;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "resetCompass",
     "generate" : "jswrap_banglejs_resetCompass",
     "params" : [],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static resetCompass(): void"
 }
 Resets the compass minimum/maximum values. Can be used if the compass isn't
 providing a reliable heading any more.
@@ -2544,7 +2566,7 @@ void jswrap_banglejs_resetCompass() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setBarometerPower",
@@ -2554,7 +2576,8 @@ void jswrap_banglejs_resetCompass() {
       ["appID","JsVar","A string with the app's name in, used to ensure one app can't turn off something another app is using"]
     ],
     "return" : ["bool","Is the Barometer on?"],
-    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)"
+    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)",
+    "typedef": "static setBarometerPower(isOn: boolean, appID: any): boolean"
 }
 Set the power to the barometer IC. Once enbled, `Bangle.pressure` events
 are fired each time a new barometer reading is available.
@@ -2625,13 +2648,14 @@ bool jswrap_banglejs_setBarometerPower(bool isOn, JsVar *appId) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "isBarometerOn",
     "generate" : "jswrap_banglejs_isBarometerOn",
     "return" : ["bool","Is the Barometer on?"],
-    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)"
+    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)",
+    "typedef": "static isBarometerOn(): boolean"
 }
 Is the Barometer powered?
 
@@ -2642,13 +2666,14 @@ int jswrap_banglejs_isBarometerOn() {
   return bangleFlags & JSBF_BAROMETER_ON;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getStepCount",
     "generate" : "jswrap_banglejs_getStepCount",
     "return" : ["int","The number of steps recorded by the step counter"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static getStepCount(): number"
 }
 Returns the current amount of steps recorded by the step counter
 */
@@ -2656,7 +2681,7 @@ int jswrap_banglejs_getStepCount() {
   return stepCounter;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setStepCount",
@@ -2664,7 +2689,8 @@ int jswrap_banglejs_getStepCount() {
     "params" : [
       ["count","int","The value with which to reload the step counter"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setStepCount(count: number): void"
 }
 Sets the current value of the step counter
 */
@@ -2672,13 +2698,14 @@ void jswrap_banglejs_setStepCount(JsVarInt count) {
   stepCounter = count;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getCompass",
     "generate" : "jswrap_banglejs_getCompass",
     "return" : ["JsVar","An object containing magnetometer readings (as below)"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static getCompass(): any"
 }
 Get the most recent Magnetometer/Compass reading. Data is in the same format as the `Bangle.on('mag',` event.
 
@@ -2719,13 +2746,14 @@ JsVar *jswrap_banglejs_getCompass() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getAccel",
     "generate" : "jswrap_banglejs_getAccel",
     "return" : ["JsVar","An object containing accelerometer readings (as below)"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static getAccel(): any"
 }
 Get the most recent accelerometer reading. Data is in the same format as the `Bangle.on('accel',` event.
 
@@ -2748,7 +2776,7 @@ JsVar *jswrap_banglejs_getAccel() {
   return o;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getHealthStatus",
@@ -2757,7 +2785,8 @@ JsVar *jswrap_banglejs_getAccel() {
     "params" : [
       ["range","JsVar","What time period to return data for, see below:"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static getHealthStatus(range: any): any"
 }
 
 `range` is one of:
@@ -3907,13 +3936,14 @@ modifies beep & buzz behaviour accordingly (the bootloader
 doesn't need to do it).
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "dbg",
     "generate" : "jswrap_banglejs_dbg",
     "return" : ["JsVar",""],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static dbg(): any"
 }
 Reads debug info
 */
@@ -3954,7 +3984,7 @@ JsVar *_jswrap_banglejs_i2cRd(JshI2CInfo *i2c, int i2cAddr, JsVarInt reg, JsVarI
 }
 #endif
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "accelWr",
@@ -3963,7 +3993,8 @@ JsVar *_jswrap_banglejs_i2cRd(JshI2CInfo *i2c, int i2cAddr, JsVarInt reg, JsVarI
       ["reg","int",""],
       ["data","int",""]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static accelWr(reg: number, data: number): void"
 }
 Writes a register on the accelerometer
 */
@@ -3973,7 +4004,7 @@ void jswrap_banglejs_accelWr(JsVarInt reg, JsVarInt data) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "accelRd",
@@ -3983,7 +4014,8 @@ void jswrap_banglejs_accelWr(JsVarInt reg, JsVarInt data) {
       ["cnt","int","If specified, returns an array of the given length (max 128). If not (or 0) it returns a number"]
     ],
     "return" : ["JsVar",""],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static accelRd(reg: number, cnt: number): any"
 }
 Reads a register from the accelerometer
 
@@ -4000,7 +4032,7 @@ JsVar *jswrap_banglejs_accelRd(JsVarInt reg, JsVarInt cnt) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "barometerWr",
@@ -4009,7 +4041,8 @@ JsVar *jswrap_banglejs_accelRd(JsVarInt reg, JsVarInt cnt) {
       ["reg","int",""],
       ["data","int",""]
     ],
-    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)"
+    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)",
+    "typedef": "static barometerWr(reg: number, data: number): void"
 }
 Writes a register on the barometer IC
 */
@@ -4019,7 +4052,7 @@ void jswrap_banglejs_barometerWr(JsVarInt reg, JsVarInt data) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "barometerRd",
@@ -4029,7 +4062,8 @@ void jswrap_banglejs_barometerWr(JsVarInt reg, JsVarInt data) {
       ["cnt","int","If specified, returns an array of the given length (max 128). If not (or 0) it returns a number"]
     ],
     "return" : ["JsVar",""],
-    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)"
+    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)",
+    "typedef": "static barometerRd(reg: number, cnt: number): any"
 }
 Reads a register from the barometer IC
 */
@@ -4042,7 +4076,7 @@ JsVar *jswrap_banglejs_barometerRd(JsVarInt reg, JsVarInt cnt) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "compassWr",
@@ -4051,7 +4085,8 @@ JsVar *jswrap_banglejs_barometerRd(JsVarInt reg, JsVarInt cnt) {
       ["reg","int",""],
       ["data","int",""]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static compassWr(reg: number, data: number): void"
 }
 Writes a register on the Magnetometer/Compass
 */
@@ -4061,7 +4096,7 @@ void jswrap_banglejs_compassWr(JsVarInt reg, JsVarInt data) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "compassRd",
@@ -4071,7 +4106,8 @@ void jswrap_banglejs_compassWr(JsVarInt reg, JsVarInt data) {
       ["cnt","int","If specified, returns an array of the given length (max 128). If not (or 0) it returns a number"]
     ],
     "return" : ["JsVar",""],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static compassRd(reg: number, cnt: number): any"
 }
 Read a register on the Magnetometer/Compass
 */
@@ -4083,7 +4119,7 @@ JsVar *jswrap_banglejs_compassRd(JsVarInt reg, JsVarInt cnt) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "hrmWr",
@@ -4092,7 +4128,8 @@ JsVar *jswrap_banglejs_compassRd(JsVarInt reg, JsVarInt cnt) {
       ["reg","int",""],
       ["data","int",""]
     ],
-    "ifdef" : "BANGLEJS_Q3"
+    "ifdef" : "BANGLEJS_Q3",
+    "typedef": "static hrmWr(reg: number, data: number): void"
 }
 Writes a register on the Heart rate monitor
 */
@@ -4102,7 +4139,7 @@ void jswrap_banglejs_hrmWr(JsVarInt reg, JsVarInt data) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "hrmRd",
@@ -4112,7 +4149,8 @@ void jswrap_banglejs_hrmWr(JsVarInt reg, JsVarInt data) {
       ["cnt","int","If specified, returns an array of the given length (max 128). If not (or 0) it returns a number"]
     ],
     "return" : ["JsVar",""],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static hrmRd(reg: number, cnt: number): any"
 }
 Read a register on the Heart rate monitor
 */
@@ -4124,7 +4162,7 @@ JsVar *jswrap_banglejs_hrmRd(JsVarInt reg, JsVarInt cnt) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "ioWr",
@@ -4133,7 +4171,8 @@ JsVar *jswrap_banglejs_hrmRd(JsVarInt reg, JsVarInt cnt) {
       ["mask","int",""],
       ["isOn","int",""]
     ],
-    "ifdef" : "BANGLEJS_F18"
+    "ifdef" : "BANGLEJS_F18",
+    "typedef": "static ioWr(mask: number, isOn: number): void"
 }
 Changes a pin state on the IO expander
 */
@@ -4150,13 +4189,14 @@ void jswrap_banglejs_ioWr(JsVarInt mask, bool on) {
 }
 #endif
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getPressure",
     "generate" : "jswrap_banglejs_getPressure",
     "return" : ["JsVar","A promise that will be resolved with `{temperature, pressure, altitude}`"],
-    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)"
+    "#if" : "defined(DTNO1_F5) || defined(BANGLEJS_Q3) || defined(DICKENS)",
+    "typedef": "static getPressure(): any"
 }
 Read temperature, pressure and altitude data. A promise is returned
 which will be resolved with `{temperature, pressure, altitude}`.
@@ -4357,7 +4397,7 @@ JsVar *jswrap_banglejs_getPressure() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "project",
@@ -4366,7 +4406,8 @@ JsVar *jswrap_banglejs_getPressure() {
       ["latlong","JsVar","`{lat:..., lon:...}`"]
     ],
     "return" : ["JsVar","{x:..., y:...}"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static project(latlong: any): any"
 }
 Perform a Spherical [Web Mercator projection](https://en.wikipedia.org/wiki/Web_Mercator_projection)
 of latitude and longitude into `x` and `y` coordinates, which are roughly
@@ -4407,7 +4448,7 @@ static NO_INLINE void _jswrap_banglejs_setVibration() {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "beep",
@@ -4418,7 +4459,8 @@ static NO_INLINE void _jswrap_banglejs_setVibration() {
     ],
     "return" : ["JsVar","A promise, completed when beep is finished"],
     "return_object":"Promise",
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static beep(time: number, freq: number): Promise"
 }
 Use the piezo speaker to Beep for a certain time period and frequency
 */
@@ -4465,7 +4507,7 @@ JsVar *jswrap_banglejs_beep(int time, int freq) {
   return jsvLockAgain(promiseBeep);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "buzz",
@@ -4476,7 +4518,8 @@ JsVar *jswrap_banglejs_beep(int time, int freq) {
     ],
     "return" : ["JsVar","A promise, completed when vibration is finished"],
     "return_object":"Promise",
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static buzz(time: number, strength: number): Promise"
 }
 Use the vibration motor to buzz for a certain time period
 */
@@ -4578,12 +4621,13 @@ static void jswrap_banglejs_periph_off() {
 
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "off",
     "generate" : "jswrap_banglejs_off",
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static off(): void"
 }
 Turn Bangle.js off. It can only be woken by pressing BTN1.
 */
@@ -4601,12 +4645,13 @@ void jswrap_banglejs_off() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "softOff",
     "generate" : "jswrap_banglejs_softOff",
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static softOff(): void"
 }
 Turn Bangle.js (mostly) off, but keep the CPU in sleep
 mode until BTN1 is pressed to preserve the RTC (current time).
@@ -4643,13 +4688,14 @@ void jswrap_banglejs_softOff() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "getLogo",
     "generate" : "jswrap_banglejs_getLogo",
     "return" : ["JsVar", "An image to be used with `g.drawImage` (as a String)" ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static getLogo(): any"
 }
 
 * On platforms with an LCD of >=8bpp this is 222 x 104 x 2 bits
@@ -4788,12 +4834,13 @@ JsVar *jswrap_banglejs_getLogo() {
   return img;
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "loadWidgets",
     "generate_js" : "libs/js/banglejs/Bangle_loadWidgets.min.js",
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static loadWidgets(): void"
 }
 Load all widgets from flash Storage. Call this once at the beginning
 of your application if you want any on-screen widgets to be loaded.
@@ -4801,12 +4848,13 @@ of your application if you want any on-screen widgets to be loaded.
 They will be loaded into a global `WIDGETS` array, and
 can be rendered with `Bangle.drawWidgets`.
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "drawWidgets",
     "generate_js" : "libs/js/banglejs/Bangle_drawWidgets.min.js",
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static drawWidgets(): void"
 }
 Draw any onscreen widgets that were loaded with `Bangle.loadWidgets()`.
 
@@ -4814,25 +4862,27 @@ Widgets should redraw themselves when something changes - you'll only
 need to call drawWidgets if you decide to clear the entire screen
 with `g.clear()`.
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod", "class" : "Bangle", "name" : "drawWidgets", "patch":true,
     "generate_js" : "libs/js/banglejs/Bangle_drawWidgets_Q3.min.js",
-    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)"
+    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)",
+    "typedef": "static drawWidgets(): void"
 }
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "showLauncher",
     "generate_js" : "libs/js/banglejs/Bangle_showLauncher.min.js",
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static showLauncher(): void"
 }
 Load the Bangle.js app launcher, which will allow the user
 to select an application to launch.
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showMenu",
@@ -4841,7 +4891,8 @@ to select an application to launch.
       ["menu","JsVar","An object containing name->function mappings to to be used in a menu"]
     ],
     "return" : ["JsVar", "A menu object with `draw`, `move` and `select` functions" ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static showMenu(menu: any): any"
 }
 Display a menu on the screen, and set up the buttons to navigate through it.
 
@@ -4896,7 +4947,7 @@ On Bangle.js there are a few additions over the standard `graphical_menu`:
   * (Bangle.js 2) the `format` function is called with `format(value)` in the main menu, `format(value,1)` when in a scrollable list, or `format(value,2)` when in a popup window.
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showMessage",
@@ -4905,7 +4956,8 @@ On Bangle.js there are a few additions over the standard `graphical_menu`:
       ["message","JsVar","A message to display. Can include newlines"],
       ["options","JsVar","(optional) a title for the message, or an object of options `{title:string, img:image_string}`"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static showMessage(message: any, options: any): void"
 }
 
 A utility function for displaying a full screen message on the screen.
@@ -4928,7 +4980,7 @@ E.showMessage("Lots of text will wrap automatically",{
 
 
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showPrompt",
@@ -4938,7 +4990,8 @@ E.showMessage("Lots of text will wrap automatically",{
       ["options","JsVar","(optional) an object of options (see below)"]
     ],
     "return" : ["JsVar","A promise that is resolved when 'Ok' is pressed"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static showPrompt(message: any, options: any): any"
 }
 
 Displays a full screen prompt on the screen, with the buttons
@@ -4982,7 +5035,7 @@ The second `options` argument can contain:
 ```
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showScroller",
@@ -4991,7 +5044,8 @@ The second `options` argument can contain:
       ["options","JsVar","An object containing `{ h, c, draw, select }` (see below) "]
     ],
     "return" : ["JsVar", "A menu object with `draw()` and `drawItem(itemNo)` functions" ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static showScroller(options: any): any"
 }
 Display a scrollable menu on the screen, and set up the buttons/touchscreen to navigate through it
 and select items.
@@ -5027,32 +5081,36 @@ E.showScroller({
 To remove the scroller, just call `E.showScroller()`
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod", "class" : "E", "name" : "showMenu", "patch":true,
     "generate_js" : "libs/js/banglejs/E_showMenu_Q3.min.js",
-    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)"
+    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)",
+    "typedef": "static showMenu(): void"
 }
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod", "class" : "E", "name" : "showMenu", "patch":true,
     "generate_js" : "libs/js/banglejs/E_showMenu_F5.js",
-    "#if" : "defined(BANGLEJS) && defined(DTNO1_F5)"
+    "#if" : "defined(BANGLEJS) && defined(DTNO1_F5)",
+    "typedef": "static showMenu(): void"
 }
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod", "class" : "E", "name" : "showPrompt", "patch":true,
     "generate_js" : "libs/js/banglejs/E_showPrompt_Q3.min.js",
-    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)"
+    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)",
+    "typedef": "static showPrompt(): void"
 }
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod", "class" : "E", "name" : "showScroller", "patch":true,
     "generate_js" : "libs/js/banglejs/E_showScroller_Q3.min.js",
-    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)"
+    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)",
+    "typedef": "static showScroller(): void"
 }
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showAlert",
@@ -5062,7 +5120,8 @@ To remove the scroller, just call `E.showScroller()`
       ["options","JsVar","(optional) a title for the message"]
     ],
     "return" : ["JsVar","A promise that is resolved when 'Ok' is pressed"],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static showAlert(message: any, options: any): any"
 }
 
 Displays a full screen prompt on the screen, with a single 'Ok' button.
@@ -5126,7 +5185,7 @@ a circle on the display
 */
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "setUI",
@@ -5135,7 +5194,8 @@ a circle on the display
       ["type","JsVar","The type of UI input: 'updown', 'leftright', 'clock', 'clockupdown' or undefined to cancel. Can also be an object (see below)"],
       ["callback","JsVar","A function with one argument which is the direction"]
     ],
-    "ifdef" : "BANGLEJS"
+    "ifdef" : "BANGLEJS",
+    "typedef": "static setUI(type: any, callback: any): void"
 }
 This puts Bangle.js into the specified UI input mode, and calls the callback provided when there is user input.
 
@@ -5188,19 +5248,21 @@ Bangle.setUI({
 });
 ```
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod", "class" : "Bangle", "name" : "setUI", "patch":true,
     "generate_js" : "libs/js/banglejs/Bangle_setUI_Q3.min.js",
-    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)"
+    "#if" : "defined(BANGLEJS) && defined(BANGLEJS_Q3)",
+    "typedef": "static setUI(): void"
 }
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Bangle",
     "name" : "factoryReset",
     "generate" : "jswrap_banglejs_factoryReset",
-    "#if" : "defined(BANGLEJS_Q3) || defined(EMULATED)"
+    "#if" : "defined(BANGLEJS_Q3) || defined(EMULATED)",
+    "typedef": "static factoryReset(): void"
 }
 
 Erase all storage and reload it with the default

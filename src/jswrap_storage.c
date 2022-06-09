@@ -65,11 +65,12 @@ file with `require("Storage").open(...)` and then read it with `require("Storage
 is 28 characters. However in 2v04 and earlier the max length is 8.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "eraseAll",
-  "generate" : "jswrap_storage_eraseAll"
+  "generate" : "jswrap_storage_eraseAll",
+  "typedef": "static eraseAll(): void"
 }
 Erase the flash storage area. This will remove all files
 created with `require("Storage").write(...)` as well
@@ -79,14 +80,15 @@ void jswrap_storage_eraseAll() {
   jsfEraseAll();
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "erase",
   "generate" : "jswrap_storage_erase",
   "params" : [
     ["name","JsVar","The filename - max 28 characters (case sensitive)"]
-  ]
+  ],
+  "typedef": "static erase(name: any): void"
 }
 Erase a single file from the flash storage area.
 
@@ -97,7 +99,7 @@ void jswrap_storage_erase(JsVar *name) {
   jsfEraseFile(jsfNameFromVar(name));
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "read",
@@ -107,7 +109,8 @@ void jswrap_storage_erase(JsVar *name) {
     ["offset","int","(optional) The offset in bytes to start from"],
     ["length","int","(optional) The length to read in bytes (if <=0, the entire file is read)"]
   ],
-  "return" : ["JsVar","A string of data, or `undefined` if the file is not found"]
+  "return" : ["JsVar","A string of data, or `undefined` if the file is not found"],
+  "typedef": "static read(name: any, offset: number, length: number): any"
 }
 Read a file from the flash storage area that has
 been written with `require("Storage").write(...)`.
@@ -128,7 +131,7 @@ JsVar *jswrap_storage_read(JsVar *name, int offset, int length) {
   return jsfReadFile(jsfNameFromVar(name), offset, length);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -138,7 +141,8 @@ JsVar *jswrap_storage_read(JsVar *name, int offset, int length) {
     ["name","JsVar","The filename - max 28 characters (case sensitive)"],
     ["noExceptions","bool","If true and the JSON is not valid, just return `undefined` - otherwise an `Exception` is thrown"]
   ],
-  "return" : ["JsVar","An object containing parsed JSON from the file, or undefined"]
+  "return" : ["JsVar","An object containing parsed JSON from the file, or undefined"],
+  "typedef": "static readJSON(name: any, noExceptions: boolean): any"
 }
 Read a file from the flash storage area that has
 been written with `require("Storage").write(...)`,
@@ -163,7 +167,7 @@ JsVar *jswrap_storage_readJSON(JsVar *name, bool noExceptions) {
   return r;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -172,7 +176,8 @@ JsVar *jswrap_storage_readJSON(JsVar *name, bool noExceptions) {
   "params" : [
     ["name","JsVar","The filename - max 28 characters (case sensitive)"]
   ],
-  "return" : ["JsVar","An ArrayBuffer containing data from the file, or undefined"]
+  "return" : ["JsVar","An ArrayBuffer containing data from the file, or undefined"],
+  "typedef": "static readArrayBuffer(name: any): any"
 }
 Read a file from the flash storage area that has
 been written with `require("Storage").write(...)`,
@@ -194,7 +199,7 @@ JsVar *jswrap_storage_readArrayBuffer(JsVar *name) {
   return r;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "write",
@@ -205,7 +210,8 @@ JsVar *jswrap_storage_readArrayBuffer(JsVar *name) {
     ["offset","int","[optional] The offset within the file to write"],
     ["size","int","[optional] The size of the file (if a file is to be created that is bigger than the data)"]
   ],
-  "return" : ["bool","True on success, false on failure"]
+  "return" : ["bool","True on success, false on failure"],
+  "typedef": "static write(name: any, data: any, offset: number, size: number): boolean"
 }
 Write/create a file in the flash storage area. This is
 nonvolatile and will not disappear when the device resets
@@ -258,7 +264,7 @@ bool jswrap_storage_write(JsVar *name, JsVar *data, JsVarInt offset, JsVarInt _s
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -268,7 +274,8 @@ bool jswrap_storage_write(JsVar *name, JsVar *data, JsVarInt offset, JsVarInt _s
     ["name","JsVar","The filename - max 28 characters (case sensitive)"],
     ["data","JsVar","The JSON data to write"]
   ],
-  "return" : ["bool","True on success, false on failure"]
+  "return" : ["bool","True on success, false on failure"],
+  "typedef": "static writeJSON(name: any, data: any): boolean"
 }
 Write/create a file in the flash storage area. This is
 nonvolatile and will not disappear when the device resets
@@ -289,7 +296,7 @@ bool jswrap_storage_writeJSON(JsVar *name, JsVar *data) {
   return r;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Storage",
   "name" : "list",
@@ -298,7 +305,8 @@ bool jswrap_storage_writeJSON(JsVar *name, JsVar *data) {
     ["regex","JsVar","(optional) If supplied, filenames are checked against this regular expression (with `String.match(regexp)`) to see if they match before being returned"],
     ["filter","JsVar","(optional) If supplied, File Types are filtered based on this: `{sf:true}` or `{sf:false}` for whether to show StorageFile"]
   ],
-  "return" : ["JsVar","An array of filenames"]
+  "return" : ["JsVar","An array of filenames"],
+  "typedef": "static list(regex: any, filter: any): any"
 }
 List all files in the flash storage area. An array of Strings is returned.
 
@@ -334,7 +342,7 @@ JsVar *jswrap_storage_list(JsVar *regex, JsVar *filter) {
   return jsfListFiles(regex, containing, notContaining);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -343,7 +351,8 @@ JsVar *jswrap_storage_list(JsVar *regex, JsVar *filter) {
   "params" : [
     ["regex","JsVar","(optional) If supplied, filenames are checked against this regular expression (with `String.match(regexp)`) to see if they match before being hashed"]
   ],
-  "return" : ["int","A hash of the files matching"]
+  "return" : ["int","A hash of the files matching"],
+  "typedef": "static hash(regex: any): number"
 }
 List all files in the flash storage area matching the specfied regex (ignores StorageFiles),
 and then hash their filenames *and* file locations.
@@ -367,12 +376,13 @@ JsVarInt jswrap_storage_hash(JsVar *regex) {
   return jsfHashFiles(regex, 0, JSFF_STORAGEFILE);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
   "name" : "compact",
-  "generate" : "jswrap_storage_compact"
+  "generate" : "jswrap_storage_compact",
+  "typedef": "static compact(): void"
 }
 The Flash Storage system is journaling. To make the most of the limited
 write cycles of Flash memory, Espruino marks deleted/replaced files as
@@ -394,12 +404,13 @@ void jswrap_storage_compact() {
   jsfCompact();
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifdef" : "DEBUG",
   "class" : "Storage",
   "name" : "debug",
-  "generate" : "jswrap_storage_debug"
+  "generate" : "jswrap_storage_debug",
+  "typedef": "static debug(): void"
 }
 This writes information about all blocks in flash
 memory to the console - and is only useful for debugging
@@ -409,13 +420,14 @@ void jswrap_storage_debug() {
   jsfDebugFiles();
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
   "name" : "getFree",
   "generate" : "jswrap_storage_getFree",
-  "return" : ["int","The amount of free bytes"]
+  "return" : ["int","The amount of free bytes"],
+  "typedef": "static getFree(): number"
 }
 Return the amount of free bytes available in
 Storage. Due to fragmentation there may be more
@@ -426,13 +438,14 @@ int jswrap_storage_getFree() {
   return (int)jsfGetStorageStats(0,true).free;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
   "name" : "getStats",
   "generate" : "jswrap_storage_getStats",
-  "return" : ["JsVar","An object containing info about the current Storage system"]
+  "return" : ["JsVar","An object containing info about the current Storage system"],
+  "typedef": "static getStats(): any"
 }
 Returns:
 
@@ -460,7 +473,7 @@ JsVar *jswrap_storage_getStats() {
   return o;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Storage",
@@ -471,7 +484,8 @@ JsVar *jswrap_storage_getStats() {
     ["mode","JsVar","The open mode - must be either `'r'` for read,`'w'` for write , or `'a'` for append"]
   ],
   "return" : ["JsVar","An object containing {read,write,erase}"],
-  "return_object" : "StorageFile"
+  "return_object" : "StorageFile",
+  "typedef": "static open(name: any, mode: any): StorageFile"
 }
 Open a file in the Storage area. This can be used for appending data
 (normal read/write operations only write the entire file).

@@ -125,12 +125,13 @@ E.on('touch',t=>{
 ```
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "getTemperature",
   "generate" : "jswrap_espruino_getTemperature",
   "return" : ["float","The temperature in degrees C"],
+  "typedef": "static getTemperature(): number",
   "typedef": "static getTemperature(): number"
 }
 Use the microcontroller's internal thermistor to work out the temperature.
@@ -149,13 +150,14 @@ JsVarFloat jswrap_espruino_getTemperature() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
   "name" : "getAnalogVRef",
   "generate_full" : "jshReadVRef()",
   "return" : ["float","The voltage (in Volts) that a reading of 1 from `analogRead` actually represents - usually around 3.3v"],
+  "typedef": "static getAnalogVRef(): number",
   "typedef": "static getAnalogVRef(): number"
 }
 Check the internal voltage reference. To work out an actual voltage of an input pin, you can use `analogRead(pin)*E.getAnalogVRef()`
@@ -187,7 +189,7 @@ int nativeCallGetCType() {
   return -1; // unknown
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -199,7 +201,8 @@ int nativeCallGetCType() {
     ["data","JsVar","(Optional) A string containing the function itself. If not supplied then 'addr' is used as an absolute address."]
   ],
   "return" : ["JsVar","The native function"],
-  "typedef": "static nativeCall(addr: number, sig: string, data?: string): Function"
+  "typedef": "static nativeCall(addr: number, sig: string, data?: string): Function",
+  "typedef": "static nativeCall(addr: number, sig: any, data: any): any"
 }
 ADVANCED: This is a great way to crash Espruino if you're not sure what you are doing
 
@@ -256,7 +259,7 @@ JsVar *jswrap_espruino_nativeCall(JsVarInt addr, JsVar *signature, JsVar *data) 
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -267,7 +270,8 @@ JsVar *jswrap_espruino_nativeCall(JsVarInt addr, JsVar *signature, JsVar *data) 
     ["min","float","The smallest the value should be"],
     ["max","float","The largest the value should be"]
   ],
-  "return" : ["float","The value of x, clipped so as not to be below min or above max."]
+  "return" : ["float","The value of x, clipped so as not to be below min or above max."],
+  "typedef": "static clip(x: number, min: number, max: number): number"
 }
 Clip a number to be between min and max (inclusive)
  */
@@ -278,7 +282,7 @@ JsVarFloat jswrap_espruino_clip(JsVarFloat x, JsVarFloat min, JsVarFloat max) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -287,7 +291,8 @@ JsVarFloat jswrap_espruino_clip(JsVarFloat x, JsVarFloat min, JsVarFloat max) {
   "params" : [
     ["arr","JsVar","The array to sum"]
   ],
-  "return" : ["float","The sum of the given buffer"]
+  "return" : ["float","The sum of the given buffer"],
+  "typedef": "static sum(arr: any): number"
 }
 Sum the contents of the given Array, String or ArrayBuffer and return the result
  */
@@ -308,7 +313,7 @@ JsVarFloat jswrap_espruino_sum(JsVar *arr) {
   return sum;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -318,7 +323,8 @@ JsVarFloat jswrap_espruino_sum(JsVar *arr) {
     ["arr","JsVar","The array to work out the variance for"],
     ["mean","float","The mean value of the array"]
   ],
-  "return" : ["float","The variance of the given buffer"]
+  "return" : ["float","The variance of the given buffer"],
+  "typedef": "static variance(arr: any, mean: number): number"
 }
 Work out the variance of the contents of the given Array, String or ArrayBuffer and return the result. This is equivalent to `v=0;for (i in arr) v+=Math.pow(mean-arr[i],2)`
  */
@@ -341,7 +347,7 @@ JsVarFloat jswrap_espruino_variance(JsVar *arr, JsVarFloat mean) {
   return variance;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -352,7 +358,8 @@ JsVarFloat jswrap_espruino_variance(JsVar *arr, JsVarFloat mean) {
     ["arr2","JsVar","An array to convolve"],
     ["offset","int32","The mean value of the array"]
   ],
-  "return" : ["float","The variance of the given buffer"]
+  "return" : ["float","The variance of the given buffer"],
+  "typedef": "static convolve(arr1: any, arr2: any, offset: int32): number"
 }
 Convolve arr1 with arr2. This is equivalent to `v=0;for (i in arr1) v+=arr1[i] * arr2[(i+offset) % arr2.length]`
  */
@@ -475,7 +482,7 @@ short FFT(short int dir,long m,FFTDATATYPE *x,FFTDATATYPE *y)
   return(TRUE);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -485,7 +492,8 @@ short FFT(short int dir,long m,FFTDATATYPE *x,FFTDATATYPE *y)
     ["arrReal","JsVar","An array of real values"],
     ["arrImage","JsVar","An array of imaginary values (or if undefined, all values will be taken to be 0)"],
     ["inverse","bool","Set this to true if you want an inverse FFT - otherwise leave as 0"]
-  ]
+  ],
+  "typedef": "static FFT(arrReal: any, arrImage: any, inverse: boolean): void"
 }
 Performs a Fast Fourier Transform (FFT) in 32 bit floats on the supplied data and writes it back into the
 original arrays. Note that if only one array is supplied, the data written back is the modulus of the complex
@@ -568,7 +576,7 @@ void jswrap_espruino_FFT(JsVar *arrReal, JsVar *arrImag, bool inverse) {
     _jswrap_espruino_FFT_setData(arrImag, vImag, 0, pow2);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -577,7 +585,8 @@ void jswrap_espruino_FFT(JsVar *arrReal, JsVar *arrImag, bool inverse) {
   "params" : [
     ["timeout","float","The timeout in seconds before a watchdog reset"],
     ["isAuto","JsVar","If undefined or true, the watchdog is kicked automatically. If not, you must call `E.kickWatchdog()` yourself"]
-  ]
+  ],
+  "typedef": "static enableWatchdog(timeout: number, isAuto: any): void"
 }
 Enable the watchdog timer. This will reset Espruino if it isn't able to return to the idle loop within the timeout.
 
@@ -613,12 +622,13 @@ void jswrap_espruino_enableWatchdog(JsVarFloat time, JsVar *isAuto) {
   jshEnableWatchDog(time);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
   "name" : "kickWatchdog",
-  "generate" : "jswrap_espruino_kickWatchdog"
+  "generate" : "jswrap_espruino_kickWatchdog",
+  "typedef": "static kickWatchdog(): void"
 }
 Kicks a Watchdog timer set up with `E.enableWatchdog(..., false)`. See
 `E.enableWatchdog` for more information.
@@ -644,14 +654,15 @@ JsVar *jswrap_espruino_getErrorFlagArray(JsErrorFlags flags) {
   return arr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
   "name" : "getErrorFlags",
   "generate" : "jswrap_espruino_getErrorFlags",
   "return" : ["JsVar","An array of error flags"],
-  "typedef": "static getErrorFlags(): ('FIFO_FULL' | 'BUFFER_FULL' | 'CALLBACK' | 'LOW_MEMORY' | 'MEMORY' | 'UART_OVERFLOW')[]"
+  "typedef": "static getErrorFlags(): ('FIFO_FULL' | 'BUFFER_FULL' | 'CALLBACK' | 'LOW_MEMORY' | 'MEMORY' | 'UART_OVERFLOW')[]",
+  "typedef": "static getErrorFlags(): any"
 }
 Get and reset the error flags. Returns an array that can contain:
 
@@ -674,12 +685,13 @@ JsVar *jswrap_espruino_getErrorFlags() {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "getFlags",
   "generate" : "jsfGetFlags",
-  "return" : ["JsVar","An object containing flag names and their values"]
+  "return" : ["JsVar","An object containing flag names and their values"],
+  "typedef": "static getFlags(): any"
 }
 Get Espruino's interpreter flags that control the way it handles your JavaScript code.
 
@@ -688,21 +700,22 @@ Get Espruino's interpreter flags that control the way it handles your JavaScript
 * `unsafeFlash` - Some platforms stop writes/erases to interpreter memory to stop you bricking the device accidentally - this removes that protection
 * `unsyncFiles` - When writing files, *don't* flush all data to the SD card after each command (the default is *to* flush). This is much faster, but can cause filesystem damage if power is lost without the filesystem unmounted.
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "setFlags",
   "generate" : "jsfSetFlags",
   "params" : [
     ["flags","JsVar","An object containing flag names and boolean values. You need only specify the flags that you want to change."]
-  ]
+  ],
+  "typedef": "static setFlags(flags: any): void"
 }
 Set the Espruino interpreter flags that control the way it handles your JavaScript code.
 
 Run `E.getFlags()` and check its description for a list of available flags and their values.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "pipe",
@@ -712,10 +725,11 @@ Run `E.getFlags()` and check its description for a list of available flags and t
     ["source","JsVar","The source file/stream that will send content."],
     ["destination","JsVar","The destination file/stream that will receive content from the source."],
     ["options","JsVar",["An optional object `{ chunkSize : int=64, end : bool=true, complete : function }`","chunkSize : The amount of data to pipe from source to destination at a time","complete : a function to call when the pipe activity is complete","end : call the 'end' function on the destination when the source is finished"]]
-  ]
+  ],
+  "typedef": "static pipe(source: any, destination: any, options: any): void"
 }*/
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "toArrayBuffer",
@@ -724,7 +738,8 @@ Run `E.getFlags()` and check its description for a list of available flags and t
     ["str","JsVar","The string to convert to an ArrayBuffer"]
   ],
   "return" : ["JsVar","An ArrayBuffer that uses the given string"],
-  "return_object" : "ArrayBufferView"
+  "return_object" : "ArrayBufferView",
+  "typedef": "static toArrayBuffer(str: any): ArrayBufferView"
 }
 Create an ArrayBuffer from the given string. This is done via a reference, not a copy - so it is very fast and memory efficient.
 
@@ -735,7 +750,7 @@ JsVar *jswrap_espruino_toArrayBuffer(JsVar *str) {
   return jsvNewArrayBufferFromString(str, 0);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "toString",
@@ -744,7 +759,8 @@ JsVar *jswrap_espruino_toArrayBuffer(JsVar *str) {
     ["args","JsVarArray","The arguments to convert to a String"]
   ],
   "return" : ["JsVar","A String (or `undefined` if a Flat String cannot be created)"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "static toString(args: JsVarArray): String"
 }
 Returns a 'flat' string representing the data in the arguments, or return `undefined`
 if a flat string cannot be created.
@@ -800,7 +816,7 @@ JsVar *jswrap_espruino_toString(JsVar *args) {
   return str;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "toUint8Array",
@@ -809,7 +825,8 @@ JsVar *jswrap_espruino_toString(JsVar *args) {
     ["args","JsVarArray","The arguments to convert to a Uint8Array"]
   ],
   "return" : ["JsVar","A Uint8Array"],
-  "return_object" : "Uint8Array"
+  "return_object" : "Uint8Array",
+  "typedef": "static toUint8Array(args: JsVarArray): Uint8Array"
 }
 This creates a Uint8Array from the given arguments. These are handled as follows:
 
@@ -851,7 +868,7 @@ JsVar *jswrap_espruino_toUint8Array(JsVar *args) {
   return arr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "toJS",
@@ -860,7 +877,8 @@ JsVar *jswrap_espruino_toUint8Array(JsVar *args) {
     ["arg","JsVar","The JS variable to convert to a string"]
   ],
   "return" : ["JsVar","A String"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "static toJS(arg: any): String"
 }
 This performs the same basic function as `JSON.stringify`,
 however `JSON.stringify` adds extra characters to conform
@@ -891,7 +909,7 @@ JsVar *jswrap_espruino_toJS(JsVar *v) {
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "memoryArea",
@@ -901,7 +919,8 @@ JsVar *jswrap_espruino_toJS(JsVar *v) {
     ["len","int","The length (in bytes) of the memory area"]
   ],
   "return" : ["JsVar","A String"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "static memoryArea(addr: number, len: number): String"
 }
 This creates and returns a special type of string, which actually references
 a specific memory address. It can be used in order to use sections of
@@ -918,7 +937,7 @@ JsVar *jswrap_espruino_memoryArea(int addr, int len) {
   return jsvNewNativeString((char*)mappedAddr, (size_t)len);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "setBootCode",
@@ -926,7 +945,8 @@ JsVar *jswrap_espruino_memoryArea(int addr, int len) {
   "params" : [
     ["code","JsVar","The code to execute (as a string)"],
     ["alwaysExec","bool","Whether to always execute the code (even after a reset)"]
-  ]
+  ],
+  "typedef": "static setBootCode(code: any, alwaysExec: boolean): void"
 }
 This writes JavaScript code into Espruino's flash memory, to be executed on
 startup. It differs from `save()` in that `save()` saves the whole state of
@@ -951,7 +971,7 @@ void jswrap_espruino_setBootCode(JsVar *code, bool alwaysExec) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -960,7 +980,8 @@ void jswrap_espruino_setBootCode(JsVar *code, bool alwaysExec) {
   "params" : [
     ["options","JsVar","Platform-specific options for setting clock speed"]
   ],
-  "return" : ["int","The actual frequency the clock has been set to"]
+  "return" : ["int","The actual frequency the clock has been set to"],
+  "typedef": "static setClock(options: any): number"
 }
 This sets the clock frequency of Espruino's processor. It will return `0` if
 it is unimplemented or the clock speed cannot be changed.
@@ -1000,7 +1021,7 @@ int jswrap_espruino_setClock(JsVar *options) {
   return (int)jshSetSystemClock(options);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1009,7 +1030,8 @@ int jswrap_espruino_setClock(JsVar *options) {
   "params" : [
     ["device","JsVar",""],
     ["options","JsVar","(optional) object of options, see below"]
-  ]
+  ],
+  "typedef": "static setConsole(device: any, options: any): void"
 }
 Changes the device that the JS console (otherwise known as the REPL)
 is attached to. If the console is on a device, that
@@ -1064,13 +1086,14 @@ void jswrap_espruino_setConsole(JsVar *deviceVar, JsVar *options) {
   jsiSetConsoleDevice(device, force);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "getConsole",
   "generate" : "jswrap_espruino_getConsole",
   "return" : ["JsVar","The current console device as a string, or just `null` if the console is null"]
-
+,
+  "typedef": "static getConsole(): any"
 }
 Returns the current console device - see `E.setConsole` for more information.
 */
@@ -1081,7 +1104,7 @@ JsVar *jswrap_espruino_getConsole() {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1090,7 +1113,8 @@ JsVar *jswrap_espruino_getConsole() {
   "params" : [
     ["x","int32","A byte value to reverse the bits of"]
   ],
-  "return" : ["int32","The byte with reversed bits"]
+  "return" : ["int32","The byte with reversed bits"],
+  "typedef": "static reverseByte(x: int32): int32"
 }
 Reverse the 8 bits in a byte, swapping MSB and LSB.
 
@@ -1105,12 +1129,13 @@ int jswrap_espruino_reverseByte(int v) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "dumpTimers",
   "ifndef" : "SAVE_ON_FLASH",
-  "generate" : "jswrap_espruino_dumpTimers"
+  "generate" : "jswrap_espruino_dumpTimers",
+  "typedef": "static dumpTimers(): void"
 }
 Output the current list of Utility Timer Tasks - for debugging only
  */
@@ -1118,12 +1143,13 @@ void jswrap_espruino_dumpTimers() {
   jstDumpUtilityTimers();
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "dumpLockedVars",
   "ifndef" : "RELEASE",
-  "generate" : "jswrap_espruino_dumpLockedVars"
+  "generate" : "jswrap_espruino_dumpLockedVars",
+  "typedef": "static dumpLockedVars(): void"
 }
 Dump any locked variables that aren't referenced from `global` - for debugging memory leaks only.
 */
@@ -1133,12 +1159,13 @@ void jswrap_espruino_dumpLockedVars() {
 }
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "dumpFreeList",
   "ifndef" : "RELEASE",
-  "generate" : "jswrap_espruino_dumpFreeList"
+  "generate" : "jswrap_espruino_dumpFreeList",
+  "typedef": "static dumpFreeList(): void"
 }
 Dump any locked variables that aren't referenced from `global` - for debugging memory leaks only.
 */
@@ -1148,11 +1175,12 @@ void jswrap_espruino_dumpFreeList() {
 }
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "dumpFragmentation",
-  "generate" : "jswrap_e_dumpFragmentation"
+  "generate" : "jswrap_e_dumpFragmentation",
+  "typedef": "static dumpFragmentation(): void"
 }
 Show fragmentation.
 
@@ -1185,12 +1213,13 @@ void jswrap_e_dumpFragmentation() {
   jsiConsolePrint("\n");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
   "name" : "dumpVariables",
-  "generate" : "jswrap_e_dumpVariables"
+  "generate" : "jswrap_e_dumpVariables",
+  "typedef": "static dumpVariables(): void"
 }
 Dumps a comma-separated list of all allocated variables
 along with the variables they link to. Can be used
@@ -1235,17 +1264,18 @@ void jswrap_e_dumpVariables() {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
   "name" : "defrag",
-  "generate" : "jsvDefragment"
+  "generate" : "jsvDefragment",
+  "typedef": "static defrag(): void"
 }
 BETA: defragment memory!
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1255,7 +1285,8 @@ BETA: defragment memory!
     ["v","JsVar","A variable to get the size of"],
     ["depth","int","The depth that detail should be provided for. If depth<=0 or undefined, a single integer will be returned"]
   ],
-  "return" : ["JsVar","Information about the variable size - see below"]
+  "return" : ["JsVar","Information about the variable size - see below"],
+  "typedef": "static getSizeOf(v: any, depth: number): any"
 }
 Return the number of variable blocks used by the supplied variable. This is
 useful if you're running out of memory and you want to be able to see what
@@ -1316,7 +1347,7 @@ JsVar *jswrap_espruino_getSizeOf(JsVar *v, int depth) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1326,7 +1357,8 @@ JsVar *jswrap_espruino_getSizeOf(JsVar *v, int depth) {
     ["v","JsVar","A variable to get the address of"],
     ["flatAddress","bool","(boolean) If `true` and a Flat String or Flat ArrayBuffer is supplied, return the address of the data inside it - otherwise 0. If `false` (the default) return the address of the JsVar itself."]
   ],
-  "return" : ["int","The address of the given variable"]
+  "return" : ["int","The address of the given variable"],
+  "typedef": "static getAddressOf(v: any, flatAddress: boolean): number"
 }
 Return the address in memory of the given variable. This can then
 be used with `peek` and `poke` functions. However, changing data in
@@ -1346,7 +1378,7 @@ JsVarInt jswrap_espruino_getAddressOf(JsVar *v, bool flatAddress) {
   return (JsVarInt)(size_t)v;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
     "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1357,7 +1389,8 @@ JsVarInt jswrap_espruino_getAddressOf(JsVar *v, bool flatAddress) {
     ["to","JsVar","An ArrayBuffer to write elements too"],
     ["map","JsVar","An array or `function(value,index)` to use to map one element to another, or `undefined` to provide no mapping"],
     ["bits","int","If specified, the number of bits per element (MSB first) - otherwise use a 1:1 mapping. If negative, use LSB first."]
-  ]
+  ],
+  "typedef": "static mapInPlace(from: any, to: any, map: any, bits: number): void"
 }
 Take each element of the `from` array, look it up in `map` (or call `map(value,index)`
 if it is a function), and write it into the corresponding
@@ -1465,7 +1498,7 @@ void jswrap_espruino_mapInPlace(JsVar *from, JsVar *to, JsVar *map, JsVarInt bit
   jsvArrayBufferIteratorFree(&itTo);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "lookupNoCase",
@@ -1475,7 +1508,8 @@ void jswrap_espruino_mapInPlace(JsVar *from, JsVar *to, JsVar *map, JsVarInt bit
     ["needle","JsVar","The key to search for"],
     ["returnKey","bool","If true, return the key, else return the value itself"]
   ],
-  "return" : ["JsVar","The value in the Object matching 'needle', or if `returnKey==true` the key's name - or undefined"]
+  "return" : ["JsVar","The value in the Object matching 'needle', or if `returnKey==true` the key's name - or undefined"],
+  "typedef": "static lookupNoCase(haystack: any, needle: any, returnKey: boolean): any"
 }
 Search in an Object, Array, or Function
  */
@@ -1493,14 +1527,15 @@ JsVar *jswrap_espruino_lookupNoCase(JsVar *haystack, JsVar *needle, bool returnK
   } else return jsvObjectGetChildI(haystack, needleBuf);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
   "name" : "dumpStr",
   "generate" : "jswrap_e_dumpStr",
   "return" : ["JsVar","A String"],
-  "return_object" : "String"
+  "return_object" : "String",
+  "typedef": "static dumpStr(): String"
 }
 Get the current interpreter state in a text form such that it can be copied to a new device
  */
@@ -1514,7 +1549,7 @@ JsVar *jswrap_e_dumpStr() {
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1522,18 +1557,20 @@ JsVar *jswrap_e_dumpStr() {
   "generate" : "srand",
   "params" : [
     ["v","int","The 32 bit integer seed to use for the random number generator"]
-  ]
+  ],
+  "typedef": "static srand(v: number): void"
 }
 Set the seed for the random number generator used by `Math.random()`.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
   "name" : "hwRand",
   "generate" : "jshGetRandomNumber",
-  "return" : ["int32","A random number"]
+  "return" : ["int32","A random number"],
+  "typedef": "static hwRand(): int32"
 }
 Unlike 'Math.random()' which uses a pseudo-random number generator, this
 method reads from the internal voltage reference several times, xoring and
@@ -1541,7 +1578,7 @@ rotating to try and make a relatively random value from the noise in the
 signal.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1550,7 +1587,8 @@ signal.
   "params" : [
     ["data","JsVar","Iterable data to perform CRC32 on (each element treated as a byte)"]
   ],
-  "return" : ["JsVar","The CRC of the supplied data"]
+  "return" : ["JsVar","The CRC of the supplied data"],
+  "typedef": "static CRC32(data: any): any"
 }
 Perform a standard 32 bit CRC (Cyclic redundancy check) on the supplied data (one byte at a time)
 and return the result as an unsigned integer.
@@ -1569,7 +1607,7 @@ JsVar *jswrap_espruino_CRC32(JsVar *data) {
   return jsvNewFromLongInteger(~crc);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1581,7 +1619,8 @@ JsVar *jswrap_espruino_CRC32(JsVar *data) {
     ["bri","float","The brightness, as a value between 0 and 1"],
     ["asArray","bool","If true, return an array of [R,G,B] values betwen 0 and 255"]
   ],
-  "return" : ["JsVar","A 24 bit number containing bytes representing red, green, and blue `0xBBGGRR`. Or if `asArray` is true, an array `[R,G,B]`"]
+  "return" : ["JsVar","A 24 bit number containing bytes representing red, green, and blue `0xBBGGRR`. Or if `asArray` is true, an array `[R,G,B]`"],
+  "typedef": "static HSBtoRGB(hue: number, sat: number, bri: number, asArray: boolean): any"
 }
 Convert hue, saturation and brightness to red, green and blue (packed into an integer if `asArray==false` or an array if `asArray==true`).
 
@@ -1637,14 +1676,15 @@ JsVar *jswrap_espruino_HSBtoRGB(JsVarFloat hue, JsVarFloat sat, JsVarFloat bri, 
   return arr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "setPassword",
   "generate" : "jswrap_espruino_setPassword",
   "params" : [
     ["password","JsVar","The password - max 20 chars"]
-  ]
+  ],
+  "typedef": "static setPassword(password: any): void"
 }
 Set a password on the console (REPL). When powered on, Espruino will
 then demand a password before the console can be used. If you want to
@@ -1666,11 +1706,12 @@ void jswrap_espruino_setPassword(JsVar *pwd) {
   jsvUnLock(jsvObjectSetChild(execInfo.hiddenRoot, PASSWORD_VARIABLE_NAME, pwd));
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "lockConsole",
-  "generate" : "jswrap_espruino_lockConsole"
+  "generate" : "jswrap_espruino_lockConsole",
+  "typedef": "static lockConsole(): void"
 }
 If a password has been set with `E.setPassword()`, this will lock the console
 so the password needs to be entered to unlock it.
@@ -1682,14 +1723,15 @@ void jswrap_espruino_lockConsole() {
   jsvUnLock(pwd);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "setTimeZone",
   "generate" : "jswrap_espruino_setTimeZone",
   "params" : [
     ["zone","float","The time zone in hours"]
-  ]
+  ],
+  "typedef": "static setTimeZone(zone: number): void"
 }
 Set the time zone to be used with `Date` objects.
 
@@ -1702,7 +1744,7 @@ void jswrap_espruino_setTimeZone(JsVarFloat zone) {
       jsvNewFromInteger((int)(zone*60)));
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1712,7 +1754,8 @@ void jswrap_espruino_setTimeZone(JsVarFloat zone) {
     ["baseAddress","JsVar","The base address (added to every address in `registers`)"],
     ["registers","JsVar","An object containing `{name:address}`"]
   ],
-  "return" : ["JsVar","An object where each field is memory-mapped to a register."]
+  "return" : ["JsVar","An object where each field is memory-mapped to a register."],
+  "typedef": "static memoryMap(baseAddress: any, registers: any): any"
 }
 Create an object where every field accesses a specific 32 bit address in the microcontroller's memory. This
 is perfect for accessing on-chip peripherals.
@@ -1741,7 +1784,7 @@ JsVar *jswrap_espruino_memoryMap(JsVar *baseAddress, JsVar *registers) {
   "})",0,2,args);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1750,7 +1793,8 @@ JsVar *jswrap_espruino_memoryMap(JsVar *baseAddress, JsVar *registers) {
   "params" : [
     ["callspec","JsVar","The arguments this assembly takes - eg `void(int)`"],
     ["assemblycode","JsVarArray","One of more strings of assembler code"]
-  ]
+  ],
+  "typedef": "static asm(callspec: any, assemblycode: JsVarArray): void"
 }
 Provide assembly to Espruino.
 
@@ -1766,7 +1810,7 @@ void jswrap_espruino_asm(JsVar *callspec, JsVar *args) {
   jsExceptionHere(JSET_ERROR, "'E.asm' calls should have been replaced by the Espruino tools before upload");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1774,7 +1818,8 @@ void jswrap_espruino_asm(JsVar *callspec, JsVar *args) {
   "generate" : "jswrap_espruino_compiledC",
   "params" : [
     ["code","JsVar","A Templated string of C code"]
-  ]
+  ],
+  "typedef": "static compiledC(code: any): void"
 }
 Provides the ability to write C code inside your JavaScript file.
 
@@ -1790,11 +1835,12 @@ void jswrap_espruino_compiledC(JsVar *code) {
   jsExceptionHere(JSET_ERROR, "'E.compiledC' calls should have been replaced by the Espruino tools before upload");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "reboot",
-  "generate" : "jswrap_espruino_reboot"
+  "generate" : "jswrap_espruino_reboot",
+  "typedef": "static reboot(): void"
 }
 Forces a hard reboot of the microcontroller - as close as possible
 to if the reset pin had been toggled.
@@ -1818,7 +1864,7 @@ void jswrap_espruino_reboot() {
 #ifdef USE_USB_HID
 #include "usbd_cdc_hid.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifdef" : "USE_USB_HID",
   "class" : "E",
@@ -1826,7 +1872,8 @@ void jswrap_espruino_reboot() {
   "generate" : "jswrap_espruino_setUSBHID",
   "params" : [
     ["opts","JsVar","An object containing at least reportDescriptor, an array representing the report descriptor. Pass undefined to disable HID."]
-  ]
+  ],
+  "typedef": "static setUSBHID(opts: any): void"
 }
 USB HID will only take effect next time you unplug and re-plug your Espruino. If you're
 disconnecting it from power you'll have to make sure you have `save()`d after calling
@@ -1855,7 +1902,7 @@ void jswrap_espruino_setUSBHID(JsVar *arr) {
   jsvObjectSetChildAndUnLock(execInfo.hiddenRoot, JS_USB_HID_VAR_NAME, s);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifdef" : "USE_USB_HID",
   "class" : "E",
@@ -1864,7 +1911,8 @@ void jswrap_espruino_setUSBHID(JsVar *arr) {
   "params" : [
     ["data","JsVar","An array of bytes to send as a USB HID packet"]
   ],
-  "return" : ["bool","1 on success, 0 on failure"]
+  "return" : ["bool","1 on success, 0 on failure"],
+  "typedef": "static sendUSBHID(data: any): boolean"
 }
  */
 bool jswrap_espruino_sendUSBHID(JsVar *arr) {
@@ -1878,13 +1926,14 @@ bool jswrap_espruino_sendUSBHID(JsVar *arr) {
 #endif
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "#if" : "defined(PUCKJS) || defined(PIXLJS) || defined(BANGLEJS)",
   "class" : "E",
   "name" : "getBattery",
   "generate" : "jswrap_espruino_getBattery",
-  "return" : ["int","A percentage between 0 and 100"]
+  "return" : ["int","A percentage between 0 and 100"],
+  "typedef": "static getBattery(): number"
 }
 In devices that come with batteries, this function returns
 the battery charge percentage as an integer between 0 and 100.
@@ -1903,7 +1952,7 @@ JsVarInt jswrap_espruino_getBattery() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "#if" : "defined(PICO) || defined(ESPRUINOWIFI) || defined(ESPRUINOBOARD)",
   "class" : "E",
@@ -1911,7 +1960,8 @@ JsVarInt jswrap_espruino_getBattery() {
   "generate" : "jswrap_espruino_setRTCPrescaler",
   "params" : [
     ["prescaler","int","The amount of counts for one second of the RTC - this is a 15 bit integer value (0..32767)"]
-  ]
+  ],
+  "typedef": "static setRTCPrescaler(prescaler: number): void"
 }
 Sets the RTC's prescaler's maximum value. This is the counter that counts up on each oscillation of the low
 speed oscillator. When the prescaler counts to the value supplied, one second is deemed to have passed.
@@ -1958,7 +2008,7 @@ void jswrap_espruino_setRTCPrescaler(int prescale) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "#if" : "defined(PICO) || defined(ESPRUINOWIFI) || defined(ESPRUINOBOARD)",
   "class" : "E",
@@ -1967,7 +2017,8 @@ void jswrap_espruino_setRTCPrescaler(int prescale) {
   "params" : [
     ["calibrate","bool","If `false`, the current value. If `true`, the calculated 'correct' value"]
   ],
-  "return" : ["int","The RTC prescaler's current value"]
+  "return" : ["int","The RTC prescaler's current value"],
+  "typedef": "static getRTCPrescaler(calibrate: boolean): number"
 }
 Gets the RTC's current prescaler value if `calibrate` is undefined or false.
 
@@ -1985,7 +2036,7 @@ int jswrap_espruino_getRTCPrescaler(bool calibrate) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "E",
@@ -1996,7 +2047,8 @@ int jswrap_espruino_getRTCPrescaler(bool calibrate) {
     ["lookup","JsVar","An array containing a mapping of character code -> replacement string"],
     ["replaceFn","JsVar","If not in lookup, `replaceFn(charCode)` is called and the result used if it's a function, *or* if it's a string, the string value is used"]
   ],
-  "return" : ["JsVar","A string containing all UTF8 sequences flattened to 8 bits"]
+  "return" : ["JsVar","A string containing all UTF8 sequences flattened to 8 bits"],
+  "typedef": "static decodeUTF8(str: any, lookup: any, replaceFn: any): any"
 }
 Decode a UTF8 string.
 

@@ -29,7 +29,7 @@
 Class containing utility functions for the Seeed WIO LTE board
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "WioLTE",
     "name" : "LED",
@@ -38,7 +38,8 @@ Class containing utility functions for the Seeed WIO LTE board
       ["red","int","0-255, red LED intensity"],
       ["green","int","0-255, green LED intensity"],
       ["blue","int","0-255, blue LED intensity"]
-    ]
+    ],
+    "typedef": "static LED(red: number, green: number, blue: number): void"
 }
 Set the WIO's LED
 */
@@ -53,14 +54,15 @@ void jswrap_wio_lte_led(int r, int g, int b) {
   stm32_neopixelWrite(JSH_PORTB_OFFSET+1, rgb, 3);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "WioLTE",
     "name" : "setGrovePower",
     "generate" : "jswrap_wio_lte_setGrovePower",
     "params" : [
       ["onoff","bool","Whether to turn the Grove connectors power on or off (D38/D39 are always powered)"]
-    ]
+    ],
+    "typedef": "static setGrovePower(onoff: boolean): void"
 }
 Set the power of Grove connectors, except for `D38` and `D39` which are always on.
 */
@@ -68,14 +70,15 @@ void jswrap_wio_lte_setGrovePower(bool pwr) {
   jshPinOutput(JSH_PORTB_OFFSET+10, pwr);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "WioLTE",
     "name" : "setLEDPower",
     "generate" : "jswrap_wio_lte_setLEDPower",
     "params" : [
       ["onoff","bool","true = on, false = off"]
-    ]
+    ],
+    "typedef": "static setLEDPower(onoff: boolean): void"
 }
 Turn power to the WIO's LED on or off.
 

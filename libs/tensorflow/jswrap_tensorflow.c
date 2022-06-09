@@ -40,7 +40,7 @@ void *jswrap_tfmicrointerpreter_getTFMI(JsVar *parent) {
   return tfPtr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "tensorflow",
   "name" : "create",
@@ -50,7 +50,8 @@ void *jswrap_tfmicrointerpreter_getTFMI(JsVar *parent) {
     ["model","JsVar","The model to use - this should be a flat array/string"]
   ],
   "return" : ["JsVar","A tensorflow instance"],
-  "return_object" : "TFMicroInterpreter"
+  "return_object" : "TFMicroInterpreter",
+  "typedef": "static create(arenaSize: number, model: any): TFMicroInterpreter"
 }
 */
 JsVar *jswrap_tensorflow_create(int arena_size, JsVar *model) {

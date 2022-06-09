@@ -140,7 +140,7 @@ extern uint32_t app_ram_base;
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "process",
   "name" : "memory",
@@ -148,7 +148,8 @@ extern uint32_t app_ram_base;
   "params" : [
     ["gc","JsVar","An optional boolean. If `undefined` or `true` Garbage collection is performed, if `false` it is not"]
   ],
-  "return" : ["JsVar","Information about memory usage"]
+  "return" : ["JsVar","Information about memory usage"],
+  "typedef": "static memory(gc: any): any"
 }
 Run a Garbage Collection pass, and return an object containing information on memory usage.
 

@@ -69,7 +69,7 @@ This class helps to convert URLs into Objects of information ready for http.requ
 */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "url",
   "name" : "parse",
@@ -78,7 +78,8 @@ This class helps to convert URLs into Objects of information ready for http.requ
     ["urlStr","JsVar","A URL to be parsed"],
     ["parseQuery","bool","Whether to parse the query string into an object not (default = false)"]
   ],
-  "return" : ["JsVar","An object containing options for ```http.request``` or ```http.get```. Contains `method`, `host`, `path`, `pathname`, `search`, `port` and `query`"]
+  "return" : ["JsVar","An object containing options for ```http.request``` or ```http.get```. Contains `method`, `host`, `path`, `pathname`, `search`, `port` and `query`"],
+  "typedef": "static parse(urlStr: any, parseQuery: boolean): any"
 }
 A utility function to split a URL into parts
 
@@ -338,7 +339,7 @@ An event that is fired when the buffer is empty and it can accept more data to s
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "net",
   "name" : "createServer",
@@ -347,7 +348,8 @@ An event that is fired when the buffer is empty and it can accept more data to s
     ["callback","JsVar","A `function(connection)` that will be called when a connection is made"]
   ],
   "return" : ["JsVar","Returns a new Server Object"],
-  "return_object" : "Server"
+  "return_object" : "Server",
+  "typedef": "static createServer(callback: any): Server"
 }
 Create a Server
 
@@ -367,7 +369,7 @@ JsVar *jswrap_net_createServer(JsVar *callback) {
 
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "net",
   "name" : "connect",
@@ -377,7 +379,8 @@ JsVar *jswrap_net_createServer(JsVar *callback) {
     ["callback","JsVar","A `function(sckt)` that will be called  with the socket when a connection is made. You can then call `sckt.write(...)` to send data, and `sckt.on('data', function(data) { ... })` and `sckt.on('close', function() { ... })` to deal with the response."]
   ],
   "return" : ["JsVar","Returns a new net.Socket object"],
-  "return_object" : "Socket"
+  "return_object" : "Socket",
+  "typedef": "static connect(options: any, callback: any): Socket"
 }
 Create a TCP socket connection
 */
@@ -444,7 +447,7 @@ In order to use this, you will need an extra module to get network connectivity.
 This is designed to be a cut-down version of the [node.js library](http://nodejs.org/api/dgram.html). Please see the [Internet](/Internet) page for more information on how to use it.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "dgram",
   "name" : "createSocket",
@@ -454,7 +457,8 @@ This is designed to be a cut-down version of the [node.js library](http://nodejs
     ["callback","JsVar","A `function(sckt)` that will be called  with the socket when a connection is made. You can then call `sckt.send(...)` to send data, and `sckt.on('message', function(data) { ... })` and `sckt.on('close', function() { ... })` to deal with the response."]
   ],
   "return" : ["JsVar","Returns a new dgram.Socket object"],
-  "return_object" : "dgramSocket"
+  "return_object" : "dgramSocket",
+  "typedef": "static createSocket(type: any, callback: any): dgramSocket"
 }
 Create a UDP socket
 */
@@ -622,7 +626,7 @@ In order to use this, you will need an extra module to get network connectivity.
 This is designed to be a cut-down version of the [node.js library](http://nodejs.org/api/tls.html). Please see the [Internet](/Internet) page for more information on how to use it.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "tls",
   "name" : "connect",
@@ -633,7 +637,8 @@ This is designed to be a cut-down version of the [node.js library](http://nodejs
   ],
   "return" : ["JsVar","Returns a new net.Socket object"],
   "return_object" : "Socket",
-  "ifdef" : "USE_TLS"
+  "ifdef" : "USE_TLS",
+  "typedef": "static connect(options: any, callback: any): Socket"
 }
 Create a socket connection using TLS
 

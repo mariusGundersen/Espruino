@@ -301,7 +301,7 @@ Pipe this to a stream (an object with a 'write' method)
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "http",
   "name" : "createServer",
@@ -310,7 +310,8 @@ Pipe this to a stream (an object with a 'write' method)
     ["callback","JsVar","A function(request,response) that will be called when a connection is made"]
   ],
   "return" : ["JsVar","Returns a new httpSrv object"],
-  "return_object" : "httpSrv"
+  "return_object" : "httpSrv",
+  "typedef": "static createServer(callback: any): httpSrv"
 }
 Create an HTTP Server
 
@@ -328,7 +329,7 @@ JsVar *jswrap_http_createServer(JsVar *callback) {
   return serverNew(ST_HTTP, callback);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "http",
   "name" : "request",
@@ -338,7 +339,8 @@ JsVar *jswrap_http_createServer(JsVar *callback) {
     ["callback","JsVar","A function(res) that will be called when a connection is made. You can then call `res.on('data', function(data) { ... })` and `res.on('close', function() { ... })` to deal with the response."]
   ],
   "return" : ["JsVar","Returns a new httpCRq object"],
-  "return_object" : "httpCRq"
+  "return_object" : "httpCRq",
+  "typedef": "static request(options: any, callback: any): httpCRq"
 }
 Create an HTTP Request - `end()` must be called on it to complete the operation. `options` is of the form:
 
@@ -372,7 +374,7 @@ more information about these and how to use them.
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "http",
   "name" : "get",
@@ -382,7 +384,8 @@ more information about these and how to use them.
     ["callback","JsVar","A function(res) that will be called when a connection is made. You can then call `res.on('data', function(data) { ... })` and `res.on('close', function() { ... })` to deal with the response."]
   ],
   "return" : ["JsVar","Returns a new httpCRq object"],
-  "return_object" : "httpCRq"
+  "return_object" : "httpCRq",
+  "typedef": "static get(options: any, callback: any): httpCRq"
 }
 Request a webpage over HTTP - a convenience function for `http.request()` that makes sure the HTTP command is 'GET', and that calls `end` automatically.
 

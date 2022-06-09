@@ -108,7 +108,7 @@ bool jsfsInit() {
   return true;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "connectSDCard",
@@ -117,7 +117,8 @@ bool jsfsInit() {
   "params" : [
     ["spi","JsVar","The SPI object to use for communication"],
     ["csPin","pin","The pin to use for Chip Select"]
-  ]
+  ],
+  "typedef": "static connectSDCard(spi: any, csPin: Pin): void"
 }
 Setup the filesystem so that subsequent calls to `E.openFile` and `require('fs').*` will use an SD card on the supplied SPI device and pin.
 
@@ -222,11 +223,12 @@ void jswrap_file_kill() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "unmountSD",
-  "generate" : "jswrap_E_unmountSD"
+  "generate" : "jswrap_E_unmountSD",
+  "typedef": "static unmountSD(): void"
 }
 Unmount the SD card, so it can be removed. If you remove the SD card without calling this you may cause corruption, and you will be unable to access another SD card until you reset Espruino or call `E.unmountSD()`.
 */
@@ -254,7 +256,7 @@ static bool allocateJsFile(JsFile* file,FileMode mode, FileType type) {
   return true;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "openFile",
@@ -264,7 +266,8 @@ static bool allocateJsFile(JsFile* file,FileMode mode, FileType type) {
     ["mode","JsVar","The mode to use when opening the file. Valid values for mode are 'r' for read, 'w' for write new, 'w+' for write existing, and 'a' for append. If not specified, the default is 'r'."]
   ],
   "return" : ["JsVar","A File object"],
-  "return_object" : "File"
+  "return_object" : "File",
+  "typedef": "static openFile(path: any, mode: any): File"
 }
 Open a file
 */
@@ -588,7 +591,7 @@ Pipe this file to a stream (an object with a 'write' method)
 
 #ifdef USE_FLASHFS
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "E",
   "name" : "flashFatFS",
@@ -597,7 +600,8 @@ Pipe this file to a stream (an object with a 'write' method)
    "params" : [
     ["options","JsVar",["An optional object `{ addr : int=0x300000, sectors : int=256, format : bool=false }`","addr : start address in flash","sectors: number of sectors to use","format:  Format the media"]]
   ],
-  "return" : ["bool","True on success, or false on failure"]
+  "return" : ["bool","True on success, or false on failure"],
+  "typedef": "static flashFatFS(options: any): boolean"
 }
 Change the paramters used for the flash filesystem.
 The default address is the last 1Mb of 4Mb Flash, 0x300000, with total size of 1Mb.

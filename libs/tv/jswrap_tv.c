@@ -36,7 +36,7 @@ See the [Television](/Television) page for more information.
 
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "tv",
   "name" : "setup",
@@ -45,7 +45,8 @@ See the [Television](/Television) page for more information.
     ["options","JsVar","Various options for the TV output"],
     ["width","int",""]
   ],
-  "return" : ["JsVar","A graphics object"]
+  "return" : ["JsVar","A graphics object"],
+  "typedef": "static setup(options: any, width: number): any"
 }
 This initialises the TV output. Options for PAL are as follows:
 

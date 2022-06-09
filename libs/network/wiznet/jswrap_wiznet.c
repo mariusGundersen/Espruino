@@ -71,7 +71,7 @@ uint8_t wizchip_read() {
 }
 Library for communication with the WIZnet Ethernet module
 */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "WIZnet",
   "ifdef" : "USE_WIZNET",
@@ -82,7 +82,8 @@ Library for communication with the WIZnet Ethernet module
     ["cs", "pin", "The pin to use for Chip Select"]
   ],
   "return" : ["JsVar","An Ethernet Object"],
-  "return_object" : "Ethernet"
+  "return_object" : "Ethernet",
+  "typedef": "static connect(spi: any, cs: Pin): Ethernet"
 }
 Initialise the WIZnet module and return an Ethernet object
 */

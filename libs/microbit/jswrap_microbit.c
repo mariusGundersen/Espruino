@@ -577,23 +577,25 @@ Class containing [micro:bit's](https://www.espruino.com/MicroBit) utility functi
 }
 Called when the Micro:bit is moved in a deliberate fashion, and includes data on the detected gesture.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "mag",
   "ifdef" : "MICROBIT",
   "generate" : "jswrap_microbit_compass",
-  "return" : ["JsVar", "An Object `{x,y,z}` of magnetometer readings as integers" ]
+  "return" : ["JsVar", "An Object `{x,y,z}` of magnetometer readings as integers" ],
+  "typedef": "static mag(): any"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "accel",
   "ifdef" : "MICROBIT",
   "generate" : "jswrap_microbit_acceleration",
-  "return" : ["JsVar", "An Object `{x,y,z}` of acceleration readings in G" ]
+  "return" : ["JsVar", "An Object `{x,y,z}` of acceleration readings in G" ],
+  "typedef": "static accel(): any"
 }*/
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "accelWr",
@@ -602,7 +604,8 @@ Called when the Micro:bit is moved in a deliberate fashion, and includes data on
      ["addr","int","Accelerometer address"],
      ["data","int","Data to write"]
   ],
-  "ifdef" : "MICROBIT2"
+  "ifdef" : "MICROBIT2",
+  "typedef": "static accelWr(addr: number, data: number): void"
 }
 **Note:** This function is only available on the [BBC micro:bit](/MicroBit) board
 
@@ -622,12 +625,13 @@ void jswrap_microbit_accelWr(int a, int data) {
 }
 
 #ifdef MICROBIT2
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "accelOn",
   "generate" : "jswrap_microbit_accelOn",
-  "ifdef" : "MICROBIT2"
+  "ifdef" : "MICROBIT2",
+  "typedef": "static accelOn(): void"
 }
 Turn on the accelerometer, and create `Microbit.accel` and `Microbit.gesture` events.
 
@@ -642,12 +646,13 @@ void jswrap_microbit_accelOn() {
   jswrap_microbit_accelHandler();
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Microbit",
   "name" : "accelOff",
   "generate" : "jswrap_microbit_accelOff",
-  "ifdef" : "MICROBIT2"
+  "ifdef" : "MICROBIT2",
+  "typedef": "static accelOff(): void"
 }
 Turn off events from  the accelerometer (started with `Microbit.accelOn`)
 */
@@ -658,7 +663,7 @@ void jswrap_microbit_accelOff() {
   jshPinSetState(INTERNAL_INT_PIN, JSHPINSTATE_GPIO_IN);
 }
 #endif
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Microbit",
     "name" : "play",
@@ -668,11 +673,12 @@ void jswrap_microbit_accelOff() {
       ["samplesPerSecond","JsVar","The number of samples per second for playback default is 4000"],
       ["callback","JsVar","A function to call when playback is finished"]
     ],
-    "ifdef" : "MICROBIT2"
+    "ifdef" : "MICROBIT2",
+    "typedef": "static play(waveform: any, samplesPerSecond: any, callback: any): void"
 }
 Play a waveform on the Micro:bit's speaker
 */
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Microbit",
     "name" : "record",
@@ -682,7 +688,8 @@ Play a waveform on the Micro:bit's speaker
       ["callback","JsVar","A function to call with the result of recording (unsigned 8 bit ArrayBuffer)"],
       ["samples","JsVar","[optional] How many samples to record (6000 default)"]
     ],
-    "ifdef" : "MICROBIT2"
+    "ifdef" : "MICROBIT2",
+    "typedef": "static record(samplesPerSecond: any, callback: any, samples: any): void"
 }
 Records sound from the micro:bit's onboard microphone and returns the result
 */

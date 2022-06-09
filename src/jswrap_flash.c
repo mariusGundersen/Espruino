@@ -43,7 +43,7 @@ reported by `process.memory()`.
 'bricking' your device be damaging the bootloader. You can disable these with `E.setFlags({unsafeFlash:1})`
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Flash",
@@ -52,7 +52,8 @@ reported by `process.memory()`.
   "params" : [
     ["addr","int","An address in memory"]
   ],
-  "return" : ["JsVar","An object of the form `{ addr : #, length : #}`, where `addr` is the start address of the page, and `length` is the length of it (in bytes). Returns undefined if no page at address"]
+  "return" : ["JsVar","An object of the form `{ addr : #, length : #}`, where `addr` is the start address of the page, and `length` is the length of it (in bytes). Returns undefined if no page at address"],
+  "typedef": "static getPage(addr: number): any"
 }
 Returns the start and length of the flash page containing the given address.
  */
@@ -67,13 +68,14 @@ JsVar *jswrap_flash_getPage(int addr) {
   return obj;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
     "ifndef" : "SAVE_ON_FLASH",
   "class"    : "Flash",
   "name"     : "getFree",
   "generate" : "jswrap_flash_getFree",
-  "return"   : ["JsVar", "Array of objects with `addr` and `length` properties"]
+  "return"   : ["JsVar", "Array of objects with `addr` and `length` properties"],
+  "typedef": "static getFree(): any"
 }
 This method returns an array of objects of the form `{addr : #, length : #}`, representing
 contiguous areas of flash memory in the chip that are not used for anything.
@@ -88,7 +90,7 @@ JsVar *jswrap_flash_getFree() {
   return arr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Flash",
@@ -96,7 +98,8 @@ JsVar *jswrap_flash_getFree() {
   "generate" : "jswrap_flash_erasePage",
   "params" : [
     ["addr","JsVar","An address in the page that is to be erased"]
-  ]
+  ],
+  "typedef": "static erasePage(addr: any): void"
 }
 Erase a page of flash memory
  */
@@ -108,7 +111,7 @@ void jswrap_flash_erasePage(JsVar *addr) {
   jshFlashErasePage((uint32_t)jsvGetInteger(addr));
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Flash",
@@ -117,7 +120,8 @@ void jswrap_flash_erasePage(JsVar *addr) {
   "params" : [
     ["data","JsVar","The data to write"],
     ["addr","int","The address to start writing from"]
-  ]
+  ],
+  "typedef": "static write(data: any, addr: number): void"
 }
 Write data into memory at the given address
 
@@ -138,7 +142,7 @@ void jswrap_flash_write(JsVar *data, int addr) {
     jshFlashWriteAligned(flashData, (unsigned int)addr, (unsigned int)flashDataLen);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "Flash",
@@ -148,7 +152,8 @@ void jswrap_flash_write(JsVar *data, int addr) {
     ["length","int","The amount of data to read (in bytes)"],
     ["addr","int","The address to start reading from"]
   ],
-  "return" : ["JsVar","A Uint8Array of data"]
+  "return" : ["JsVar","A Uint8Array of data"],
+  "typedef": "static read(length: number, addr: number): any"
 }
 Read flash memory from the given address
  */

@@ -89,7 +89,7 @@ passed to the `data` handler.
  */
 // this is created in jsiIdle based on EV_SERIALx_STATUS ecents
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Serial",
   "name" : "find",
@@ -97,7 +97,8 @@ passed to the `data` handler.
   "params" : [
     ["pin","pin","A pin to search with"]
   ],
-  "return" : ["JsVar","An object of type `Serial`, or `undefined` if one couldn't be found."]
+  "return" : ["JsVar","An object of type `Serial`, or `undefined` if one couldn't be found."],
+  "typedef": "static find(pin: Pin): any"
 }
 Try and find a USART (Serial) hardware device that will work on this pin (eg. `Serial1`)
 

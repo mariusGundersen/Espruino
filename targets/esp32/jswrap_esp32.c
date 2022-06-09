@@ -42,7 +42,7 @@
 Class containing utility functions for the [ESP32](http://www.espruino.com/ESP32)
 */
 
-/*JSON{  //TODO
+/*JSON{
  "type"     : "staticmethod",
  "class"    : "ESP32",
  "ifdef" : "ESP32",
@@ -51,19 +51,21 @@ Class containing utility functions for the [ESP32](http://www.espruino.com/ESP32
  "params"   : [
    ["pin", "pin", "Pin for Analog read"],
    ["atten", "int", "Attenuate factor"]
- ]
+ ],
+ "typedef": "static setAtten(pin: Pin, atten: number): void"
 }*/
 void jswrap_ESP32_setAtten(Pin pin,int atten){
   printf("Atten:%d\n",atten);
   rangeADC(pin, atten);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "ESP32",
   "ifdef" : "ESP32",
   "name"     : "reboot",
-  "generate" : "jswrap_ESP32_reboot"
+  "generate" : "jswrap_ESP32_reboot",
+  "typedef": "static reboot(): void"
 }
 Perform a hardware reset/reboot of the ESP32.
 */
@@ -72,13 +74,14 @@ void jswrap_ESP32_reboot() {
 } // End of jswrap_ESP32_reboot
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "ESP32",
   "ifdef" : "ESP32",
   "name"     : "deepSleep",
   "generate" : "jswrap_ESP32_deepSleep",
-  "params"   : [ ["us", "int", "Sleeptime in us"] ]
+  "params"   : [ ["us", "int", "Sleeptime in us"] ],
+  "typedef": "static deepSleep(us: number): void"
 }
 Put device in deepsleep state for "us" microseconds.
 */
@@ -88,13 +91,14 @@ void jswrap_ESP32_deepSleep(int us) {
 } // End of jswrap_ESP32_deepSleep
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "ESP32",
   "ifdef" : "ESP32",
   "name"     : "getState",
   "generate" : "jswrap_ESP32_getState",
-  "return"   : ["JsVar", "The state of the ESP32"]
+  "return"   : ["JsVar", "The state of the ESP32"],
+  "typedef": "static getState(): any"
 }
 Returns an object that contains details about the state of the ESP32 with the following fields:
 
@@ -118,7 +122,7 @@ JsVar *jswrap_ESP32_getState() {
 } // End of jswrap_ESP32_getState
 
 #ifdef BLUETOOTH
-/*JSON{  //TODO
+/*JSON{
  "type"     : "staticmethod",
  "class"    : "ESP32",
  "ifdef" : "ESP32",
@@ -127,14 +131,15 @@ JsVar *jswrap_ESP32_getState() {
  "params"   : [
    ["level", "int", "which events should be shown (GATTS, GATTC, GAP)"]
  ],
- "ifdef"	: "BLUETOOTH"
+ "ifdef"	: "BLUETOOTH",
+ "typedef": "static setBLE_Debug(level: number): void"
 }
 */
 void jswrap_ESP32_setBLE_Debug(int level){
 	ESP32_setBLE_Debug(level);
 }
 
-/*JSON{  //TODO
+/*JSON{
  "type"	: "staticmethod",
  "class"	: "ESP32",
  "ifdef" : "ESP32",
@@ -143,7 +148,8 @@ void jswrap_ESP32_setBLE_Debug(int level){
  "params"	: [
    ["enable", "bool", "switches Bluetooth on or off" ]
  ],
- "ifdef"	: "BLUETOOTH"
+ "ifdef"	: "BLUETOOTH",
+ "typedef": "static enableBLE(enable: boolean): void"
 }
 Switches Bluetooth off/on, removes saved code from Flash, resets the board,
 and on restart creates jsVars depending on available heap (actual additional 1800)
@@ -154,7 +160,7 @@ void jswrap_ESP32_enableBLE(bool enable){ //may be later, we will support BLEena
   esp_restart();
 }
 #endif
-/*JSON{  //TODO
+/*JSON{
  "type"	: "staticmethod",
  "class"	: "ESP32",
  "ifdef" : "ESP32",
@@ -162,7 +168,8 @@ void jswrap_ESP32_enableBLE(bool enable){ //may be later, we will support BLEena
  "generate"	: "jswrap_ESP32_enableWifi",
  "params"	: [
    ["enable", "bool", "switches Wifi on or off" ]
- ]
+ ],
+ "typedef": "static enableWifi(enable: boolean): void"
 }
 Switches Wifi off/on, removes saved code from Flash, resets the board,
 and on restart creates jsVars depending on available heap (actual additional 3900)

@@ -68,7 +68,7 @@ JsVar *jswrap_spi_constructor() {
   return jspNewObject(0,"SPI");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "SPI",
   "name" : "find",
@@ -76,7 +76,8 @@ JsVar *jswrap_spi_constructor() {
   "params" : [
     ["pin","pin","A pin to search with"]
   ],
-  "return" : ["JsVar","An object of type `SPI`, or `undefined` if one couldn't be found."]
+  "return" : ["JsVar","An object of type `SPI`, or `undefined` if one couldn't be found."],
+  "typedef": "static find(pin: Pin): any"
 }
 Try and find an SPI hardware device that will work on this pin (eg. `SPI1`)
 
@@ -508,7 +509,7 @@ JsVar *jswrap_i2c_constructor() {
   return jspNewObject(0,"I2C");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "I2C",
   "name" : "find",
@@ -516,7 +517,8 @@ JsVar *jswrap_i2c_constructor() {
   "params" : [
     ["pin","pin","A pin to search with"]
   ],
-  "return" : ["JsVar","An object of type `I2C`, or `undefined` if one couldn't be found."]
+  "return" : ["JsVar","An object of type `I2C`, or `undefined` if one couldn't be found."],
+  "typedef": "static find(pin: Pin): any"
 }
 Try and find an I2C hardware device that will work on this pin (eg. `I2C1`)
 

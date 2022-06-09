@@ -243,14 +243,15 @@ Print the supplied string(s) to the console
 
  **Note:** If you're connected to a computer (not a wall adaptor) via USB but **you are not running a terminal app** then when you print data Espruino may pause execution and wait until the computer requests the data it is trying to print.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "console",
   "name" : "log",
   "generate" : "jswrap_interface_print",
   "params" : [
     ["text","JsVarArray","One or more arguments to print"]
-  ]
+  ],
+  "typedef": "static log(text: JsVarArray): void"
 }
 Print the supplied string(s) to the console
 

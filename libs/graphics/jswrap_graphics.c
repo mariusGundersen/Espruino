@@ -522,12 +522,13 @@ void jswrap_graphics_init() {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "getInstance",
   "generate" : "jswrap_graphics_getInstance",
-  "return" : ["JsVar","An instance of `Graphics` or undefined"]
+  "return" : ["JsVar","An instance of `Graphics` or undefined"],
+  "typedef": "static getInstance(): any"
 }
 On devices like Pixl.js or HYSTM boards that contain a built-in display
 this will return an instance of the graphics class that can be used to
@@ -543,7 +544,7 @@ static bool isValidBPP(int bpp) {
   return bpp==1 || bpp==2 || bpp==4 || bpp==8 || bpp==16 || bpp==24 || bpp==32; // currently one colour can't ever be spread across multiple bytes
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "createArrayBuffer",
@@ -562,7 +563,8 @@ static bool isValidBPP(int bpp) {
     ]]
   ],
   "return" : ["JsVar","The new Graphics object"],
-  "return_object" : "Graphics"
+  "return_object" : "Graphics",
+  "typedef": "static createArrayBuffer(width: int32, height: int32, bpp: int32, options: any): Graphics"
 }
 Create a Graphics object that renders to an Array Buffer. This will have a field called 'buffer' that can get used to get at the buffer itself
 */
@@ -628,7 +630,7 @@ JsVar *jswrap_graphics_createArrayBuffer(int width, int height, int bpp, JsVar *
   return parent;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "createCallback",
@@ -641,7 +643,8 @@ JsVar *jswrap_graphics_createArrayBuffer(int width, int height, int bpp, JsVar *
     ["callback","JsVar","A function of the form ```function(x,y,col)``` that is called whenever a pixel needs to be drawn, or an object with: ```{setPixel:function(x,y,col),fillRect:function(x1,y1,x2,y2,col)}```. All arguments are already bounds checked."]
   ],
   "return" : ["JsVar","The new Graphics object"],
-  "return_object" : "Graphics"
+  "return_object" : "Graphics",
+  "typedef": "static createCallback(width: int32, height: int32, bpp: int32, callback: any): Graphics"
 }
 Create a Graphics object that renders by calling a JavaScript callback function to draw pixels
 */
@@ -687,7 +690,7 @@ JsVar *jswrap_graphics_createCallback(int width, int height, int bpp, JsVar *cal
 }
 
 #ifdef USE_LCD_SDL
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "createSDL",
@@ -699,7 +702,8 @@ JsVar *jswrap_graphics_createCallback(int width, int height, int bpp, JsVar *cal
     ["bpp","int32","Bits per pixel (8,16,24 or 32 supported)"]
   ],
   "return" : ["JsVar","The new Graphics object"],
-  "return_object" : "Graphics"
+  "return_object" : "Graphics",
+  "typedef": "static createSDL(width: int32, height: int32, bpp: int32): Graphics"
 }
 Create a Graphics object that renders to SDL window (Linux-based devices only)
 */
@@ -722,7 +726,7 @@ JsVar *jswrap_graphics_createSDL(int width, int height, int bpp) {
 #endif
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Graphics",
   "name" : "createImage",
@@ -731,7 +735,8 @@ JsVar *jswrap_graphics_createSDL(int width, int height, int bpp) {
   "params" : [
     ["str","JsVar","A String containing a newline-separated image - space is 0, anything else is 1"]
   ],
-  "return" : ["JsVar","An Image object that can be used with `Graphics.drawImage`"]
+  "return" : ["JsVar","An Image object that can be used with `Graphics.drawImage`"],
+  "typedef": "static createImage(str: any): any"
 }
 Create a simple Black and White image for use with `Graphics.drawImage`.
 

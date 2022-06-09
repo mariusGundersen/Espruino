@@ -28,7 +28,7 @@
 Library that initialises a network device that calls into JavaScript
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "NetworkJS",
   "name" : "create",
@@ -36,7 +36,8 @@ Library that initialises a network device that calls into JavaScript
   "params" : [
     ["obj","JsVar","An object containing functions to access the network device"]
   ],
-  "return" : ["JsVar","The object passed in"]
+  "return" : ["JsVar","The object passed in"],
+  "typedef": "static create(obj: any): any"
 }
 Initialise the network using the callbacks given and return the first argument. For instance:
 

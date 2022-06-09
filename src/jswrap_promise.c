@@ -234,7 +234,7 @@ JsVar *jswrap_promise_constructor(JsVar *executor) {
   return obj;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Promise",
   "name" : "all",
@@ -243,7 +243,8 @@ JsVar *jswrap_promise_constructor(JsVar *executor) {
   "params" : [
     ["promises","JsVar","An array of promises"]
   ],
-  "return" : ["JsVar","A new Promise"]
+  "return" : ["JsVar","A new Promise"],
+  "typedef": "static all(promises: any): any"
 }
 Return a new promise that is resolved when all promises in the supplied
 array are resolved.
@@ -291,7 +292,7 @@ JsVar *jswrap_promise_all(JsVar *arr) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Promise",
   "name" : "resolve",
@@ -300,7 +301,8 @@ JsVar *jswrap_promise_all(JsVar *arr) {
   "params" : [
     ["promises","JsVar","Data to pass to the `.then` handler"]
   ],
-  "return" : ["JsVar","A new Promise"]
+  "return" : ["JsVar","A new Promise"],
+  "typedef": "static resolve(promises: any): any"
 }
 Return a new promise that is already resolved (at idle it'll
 call `.then`)
@@ -326,7 +328,7 @@ JsVar *jswrap_promise_resolve(JsVar *data) {
   return promise;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Promise",
   "name" : "reject",
@@ -335,7 +337,8 @@ JsVar *jswrap_promise_resolve(JsVar *data) {
   "params" : [
     ["promises","JsVar","Data to pass to the `.catch` handler"]
   ],
-  "return" : ["JsVar","A new Promise"]
+  "return" : ["JsVar","A new Promise"],
+  "typedef": "static reject(promises: any): any"
 }
 Return a new promise that is already rejected (at idle it'll
 call `.catch`)

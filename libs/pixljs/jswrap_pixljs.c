@@ -42,12 +42,13 @@ const Pin PIXL_IO_PINS[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19};
 Class containing utility functions for [Pixl.js](http://www.espruino.com/Pixl.js)
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "getBatteryPercentage",
     "generate" : "jswrap_espruino_getBattery",
-    "return" : ["int", "A percentage between 0 and 100" ]
+    "return" : ["int", "A percentage between 0 and 100" ],
+    "typedef": "static getBatteryPercentage(): number"
 }
 DEPRECATED - Please use `E.getBattery()` instead.
 
@@ -158,14 +159,15 @@ void lcd_flip(JsVar *parent, bool all) {
   graphicsSetVar(&gfx);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "setContrast",
     "generate" : "jswrap_pixljs_setContrast",
     "params" : [
       ["c","float","Contrast between 0 and 1"]
-    ]
+    ],
+    "typedef": "static setContrast(c: number): void"
 }
 Set the LCD's contrast
 */
@@ -180,14 +182,15 @@ void jswrap_pixljs_setContrast(JsVarFloat c) {
   jshPinSetValue(LCD_SPI_CS,1);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "setLCDPower",
     "generate" : "jswrap_pixljs_setLCDPower",
     "params" : [
       ["isOn","bool","True if the LCD should be on, false if not"]
-    ]
+    ],
+    "typedef": "static setLCDPower(isOn: boolean): void"
 }
 This function can be used to turn Pixl.js's LCD off or on.
 
@@ -207,14 +210,15 @@ void jswrap_pixljs_setLCDPower(bool isOn) {
   jshPinSetValue(LCD_SPI_CS,1);
 }
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "lcdw",
     "generate" : "jswrap_pixljs_lcdw",
     "params" : [
       ["c","int",""]
-    ]
+    ],
+    "typedef": "static lcdw(c: number): void"
 }
 Writes a command directly to the ST7567 LCD controller
 */
@@ -481,7 +485,7 @@ bool jswrap_pixljs_idle() {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "Pixl",
     "name" : "menu",
@@ -489,7 +493,8 @@ bool jswrap_pixljs_idle() {
     "params" : [
       ["menu","JsVar","An object containing name->function mappings to to be used in a menu"]
     ],
-    "return" : ["JsVar", "A menu object with `draw`, `move` and `select` functions" ]
+    "return" : ["JsVar", "A menu object with `draw`, `move` and `select` functions" ],
+    "typedef": "static menu(menu: any): any"
 }
 Display a menu on Pixl.js's screen, and set up the buttons to navigate through it.
 
@@ -497,7 +502,7 @@ DEPRECATED: Use `E.showMenu`
 */
 
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showMenu",
@@ -505,7 +510,8 @@ DEPRECATED: Use `E.showMenu`
     "params" : [
       ["menu","JsVar","An object containing name->function mappings to to be used in a menu"]
     ],
-    "return" : ["JsVar", "A menu object with `draw`, `move` and `select` functions" ]
+    "return" : ["JsVar", "A menu object with `draw`, `move` and `select` functions" ],
+    "typedef": "static showMenu(menu: any): any"
 }
 Display a menu on the screen, and set up the buttons to navigate through it.
 
@@ -550,7 +556,7 @@ which you can do by calling `E.showMenu()` without arguments.
 See http://www.espruino.com/graphical_menu for more detailed information.
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showMessage",
@@ -559,7 +565,8 @@ See http://www.espruino.com/graphical_menu for more detailed information.
       ["message","JsVar","A message to display. Can include newlines"],
       ["title","JsVar","(optional) a title for the message"]
     ],
-    "ifdef" : "PIXLJS"
+    "ifdef" : "PIXLJS",
+    "typedef": "static showMessage(message: any, title: any): void"
 }
 
 A utility function for displaying a full screen message on the screen.
@@ -571,7 +578,7 @@ E.showMessage("These are\nLots of\nLines","My Title")
 ```
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showPrompt",
@@ -581,7 +588,8 @@ E.showMessage("These are\nLots of\nLines","My Title")
       ["options","JsVar","(optional) an object of options (see below)"]
     ],
     "return" : ["JsVar","A promise that is resolved when 'Ok' is pressed"],
-    "ifdef" : "PIXLJS"
+    "ifdef" : "PIXLJS",
+    "typedef": "static showPrompt(message: any, options: any): any"
 }
 
 Displays a full screen prompt on the screen, with the buttons
@@ -617,7 +625,7 @@ The second `options` argument can contain:
 ```
 */
 
-/*JSON{  //TODO
+/*JSON{
     "type" : "staticmethod",
     "class" : "E",
     "name" : "showAlert",
@@ -627,7 +635,8 @@ The second `options` argument can contain:
       ["options","JsVar","(optional) a title for the message"]
     ],
     "return" : ["JsVar","A promise that is resolved when 'Ok' is pressed"],
-    "ifdef" : "PIXLJS"
+    "ifdef" : "PIXLJS",
+    "typedef": "static showAlert(message: any, options: any): any"
 }
 
 Displays a full screen prompt on the screen, with a single 'Ok' button.

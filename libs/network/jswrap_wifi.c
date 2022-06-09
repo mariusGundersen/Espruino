@@ -188,31 +188,33 @@ The details include:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "disconnect",
   "generate" : "jswrap_wifi_disconnect",
   "params"   : [
     ["callback", "JsVar", "An optional `callback()` function to be called back on disconnection. The callback function receives no argument."]
-  ]
+  ],
+  "typedef": "static disconnect(callback: any): void"
 }
 Disconnect the wifi station from an access point and disable the station mode. It is OK to call `disconnect` to turn off station mode even if no connection exists (for example, connection attempts may be failing). Station mode can be re-enabled by calling `connect` or `scan`.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "stopAP",
   "generate" : "jswrap_wifi_stopAP",
   "params"   : [
     ["callback", "JsVar", "An optional `callback()` function to be called back on successful stop. The callback function receives no argument."]
-  ]
+  ],
+  "typedef": "static stopAP(callback: any): void"
 }
 Stop being an access point and disable the AP operation mode. AP mode can be re-enabled by calling `startAP`.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "connect",
@@ -221,7 +223,8 @@ Stop being an access point and disable the AP operation mode. AP mode can be re-
     ["ssid", "JsVar", "The access point network id."],
     ["options", "JsVar", "Connection options (optional)."],
     ["callback", "JsVar", "A `callback(err)`  function to be called back on completion. `err` is null on success, or contains an error string on failure."]
-  ]
+  ],
+  "typedef": "static connect(ssid: any, options: any, callback: any): void"
 }
 Connect to an access point as a station. If there is an existing connection to an AP it is first disconnected if the SSID or password are different from those passed as parameters. Put differently, if the passed SSID and password are identical to the currently connected AP then nothing is changed.
 When the connection attempt completes the callback function is invoked with one `err` parameter, which is NULL if there is no error and a string message if there is an error. If DHCP is enabled the callback occurs once an IP addres has been obtained, if a static IP is set the callback occurs once the AP's network has been joined.  The callback is also invoked if a connection already exists and does not need to be changed.
@@ -241,14 +244,15 @@ Notes:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "scan",
   "generate" : "jswrap_wifi_scan",
   "params"   : [
     ["callback", "JsVar", "A `callback(err, ap_list)` function to be called back on completion. `err==null` and `ap_list` is an array on success, or `err` is an error string and `ap_list` is undefined on failure."]
-  ]
+  ],
+  "typedef": "static scan(callback: any): void"
 }
 Perform a scan for access points. This will enable the station mode if it is not currently enabled. Once the scan is complete the callback function is called with an array of APs found, each AP is an object with:
 
@@ -265,7 +269,7 @@ Notes:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "startAP",
@@ -274,7 +278,8 @@ Notes:
     ["ssid", "JsVar", "The network id."],
     ["options", "JsVar", "Configuration options (optional)."],
     ["callback", "JsVar", "Optional `callback(err)` function to be called when the AP is successfully started. `err==null` on success, or an error string on failure."]
-  ]
+  ],
+  "typedef": "static startAP(ssid: any, options: any, callback: any): void"
 }
 Create a WiFi access point allowing stations to connect. If the password is NULL or an empty string the access point is open, otherwise it is encrypted.
 The callback function is invoked once the access point is set-up and receives one `err` argument, which is NULL on success and contains an error message string otherwise.
@@ -294,7 +299,7 @@ Notes:
 */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getStatus",
@@ -303,7 +308,8 @@ Notes:
   "return"   : ["JsVar", "An object representing the current WiFi status, if available immediately."],
   "params"   : [
     ["callback", "JsVar", "Optional `callback(status)` function to be called back with the current Wifi status, i.e. the same object as returned directly."]
-  ]
+  ],
+  "typedef": "static getStatus(callback: any): any"
 }
 Retrieve the current overall WiFi configuration. This call provides general information that pertains to both station and access point modes. The getDetails and getAPDetails calls provide more in-depth information about the station and access point configurations, respectively. The status object has the following properties:
 
@@ -317,7 +323,7 @@ Retrieve the current overall WiFi configuration. This call provides general info
 */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setConfig",
@@ -325,7 +331,8 @@ Retrieve the current overall WiFi configuration. This call provides general info
   "#if" : "defined(ESP32) || defined(ESP8266)",
   "params"   : [
     ["settings", "JsVar", "An object with the configuration settings to change."]
-  ]
+  ],
+  "typedef": "static setConfig(settings: any): void"
 }
 Sets a number of global wifi configuration settings. All parameters are optional and which are passed determines which settings are updated.
 The settings available are:
@@ -336,7 +343,7 @@ The settings available are:
 Note: esp8266 SDK programmers may be missing an "opmode" option to set the sta/ap/sta+ap operation mode. Please use connect/scan/disconnect/startAP/stopAP, which all set the esp8266 opmode indirectly.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getDetails",
@@ -345,7 +352,8 @@ Note: esp8266 SDK programmers may be missing an "opmode" option to set the sta/a
   "return"   : ["JsVar", "An object representing the wifi station details, if available immediately."],
   "params"   : [
     ["callback", "JsVar", "An optional `callback(details)` function to be called back with the wifi details, i.e. the same object as returned directly."]
-  ]
+  ],
+  "typedef": "static getDetails(callback: any): any"
 }
 Retrieve the wifi station configuration and status details. The details object has the following properties:
 
@@ -358,7 +366,7 @@ Retrieve the wifi station configuration and status details. The details object h
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getAPDetails",
@@ -367,7 +375,8 @@ Retrieve the wifi station configuration and status details. The details object h
   "return"   : ["JsVar", "An object representing the current access point details, if available immediately."],
   "params"   : [
     ["callback", "JsVar", "An optional `callback(details)` function to be called back with the current access point details, i.e. the same object as returned directly."]
-  ]
+  ],
+  "typedef": "static getAPDetails(callback: any): any"
 }
 Retrieve the current access point configuration and status.  The details object has the following properties:
 
@@ -382,7 +391,7 @@ Retrieve the current access point configuration and status.  The details object 
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "save",
@@ -390,7 +399,8 @@ Retrieve the current access point configuration and status.  The details object 
   "#if" : "defined(ESP32) || defined(ESP8266)",
   "params"   : [
     ["what", "JsVar", "An optional parameter to specify what to save, on the esp8266 the two supported values are `clear` and `sta+ap`. The default is `sta+ap`"]
-  ]
+  ],
+  "typedef": "static save(what: any): void"
 }
 On boards where this is not available, just issue the `connect` commands you need to run at startup from an `onInit` function.
 
@@ -404,17 +414,18 @@ Save the current wifi configuration (station and access point) to flash and auto
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "restore",
   "generate" : "jswrap_wifi_restore",
-  "#if" : "defined(ESP32) || defined(ESP8266)"
+  "#if" : "defined(ESP32) || defined(ESP8266)",
+  "typedef": "static restore(): void"
 }
 Restores the saved Wifi configuration from flash. See `Wifi.save()`.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getIP",
@@ -422,7 +433,8 @@ Restores the saved Wifi configuration from flash. See `Wifi.save()`.
   "return"   : ["JsVar", "An object representing the station IP information, if available immediately (**ONLY** on ESP8266/ESP32)."],
   "params"   : [
     ["callback", "JsVar", "An optional `callback(err, ipinfo)` function to be called back with the IP information."]
-  ]
+  ],
+  "typedef": "static getIP(callback: any): any"
 }
 Return the station IP information in an object as follows:
 
@@ -434,7 +446,7 @@ Return the station IP information in an object as follows:
 Note that the `ip`, `netmask`, and `gw` fields are omitted if no connection is established:
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getAPIP",
@@ -442,7 +454,8 @@ Note that the `ip`, `netmask`, and `gw` fields are omitted if no connection is e
   "return"   : ["JsVar", "An object representing the esp8266's Access Point IP information, if available immediately (**ONLY** on ESP8266/ESP32)."],
   "params"   : [
     ["callback", "JsVar", "An optional `callback(err, ipinfo)` function to be called back with the the IP information."]
-  ]
+  ],
+  "typedef": "static getAPIP(callback: any): any"
 }
 Return the access point IP information in an object which contains:
 
@@ -453,7 +466,7 @@ Return the access point IP information in an object which contains:
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getHostByName",
@@ -462,14 +475,15 @@ Return the access point IP information in an object which contains:
   "params"   : [
     ["hostname", "JsVar", "The hostname to lookup."],
     ["callback", "JsVar", "The `callback(ip)` to invoke when the IP is returned. `ip==null` on failure."]
-  ]
+  ],
+  "typedef": "static getHostByName(hostname: any, callback: any): void"
 }
 Lookup the hostname and invoke a callback with the IP address as integer argument. If the lookup fails, the callback is invoked with a null argument.
 **Note:** only a single hostname lookup can be made at a time, concurrent lookups are not supported.
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "getHostname",
@@ -478,12 +492,13 @@ Lookup the hostname and invoke a callback with the IP address as integer argumen
   "return"   : ["JsVar", "The currently configured hostname, if available immediately."],
   "params"   : [
     ["callback", "JsVar", "An optional `callback(hostname)` function to be called back with the hostname."]
-  ]
+  ],
+  "typedef": "static getHostname(callback: any): any"
 }
 Returns the hostname announced to the DHCP server and broadcast via mDNS when connecting to an access point.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setHostname",
@@ -492,14 +507,15 @@ Returns the hostname announced to the DHCP server and broadcast via mDNS when co
   "params"   : [
     ["hostname", "JsVar", "The new hostname."],
     ["callback", "JsVar", "An optional `callback()` function to be called back when the hostname is set"]
-  ]
+  ],
+  "typedef": "static setHostname(hostname: any, callback: any): void"
 }
 Set the hostname. Depending on implemenation, the hostname is sent with every DHCP request and is broadcast via mDNS. The DHCP hostname may be visible in the access point and may be forwarded into DNS as hostname.local.
 If a DHCP lease currently exists changing the hostname will cause a disconnect and reconnect in order to transmit the change to the DHCP server.
 The mDNS announcement also includes an announcement for the "espruino" service.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setSNTP",
@@ -508,7 +524,8 @@ The mDNS announcement also includes an announcement for the "espruino" service.
   "params"   : [
     ["server", "JsVar", "The NTP server to query, for example, `us.pool.ntp.org`"],
     ["tz_offset", "JsVar", "Local time zone offset in the range -11..13."]
-  ]
+  ],
+  "typedef": "static setSNTP(server: any, tz_offset: any): void"
 }
 Starts the SNTP (Simple Network Time Protocol) service to keep the clock synchronized with the specified server. Note that the time zone is really just an offset to UTC and doesn't handle daylight savings time.
 The interval determines how often the time server is queried and Espruino's time is synchronized. The initial synchronization occurs asynchronously after setSNTP returns.
@@ -516,7 +533,7 @@ The interval determines how often the time server is queried and Espruino's time
 
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setIP",
@@ -525,7 +542,8 @@ The interval determines how often the time server is queried and Espruino's time
   "params"   : [
     ["settings", "JsVar", "Configuration settings"],
     ["callback", "JsVar", "A `callback(err)` function to invoke when ip is set. `err==null` on success, or a string on failure."]
-  ]
+  ],
+  "typedef": "static setIP(settings: any, callback: any): void"
 }
 The `settings` object must contain the following properties.
 
@@ -535,7 +553,7 @@ The `settings` object must contain the following properties.
 
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "setAPIP",
@@ -544,7 +562,8 @@ The `settings` object must contain the following properties.
   "params"   : [
     ["settings", "JsVar", "Configuration settings"],
     ["callback", "JsVar", "A `callback(err)` function to invoke when ip is set. `err==null` on success, or a string on failure."]
-  ]
+  ],
+  "typedef": "static setAPIP(settings: any, callback: any): void"
 }
 The `settings` object must contain the following properties.
 
@@ -556,7 +575,7 @@ The `settings` object must contain the following properties.
 
 //----------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "ping",
@@ -565,12 +584,13 @@ The `settings` object must contain the following properties.
   "params"   : [
     ["hostname", "JsVar", "The host to ping"],
     ["callback", "JsVar", "A `callback(time)` function to invoke when a ping is received"]
-  ]
+  ],
+  "typedef": "static ping(hostname: any, callback: any): void"
 }
 Issues a ping to the given host, and calls a callback with the time when the ping is received.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "staticmethod",
   "class"    : "Wifi",
   "name"     : "turbo",
@@ -579,7 +599,8 @@ Issues a ping to the given host, and calls a callback with the time when the pin
   "params"   : [
     ["enable", "JsVar", "true (or a baud rate as a number) to enable, false to disable"],
     ["callback", "JsVar", "A `callback()` function to invoke when turbo mode has been set"]
-  ]
+  ],
+  "typedef": "static turbo(enable: any, callback: any): void"
 }
 Switch to using a higher communication speed with the WiFi module.
 

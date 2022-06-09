@@ -159,12 +159,13 @@ JsVar *jswrap_require(JsVar *moduleName) {
   return moduleExport;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Modules",
   "name" : "getCached",
   "generate" : "jswrap_modules_getCached",
-  "return" : ["JsVar","An array of module names"]
+  "return" : ["JsVar","An array of module names"],
+  "typedef": "static getCached(): any"
 }
 Return an array of module names that have been cached
  */
@@ -189,14 +190,15 @@ JsVar *jswrap_modules_getCached() {
   return arr;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Modules",
   "name" : "removeCached",
   "generate" : "jswrap_modules_removeCached",
   "params" : [
     ["id","JsVar","The module name to remove"]
-  ]
+  ],
+  "typedef": "static removeCached(id: any): void"
 }
 Remove the given module from the list of cached modules
  */
@@ -219,11 +221,12 @@ void jswrap_modules_removeCached(JsVar *id) {
   jsvUnLock(moduleList);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Modules",
   "name" : "removeAllCached",
-  "generate" : "jswrap_modules_removeAllCached"
+  "generate" : "jswrap_modules_removeAllCached",
+  "typedef": "static removeAllCached(): void"
 }
 Remove all cached modules
  */
@@ -234,7 +237,7 @@ void jswrap_modules_removeAllCached() {
   jsvUnLock(moduleList);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "staticmethod",
   "class" : "Modules",
   "name" : "addCached",
@@ -242,7 +245,8 @@ void jswrap_modules_removeAllCached() {
   "params" : [
     ["id","JsVar","The module name to add"],
     ["sourcecode","JsVar","The module's sourcecode"]
-  ]
+  ],
+  "typedef": "static addCached(id: any, sourcecode: any): void"
 }
 Add the given module to the cache
  */
