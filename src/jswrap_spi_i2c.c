@@ -28,27 +28,30 @@
 This class allows use of the built-in SPI ports. Currently it is SPI master only.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "SPI1",
   "instanceof" : "SPI",
-  "#if" : "SPI_COUNT>=1"
+  "#if" : "SPI_COUNT>=1",
+  "typedef": "declare var SPI1: SPI"
 }
 The first SPI port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "SPI2",
   "instanceof" : "SPI",
-  "#if" : "SPI_COUNT>=2"
+  "#if" : "SPI_COUNT>=2",
+  "typedef": "declare var SPI2: SPI"
 }
 The second SPI port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "SPI3",
   "instanceof" : "SPI",
-  "#if" : "SPI_COUNT>=3"
+  "#if" : "SPI_COUNT>=3",
+  "typedef": "declare var SPI3: SPI"
 }
 The third SPI port
  */
@@ -530,27 +533,30 @@ Try and find an I2C hardware device that will work on this pin (eg. `I2C1`)
 May return undefined if no device can be found.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "I2C1",
   "instanceof" : "I2C",
-  "#if" : "I2C_COUNT>=1"
+  "#if" : "I2C_COUNT>=1",
+  "typedef": "declare var I2C1: I2C"
 }
 The first I2C port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "I2C2",
   "instanceof" : "I2C",
-  "#if" : "I2C_COUNT>=2"
+  "#if" : "I2C_COUNT>=2",
+  "typedef": "declare var I2C2: I2C"
 }
 The second I2C port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "I2C3",
   "instanceof" : "I2C",
-  "#if" : "I2C_COUNT>=3"
+  "#if" : "I2C_COUNT>=3",
+  "typedef": "declare var I2C3: I2C"
 }
 The third I2C port
  */

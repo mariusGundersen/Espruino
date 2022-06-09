@@ -20,11 +20,12 @@
 #include "jsdevices.h"
 #include "jshardware.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Terminal",
   "instanceof" : "Serial",
-  "ifdef" : "USE_TERMINAL"
+  "ifdef" : "USE_TERMINAL",
+  "typedef": "declare var Terminal: Serial"
 }
 A simple VT100 terminal emulator.
 

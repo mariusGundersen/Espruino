@@ -106,82 +106,92 @@ May return undefined if no device can be found.
 */
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "USB",
   "instanceof" : "Serial",
-  "ifdef" : "USB"
+  "ifdef" : "USB",
+  "typedef": "declare var USB: Serial"
 }
 The USB Serial port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Serial1",
   "instanceof" : "Serial",
-  "#if" : "USART_COUNT>=1"
+  "#if" : "USART_COUNT>=1",
+  "typedef": "declare var Serial1: Serial"
 }
 The first Serial (USART) port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Serial2",
   "instanceof" : "Serial",
-  "#if" : "USART_COUNT>=2"
+  "#if" : "USART_COUNT>=2",
+  "typedef": "declare var Serial2: Serial"
 }
 The second Serial (USART) port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Serial3",
   "instanceof" : "Serial",
-  "#if" : "USART_COUNT>=3"
+  "#if" : "USART_COUNT>=3",
+  "typedef": "declare var Serial3: Serial"
 }
 The third Serial (USART) port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Serial4",
   "instanceof" : "Serial",
-  "#if" : "USART_COUNT>=4"
+  "#if" : "USART_COUNT>=4",
+  "typedef": "declare var Serial4: Serial"
 }
 The fourth Serial (USART) port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Serial5",
   "instanceof" : "Serial",
-  "#if" : "USART_COUNT>=5"
+  "#if" : "USART_COUNT>=5",
+  "typedef": "declare var Serial5: Serial"
 }
 The fifth Serial (USART) port
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Serial6",
   "instanceof" : "Serial",
-  "#if" : "USART_COUNT>=6"
+  "#if" : "USART_COUNT>=6",
+  "typedef": "declare var Serial6: Serial"
 }
 The sixth Serial (USART) port
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "LoopbackA",
-  "instanceof" : "Serial"
+  "instanceof" : "Serial",
+  "typedef": "declare var LoopbackA: Serial"
 }
 A loopback serial device. Data sent to `LoopbackA` comes out of `LoopbackB` and vice versa
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "LoopbackB",
-  "instanceof" : "Serial"
+  "instanceof" : "Serial",
+  "typedef": "declare var LoopbackB: Serial"
 }
 A loopback serial device. Data sent to `LoopbackA` comes out of `LoopbackB` and vice versa
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Telnet",
   "instanceof" : "Serial",
-  "#if" : "defined(USE_TELNET)"
+  "#if" : "defined(USE_TELNET)",
+  "typedef": "declare var Telnet: Serial"
 }
 A telnet serial device that maps to the built-in telnet console server (devices that have built-in wifi only).
  */

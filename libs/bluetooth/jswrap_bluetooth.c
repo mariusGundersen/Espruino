@@ -481,11 +481,12 @@ The first argument is of the form `{target : BluetoothRemoteGATTCharacteristic}`
 will then contain the new value (as a DataView).
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "object",
   "name" : "Bluetooth",
   "instanceof" : "Serial",
-  "ifdef" : "BLUETOOTH"
+  "ifdef" : "BLUETOOTH",
+  "typedef": "declare var Bluetooth: Serial"
 }
 The Bluetooth Serial port - used when data is sent or received over Bluetooth Smart on nRF51/nRF52 chips.
  */
