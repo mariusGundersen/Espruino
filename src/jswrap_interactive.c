@@ -40,14 +40,15 @@ An Object that contains functions for writing to the interactive console
 A reference to the global scope, where everything is defined.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "setBusyIndicator",
   "ifndef" : "SAVE_ON_FLASH",
   "generate" : "jswrap_interface_setBusyIndicator",
   "params" : [
     ["pin","JsVar",""]
-  ]
+  ],
+  "typedef": "declare function setBusyIndicator(pin: any): void"
 }
 When Espruino is busy, set the pin specified here high. Set this to undefined to disable the feature.
  */
@@ -63,14 +64,15 @@ void jswrap_interface_setBusyIndicator(JsVar *pinVar) {
 }
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "setSleepIndicator",
   "ifndef" : "SAVE_ON_FLASH",
   "generate" : "jswrap_interface_setSleepIndicator",
   "params" : [
     ["pin","JsVar",""]
-  ]
+  ],
+  "typedef": "declare function setSleepIndicator(pin: any): void"
 }
 When Espruino is asleep, set the pin specified here low (when it's awake, set it high). Set this to undefined to disable the feature.
 
@@ -88,14 +90,15 @@ void jswrap_interface_setSleepIndicator(JsVar *pinVar) {
 }
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "setDeepSleep",
   "#if" : "defined(STM32) || defined(EFM32)",
   "generate" : "jswrap_interface_setDeepSleep",
   "params" : [
     ["sleep","bool",""]
-  ]
+  ],
+  "typedef": "declare function setDeepSleep(sleep: boolean): void"
 }
 Set whether we can enter deep sleep mode, which reduces power consumption to around 100uA. This only works on STM32 Espruino Boards (nRF52 boards sleep automatically).
 
@@ -106,14 +109,15 @@ void jswrap_interface_setDeepSleep(bool sleep) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "trace",
   "ifndef" : "SAVE_ON_FLASH",
   "generate" : "jswrap_interface_trace",
   "params" : [
     ["root","JsVar","The symbol to output (optional). If nothing is specified, everything will be output"]
-  ]
+  ],
+  "typedef": "declare function trace(root: any): void"
 }
 Output debugging information
 
@@ -133,11 +137,12 @@ void jswrap_interface_trace(JsVar *root) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "dump",
   "ifndef" : "SAVE_ON_FLASH",
-  "generate_full" : "jsiDumpState((vcbprintf_callback)jsiConsolePrintString, 0)"
+  "generate_full" : "jsiDumpState((vcbprintf_callback)jsiConsolePrintString, 0)",
+  "typedef": "declare function dump(): void"
 }
 Output current interpreter state in a text form such that it can be copied to a new device
 
@@ -145,13 +150,14 @@ Espruino keeps its current state in RAM (even if the function code is stored in 
 
 **Note:** 'Internal' functions are currently not handled correctly. You will need to recreate these in the `onInit` function.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "load",
   "generate" : "jswrap_interface_load",
   "params" : [
     ["filename","JsVar","optional: The name of a text JS file to load from Storage after reset"]
-  ]
+  ],
+  "typedef": "declare function load(filename: any): void"
 }
 Restart and load the program out of flash - this has an effect similar to
 completely rebooting Espruino (power off/power on), but without actually
@@ -176,11 +182,12 @@ void jswrap_interface_load(JsVar *storageName) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "save",
   "generate_full" : "jsiStatus|=JSIS_TODO_FLASH_SAVE;",
-  "#if" : "!defined(BANGLEJS)"
+  "#if" : "!defined(BANGLEJS)",
+  "typedef": "declare function save(): void"
 }
 Save the state of the interpreter into flash (including the results of calling
 `setWatch`, `setInterval`, `pinMode`, and any listeners). The state will then be loaded automatically
@@ -205,13 +212,14 @@ This will then be automatically executed by Espruino every time it starts.
 In order to stop the program saved with this command being loaded automatically,
 check out [the Troubleshooting guide](https://www.espruino.com/Troubleshooting#espruino-stopped-working-after-i-typed-save-)
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "reset",
   "generate" : "jswrap_interface_reset",
   "params" : [
     ["clearFlash","bool","Remove saved code from flash as well"]
-  ]
+  ],
+  "typedef": "declare function reset(clearFlash: boolean): void"
 }
 Reset the interpreter - clear program memory in RAM, and do not load a saved program from flash. This does NOT reset the underlying hardware (which allows you to reset the device without it disconnecting from USB).
 
@@ -232,13 +240,14 @@ void jswrap_interface_reset(bool clearFlash) {
   if (clearFlash) jsfRemoveCodeFromFlash();
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "print",
   "generate" : "jswrap_interface_print",
   "params" : [
     ["text","JsVarArray",""]
-  ]
+  ],
+  "typedef": "declare function print(text: JsVarArray): void"
 }
 Print the supplied string(s) to the console
 
@@ -279,14 +288,15 @@ void jswrap_interface_print(JsVar *v) {
   jsiConsolePrint("\n");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "edit",
   "ifndef" : "SAVE_ON_FLASH",
   "generate" : "jswrap_interface_edit",
   "params" : [
     ["funcName","JsVar","The name of the function to edit (either a string or just the unquoted name)"]
-  ]
+  ],
+  "typedef": "declare function edit(funcName: any): void"
 }
 Fill the console with the contents of the given function, so you can edit it.
 
@@ -346,13 +356,14 @@ void jswrap_interface_edit(JsVar *funcName) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "echo",
   "generate" : "jswrap_interface_echo",
   "params" : [
     ["echoOn","bool",""]
-  ]
+  ],
+  "typedef": "declare function echo(echoOn: boolean): void"
 }
 Should Espruino echo what you type back to you? true = yes (Default), false = no. When echo is off, the result of executing a command is not returned. Instead, you must use 'print' to send output.
  */
@@ -363,22 +374,24 @@ void jswrap_interface_echo(bool echoOn) {
     jsiStatus |= JSIS_ECHO_OFF;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "getTime",
   "generate_full" : "(JsVarFloat)jshGetSystemTime() / (JsVarFloat)jshGetTimeFromMilliseconds(1000)",
-  "return" : ["float",""]
+  "return" : ["float",""],
+  "typedef": "declare function getTime(): number"
 }
 Return the current system time in Seconds (as a floating point number)
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "setTime",
   "generate" : "jswrap_interactive_setTime",
   "params" : [
     ["time","float",""]
-  ]
+  ],
+  "typedef": "declare function setTime(time: number): void"
 }
 Set the current system time in seconds (`time` can be a floating
 point value).
@@ -408,11 +421,12 @@ void jswrap_interactive_setTime(JsVarFloat time) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "getSerial",
   "generate" : "jswrap_interface_getSerial",
-  "return" : ["JsVar","The board's serial number"]
+  "return" : ["JsVar","The board's serial number"],
+  "typedef": "declare function getSerial(): any"
 }
 Get the serial number of this board
  */
@@ -432,7 +446,7 @@ JsVar *jswrap_interface_getSerial() {
   return str;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "setInterval",
   "generate" : "jswrap_interface_setInterval",
@@ -441,7 +455,8 @@ JsVar *jswrap_interface_getSerial() {
     ["timeout","float","The time between calls to the function (max 3153600000000 = 100 years"],
     ["args","JsVarArray","Optional arguments to pass to the function when executed"]
   ],
-  "return" : ["JsVar","An ID that can be passed to clearInterval"]
+  "return" : ["JsVar","An ID that can be passed to clearInterval"],
+  "typedef": "declare function setInterval(function: any, timeout: number, args: JsVarArray): any"
 }
 Call the function (or evaluate the string) specified REPEATEDLY after the timeout in milliseconds.
 
@@ -470,7 +485,7 @@ was returned by `setInterval` into the `clearInterval` function.
 
  **Note:** If `setDeepSleep(true)` has been called and the interval is greater than 5 seconds, Espruino may execute the interval up to 1 second late. This is because Espruino can only wake from deep sleep every second - and waking early would cause Espruino to waste power while it waited for the correct time.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "setTimeout",
   "generate" : "jswrap_interface_setTimeout",
@@ -479,7 +494,8 @@ was returned by `setInterval` into the `clearInterval` function.
     ["timeout","float","The time until the function will be executed (max 3153600000000 = 100 years"],
     ["args","JsVarArray","Optional arguments to pass to the function when executed"]
   ],
-  "return" : ["JsVar","An ID that can be passed to clearTimeout"]
+  "return" : ["JsVar","An ID that can be passed to clearTimeout"],
+  "typedef": "declare function setTimeout(function: any, timeout: number, args: JsVarArray): any"
 }
 Call the function (or evaluate the string) specified ONCE after the timeout in milliseconds.
 
@@ -543,13 +559,14 @@ JsVar *jswrap_interface_setTimeout(JsVar *func, JsVarFloat timeout, JsVar *args)
   return _jswrap_interface_setTimeoutOrInterval(func, timeout, args, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "clearInterval",
   "generate" : "jswrap_interface_clearInterval",
   "params" : [
     ["id","JsVarArray","The id returned by a previous call to setInterval"]
-  ]
+  ],
+  "typedef": "declare function clearInterval(id: JsVarArray): void"
 }
 Clear the Interval that was created with `setInterval`, for example:
 
@@ -561,13 +578,14 @@ If no argument is supplied, all timeouts and intervals are stopped.
 
 To avoid accidentally deleting all Intervals, if a parameter is supplied but is `undefined` then an Exception will be thrown.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "clearTimeout",
   "generate" : "jswrap_interface_clearTimeout",
   "params" : [
     ["id","JsVarArray","The id returned by a previous call to setTimeout"]
-  ]
+  ],
+  "typedef": "declare function clearTimeout(id: JsVarArray): void"
 }
 Clear the Timeout that was created with `setTimeout`, for example:
 
@@ -620,14 +638,15 @@ void jswrap_interface_clearTimeout(JsVar *idVarArr) {
   _jswrap_interface_clearTimeoutOrInterval(idVarArr, true);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "changeInterval",
   "generate" : "jswrap_interface_changeInterval",
   "params" : [
     ["id","JsVar","The id returned by a previous call to setInterval"],
     ["time","float","The new time period in ms"]
-  ]
+  ],
+  "typedef": "declare function changeInterval(id: any, time: number): void"
 }
 Change the Interval on a callback created with `setInterval`, for example:
 

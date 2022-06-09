@@ -111,14 +111,15 @@ JsVar *jswrap_function_constructor(JsVar *args) {
   return fn;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "eval",
   "generate" : "jswrap_eval",
   "params" : [
     ["code","JsVar",""]
   ],
-  "return" : ["JsVar","The result of evaluating the string"]
+  "return" : ["JsVar","The result of evaluating the string"],
+  "typedef": "declare function eval(code: any): any"
 }
 Evaluate a string containing JavaScript code
  */
@@ -130,7 +131,7 @@ JsVar *jswrap_eval(JsVar *v) {
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "parseInt",
   "generate" : "jswrap_parseInt",
@@ -138,7 +139,8 @@ JsVar *jswrap_eval(JsVar *v) {
     ["string","JsVar",""],
     ["radix","JsVar","The Radix of the string (optional)"]
   ],
-  "return" : ["JsVar","The integer value of the string (or NaN)"]
+  "return" : ["JsVar","The integer value of the string (or NaN)"],
+  "typedef": "declare function parseInt(string: any, radix: any): any"
 }
 Convert a string representing a number into an integer
  */
@@ -176,14 +178,15 @@ JsVar *jswrap_parseInt(JsVar *v, JsVar *radixVar) {
   return jsvNewFromLongInteger(i);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "parseFloat",
   "generate" : "jswrap_parseFloat",
   "params" : [
     ["string","JsVar",""]
   ],
-  "return" : ["float","The value of the string"]
+  "return" : ["float","The value of the string"],
+  "typedef": "declare function parseFloat(string: any): number"
 }
 Convert a string representing a number into an float
  */
@@ -204,14 +207,15 @@ JsVarFloat jswrap_parseFloat(JsVar *v) {
   return f;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "isFinite",
   "generate" : "jswrap_isFinite",
   "params" : [
     ["x","JsVar",""]
   ],
-  "return" : ["bool","True is the value is a Finite number, false if not."]
+  "return" : ["bool","True is the value is a Finite number, false if not."],
+  "typedef": "declare function isFinite(x: any): boolean"
 }
 Is the parameter a finite num,ber or not? If needed, the parameter is first converted to a number.
  */
@@ -220,14 +224,15 @@ bool jswrap_isFinite(JsVar *v) {
   return !isnan(f) && f!=INFINITY && f!=-INFINITY;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "isNaN",
   "generate" : "jswrap_isNaN",
   "params" : [
     ["x","JsVar",""]
   ],
-  "return" : ["bool","True is the value is NaN, false if not."]
+  "return" : ["bool","True is the value is NaN, false if not."],
+  "typedef": "declare function isNaN(x: any): boolean"
 }
 Whether the x is NaN (Not a Number) or not
  */
@@ -273,7 +278,7 @@ NO_INLINE static int jswrap_atob_decode(int c) {
   return -1; // not found
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "btoa",
   "ifndef" : "SAVE_ON_FLASH",
@@ -281,7 +286,8 @@ NO_INLINE static int jswrap_atob_decode(int c) {
   "params" : [
     ["binaryData","JsVar","A string of data to encode"]
   ],
-  "return" : ["JsVar","A base64 encoded string"]
+  "return" : ["JsVar","A base64 encoded string"],
+  "typedef": "declare function btoa(binaryData: any): any"
 }
 Encode the supplied string (or array) into a base64 string
  */
@@ -331,7 +337,7 @@ JsVar *jswrap_btoa(JsVar *binaryData) {
   return base64Data;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "atob",
   "ifndef" : "SAVE_ON_FLASH",
@@ -339,7 +345,8 @@ JsVar *jswrap_btoa(JsVar *binaryData) {
   "params" : [
     ["base64Data","JsVar","A string of base64 data to decode"]
   ],
-  "return" : ["JsVar","A string containing the decoded data"]
+  "return" : ["JsVar","A string containing the decoded data"],
+  "typedef": "declare function atob(base64Data: any): any"
 }
 Decode the supplied base64 string into a normal string
  */
@@ -387,7 +394,7 @@ JsVar *jswrap_atob(JsVar *base64Data) {
   return binaryData;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "encodeURIComponent",
   "ifndef" : "SAVE_ON_FLASH",
@@ -395,7 +402,8 @@ JsVar *jswrap_atob(JsVar *base64Data) {
   "params" : [
     ["str","JsVar","A string to encode as a URI"]
   ],
-  "return" : ["JsVar","A string containing the encoded data"]
+  "return" : ["JsVar","A string containing the encoded data"],
+  "typedef": "declare function encodeURIComponent(str: any): any"
 }
 Convert a string with any character not alphanumeric or `- _ . ! ~ * ' ( )` converted to the form `%XY` where `XY` is its hexadecimal representation
  */
@@ -435,7 +443,7 @@ JsVar *jswrap_encodeURIComponent(JsVar *arg) {
   return result;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "decodeURIComponent",
   "ifndef" : "SAVE_ON_FLASH",
@@ -443,7 +451,8 @@ JsVar *jswrap_encodeURIComponent(JsVar *arg) {
   "params" : [
     ["str","JsVar","A string to decode from a URI"]
   ],
-  "return" : ["JsVar","A string containing the decoded data"]
+  "return" : ["JsVar","A string containing the decoded data"],
+  "typedef": "declare function decodeURIComponent(str: any): any"
 }
 Convert any groups of characters of the form '%ZZ', into characters with hex code '0xZZ'
  */

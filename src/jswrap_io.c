@@ -24,7 +24,7 @@
 #include "freertos/task.h"
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type"          : "function",
   "name"          : "peek8",
   "generate_full" : "jswrap_io_peek(addr,count,1)",
@@ -37,18 +37,19 @@
 }
 Read 8 bits of memory at the given location - DANGEROUS!
  */
-/*JSON{  //TODO
+/*JSON{
   "type"          : "function",
   "name"          : "poke8",
   "generate_full" : "jswrap_io_poke(addr,value,1)",
   "params" : [
     ["addr","int","The address in memory to write"],
     ["value","JsVar","The value to write, or an array of values"]
-  ]
+  ],
+  "typedef": "declare function poke8(addr: number, value: any): void"
 }
 Write 8 bits of memory at the given location - VERY DANGEROUS!
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "peek16",
   "generate_full" : "jswrap_io_peek(addr,count,2)",
@@ -61,18 +62,19 @@ Write 8 bits of memory at the given location - VERY DANGEROUS!
 }
 Read 16 bits of memory at the given location - DANGEROUS!
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "poke16",
   "generate_full" : "jswrap_io_poke(addr,value,2)",
   "params" : [
     ["addr","int","The address in memory to write"],
     ["value","JsVar","The value to write, or an array of values"]
-  ]
+  ],
+  "typedef": "declare function poke16(addr: number, value: any): void"
 }
 Write 16 bits of memory at the given location - VERY DANGEROUS!
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "peek32",
   "generate_full" : "jswrap_io_peek(addr,count,4)",
@@ -85,14 +87,15 @@ Write 16 bits of memory at the given location - VERY DANGEROUS!
 }
 Read 32 bits of memory at the given location - DANGEROUS!
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "poke32",
   "generate_full" : "jswrap_io_poke(addr,value,4)",
   "params" : [
     ["addr","int","The address in memory to write"],
     ["value","JsVar","The value to write, or an array of values"]
-  ]
+  ],
+  "typedef": "declare function poke32(addr: number, value: any): void"
 }
 Write 32 bits of memory at the given location - VERY DANGEROUS!
  */
@@ -152,14 +155,15 @@ void jswrap_io_poke(JsVarInt addr, JsVar *data, int wordSize) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "analogRead",
   "generate" : "jshPinAnalog",
   "params" : [
     ["pin","pin",["The pin to use","You can find out which pins to use by looking at [your board's reference page](#boards) and searching for pins with the `ADC` markers."]]
   ],
-  "return" : ["float","The analog Value of the Pin between 0 and 1"]
+  "return" : ["float","The analog Value of the Pin between 0 and 1"],
+  "typedef": "declare function analogRead(pin: Pin): number"
 }
 Get the analog value of the given pin
 
@@ -169,7 +173,7 @@ However only pins connected to an ADC will work (see the datasheet)
 
  **Note:** if you didn't call `pinMode` beforehand then this function will also reset pin's state to `"analog"`
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "analogWrite",
   "generate" : "jswrap_io_analogWrite",
@@ -177,7 +181,8 @@ However only pins connected to an ADC will work (see the datasheet)
     ["pin","pin",["The pin to use","You can find out which pins to use by looking at [your board's reference page](#boards) and searching for pins with the `PWM` or `DAC` markers."]],
     ["value","float","A value between 0 and 1"],
     ["options","JsVar",["An object containing options for analog output - see below"]]
-  ]
+  ],
+  "typedef": "declare function analogWrite(pin: Pin, value: number, options: any): void"
 }
 Set the analog Value of a pin. It will be output using PWM.
 
@@ -203,7 +208,7 @@ void jswrap_io_analogWrite(Pin pin, JsVarFloat value, JsVar *options) {
   jshPinAnalogOutput(pin, value, freq, flags);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "digitalPulse",
   "generate" : "jswrap_io_digitalPulse",
@@ -211,7 +216,8 @@ void jswrap_io_analogWrite(Pin pin, JsVarFloat value, JsVar *options) {
     ["pin","pin","The pin to use"],
     ["value","bool","Whether to pulse high (true) or low (false)"],
     ["time","JsVar","A time in milliseconds, or an array of times (in which case a square wave will be output starting with a pulse of 'value')"]
-  ]
+  ],
+  "typedef": "declare function digitalPulse(pin: Pin, value: boolean, time: any): void"
 }
 Pulse the pin with the value for the given time in milliseconds. It uses a hardware timer to produce accurate pulses, and returns immediately (before the pulse has finished). Use `digitalPulse(A0,1,0)` to wait until a previous pulse has finished.
 
@@ -263,14 +269,15 @@ void jswrap_io_digitalPulse(Pin pin, bool value, JsVar *times) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "function",
   "name"     : "digitalWrite",
   "generate" : "jswrap_io_digitalWrite",
   "params"   : [
     ["pin",   "JsVar","The pin to use"],
     ["value", "int","Whether to pulse high (true) or low (false)"]
-  ]
+  ],
+  "typedef": "declare function digitalWrite(pin: any, value: number): void"
 }
 Set the digital value of the given pin.
 
@@ -318,14 +325,15 @@ void jswrap_io_digitalWrite(
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "function",
   "name"     : "digitalRead",
   "generate" : "jswrap_io_digitalRead",
   "params"   : [
     ["pin","JsVar","The pin to use"]
   ],
-  "return"   : ["int","The digital Value of the Pin"]
+  "return"   : ["int","The digital Value of the Pin"],
+  "typedef": "declare function digitalRead(pin: any): number"
 }
 Get the digital value of the given pin.
 
@@ -369,7 +377,7 @@ JsVarInt jswrap_io_digitalRead(JsVar *pinVar) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "function",
   "name"     : "pinMode",
   "generate" : "jswrap_io_pinMode",
@@ -377,7 +385,8 @@ JsVarInt jswrap_io_digitalRead(JsVar *pinVar) {
     ["pin", "pin", "The pin to set pin mode for"],
     ["mode", "JsVar", "The mode - a string that is either 'analog', 'input', 'input_pullup', 'input_pulldown', 'output', 'opendrain', 'af_output' or 'af_opendrain'. Do not include this argument or use 'auto' if you want to revert to automatic pin mode setting."],
     ["automatic", "bool", "Optional, default is false. If true, subsequent commands will automatically change the state (see notes below)"]
-  ]
+  ],
+  "typedef": "declare function pinMode(pin: Pin, mode: any, automatic: boolean): void"
 }
 Set the mode of the given pin.
 
@@ -429,7 +438,7 @@ void jswrap_io_pinMode(
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "ifndef" : "SAVE_ON_FLASH",
   "name" : "getPinMode",
@@ -437,7 +446,8 @@ void jswrap_io_pinMode(
   "params" : [
     ["pin","pin","The pin to check"]
   ],
-  "return" : ["JsVar","The pin mode, as a string"]
+  "return" : ["JsVar","The pin mode, as a string"],
+  "typedef": "declare function getPinMode(pin: Pin): any"
 }
 Return the current mode of the given pin. See `pinMode` for more information on returned values.
  */
@@ -507,7 +517,7 @@ void jswrap_io_shiftOutCallback(int val, void *data) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "shiftOut",
   "generate" : "jswrap_io_shiftOut",
@@ -515,7 +525,8 @@ void jswrap_io_shiftOutCallback(int val, void *data) {
     ["pins","JsVar","A pin, or an array of pins to use"],
     ["options","JsVar","Options, for instance the clock (see below)"],
     ["data","JsVar","The data to shift out (see `E.toUint8Array` for info on the forms this can take)"]
-  ]
+  ],
+  "typedef": "declare function shiftOut(pins: any, options: any, data: any): void"
 }
 Shift an array of data out using the pins supplied *least significant bit first*,
 for example:
@@ -617,7 +628,7 @@ void jswrap_io_shiftOut(JsVar *pins, JsVar *options, JsVar *data) {
 #endif
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "setWatch",
   "generate" : "jswrap_interface_setWatch",
@@ -626,7 +637,8 @@ void jswrap_io_shiftOut(JsVar *pins, JsVar *options, JsVar *data) {
     ["pin", "pin", "The pin to watch"],
     ["options", "JsVar","If a boolean or integer, it determines whether to call this once (false = default) or every time a change occurs (true). Can be an object of the form `{ repeat: true/false(default), edge:'rising'/'falling'/'both'(default), debounce:10}` - see below for more information."]
   ],
-  "return" : ["JsVar","An ID that can be passed to clearWatch"]
+  "return" : ["JsVar","An ID that can be passed to clearWatch"],
+  "typedef": "declare function setWatch(function: any, pin: Pin, options: any): any"
 }
 Call the function specified when the pin changes. Watches set with `setWatch` can be removed using `clearWatch`.
 
@@ -786,13 +798,14 @@ JsVar *jswrap_interface_setWatch(
   return (itemIndex>=0) ? jsvNewFromInteger(itemIndex) : 0/*undefined*/;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "clearWatch",
   "generate" : "jswrap_interface_clearWatch",
   "params" : [
     ["id","JsVarArray","The id returned by a previous call to setWatch"]
-  ]
+  ],
+  "typedef": "declare function clearWatch(id: JsVarArray): void"
 }
 Clear the Watch that was created with setWatch. If no parameter is supplied, all watches will be removed.
 

@@ -36,14 +36,15 @@ static JsVar *jswrap_modules_getModuleList() {
   return jsvObjectGetChild(execInfo.hiddenRoot, JSPARSE_MODULE_CACHE_NAME, JSV_OBJECT);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "require",
   "generate" : "jswrap_require",
   "params" : [
     ["moduleName","JsVar","A String containing the name of the given module"]
   ],
-  "return" : ["JsVar","The result of evaluating the string"]
+  "return" : ["JsVar","The result of evaluating the string"],
+  "typedef": "declare function require(moduleName: any): any"
 }
 Load the given module, and return the exported functions and variables.
 

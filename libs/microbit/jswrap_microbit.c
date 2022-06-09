@@ -214,14 +214,15 @@ void jswrap_microbit_kill() {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "show",
   "generate" : "jswrap_microbit_show",
   "params" : [
      ["image","JsVar","The image to show"]
   ],
-  "ifdef" : "MICROBIT"
+  "ifdef" : "MICROBIT",
+  "typedef": "declare function show(image: any): void"
 }
 **Note:** This function is only available on the [BBC micro:bit](/MicroBit) board
 
@@ -323,12 +324,13 @@ JsVar *getXYZ(int x, int y, int z, JsVarFloat range) {
   return xyz;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "acceleration",
   "generate" : "jswrap_microbit_acceleration",
   "return" : ["JsVar", "An object with x, y, and z fields in it"],
-  "ifdef" : "MICROBIT"
+  "ifdef" : "MICROBIT",
+  "typedef": "declare function acceleration(): any"
 }
 **Note:** This function is only available on the [BBC micro:bit](/MicroBit) board
 
@@ -362,12 +364,13 @@ JsVar *jswrap_microbit_acceleration() {
   return getXYZ(x,y,z,range);
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "function",
   "name" : "compass",
   "generate" : "jswrap_microbit_compass",
   "return" : ["JsVar", "An object with x, y, and z fields in it"],
-  "ifdef" : "MICROBIT"
+  "ifdef" : "MICROBIT",
+  "typedef": "declare function compass(): any"
 }
 **Note:** This function is only available on the [BBC micro:bit](/MicroBit) board
 
