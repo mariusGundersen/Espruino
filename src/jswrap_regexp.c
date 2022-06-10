@@ -279,7 +279,7 @@ The built-in class for handling Regular Expressions
 present in a full ES6 JS engine. However it does contain support for the all the basics.
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "ifndef" : "SAVE_ON_FLASH",
   "class" : "RegExp",
@@ -290,7 +290,8 @@ present in a full ES6 JS engine. However it does contain support for the all the
     ["regex","JsVar","Flags for the regular expression as a string"]
   ],
   "return" : ["JsVar","A RegExp object"],
-  "return_object" : "RegExp"
+  "return_object" : "RegExp",
+  "typedef": "constructor(regex: any, regex: any)"
 }
 Creates a RegExp object, for handling Regular Expressions
  */

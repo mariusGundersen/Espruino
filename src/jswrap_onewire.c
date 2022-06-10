@@ -89,7 +89,7 @@ static void NO_INLINE OneWireWrite(Pin pin, int bits, unsigned long long data) {
   }
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "OneWire",
   "name" : "OneWire",
@@ -97,7 +97,8 @@ static void NO_INLINE OneWireWrite(Pin pin, int bits, unsigned long long data) {
   "params" : [
     ["pin","pin","The pin to implement OneWire on"]
   ],
-  "return" : ["JsVar","A OneWire object"]
+  "return" : ["JsVar","A OneWire object"],
+  "typedef": "constructor(pin: Pin)"
 }
 Create a software OneWire implementation on the given pin
  */

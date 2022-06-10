@@ -31,7 +31,7 @@ This is the built-in class for Text Strings.
 Text Strings in Espruino are not zero-terminated, so you can store zeros in them.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "String",
   "name" : "String",
@@ -39,7 +39,8 @@ Text Strings in Espruino are not zero-terminated, so you can store zeros in them
   "params" : [
     ["str","JsVarArray","A value to turn into a string. If undefined or not supplied, an empty String is created."]
   ],
-  "return" : ["JsVar","A String"]
+  "return" : ["JsVar","A String"],
+  "typedef": "constructor(str: JsVarArray)"
 }
 Create a new String
  */

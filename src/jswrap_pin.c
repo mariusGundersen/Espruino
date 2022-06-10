@@ -28,7 +28,7 @@ This is the built-in class for Pins, such as D0,D1,LED1, or BTN
 You can call the methods on Pin, or you can use Wiring-style functions such as digitalWrite
 */
 
-/*JSON{  //TODO
+/*JSON{
   "type"     : "constructor",
   "class"    : "Pin",
   "name"     : "Pin",
@@ -37,7 +37,8 @@ You can call the methods on Pin, or you can use Wiring-style functions such as d
     ["value", "JsVar", "A value to be converted to a pin. Can be a number, pin, or String."]
   ],
   "return"   : ["JsVar","A Pin object"],
-  "typedef"  : "constructor(value: number | Pin | string)"
+  "typedef"  : "constructor(value: number | Pin | string)",
+  "typedef": "constructor(value: any)"
 }
 Creates a pin from the given argument (or returns undefined if no argument)
 */

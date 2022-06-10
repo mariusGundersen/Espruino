@@ -24,13 +24,14 @@
 }
 A class to support some simple Queue handling for RTOS queues
 */
-/*JSON{  //TODO
+/*JSON{
   "type"     : "constructor",
   "class"    : "Queue",
   "name"     : "Queue",
   "generate" : "jswrap_Queue_constructor",
   "params"   : [ ["queueName", "JsVar", "Name of the queue"] ],
-  "return"   : ["JsVar","A Queue object"]
+  "return"   : ["JsVar","A Queue object"],
+  "typedef": "constructor(queueName: any)"
 }
 Creates a Queue Object
 */
@@ -94,13 +95,14 @@ void jswrap_Queue_log(JsVar *parent) {
 }
 A class to support some simple Task handling for RTOS tasks
 */
-/*JSON{  //TODO
+/*JSON{
   "type"     : "constructor",
   "class"    : "Task",
   "name"     : "Task",
   "generate" : "jswrap_Task_constructor",
   "params"   : [ ["taskName", "JsVar", "Name of the task"] ],
-  "return"   : ["JsVar","A Task object"]
+  "return"   : ["JsVar","A Task object"],
+  "typedef": "constructor(taskName: any)"
 }
 Creates a Task Object
 */
@@ -188,7 +190,7 @@ void jswrap_Task_log(JsVar *parent) {
 }
 A class to handle Timer on base of ESP32 Timer
 */
-/*JSON{  //TODO
+/*JSON{
   "type"     : "constructor",
   "class"    : "Timer",
   "name"     : "Timer",
@@ -197,7 +199,8 @@ A class to handle Timer on base of ESP32 Timer
                  ["group", "int", "Timer group"],
 				 ["index", "int", "Timer index"],
                  ["isrIndex", "int", "isr (0 = Espruino, 1 = test)"]  ],
-  "return"   : ["JsVar","A Timer Object"]
+  "return"   : ["JsVar","A Timer Object"],
+  "typedef": "constructor(timerName: any, group: number, index: number, isrIndex: number)"
 }
 Creates a Timer Object
 */

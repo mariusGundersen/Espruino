@@ -40,7 +40,7 @@ This is the built-in class for Objects
 This is the built-in class for Functions
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Object",
   "name" : "Object",
@@ -48,7 +48,8 @@ This is the built-in class for Functions
   "params" : [
     ["value","JsVar","A single value to be converted to an object"]
   ],
-  "return" : ["JsVar","An Object"]
+  "return" : ["JsVar","An Object"],
+  "typedef": "constructor(value: any)"
 }
 Creates an Object from the supplied argument
  */
@@ -625,7 +626,7 @@ JsVar *jswrap_object_assign(JsVar *args) {
 // --------------------------------------------------------------------------
 //                                                         Misc constructors
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Boolean",
   "name" : "Boolean",
@@ -633,7 +634,8 @@ JsVar *jswrap_object_assign(JsVar *args) {
   "params" : [
     ["value","JsVar","A single value to be converted to a number"]
   ],
-  "return" : ["bool","A Boolean object"]
+  "return" : ["bool","A Boolean object"],
+  "typedef": "constructor(value: any)"
 }
 Creates a boolean
  */

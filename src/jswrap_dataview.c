@@ -28,7 +28,7 @@
 This class helps
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "DataView",
   "name" : "DataView",
@@ -40,7 +40,8 @@ This class helps
   ],
   "return" : ["JsVar","A `DataView` object"],
   "return_object" : "DataView",
-  "ifndef" : "SAVE_ON_FLASH"
+  "ifndef" : "SAVE_ON_FLASH",
+  "typedef": "constructor(buffer: any, byteOffset: number, byteLength: number)"
 }
 Create a `DataView` object that can be used to access the data in an `ArrayBuffer`.
 

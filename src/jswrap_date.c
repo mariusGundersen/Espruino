@@ -195,7 +195,7 @@ JsVar *jswrap_date_from_milliseconds(JsVarFloat time) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Date",
   "name" : "Date",
@@ -204,7 +204,8 @@ JsVar *jswrap_date_from_milliseconds(JsVarFloat time) {
     ["args","JsVarArray","Either nothing (current time), one numeric argument (milliseconds since 1970), a date string (see `Date.parse`), or [year, month, day, hour, minute, second, millisecond] "]
   ],
   "return" : ["JsVar","A Date object"],
-  "return_object" : "Date"
+  "return_object" : "Date",
+  "typedef": "constructor(args: JsVarArray)"
 }
 Creates a date object
  */

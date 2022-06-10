@@ -195,7 +195,7 @@ void jspromise_reject(JsVar *promise, JsVar *data) {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Promise",
   "name" : "Promise",
@@ -204,7 +204,8 @@ void jspromise_reject(JsVar *promise, JsVar *data) {
   "params" : [
     ["executor","JsVar","A function of the form `function (resolve, reject)`"]
   ],
-  "return" : ["JsVar","A Promise"]
+  "return" : ["JsVar","A Promise"],
+  "typedef": "constructor(executor: any)"
 }
 Create a new Promise. The executor function is executed immediately (before the constructor even returns)
 and

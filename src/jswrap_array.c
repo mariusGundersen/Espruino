@@ -32,7 +32,7 @@ This is the built-in JavaScript class for arrays.
 Arrays can be defined with ```[]```, ```new Array()```, or ```new Array(length)```
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Array",
   "name" : "Array",
@@ -40,7 +40,8 @@ Arrays can be defined with ```[]```, ```new Array()```, or ```new Array(length)`
   "params" : [
     ["args","JsVarArray","The length of the array OR any number of items to add to the array"]
   ],
-  "return" : ["JsVar","An Array"]
+  "return" : ["JsVar","An Array"],
+  "typedef": "constructor(args: JsVarArray)"
 }
 Create an Array. Either give it one integer argument (>=0) which is the length of the array, or any number of arguments
  */

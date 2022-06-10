@@ -66,7 +66,7 @@ JsVar *_jswrap_error_constructor(JsVar *msg, char *type) {
   return d;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Error",
   "name" : "Error",
@@ -74,14 +74,15 @@ JsVar *_jswrap_error_constructor(JsVar *msg, char *type) {
   "params" : [
     ["message","JsVar","An optional message string"]
   ],
-  "return" : ["JsVar","An Error object"]
+  "return" : ["JsVar","An Error object"],
+  "typedef": "constructor(message: any)"
 }
 Creates an Error object
  */
 JsVar *jswrap_error_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "Error");
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "SyntaxError",
   "name" : "SyntaxError",
@@ -89,14 +90,15 @@ JsVar *jswrap_error_constructor(JsVar *msg) {
   "params" : [
     ["message","JsVar","An optional message string"]
   ],
-  "return" : ["JsVar","A SyntaxError object"]
+  "return" : ["JsVar","A SyntaxError object"],
+  "typedef": "constructor(message: any)"
 }
 Creates a SyntaxError object
  */
 JsVar *jswrap_syntaxerror_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "SyntaxError");
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "TypeError",
   "name" : "TypeError",
@@ -104,14 +106,15 @@ JsVar *jswrap_syntaxerror_constructor(JsVar *msg) {
   "params" : [
     ["message","JsVar","An optional message string"]
   ],
-  "return" : ["JsVar","A TypeError object"]
+  "return" : ["JsVar","A TypeError object"],
+  "typedef": "constructor(message: any)"
 }
 Creates a TypeError object
  */
 JsVar *jswrap_typeerror_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "TypeError");
 }
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "InternalError",
   "name" : "InternalError",
@@ -119,7 +122,8 @@ JsVar *jswrap_typeerror_constructor(JsVar *msg) {
   "params" : [
     ["message","JsVar","An optional message string"]
   ],
-  "return" : ["JsVar","An InternalError object"]
+  "return" : ["JsVar","An InternalError object"],
+  "typedef": "constructor(message: any)"
 }
 Creates an InternalError object
  */
@@ -127,7 +131,7 @@ JsVar *jswrap_internalerror_constructor(JsVar *msg) {
   return _jswrap_error_constructor(msg, "InternalError");
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "ReferenceError",
   "name" : "ReferenceError",
@@ -135,7 +139,8 @@ JsVar *jswrap_internalerror_constructor(JsVar *msg) {
   "params" : [
     ["message","JsVar","An optional message string"]
   ],
-  "return" : ["JsVar","A ReferenceError object"]
+  "return" : ["JsVar","A ReferenceError object"],
+  "typedef": "constructor(message: any)"
 }
 Creates a ReferenceError object
  */

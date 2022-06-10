@@ -134,7 +134,7 @@ void jswrap_waveform_kill() { // be sure to remove all waveforms...
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Waveform",
   "name" : "Waveform",
@@ -144,7 +144,8 @@ void jswrap_waveform_kill() { // be sure to remove all waveforms...
     ["samples","int32","The number of samples"],
     ["options","JsVar","Optional options struct `{doubleBuffer:bool, bits : 8/16}` where: `doubleBuffer` is whether to allocate two buffers or not (default false), and bits is the amount of bits to use (default 8)."]
   ],
-  "return" : ["JsVar","An Waveform object"]
+  "return" : ["JsVar","An Waveform object"],
+  "typedef": "constructor(samples: int32, options: any)"
 }
 Create a waveform class. This allows high speed input and output of waveforms. It has an internal variable called `buffer` (as well as `buffer2` when double-buffered - see `options` below) which contains the data to input/output.
 

@@ -66,7 +66,7 @@ JsVar *jswrap_arguments() {
 
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Function",
   "name" : "Function",
@@ -74,7 +74,8 @@ JsVar *jswrap_arguments() {
   "params" : [
     ["args","JsVarArray","Zero or more arguments (as strings), followed by a string representing the code to run"]
   ],
-  "return" : ["JsVar","A Number object"]
+  "return" : ["JsVar","A Number object"],
+  "typedef": "constructor(args: JsVarArray)"
 }
 Creates a function
  */

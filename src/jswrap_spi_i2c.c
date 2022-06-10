@@ -56,12 +56,13 @@ The second SPI port
 The third SPI port
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "SPI",
   "name" : "SPI",
   "generate" : "jswrap_spi_constructor",
-  "return" : ["JsVar","A SPI object"]
+  "return" : ["JsVar","A SPI object"],
+  "typedef": "constructor()"
 }
 Create a software SPI port. This has limited functionality (no baud rate), but it can work on any pins.
 
@@ -502,12 +503,13 @@ This class allows use of the built-in I2C ports. Currently it allows I2C Master 
 
 All addresses are in 7 bit format. If you have an 8 bit address then you need to shift it one bit to the right.
  */
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "I2C",
   "name" : "I2C",
   "generate" : "jswrap_i2c_constructor",
-  "return" : ["JsVar","An I2C object"]
+  "return" : ["JsVar","An I2C object"],
+  "typedef": "constructor()"
 }
 Create a software I2C port. This has limited functionality (no baud rate), but it can work on any pins.
 

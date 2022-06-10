@@ -24,7 +24,7 @@
 This is the built-in JavaScript class for numbers.
  */
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "constructor",
   "class" : "Number",
   "name" : "Number",
@@ -32,7 +32,8 @@ This is the built-in JavaScript class for numbers.
   "params" : [
     ["value","JsVarArray","A single value to be converted to a number"]
   ],
-  "return" : ["JsVar","A Number object"]
+  "return" : ["JsVar","A Number object"],
+  "typedef": "constructor(value: JsVarArray)"
 }
 Creates a number
  */
