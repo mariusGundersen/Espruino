@@ -12,7 +12,7 @@ require("./common.js").readAllWrapperFiles(function(json) {
     .map(j => [j.class, {...j, members: []}]));
 
   const members = json
-    .filter(j => j.type !== 'class' && j.class);
+    .filter(j => j.type !== 'class' && j.type !== 'library' && j.class);
 
   for(const member of members){
     const owner = classes.get(member.class) ?? libraries.get(member.class);
@@ -21,19 +21,45 @@ require("./common.js").readAllWrapperFiles(function(json) {
   }
 
   let content = [...classes.values()]
-    .map(c => typeComment(c) + '\n' + c.typedef + ' {\n' + c.members
-      .sort((a, b) => getSorting(a).localeCompare(getSorting(b)))
-      .map(m => renderMember(m)
-        .split('\n')
-        .map(l => '  ' + l)
-        .join('\n'))
-      .join('\n\n') + '\n}\n\n')
-    .join('\n');
+    .filter(c => !c.library)
+    .map(c => declareClass(c))
+    .join('\n\n');
+
+  content += '\n\n';
 
   content = content.concat(json.filter( j => !j.class).map(renderMember).join('\n\n'));
 
+  content += '\n\n';
+
+  content = content.concat([...libraries.values()]
+    .map(l => [typeComment(l),
+      `declare module "${l.class}" {`,
+      [
+        declareClass(l, 'export = '),
+        ...[...classes.values()]
+        .filter(c => c.library === l.class)
+        .map(c => declareClass(c, 'export '))
+      ]
+        .join('\n\n')
+        .split('\n')
+        .map(l => '  ' + l)
+        .join('\n'),
+      '}\n\n'
+    ].join('\n'))
+    .join('\n'));
+
   fs.writeFileSync('./types.d.ts', content);
 });
+
+function declareClass(c, prefix='') {
+  return typeComment(c) + '\n' + prefix + c.typedef + ' {\n' + c.members
+    .sort((a, b) => getSorting(a).localeCompare(getSorting(b)))
+    .map(m => renderMember(m)
+      .split('\n')
+      .map(l => '  ' + l)
+      .join('\n'))
+    .join('\n\n') + '\n}';
+}
 
 function getSorting(t){
   switch(t.type){

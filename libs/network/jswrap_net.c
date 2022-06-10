@@ -213,9 +213,10 @@ JsVar *jswrap_url_parse(JsVar *url, bool parseQuery) {
 // ---------------------------------------------------------------------------------
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
-  "class" : "net"
+  "class" : "net",
+  "typedef": "class net"
 }
 This library allows you to create TCPIP servers and clients
 
@@ -439,9 +440,10 @@ JsVar *jswrap_net_connect(JsVar *options, JsVar *callback, SocketType socketType
   return rq;
 }
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
-  "class" : "dgram"
+  "class" : "dgram",
+  "typedef": "class dgram"
 }
 This library allows you to create UDP/DATAGRAM servers and clients
 
@@ -621,10 +623,11 @@ Called when the connection closes.
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
   "class" : "tls",
-  "ifdef" : "USE_TLS"
+  "ifdef" : "USE_TLS",
+  "typedef": "class tls"
 }
 This library allows you to create TCPIP servers and clients using TLS encryption
 

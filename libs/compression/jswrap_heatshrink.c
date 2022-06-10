@@ -20,10 +20,11 @@
 #include "jsparse.h"
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
   "class" : "heatshrink",
-  "ifndef" : "SAVE_ON_FLASH"
+  "ifndef" : "SAVE_ON_FLASH",
+  "typedef": "class heatshrink"
 }
 Simple library for compression/decompression using [heatshrink](https://github.com/atomicobject/heatshrink), an [LZSS](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Storer%E2%80%93Szymanski) compression tool.
 

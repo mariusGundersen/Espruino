@@ -39,9 +39,10 @@ const int STORAGEFILE_CHUNKSIZE =
   (FLASH_PAGE_SIZE*10) - sizeof(JsfFileHeader);
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
-  "class" : "Storage"
+  "class" : "Storage",
+  "typedef": "class Storage"
 }
 
 This module allows you to read and write part of the nonvolatile flash

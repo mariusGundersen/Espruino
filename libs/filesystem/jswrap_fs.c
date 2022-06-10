@@ -31,9 +31,10 @@
 #endif
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
-  "class" : "fs"
+  "class" : "fs",
+  "typedef": "class fs"
 }
 This library handles interfacing with a FAT32 filesystem on an SD card. The API is designed to be similar to node.js's - However Espruino does not currently support asynchronous file IO, so the functions behave like node.js's xxxxSync functions. Versions of the functions with 'Sync' after them are also provided for compatibility.
 

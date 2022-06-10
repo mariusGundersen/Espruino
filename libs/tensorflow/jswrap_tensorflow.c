@@ -21,9 +21,10 @@
 #include "jswrap_arraybuffer.h"
 #include "tensorflow.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
-  "class" : "tensorflow"
+  "class" : "tensorflow",
+  "typedef": "class tensorflow"
 }
 */
 

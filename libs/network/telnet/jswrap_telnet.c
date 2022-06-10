@@ -65,9 +65,10 @@ typedef struct {
 static TelnetServer tnSrv;        ///< the telnet server, only one right now
 static uint8_t      tnSrvMode;    ///< current mode for the telnet server
 
-/*JSON{  //TODO
+/*JSON{
   "type"  : "library",
-  "class" : "TelnetServer"
+  "class" : "TelnetServer",
+  "typedef": "class TelnetServer"
 }
 This library implements a telnet console for the Espruino interpreter. It requires a network
 connection, e.g. Wifi, and **currently only functions on the ESP8266 and on Linux **. It uses

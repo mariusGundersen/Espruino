@@ -21,9 +21,10 @@
 #include "network_js.h"
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
-  "class" : "NetworkJS"
+  "class" : "NetworkJS",
+  "typedef": "class NetworkJS"
 }
 Library that initialises a network device that calls into JavaScript
 */

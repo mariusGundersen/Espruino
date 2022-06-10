@@ -20,9 +20,10 @@
 
 #include "../network.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
-  "class" : "http"
+  "class" : "http",
+  "typedef": "class http"
 }
 This library allows you to create http servers and make http requests
 

@@ -23,10 +23,11 @@
 #error TV output wont work on non-STM32 devices
 #endif
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
   "class" : "tv",
-  "ifdef" : "STM32"
+  "ifdef" : "STM32",
+  "typedef": "class tv"
 }
 This library provides TV out capability on the Espruino and Espruino Pico.
 

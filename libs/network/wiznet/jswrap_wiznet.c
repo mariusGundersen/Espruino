@@ -64,10 +64,11 @@ uint8_t wizchip_read() {
 }
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
   "class" : "WIZnet",
-  "ifdef" : "USE_WIZNET"
+  "ifdef" : "USE_WIZNET",
+  "typedef": "class WIZnet"
 }
 Library for communication with the WIZnet Ethernet module
 */

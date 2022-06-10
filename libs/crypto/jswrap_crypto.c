@@ -38,10 +38,11 @@
 #endif
 
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
   "class" : "crypto",
-  "ifdef" : "USE_CRYPTO"
+  "ifdef" : "USE_CRYPTO",
+  "typedef": "class crypto"
 }
 Cryptographic functions
 

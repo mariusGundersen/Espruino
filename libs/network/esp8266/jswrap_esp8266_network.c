@@ -214,9 +214,10 @@ static char macFmt[] = "%02x:%02x:%02x:%02x:%02x:%02x";
 
 //===== This file contains definitions for two classes: ESP8266 and wifi
 
-/*JSON{  //TODO
+/*JSON{
    "type": "library",
-   "class": "ESP8266"
+   "class": "ESP8266",
+   "typedef": "class ESP8266"
 }
 The ESP8266 library is specific to the ESP8266 version of Espruino, i.e., running Espruino on an ESP8266 module (not to be confused with using the ESP8266 as Wifi add-on to an Espruino board).  This library contains functions to handle ESP8266-specific actions.
 For example: `var esp8266 = require('ESP8266'); esp8266.reboot();` performs a hardware reset of the module.

@@ -35,9 +35,10 @@
 #define WLAN_CS_PIN       (Pin)(JSH_PORTB_OFFSET + 6) // active low
 // -------------------------------------------
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
-  "class" : "CC3000"
+  "class" : "CC3000",
+  "typedef": "class CC3000"
 }
 
 */

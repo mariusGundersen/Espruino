@@ -19,10 +19,11 @@
 #include "jsvar.h"
 #include "jsvariterator.h"
 
-/*JSON{  //TODO
+/*JSON{
   "type" : "library",
   "class" : "Flash",
-  "ifndef" : "SAVE_ON_FLASH"
+  "ifndef" : "SAVE_ON_FLASH",
+  "typedef": "class Flash"
 }
 
 This module allows you to read and write the nonvolatile flash memory of your device.
